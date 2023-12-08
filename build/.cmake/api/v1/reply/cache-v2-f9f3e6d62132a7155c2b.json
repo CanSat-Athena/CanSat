@@ -891,7 +891,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "81"
+			"value" : "84"
 		},
 		{
 			"name" : "CMAKE_OBJCOPY",
@@ -971,7 +971,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "cansat-code"
+			"value" : "cansat"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1338,6 +1338,54 @@
 			"value" : "[/usr/bin/python3.12][cfound components: Interpreter ][v3.12.0()]"
 		},
 		{
+			"name" : "FREERTOS_KERNEL_PATH",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to the FreeRTOS_KERNEL"
+				}
+			],
+			"type" : "PATH",
+			"value" : "/home/arca/pico/cansat-code/lib/FreeRTOS-Kernel"
+		},
+		{
+			"name" : "FreeRTOS-Kernel_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/arca/pico/cansat-code/build/FREERTOS_KERNEL"
+		},
+		{
+			"name" : "FreeRTOS-Kernel_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "OFF"
+		},
+		{
+			"name" : "FreeRTOS-Kernel_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/arca/pico/cansat-code/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040"
+		},
+		{
 			"name" : "PICO_BOARD",
 			"properties" : 
 			[
@@ -1491,7 +1539,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : " /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs"
+			"value" : " /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs"
 		},
 		{
 			"name" : "PICO_DOXYGEN_PATHS",
@@ -1794,6 +1842,42 @@
 			"value" : "/home/arca/pico/cansat-code"
 		},
 		{
+			"name" : "cansat_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/arca/pico/cansat-code/build"
+		},
+		{
+			"name" : "cansat_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "cansat_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/arca/pico/cansat-code"
+		},
+		{
 			"name" : "pico-sdk-tools_DIR",
 			"properties" : 
 			[
@@ -1840,6 +1924,42 @@
 			],
 			"type" : "STATIC",
 			"value" : "/home/arca/pico/pico-sdk"
+		},
+		{
+			"name" : "radio_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/arca/pico/cansat-code/build"
+		},
+		{
+			"name" : "radio_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "radio_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/arca/pico/cansat-code"
 		}
 	],
 	"kind" : "cache",

@@ -8,20 +8,18 @@
 					"build" : ".",
 					"childIndexes" : 
 					[
-						1
+						1,
+						81,
+						82,
+						83
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.13"
+						"string" : "3.12"
 					},
 					"projectIndex" : 0,
-					"source" : ".",
-					"targetIndexes" : 
-					[
-						0,
-						5
-					]
+					"source" : "."
 				},
 				{
 					"build" : "pico-sdk",
@@ -1013,6 +1011,44 @@
 					"parentIndex" : 1,
 					"projectIndex" : 1,
 					"source" : "/home/arca/pico/pico-sdk/docs"
+				},
+				{
+					"build" : "FREERTOS_KERNEL",
+					"jsonFile" : "directory-FREERTOS_KERNEL-Debug-d754800ab5906fd6e5fe.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040"
+				},
+				{
+					"build" : "src",
+					"jsonFile" : "directory-src-Debug-b6cf2213fc5053b67c22.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						0,
+						5
+					]
+				},
+				{
+					"build" : "lib",
+					"jsonFile" : "directory-lib-Debug-c12f15c6f888b43a891c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "lib"
 				}
 			],
 			"name" : "Debug",
@@ -1021,13 +1057,16 @@
 				{
 					"childIndexes" : 
 					[
-						1
+						1,
+						2
 					],
 					"directoryIndexes" : 
 					[
-						0
+						0,
+						82,
+						83
 					],
-					"name" : "cansat-code",
+					"name" : "cansat",
 					"targetIndexes" : 
 					[
 						0,
@@ -1128,14 +1167,22 @@
 						4,
 						6
 					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						81
+					],
+					"name" : "FreeRTOS-Kernel",
+					"parentIndex" : 0
 				}
 			],
 			"targets" : 
 			[
 				{
-					"directoryIndex" : 0,
-					"id" : "ELF2UF2Build::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ELF2UF2Build-Debug-8cbdbcb3d0408e38b4d9.json",
+					"directoryIndex" : 82,
+					"id" : "ELF2UF2Build::@145eef247bfb46b6828c",
+					"jsonFile" : "target-ELF2UF2Build-Debug-dd4efff8e32cd95e566b.json",
 					"name" : "ELF2UF2Build",
 					"projectIndex" : 0
 				},
@@ -1168,10 +1215,10 @@
 					"projectIndex" : 1
 				},
 				{
-					"directoryIndex" : 0,
-					"id" : "cansat-code::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-cansat-code-Debug-2f1f03da90310a8649ae.json",
-					"name" : "cansat-code",
+					"directoryIndex" : 82,
+					"id" : "cansat::@145eef247bfb46b6828c",
+					"jsonFile" : "target-cansat-Debug-536613a38d56bd367b78.json",
+					"name" : "cansat",
 					"projectIndex" : 0
 				},
 				{

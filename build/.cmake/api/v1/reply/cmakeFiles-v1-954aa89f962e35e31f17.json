@@ -166,42 +166,7 @@
 			"path" : "/usr/share/cmake/Modules/Compiler/GNU.cmake"
 		},
 		{
-			"isExternal" : true,
-			"path" : "/home/arca/pico/pico-sdk/tools/FindELF2UF2.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "/usr/share/cmake/Modules/ExternalProject.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "/usr/share/cmake/Modules/ExternalProject/mkdirs.cmake.in"
-		},
-		{
-			"isGenerated" : true,
-			"path" : "build/elf2uf2/tmp/ELF2UF2Build-mkdirs.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "/usr/share/cmake/Modules/ExternalProject/RepositoryInfo.txt.in"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "/usr/share/cmake/Modules/ExternalProject/UpdateInfo.txt.in"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "/usr/share/cmake/Modules/ExternalProject/PatchInfo.txt.in"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "/usr/share/cmake/Modules/ExternalProject/cfgcmd.txt.in"
+			"path" : "lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/FreeRTOS_Kernel_import.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -678,6 +643,63 @@
 			"isCMake" : true,
 			"isExternal" : true,
 			"path" : "/usr/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"path" : "lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/pico_sdk_import.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/home/arca/pico/pico-sdk/pico_sdk_init.cmake"
+		},
+		{
+			"path" : "lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/library.cmake"
+		},
+		{
+			"path" : "src/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/home/arca/pico/pico-sdk/tools/FindELF2UF2.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/ExternalProject.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/ExternalProject/mkdirs.cmake.in"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/src/elf2uf2/tmp/ELF2UF2Build-mkdirs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/ExternalProject/RepositoryInfo.txt.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/ExternalProject/UpdateInfo.txt.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/ExternalProject/PatchInfo.txt.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/ExternalProject/cfgcmd.txt.in"
+		},
+		{
+			"path" : "lib/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

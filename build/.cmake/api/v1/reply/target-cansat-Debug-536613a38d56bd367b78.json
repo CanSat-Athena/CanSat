@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "cansat-code.elf"
+			"path" : "src/cansat.elf"
 		}
 	],
 	"backtrace" : 1,
@@ -17,19 +17,17 @@
 			"find_package",
 			"pico_add_uf2_output",
 			"pico_add_extra_outputs",
+			"add_compile_definitions",
 			"target_compile_definitions",
-			"pico_set_program_name",
-			"pico_set_program_version",
 			"target_include_directories"
 		],
 		"files" : 
 		[
-			"CMakeLists.txt",
+			"src/CMakeLists.txt",
 			"/home/arca/pico/pico-sdk/src/rp2_common/boot_stage2/CMakeLists.txt",
 			"/home/arca/pico/pico-sdk/tools/FindELF2UF2.cmake",
 			"/home/arca/pico/pico-sdk/tools/CMakeLists.txt",
-			"/home/arca/pico/pico-sdk/src/rp2_common.cmake",
-			"/home/arca/pico/pico-sdk/src/common/pico_binary_info/CMakeLists.txt"
+			"/home/arca/pico/pico-sdk/src/rp2_common.cmake"
 		],
 		"nodes" : 
 		[
@@ -39,13 +37,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 26,
+				"line" : 3,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 35,
+				"line" : 21,
 				"parent" : 0
 			},
 			{
@@ -64,73 +62,55 @@
 				"parent" : 4
 			},
 			{
-				"command" : 6,
-				"file" : 0,
-				"line" : 48,
-				"parent" : 0
-			},
-			{
-				"command" : 5,
-				"file" : 4,
-				"line" : 47,
-				"parent" : 6
-			},
-			{
-				"command" : 4,
-				"file" : 3,
-				"line" : 68,
-				"parent" : 7
-			},
-			{
-				"file" : 2,
-				"parent" : 8
-			},
-			{
-				"command" : 3,
-				"file" : 2,
-				"line" : 43,
-				"parent" : 9
-			},
-			{
 				"command" : 3,
 				"file" : 1,
 				"line" : 75,
 				"parent" : 4
 			},
 			{
-				"command" : 8,
+				"command" : 6,
 				"file" : 0,
-				"line" : 28,
+				"line" : 32,
 				"parent" : 0
 			},
 			{
+				"command" : 5,
+				"file" : 4,
+				"line" : 47,
+				"parent" : 7
+			},
+			{
+				"command" : 4,
+				"file" : 3,
+				"line" : 68,
+				"parent" : 8
+			},
+			{
+				"file" : 2,
+				"parent" : 9
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 43,
+				"parent" : 10
+			},
+			{
 				"command" : 7,
-				"file" : 5,
-				"line" : 15,
-				"parent" : 12
+				"file" : 0,
+				"line" : 16,
+				"parent" : 0
+			},
+			{
+				"command" : 8,
+				"file" : 4,
+				"line" : 30,
+				"parent" : 7
 			},
 			{
 				"command" : 9,
 				"file" : 0,
-				"line" : 29,
-				"parent" : 0
-			},
-			{
-				"command" : 7,
-				"file" : 5,
-				"line" : 33,
-				"parent" : 14
-			},
-			{
-				"command" : 7,
-				"file" : 4,
-				"line" : 30,
-				"parent" : 6
-			},
-			{
-				"command" : 10,
-				"file" : 0,
-				"line" : 39,
+				"line" : 7,
 				"parent" : 0
 			}
 		]
@@ -172,6 +152,22 @@
 			[
 				{
 					"backtrace" : 2,
+					"define" : "CFG_TUSB_MCU=OPT_MCU_RP2040"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "CFG_TUSB_OS=OPT_OS_PICO"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "FREE_RTOS_KERNEL_SMP=1"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "LIB_FREERTOS_KERNEL=1"
+				},
+				{
+					"backtrace" : 2,
 					"define" : "LIB_PICO_BIT_OPS=1"
 				},
 				{
@@ -193,6 +189,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "LIB_PICO_DOUBLE_PICO=1"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "LIB_PICO_FIX_RP2040_USB_DEVICE_ENUMERATION=1"
 				},
 				{
 					"backtrace" : 2,
@@ -224,6 +224,10 @@
 				},
 				{
 					"backtrace" : 2,
+					"define" : "LIB_PICO_MULTICORE=1"
+				},
+				{
+					"backtrace" : 2,
 					"define" : "LIB_PICO_PLATFORM=1"
 				},
 				{
@@ -252,6 +256,10 @@
 				},
 				{
 					"backtrace" : 2,
+					"define" : "LIB_PICO_STDIO_USB=1"
+				},
+				{
+					"backtrace" : 2,
 					"define" : "LIB_PICO_STDLIB=1"
 				},
 				{
@@ -276,6 +284,10 @@
 				},
 				{
 					"backtrace" : 2,
+					"define" : "LIB_PICO_UNIQUE_ID=1"
+				},
+				{
+					"backtrace" : 2,
 					"define" : "LIB_PICO_UTIL=1"
 				},
 				{
@@ -289,6 +301,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "PICO_CMAKE_BUILD_TYPE=\"Debug\""
+				},
+				{
+					"backtrace" : 2,
+					"define" : "PICO_CONFIG_RTOS_ADAPTER_HEADER=/home/arca/pico/cansat-code/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/include/freertos_sdk_config.h"
 				},
 				{
 					"backtrace" : 2,
@@ -311,31 +327,51 @@
 					"define" : "PICO_ON_DEVICE=1"
 				},
 				{
+					"backtrace" : 2,
+					"define" : "PICO_RP2040_USB_DEVICE_UFRAME_FIX=1"
+				},
+				{
 					"backtrace" : 13,
-					"define" : "PICO_PROGRAM_NAME=\"cansat-code\""
-				},
-				{
-					"backtrace" : 15,
-					"define" : "PICO_PROGRAM_VERSION_STRING=\"0.1\""
-				},
-				{
-					"backtrace" : 16,
-					"define" : "PICO_TARGET_NAME=\"cansat-code\""
+					"define" : "PICO_TARGET_NAME=\"cansat\""
 				},
 				{
 					"backtrace" : 2,
 					"define" : "PICO_USE_BLOCKED_RAM=0"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "portSUPPORT_SMP=1"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 17,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/cansat-code"
 				},
 				{
-					"backtrace" : 17,
-					"path" : "/home/arca/pico/cansat-code/.."
+					"backtrace" : 14,
+					"path" : "/home/arca/pico/cansat-code/src"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/arca/pico/cansat-code/src/Config"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/arca/pico/cansat-code/src/lib/FreeRTOS-Kernel/include"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/arca/pico/cansat-code/src/lib/FreeRTOS-Kernel/portable/GCC/ARM_CM0"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/arca/pico/pico-sdk/**"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/cansat-code/Config"
 				},
 				{
 					"backtrace" : 2,
@@ -479,6 +515,22 @@
 				},
 				{
 					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_unique_id/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/hardware_flash/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/common/pico_usb_reset_interface/include"
+				},
+				{
+					"backtrace" : 2,
 					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_int64_ops/include"
 				},
 				{
@@ -488,6 +540,38 @@
 				{
 					"backtrace" : 2,
 					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/boot_stage2/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/common"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/hw"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_multicore/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/cansat-code/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/cansat-code/lib/FreeRTOS-Kernel/include"
 				}
 			],
 			"language" : "CXX",
@@ -524,6 +608,22 @@
 			[
 				{
 					"backtrace" : 2,
+					"define" : "CFG_TUSB_MCU=OPT_MCU_RP2040"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "CFG_TUSB_OS=OPT_OS_PICO"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "FREE_RTOS_KERNEL_SMP=1"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "LIB_FREERTOS_KERNEL=1"
+				},
+				{
+					"backtrace" : 2,
 					"define" : "LIB_PICO_BIT_OPS=1"
 				},
 				{
@@ -545,6 +645,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "LIB_PICO_DOUBLE_PICO=1"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "LIB_PICO_FIX_RP2040_USB_DEVICE_ENUMERATION=1"
 				},
 				{
 					"backtrace" : 2,
@@ -576,6 +680,10 @@
 				},
 				{
 					"backtrace" : 2,
+					"define" : "LIB_PICO_MULTICORE=1"
+				},
+				{
+					"backtrace" : 2,
 					"define" : "LIB_PICO_PLATFORM=1"
 				},
 				{
@@ -604,6 +712,10 @@
 				},
 				{
 					"backtrace" : 2,
+					"define" : "LIB_PICO_STDIO_USB=1"
+				},
+				{
+					"backtrace" : 2,
 					"define" : "LIB_PICO_STDLIB=1"
 				},
 				{
@@ -628,6 +740,10 @@
 				},
 				{
 					"backtrace" : 2,
+					"define" : "LIB_PICO_UNIQUE_ID=1"
+				},
+				{
+					"backtrace" : 2,
 					"define" : "LIB_PICO_UTIL=1"
 				},
 				{
@@ -641,6 +757,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "PICO_CMAKE_BUILD_TYPE=\"Debug\""
+				},
+				{
+					"backtrace" : 2,
+					"define" : "PICO_CONFIG_RTOS_ADAPTER_HEADER=/home/arca/pico/cansat-code/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/include/freertos_sdk_config.h"
 				},
 				{
 					"backtrace" : 2,
@@ -663,31 +783,51 @@
 					"define" : "PICO_ON_DEVICE=1"
 				},
 				{
+					"backtrace" : 2,
+					"define" : "PICO_RP2040_USB_DEVICE_UFRAME_FIX=1"
+				},
+				{
 					"backtrace" : 13,
-					"define" : "PICO_PROGRAM_NAME=\"cansat-code\""
-				},
-				{
-					"backtrace" : 15,
-					"define" : "PICO_PROGRAM_VERSION_STRING=\"0.1\""
-				},
-				{
-					"backtrace" : 16,
-					"define" : "PICO_TARGET_NAME=\"cansat-code\""
+					"define" : "PICO_TARGET_NAME=\"cansat\""
 				},
 				{
 					"backtrace" : 2,
 					"define" : "PICO_USE_BLOCKED_RAM=0"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "portSUPPORT_SMP=1"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 17,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/cansat-code"
 				},
 				{
-					"backtrace" : 17,
-					"path" : "/home/arca/pico/cansat-code/.."
+					"backtrace" : 14,
+					"path" : "/home/arca/pico/cansat-code/src"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/arca/pico/cansat-code/src/Config"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/arca/pico/cansat-code/src/lib/FreeRTOS-Kernel/include"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/arca/pico/cansat-code/src/lib/FreeRTOS-Kernel/portable/GCC/ARM_CM0"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/arca/pico/pico-sdk/**"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/cansat-code/Config"
 				},
 				{
 					"backtrace" : 2,
@@ -831,6 +971,22 @@
 				},
 				{
 					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_unique_id/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/hardware_flash/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/common/pico_usb_reset_interface/include"
+				},
+				{
+					"backtrace" : 2,
 					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_int64_ops/include"
 				},
 				{
@@ -840,6 +996,38 @@
 				{
 					"backtrace" : 2,
 					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/boot_stage2/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/common"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/hw"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_multicore/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/cansat-code/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/cansat-code/lib/FreeRTOS-Kernel/include"
 				}
 			],
 			"language" : "C",
@@ -885,7 +1073,42 @@
 				39,
 				43,
 				44,
-				45
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58,
+				59,
+				60,
+				61,
+				62,
+				63,
+				64,
+				65,
+				66,
+				67,
+				68,
+				69,
+				70,
+				71,
+				72,
+				73,
+				74,
+				75,
+				76,
+				77,
+				78,
+				79,
+				80
 			]
 		},
 		{
@@ -905,6 +1128,22 @@
 			],
 			"defines" : 
 			[
+				{
+					"backtrace" : 2,
+					"define" : "CFG_TUSB_MCU=OPT_MCU_RP2040"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "CFG_TUSB_OS=OPT_OS_PICO"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "FREE_RTOS_KERNEL_SMP=1"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "LIB_FREERTOS_KERNEL=1"
+				},
 				{
 					"backtrace" : 2,
 					"define" : "LIB_PICO_BIT_OPS=1"
@@ -928,6 +1167,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "LIB_PICO_DOUBLE_PICO=1"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "LIB_PICO_FIX_RP2040_USB_DEVICE_ENUMERATION=1"
 				},
 				{
 					"backtrace" : 2,
@@ -959,6 +1202,10 @@
 				},
 				{
 					"backtrace" : 2,
+					"define" : "LIB_PICO_MULTICORE=1"
+				},
+				{
+					"backtrace" : 2,
 					"define" : "LIB_PICO_PLATFORM=1"
 				},
 				{
@@ -987,6 +1234,10 @@
 				},
 				{
 					"backtrace" : 2,
+					"define" : "LIB_PICO_STDIO_USB=1"
+				},
+				{
+					"backtrace" : 2,
 					"define" : "LIB_PICO_STDLIB=1"
 				},
 				{
@@ -1011,6 +1262,10 @@
 				},
 				{
 					"backtrace" : 2,
+					"define" : "LIB_PICO_UNIQUE_ID=1"
+				},
+				{
+					"backtrace" : 2,
 					"define" : "LIB_PICO_UTIL=1"
 				},
 				{
@@ -1024,6 +1279,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "PICO_CMAKE_BUILD_TYPE=\"Debug\""
+				},
+				{
+					"backtrace" : 2,
+					"define" : "PICO_CONFIG_RTOS_ADAPTER_HEADER=/home/arca/pico/cansat-code/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/include/freertos_sdk_config.h"
 				},
 				{
 					"backtrace" : 2,
@@ -1046,31 +1305,51 @@
 					"define" : "PICO_ON_DEVICE=1"
 				},
 				{
+					"backtrace" : 2,
+					"define" : "PICO_RP2040_USB_DEVICE_UFRAME_FIX=1"
+				},
+				{
 					"backtrace" : 13,
-					"define" : "PICO_PROGRAM_NAME=\"cansat-code\""
-				},
-				{
-					"backtrace" : 15,
-					"define" : "PICO_PROGRAM_VERSION_STRING=\"0.1\""
-				},
-				{
-					"backtrace" : 16,
-					"define" : "PICO_TARGET_NAME=\"cansat-code\""
+					"define" : "PICO_TARGET_NAME=\"cansat\""
 				},
 				{
 					"backtrace" : 2,
 					"define" : "PICO_USE_BLOCKED_RAM=0"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "portSUPPORT_SMP=1"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 17,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/cansat-code"
 				},
 				{
-					"backtrace" : 17,
-					"path" : "/home/arca/pico/cansat-code/.."
+					"backtrace" : 14,
+					"path" : "/home/arca/pico/cansat-code/src"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/arca/pico/cansat-code/src/Config"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/arca/pico/cansat-code/src/lib/FreeRTOS-Kernel/include"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/arca/pico/cansat-code/src/lib/FreeRTOS-Kernel/portable/GCC/ARM_CM0"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/arca/pico/pico-sdk/**"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/cansat-code/Config"
 				},
 				{
 					"backtrace" : 2,
@@ -1214,6 +1493,22 @@
 				},
 				{
 					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_unique_id/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/hardware_flash/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/common/pico_usb_reset_interface/include"
+				},
+				{
+					"backtrace" : 2,
 					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_int64_ops/include"
 				},
 				{
@@ -1223,6 +1518,38 @@
 				{
 					"backtrace" : 2,
 					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/boot_stage2/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/common"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/hw"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_multicore/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/cansat-code/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/cansat-code/lib/FreeRTOS-Kernel/include"
 				}
 			],
 			"language" : "ASM",
@@ -1245,15 +1572,15 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 10,
-			"id" : "ELF2UF2Build::@6890427a1f51a3e7e1df"
+			"backtrace" : 6,
+			"id" : "bs2_default_padded_checksummed_asm::@bc554eaed616d198a22d"
 		},
 		{
 			"backtrace" : 11,
-			"id" : "bs2_default_padded_checksummed_asm::@bc554eaed616d198a22d"
+			"id" : "ELF2UF2Build::@145eef247bfb46b6828c"
 		}
 	],
-	"id" : "cansat-code::@6890427a1f51a3e7e1df",
+	"id" : "cansat::@145eef247bfb46b6828c",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -2038,7 +2365,7 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-Wl,-Map=cansat-code.elf.map",
+				"fragment" : "-Wl,-Map=cansat.elf.map",
 				"role" : "flags"
 			},
 			{
@@ -2094,12 +2421,12 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "cansat-code",
-	"nameOnDisk" : "cansat-code.elf",
+	"name" : "cansat",
+	"nameOnDisk" : "cansat.elf",
 	"paths" : 
 	{
-		"build" : ".",
-		"source" : "."
+		"build" : "src",
+		"source" : "src"
 	},
 	"sourceGroups" : 
 	[
@@ -2141,7 +2468,42 @@
 				42,
 				43,
 				44,
-				45
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58,
+				59,
+				60,
+				61,
+				62,
+				63,
+				64,
+				65,
+				66,
+				67,
+				68,
+				69,
+				70,
+				71,
+				72,
+				73,
+				74,
+				75,
+				76,
+				77,
+				78,
+				79,
+				80
 			]
 		},
 		{
@@ -2167,7 +2529,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "cansat-code.cpp",
+			"path" : "src/cansat.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -2438,6 +2800,216 @@
 			"backtrace" : 2,
 			"compileGroupIndex" : 1,
 			"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/tusb.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_multicore/multicore.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "lib/FreeRTOS-Kernel/croutine.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "lib/FreeRTOS-Kernel/event_groups.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "lib/FreeRTOS-Kernel/list.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "lib/FreeRTOS-Kernel/queue.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "lib/FreeRTOS-Kernel/stream_buffer.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "lib/FreeRTOS-Kernel/tasks.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "lib/FreeRTOS-Kernel/timers.c",
 			"sourceGroupIndex" : 0
 		}
 	],

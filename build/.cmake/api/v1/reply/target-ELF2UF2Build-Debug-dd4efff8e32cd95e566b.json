@@ -16,7 +16,7 @@
 			"/home/arca/pico/pico-sdk/tools/FindELF2UF2.cmake",
 			"/home/arca/pico/pico-sdk/tools/CMakeLists.txt",
 			"/home/arca/pico/pico-sdk/src/rp2_common.cmake",
-			"CMakeLists.txt"
+			"src/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -26,7 +26,7 @@
 			{
 				"command" : 4,
 				"file" : 4,
-				"line" : 48,
+				"line" : 32,
 				"parent" : 0
 			},
 			{
@@ -63,12 +63,12 @@
 	{
 		"name" : "ExternalProjectTargets/ELF2UF2Build"
 	},
-	"id" : "ELF2UF2Build::@6890427a1f51a3e7e1df",
+	"id" : "ELF2UF2Build::@145eef247bfb46b6828c",
 	"name" : "ELF2UF2Build",
 	"paths" : 
 	{
-		"build" : ".",
-		"source" : "."
+		"build" : "src",
+		"source" : "src"
 	},
 	"sourceGroups" : 
 	[
@@ -100,61 +100,61 @@
 		{
 			"backtrace" : 6,
 			"isGenerated" : true,
-			"path" : "build/CMakeFiles/ELF2UF2Build",
+			"path" : "build/src/CMakeFiles/ELF2UF2Build",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/CMakeFiles/ELF2UF2Build.rule",
+			"path" : "build/src/CMakeFiles/ELF2UF2Build.rule",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/CMakeFiles/ELF2UF2Build-complete.rule",
+			"path" : "build/src/CMakeFiles/ELF2UF2Build-complete.rule",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-build.rule",
+			"path" : "build/src/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-build.rule",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-configure.rule",
+			"path" : "build/src/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-configure.rule",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-download.rule",
+			"path" : "build/src/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-download.rule",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-install.rule",
+			"path" : "build/src/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-install.rule",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-mkdir.rule",
+			"path" : "build/src/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-mkdir.rule",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-patch.rule",
+			"path" : "build/src/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-patch.rule",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-update.rule",
+			"path" : "build/src/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-update.rule",
 			"sourceGroupIndex" : 1
 		}
 	],
