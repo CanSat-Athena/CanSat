@@ -4,21 +4,19 @@
 #include "pico/stdlib.h"
 #include "hardware/exception.h"
 
-#define log_core_num(fmt, ...) printf("[core %d] " fmt, portGET_CORE_ID(), ##__VA_ARGS__)
+#include "exceptionHandlers.h"
 
-static void waitForDebugger() {
-    log_core_num("Waiting for debugger...\n");
-    __breakpoint();
-}
+#define DEBUG_MODE
 
-void vApplicationStackOverflowHook(TaskHandle_t xTask, char* pcTaskName) {
-    log_core_num("Stack overflow in task '%s'\n", pcTaskName);
-    waitForDebugger();
-}
-
-static void hardfault_handler() {
-    log_core_num("hardfault!!!\n");
-    waitForDebugger();
+void setup() {
+    // Setup I2C properly
+    gpio_init(PICO_DEFAULT_I2C_SDA_PIN);
+    gpio_init(PICO_DEFAULT_I2C_SCL_PIN);
+    gpio_set_function(PICO_DEFAULT_I2C_SDA_PIN, GPIO_FUNC_I2C);
+    gpio_set_function(PICO_DEFAULT_I2C_SCL_PIN, GPIO_FUNC_I2C);
+    // Don't forget the pull ups! | Or use external ones
+    gpio_pull_up(PICO_DEFAULT_I2C_SDA_PIN);
+    gpio_pull_up(PICO_DEFAULT_I2C_SCL_PIN);
 }
 
 void printTask(void* pvParameters) {
@@ -29,6 +27,11 @@ void printTask(void* pvParameters) {
 
 int main() {
     stdio_init_all();
+
+    // Safe hardfault handler
+    exception_set_exclusive_handler(HARDFAULT_EXCEPTION, hardfault_handler);
+
+    setup();
 
     TaskHandle_t printTaskHandle;
     xTaskCreate(printTask, "print", 512, NULL, 2, &printTaskHandle);

@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 
 add_executable(cansat
         cansat.cpp
+        exceptionHandlers.h
         )
 
 target_include_directories(cansat PRIVATE
@@ -21,8 +22,13 @@ add_compile_definitions(
 target_link_libraries(cansat PUBLIC
         freertos_config
         pico_stdlib
-        pico_multicore
+        hardware_spi
+        hardware_i2c
+        hardware_timer
+        hardware_watchdog
+        hardware_clocks
         hardware_exception
+        pico_multicore
         FreeRTOS-Kernel-Heap4
         )
 
