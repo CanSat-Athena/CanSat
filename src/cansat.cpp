@@ -21,13 +21,18 @@ static void hardfault_handler() {
     waitForDebugger();
 }
 
+void printTask(void* pvParameters) {
+    puts("Hello world!");
+
+    vTaskDelete(NULL);
+}
+
 int main() {
     stdio_init_all();
 
-    puts("Hello, world!");
+    TaskHandle_t printTaskHandle;
+    xTaskCreate(printTask, "print", 512, NULL, 2, &printTaskHandle);
 
     vTaskStartScheduler();
-
-    while (true);
     return 0;
 }

@@ -23,7 +23,7 @@
                 // "break main",
                 "continue"
             ],
-            // "rtos": "FreeRTOS",
+            "rtos": "FreeRTOS",
             //"showDevDebugOutput": "parsed",
             "openOCDLaunchCommands": [
                 "adapter speed 5000",
