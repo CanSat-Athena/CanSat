@@ -11,24 +11,20 @@
 
 #define DEBUG_MODE
 
-void setup() {
-    // Setup I2C properly
-    gpio_init(PICO_DEFAULT_I2C_SDA_PIN);
-    gpio_init(PICO_DEFAULT_I2C_SCL_PIN);
-    gpio_set_function(PICO_DEFAULT_I2C_SDA_PIN, GPIO_FUNC_I2C);
-    gpio_set_function(PICO_DEFAULT_I2C_SCL_PIN, GPIO_FUNC_I2C);
-    // Don't forget the pull ups! | Or use external ones
-    gpio_pull_up(PICO_DEFAULT_I2C_SDA_PIN);
-    gpio_pull_up(PICO_DEFAULT_I2C_SCL_PIN);
+MPU6050* mpu;
 
-    // Init I2C
-    i2c_init(I2C_PORT, 100 * 1000); // 100kHz
+void setup() {
+    I2C::init();
+    mpu = new MPU6050();
+
+    puts("Setup complete");
 }
 
 void printTask(void* pvParameters) {
-    puts("Hello world!");
-
-    vTaskDelete(NULL);
+    while (true) {
+        puts("Hello world!");
+        vTaskDelay(1000);
+    }
 }
 
 int main() {
@@ -40,6 +36,7 @@ int main() {
     setup();
 
     TaskHandle_t printTaskHandle;
+
     xTaskCreate(printTask, "print", 512, NULL, 2, &printTaskHandle);
 
     vTaskStartScheduler();
