@@ -3,8 +3,11 @@
 #include <task.h>
 #include "pico/stdlib.h"
 #include "hardware/exception.h"
-
 #include "exceptionHandlers.h"
+
+#include "pins.h"
+#include "mpu6050.h"
+#include "i2c.h"
 
 #define DEBUG_MODE
 
@@ -17,6 +20,9 @@ void setup() {
     // Don't forget the pull ups! | Or use external ones
     gpio_pull_up(PICO_DEFAULT_I2C_SDA_PIN);
     gpio_pull_up(PICO_DEFAULT_I2C_SCL_PIN);
+
+    // Init I2C
+    i2c_init(I2C_PORT, 100 * 1000); // 100kHz
 }
 
 void printTask(void* pvParameters) {

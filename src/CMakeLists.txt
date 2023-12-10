@@ -2,7 +2,10 @@ cmake_minimum_required(VERSION 3.13)
 
 add_executable(cansat
         cansat.cpp
+        mpu6050.cpp
+        pins.h
         exceptionHandlers.h
+        i2c.h
         )
 
 target_include_directories(cansat PRIVATE
