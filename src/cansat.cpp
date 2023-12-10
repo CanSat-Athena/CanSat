@@ -13,6 +13,7 @@
 
 MPU6050* mpu;
 
+/// @brief Setup sensors
 void setup() {
     I2C::init();
     mpu = new MPU6050();
