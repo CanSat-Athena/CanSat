@@ -6,17 +6,18 @@
 #include "exceptionHandlers.h"
 
 #include "pins.h"
-#include "mpu6050.h"
+#include "dht20.h"
 #include "i2c.h"
 
 #define DEBUG_MODE
 
-MPU6050* mpu;
+DHT20* dht;
 
 /// @brief Setup sensors
 void setup() {
     I2C::init();
-    mpu = new MPU6050();
+    
+    dht = new DHT20();
 
     puts("Setup complete");
 }
