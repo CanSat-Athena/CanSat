@@ -3,3 +3,5 @@
 
 // I2C Addresses
 #define DHT20_ADDRESS 0x38
+
+#define I2C_TIMEOUT_MS 500

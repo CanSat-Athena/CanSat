@@ -5,8 +5,12 @@
 #include "pins.h"
 #include "i2c.h"
 
-#define DHT20_STATUSWORD_REG 0x71
-#define DHT20_INITIALISE_REG 0xbe
+#define DHT20_STATUSWORD_REG    0x71
+#define DHT20_CALIBRATE_CMD     0xE1
+#define DHT20_READ_CMD          0xAC
+#define DHT20_SOFTRESET_CMD     0xAC
+#define DHT20_STATUS_BUSY       0x80
+#define DHT20_STATUS_CALIBRATED 0x08
 
 class DHT20 {
 private:
@@ -15,6 +19,10 @@ private:
 protected:
     int readRegister(const uint8_t reg, uint8_t* buf, const size_t len, const bool ignoreInit = false);
     int writeRegister(const uint8_t reg, uint8_t* buf, const size_t len, const bool ignoreInit = false);
+
+    uint8_t readStatus();
+
+    bool waitForCommunication();
 
 public:
     DHT20(bool initialise = true);
