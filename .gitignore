@@ -10,3 +10,9 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+build/*.uf2
+build/*.map
+build/*.bin
+build/*.dis
+build/*.hex
+build/*.core

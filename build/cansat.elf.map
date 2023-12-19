@@ -2119,9 +2119,9 @@ Discarded input sections
                 0x00000000       0x1d src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
  .rodata.__func__.12
                 0x00000000       0x16 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
- .text          0x00000000        0x0 /tmp/ccmEJBDI.o
- .data          0x00000000        0x0 /tmp/ccmEJBDI.o
- .bss           0x00000000        0x0 /tmp/ccmEJBDI.o
+ .text          0x00000000        0x0 /tmp/ccUiPOz5.o
+ .data          0x00000000        0x0 /tmp/ccUiPOz5.o
+ .bss           0x00000000        0x0 /tmp/ccUiPOz5.o
  .data          0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .bss           0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .text          0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
@@ -2534,7 +2534,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/
 .boot2          0x10000000      0x100
                 0x10000000                        __boot2_start__ = .
  *(.boot2)
- .boot2         0x10000000      0x100 /tmp/ccmEJBDI.o
+ .boot2         0x10000000      0x100 /tmp/ccUiPOz5.o
                 0x10000100                        __boot2_end__ = .
                 0x00000001                        ASSERT (((__boot2_end__ - __boot2_start__) == 0x100), ERROR: Pico second stage bootloader must be 256 bytes in size)
 
@@ -3888,195 +3888,196 @@ LOAD /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/
                 0x1000b14c        0x6 src/CMakeFiles/cansat.dir/cansat.cpp.obj
  *fill*         0x1000b152        0x2 
  .rodata._ZN5DHT204initEj.str1.4
-                0x1000b154       0xf3 src/CMakeFiles/cansat.dir/dht20.cpp.obj
- *fill*         0x1000b247        0x1 
+                0x1000b154       0xef src/CMakeFiles/cansat.dir/dht20.cpp.obj
+ *fill*         0x1000b243        0x1 
  .rodata.spin_lock_claim.str1.4
-                0x1000b248       0x1f src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
- *fill*         0x1000b267        0x1 
+                0x1000b244       0x1f src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+ *fill*         0x1000b263        0x1 
  .rodata.spin_lock_claim_unused.str1.4
-                0x1000b268       0x1b src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
- *fill*         0x1000b283        0x1 
+                0x1000b264       0x1b src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+ *fill*         0x1000b27f        0x1 
  .rodata.resolve_branch.str1.4
-                0x1000b284       0x53 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x1000b2d7        0x1 
+                0x1000b280       0x53 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x1000b2d3        0x1 
  .rodata.make_branch.str1.4
-                0x1000b2d8       0x30 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x1000b2d4       0x30 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
  .rodata.insert_branch_and_link.str1.4
-                0x1000b308       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x1000b304       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
  .rodata.irq_set_exclusive_handler.str1.4
-                0x1000b318       0x36 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x1000b34e        0x2 
+                0x1000b314       0x36 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x1000b34a        0x2 
  .rodata.irq_add_shared_handler.str1.4
-                0x1000b350       0xc2 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x1000b412        0x2 
+                0x1000b34c       0xc2 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x1000b40e        0x2 
  .rodata.irq_remove_handler.str1.4
-                0x1000b414       0x3a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x1000b44e        0x2 
+                0x1000b410       0x3a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x1000b44a        0x2 
  .rodata.irq_add_tail_to_free_list.str1.4
-                0x1000b450       0x3a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x1000b48a        0x2 
+                0x1000b44c       0x3a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x1000b486        0x2 
  .rodata.user_irq_claim_unused.str1.4
-                0x1000b48c       0x1b src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x1000b4a7        0x1 
+                0x1000b488       0x1b src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x1000b4a3        0x1 
  .rodata.__func__.0
-                0x1000b4a8       0x1a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x1000b4c2        0x2 
+                0x1000b4a4       0x1a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x1000b4be        0x2 
  .rodata.__func__.1
-                0x1000b4c4       0x17 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x1000b4db        0x1 
+                0x1000b4c0       0x17 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x1000b4d7        0x1 
  .rodata.__func__.2
-                0x1000b4dc       0x13 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x1000b4ef        0x1 
+                0x1000b4d8       0x13 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x1000b4eb        0x1 
  .rodata.__func__.3
-                0x1000b4f0        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x1000b4ec        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
  .rodata.__func__.4
-                0x1000b4fc        0xf src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x1000b50b        0x1 
+                0x1000b4f8        0xf src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x1000b507        0x1 
  .rodata.__func__.5
-                0x1000b50c       0x17 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x1000b523        0x1 
+                0x1000b508       0x17 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x1000b51f        0x1 
  .rodata.__func__.6
-                0x1000b524       0x1a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x1000b53e        0x2 
+                0x1000b520       0x1a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x1000b53a        0x2 
  .rodata.update_us_since_boot.str1.4
-                0x1000b540       0x5f src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
- *fill*         0x1000b59f        0x1 
+                0x1000b53c       0x5f src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+ *fill*         0x1000b59b        0x1 
  .rodata.str1.4
-                0x1000b5a0       0x89 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
- *fill*         0x1000b629        0x3 
+                0x1000b59c       0x89 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+ *fill*         0x1000b625        0x3 
  .rodata.__func__.1
-                0x1000b62c        0xb src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
- *fill*         0x1000b637        0x1 
+                0x1000b628        0xb src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+ *fill*         0x1000b633        0x1 
  .rodata.__func__.3
-                0x1000b638       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+                0x1000b634       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
  .rodata.__func__.4
-                0x1000b650       0x15 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
- *fill*         0x1000b665        0x3 
+                0x1000b64c       0x15 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+ *fill*         0x1000b661        0x3 
  .rodata.get_entry.str1.4
-                0x1000b668       0x59 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x1000b664       0x59 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .rodata.update_us_since_boot.str1.4
-                0x1000b6c1       0x5f src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000b6c1        0x3 
+                0x1000b6bd       0x5f src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000b6bd        0x3 
  .rodata.ph_get_node.str1.4
-                0x1000b6c4       0x64 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x1000b6c0       0x64 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .rodata.ph_add_child_node.str1.4
-                0x1000b728       0x2e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000b756        0x2 
+                0x1000b724       0x2e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000b752        0x2 
  .rodata.ph_insert_node.str1.4
-                0x1000b758        0x3 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000b75b        0x1 
+                0x1000b754        0x3 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000b757        0x1 
  .rodata.ph_free_node.str1.4
-                0x1000b75c       0x38 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x1000b758       0x38 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .rodata.add_alarm_under_lock.str1.4
-                0x1000b794       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x1000b790       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .rodata.alarm_pool_alarm_callback.str1.4
-                0x1000b7bc       0x60 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x1000b7b8       0x60 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .rodata.alarm_pool_get_default.str1.4
-                0x1000b81c       0x21 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000b83d        0x3 
+                0x1000b818       0x21 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000b839        0x3 
  .rodata.alarm_pool_cancel_alarm.str1.4
-                0x1000b840       0x27 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000b867        0x1 
+                0x1000b83c       0x27 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000b863        0x1 
  .rodata.sleep_until.str1.4
-                0x1000b868       0x4d src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000b8b5        0x3 
+                0x1000b864       0x4d src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000b8b1        0x3 
  .rodata.__func__.0
-                0x1000b8b8       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x1000b8b4       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .rodata.__func__.2
-                0x1000b8d0       0x17 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000b8e7        0x1 
+                0x1000b8cc       0x17 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000b8e3        0x1 
  .rodata.__func__.3
-                0x1000b8e8       0x12 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000b8fa        0x2 
+                0x1000b8e4       0x12 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000b8f6        0x2 
  .rodata.__func__.4
-                0x1000b8fc        0xd src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000b909        0x3 
+                0x1000b8f8        0xd src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000b905        0x3 
  .rodata.__func__.5
-                0x1000b90c       0x12 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000b91e        0x2 
+                0x1000b908       0x12 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000b91a        0x2 
  .rodata.__func__.6
-                0x1000b920        0xf src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000b92f        0x1 
+                0x1000b91c        0xf src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000b92b        0x1 
  .rodata.__func__.7
-                0x1000b930        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x1000b92c        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .rodata.__func__.8
-                0x1000b93c       0x15 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000b951        0x3 
+                0x1000b938       0x15 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000b94d        0x3 
  .rodata.__func__.9
-                0x1000b954       0x15 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000b969        0x3 
+                0x1000b950       0x15 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000b965        0x3 
  .rodata.__func__.10
-                0x1000b96c       0x1a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000b986        0x2 
+                0x1000b968       0x1a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000b982        0x2 
  .rodata.__func__.11
-                0x1000b988        0xa src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x1000b984        0xa src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .rodata.update_us_since_boot.str1.4
-                0x1000b992       0x5f src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
- *fill*         0x1000b992        0x2 
+                0x1000b98e       0x5f src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+ *fill*         0x1000b98e        0x2 
  .rodata.hardware_alarm_claim.str1.4
-                0x1000b994       0x22 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
- *fill*         0x1000b9b6        0x2 
+                0x1000b990       0x22 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+ *fill*         0x1000b9b2        0x2 
  .rodata.hardware_alarm_set_target.str1.4
-                0x1000b9b8       0x63 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
- *fill*         0x1000ba1b        0x1 
+                0x1000b9b4       0x63 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+ *fill*         0x1000ba17        0x1 
  .rodata.__func__.0
-                0x1000ba1c       0x1a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
- *fill*         0x1000ba36        0x2 
+                0x1000ba18       0x1a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+ *fill*         0x1000ba32        0x2 
  .rodata.__func__.1
-                0x1000ba38       0x15 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x1000ba34       0x15 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
  .rodata.ph_get_node.str1.4
-                0x1000ba4d       0x64 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x1000ba49       0x64 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
  .rodata.ph_add_child_node.str1.4
-                0x1000ba4d       0x2e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
- *fill*         0x1000ba4d        0x3 
+                0x1000ba49       0x2e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+ *fill*         0x1000ba49        0x3 
  .rodata.ph_remove_any_head.str1.4
-                0x1000ba50       0x8c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x1000ba4c       0x8c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
                                  0xa0 (size before relaxing)
  .rodata.ph_remove_and_free_node.str1.4
-                0x1000badc       0x1e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x1000bad8       0x1e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
                                  0x26 (size before relaxing)
- *fill*         0x1000bafa        0x2 
+ *fill*         0x1000baf6        0x2 
  .rodata.__func__.0
-                0x1000bafc       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x1000baf8       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
  .rodata.__func__.1
-                0x1000bb14       0x13 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
- *fill*         0x1000bb27        0x1 
+                0x1000bb10       0x13 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+ *fill*         0x1000bb23        0x1 
  .rodata.__func__.2
-                0x1000bb28       0x12 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
- *fill*         0x1000bb3a        0x2 
+                0x1000bb24       0x12 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+ *fill*         0x1000bb36        0x2 
  .rodata.__func__.3
-                0x1000bb3c        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x1000bb38        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
  .rodata.clock_configure.str1.4
-                0x1000bb48       0x55 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
- *fill*         0x1000bb9d        0x3 
+                0x1000bb44       0x55 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+ *fill*         0x1000bb99        0x3 
  .rodata.__func__.1
-                0x1000bba0       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+                0x1000bb9c       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
  .rodata.pll_init.str1.4
-                0x1000bbb0      0x120 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+                0x1000bbac      0x120 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
  .rodata.__func__.0
-                0x1000bcd0        0x9 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
- *fill*         0x1000bcd9        0x3 
+                0x1000bccc        0x9 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+ *fill*         0x1000bcd5        0x3 
  .rodata.__assert_func.str1.4
-                0x1000bcdc       0x3f src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x1000bcd8       0x3f src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
                                  0x43 (size before relaxing)
- *fill*         0x1000bd1b        0x1 
+ *fill*         0x1000bd17        0x1 
  .rodata.runtime_init.str1.4
-                0x1000bd1c       0x5f src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
- *fill*         0x1000bd7b        0x1 
+                0x1000bd18       0x5f src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+ *fill*         0x1000bd77        0x1 
  .rodata.panic.str1.4
-                0x1000bd7c       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x1000bd78       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
                                  0x12 (size before relaxing)
  .rodata.panic_unsupported.str1.4
-                0x1000bd8c        0xe src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
- *fill*         0x1000bd9a        0x2 
+                0x1000bd88        0xe src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+ *fill*         0x1000bd96        0x2 
  .rodata.__func__.2
-                0x1000bd9c        0xd src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
- *fill*         0x1000bda9        0x3 
+                0x1000bd98        0xd src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+ *fill*         0x1000bda5        0x3 
  .rodata._ftoa.str1.4
-                0x1000bdac       0x15 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
- *fill*         0x1000bdc1        0x3 
+                0x1000bda8       0x15 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+ *fill*         0x1000bdbd        0x3 
  .rodata._vsnprintf
-                0x1000bdc4      0x19c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x1000bdc0      0x19c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+ *fill*         0x1000bf5c        0x4 
  .rodata.pow10.0
                 0x1000bf60       0x50 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .rodata.__aeabi_double_init.str1.4
@@ -5020,7 +5021,7 @@ LOAD src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/queue.c.obj
 LOAD src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/stream_buffer.c.obj
 LOAD src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
 LOAD src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
-LOAD /tmp/ccmEJBDI.o
+LOAD /tmp/ccUiPOz5.o
 LOAD /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++.a
 LOAD /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a
 START GROUP
@@ -5165,7 +5166,7 @@ LOAD linker stubs
  .ARM.attributes
                 0x00000a0a       0x2c src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
  .ARM.attributes
-                0x00000a36       0x22 /tmp/ccmEJBDI.o
+                0x00000a36       0x22 /tmp/ccUiPOz5.o
  .ARM.attributes
                 0x00000a58       0x1e /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .ARM.attributes
