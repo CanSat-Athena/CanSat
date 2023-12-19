@@ -16,3 +16,5 @@ build/*.bin
 build/*.dis
 build/*.hex
 build/*.core
+build/*.elf
+build/.ninja_log
