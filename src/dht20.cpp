@@ -15,33 +15,31 @@ bool DHT20::init(const uint attempts) {
     // Wait for sensor to start up
     sleep_ms(100);
 
+    // Pre-declare variables because using goto in loop
+    constexpr uint8_t calibrateCmd[] = { DHT20_CALIBRATE_CMD, 0x08, 0x00 };
+    constexpr uint8_t softResetCmd = DHT20_SOFTRESET_CMD;
+    uint8_t status;
+
     for (int i = 0; i < attempts; i++) {
         printf("Trying to connect to DHT20, attempt %d of %d\n", i + 1, attempts);
 
         // Perform soft reset
         printf("Attempting DHT20 reset\n");
-        uint8_t softResetCmd = DHT20_SOFTRESET_CMD;
         i2c_write_blocking(I2C_PORT, DHT20_ADDRESS, &softResetCmd, 1, false);
         sleep_ms(20);
 
         // Re-attempt if timeout
-        if (!waitForCommunication()) {
+        if (!waitForProcessing(false)) {
             printf("DHT20 connection timeout\n");
-            sleep_ms(2000);
-
-            if (i < attempts - 1)
-                printf("Retrying...\n");
-
-            continue;
+            goto retry;
         }
 
         // Attempt calibration
         printf("Attempting calibration\n");
-        uint8_t calibrateCmd[] = { DHT20_CALIBRATE_CMD, 0x08, 0x00 };
         i2c_write_blocking(I2C_PORT, DHT20_ADDRESS, calibrateCmd, 3, false);
 
         // Re-attempt if timeout
-        if (!waitForCommunication()) {
+        if (!waitForProcessing(false)) {
             printf("DHT20 connection timeout\n");
             sleep_ms(2000);
 
@@ -51,34 +49,51 @@ bool DHT20::init(const uint attempts) {
             continue;
         }
 
+        status = readStatus();
+
         // Re-attempt if not calibrated
-        if (!(readStatus() & DHT20_STATUS_CALIBRATED)) {
+        if (!(status & DHT20_STATUS_CALIBRATED)) {
             printf("DHT20 calibration error\n");
-            sleep_ms(2000);
-
-            if (i < attempts - 1)
-                printf("Retrying...\n");
-
-            continue;
+            goto retry;
         }
 
+        printf("DHT20 responded successfully; I2C status: 0x%x\n", status);
 
-        uint8_t statuswordRegisterValue = 0x00;
-        readRegister(DHT20_STATUSWORD_REG, &statuswordRegisterValue, 1, true);
+        this->initialised = true;
+        return true;
 
-        // Check if succeeded - if bit 3 is 1
-        if (statuswordRegisterValue & 0b00001000) {
-            printf("DHT20 responded successfully; I2C status: 0x%x\n", statuswordRegisterValue);
+        // Delay and print retrying message if failed
+    retry:
+        sleep_ms(2000);
 
-            this->initialised = true;
-            return true;
-        }
-
+        if (i < attempts - 1)
+            printf("Retrying...\n");
     }
 
     printf("Failed to initialise DHT20\n");
 
     return false;
+}
+
+/// @brief Reads sensor data
+/// @param data Pointer to the `dhtData_t` struct to dump data into
+/// @return True on success, false on error
+bool DHT20::getEvent(dhtData_t* data) {
+    if (!initialised) return false;
+
+    // Trigger read
+    constexpr uint8_t triggerCmd[] = { DHT20_READ_CMD, 0x33, 0x00 };
+    i2c_write_blocking(I2C_PORT, DHT20_ADDRESS, triggerCmd, 3, false);
+
+    // Wait for read
+    if (!waitForProcessing()) {
+        return false;
+    }
+
+    uint8_t readData[6];
+    i2c_read_blocking(I2C_PORT, DHT20_ADDRESS, readData, 6, false);
+
+    return true;
 }
 
 /// @brief Read register of DHT20, wrapper around I2C::readRegister
@@ -105,12 +120,16 @@ uint8_t DHT20::readStatus() {
     return read;
 }
 
-bool DHT20::waitForCommunication() {
+/// @brief Wait for DHT20 status busy pin to return to 0
+/// @param useRTOSDelay Determines whether `vTaskDelay` or `sleep_ms` should be used - defaults to true
+/// @return True on success, false if exceeded the I2C timeout
+bool DHT20::waitForProcessing(bool useRTOSDelay) {
     const uint16_t maxCount = I2C_TIMEOUT_MS / 10;
     uint16_t count = 0;
-    
+
     while (readStatus() & DHT20_STATUS_BUSY) {
-        sleep_ms(10);
+        if (useRTOSDelay) vTaskDelay(10);
+        else sleep_ms(10);
         count += 10;
 
         if (count > maxCount) return false;

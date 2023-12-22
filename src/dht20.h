@@ -1,4 +1,6 @@
 #pragma once
+#include <FreeRTOS.h>
+#include <task.h>
 #include "pico/stdlib.h"
 #include <stdio.h>
 
@@ -12,6 +14,12 @@
 #define DHT20_STATUS_BUSY       0x80
 #define DHT20_STATUS_CALIBRATED 0x08
 
+typedef struct dhtData_t {
+    float temperature;
+    float humidity;
+    uint32_t timestamp;
+} dhtData_t;
+
 class DHT20 {
 private:
     bool initialised = false;
@@ -22,12 +30,13 @@ protected:
 
     uint8_t readStatus();
 
-    bool waitForCommunication();
+    bool waitForProcessing(bool useRTOSDelay = true);
 
 public:
     DHT20(bool initialise = true);
 
     bool init(const uint attempts = 3);
+    bool getEvent(dhtData_t* data);
 
     /// @brief Checks if DHT20 is initialised
     /// @return true if DHT20 has been initialised
