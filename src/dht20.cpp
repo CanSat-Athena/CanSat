@@ -75,10 +75,9 @@ bool DHT20::init(const uint attempts) {
     return false;
 }
 
-/// @brief Reads sensor data
-/// @param data Pointer to the `dhtData_t` struct to dump data into
+/// @brief Reads and updates sensor data
 /// @return True on success, false on error
-bool DHT20::getEvent(dhtData_t* data) {
+bool DHT20::updateData() {
     if (!initialised) return false;
 
     // Trigger read
@@ -92,6 +91,25 @@ bool DHT20::getEvent(dhtData_t* data) {
 
     uint8_t readData[6];
     i2c_read_blocking(I2C_PORT, DHT20_ADDRESS, readData, 6, false);
+
+    // Decode humidity
+    uint32_t humidityBuf = readData[1];
+    humidityBuf <<= 8;
+    humidityBuf |= readData[2];
+    humidityBuf <<= 4;
+    humidityBuf |= readData[3] >> 4;
+
+    // Decode temperature
+    uint32_t temperatureBuf = readData[3] & 0x0F;
+    temperatureBuf <<= 8;
+    temperatureBuf |= readData[4];
+    temperatureBuf <<= 8;
+    temperatureBuf |= readData[5];
+
+    // Update data
+    temperature = ((float)temperatureBuf * 200 / 0x100000) - 50;
+    humidity = ((float)humidityBuf * 100) / 0x100000;
+    lastUpdated = 0;        // To be changed
 
     return true;
 }
@@ -123,7 +141,7 @@ uint8_t DHT20::readStatus() {
 /// @brief Wait for DHT20 status busy pin to return to 0
 /// @param useRTOSDelay Determines whether `vTaskDelay` or `sleep_ms` should be used - defaults to true
 /// @return True on success, false if exceeded the I2C timeout
-bool DHT20::waitForProcessing(bool useRTOSDelay) {
+bool DHT20::waitForProcessing(const bool useRTOSDelay) {
     const uint16_t maxCount = I2C_TIMEOUT_MS / 10;
     uint16_t count = 0;
 

@@ -14,12 +14,6 @@
 #define DHT20_STATUS_BUSY       0x80
 #define DHT20_STATUS_CALIBRATED 0x08
 
-typedef struct dhtData_t {
-    float temperature;
-    float humidity;
-    uint32_t timestamp;
-} dhtData_t;
-
 class DHT20 {
 private:
     bool initialised = false;
@@ -30,13 +24,17 @@ protected:
 
     uint8_t readStatus();
 
-    bool waitForProcessing(bool useRTOSDelay = true);
+    bool waitForProcessing(const bool useRTOSDelay = true);
 
 public:
+    float temperature = 0;
+    float humidity = 0;
+    uint64_t lastUpdated;
+
     DHT20(bool initialise = true);
 
     bool init(const uint attempts = 3);
-    bool getEvent(dhtData_t* data);
+    bool updateData();
 
     /// @brief Checks if DHT20 is initialised
     /// @return true if DHT20 has been initialised
