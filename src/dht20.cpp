@@ -2,7 +2,7 @@
 
 /// @brief Constructor
 /// @param initialise Initialise DHT20 automatically. Defaults to true
-DHT20::DHT20(const bool initialise) {
+DHT20::DHT20(const bool initialise) : I2CSensor(i2cAddress) {
     if (initialise) init();
 }
 
@@ -25,7 +25,7 @@ bool DHT20::init(const uint attempts) {
 
         // Perform soft reset
         printf("Attempting DHT20 reset\n");
-        i2c_write_blocking(I2C_PORT, DHT20_ADDRESS, &softResetCmd, 1, false);
+        i2c_write_blocking(I2C_PORT, i2cAddress, &softResetCmd, 1, false);
         sleep_ms(20);
 
         // Re-attempt if timeout
@@ -36,7 +36,7 @@ bool DHT20::init(const uint attempts) {
 
         // Attempt calibration
         printf("Attempting calibration\n");
-        i2c_write_blocking(I2C_PORT, DHT20_ADDRESS, calibrateCmd, 3, false);
+        i2c_write_blocking(I2C_PORT, i2cAddress, calibrateCmd, 3, false);
 
         // Re-attempt if timeout
         if (!waitForProcessing(false)) {
@@ -82,7 +82,7 @@ bool DHT20::updateData() {
 
     // Trigger read
     constexpr uint8_t triggerCmd[] = { DHT20_READ_CMD, 0x33, 0x00 };
-    i2c_write_blocking(I2C_PORT, DHT20_ADDRESS, triggerCmd, 3, false);
+    i2c_write_blocking(I2C_PORT, i2cAddress, triggerCmd, 3, false);
 
     // Wait for read
     if (!waitForProcessing()) {
@@ -90,7 +90,7 @@ bool DHT20::updateData() {
     }
 
     uint8_t readData[6];
-    i2c_read_blocking(I2C_PORT, DHT20_ADDRESS, readData, 6, false);
+    i2c_read_blocking(I2C_PORT, i2cAddress, readData, 6, false);
 
     // Decode humidity
     uint32_t humidityBuf = readData[1];
@@ -112,30 +112,6 @@ bool DHT20::updateData() {
     lastUpdated = 0;        // To be changed
 
     return true;
-}
-
-/// @brief Read register of DHT20, wrapper around I2C::readRegister
-int DHT20::readRegister(const uint8_t reg, uint8_t* buf, const size_t len, const bool ignoreInit) {
-    if (!initialised && !ignoreInit) return -1;
-    return I2C::readRegister(DHT20_ADDRESS, reg, buf, len);
-}
-
-/// @brief Write to register of DHT20, wrapper around I2C::writeRegister
-int DHT20::writeRegister(const uint8_t reg, uint8_t* buf, const size_t len, const bool ignoreInit) {
-    if (!initialised && !ignoreInit) return -1;
-    return I2C::writeRegister(DHT20_ADDRESS, reg, buf, len);
-}
-
-/// @brief Read status byte of DHT20
-/// @return The status byte read
-uint8_t DHT20::readStatus() {
-    uint8_t read;
-
-    // Return 0xFF if error
-    if (!i2c_read_blocking(I2C_PORT, DHT20_ADDRESS, &read, 1, false)) {
-        return 0xFF;
-    }
-    return read;
 }
 
 /// @brief Wait for DHT20 status busy pin to return to 0
