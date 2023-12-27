@@ -30,8 +30,8 @@ public:
     /// @param len Number of bytes to read
     /// @return Number of bytes read, or PICO_ERROR_GENERIC if address not acknowledged or no device present.
     static int readRegister(const uint8_t address, const uint8_t reg, uint8_t* buf, const size_t len) {
-        i2c_write_blocking(I2C_PORT, address, &reg, 1, true);
-        return i2c_read_blocking(I2C_PORT, address, buf, len, false);
+        i2c_write_timeout_per_char_us(I2C_PORT, address, &reg, 1, true, I2C_PER_CHAR_TIMEOUT_US);
+        return i2c_read_timeout_per_char_us(I2C_PORT, address, buf, len, false, I2C_PER_CHAR_TIMEOUT_US);
     }
 
     /// @brief Writes to I2C register of device
@@ -40,8 +40,8 @@ public:
     /// @param buf The buffer to write
     /// @param len Number of bytes to write
     /// @return Number of bytes written, or PICO_ERROR_GENERIC if address not acknowledged or no device present.
-    static int writeRegister(const uint8_t address, const uint8_t reg, uint8_t* buf, const size_t len) {
-        i2c_write_blocking(I2C_PORT, address, &reg, 1, true);
-        return i2c_write_blocking(I2C_PORT, address, buf, len, false);
+    static int writeRegister(const uint8_t address, const uint8_t reg, const uint8_t* buf, const size_t len) {
+        i2c_write_timeout_per_char_us(I2C_PORT, address, &reg, 1, true, I2C_PER_CHAR_TIMEOUT_US);
+        return i2c_write_timeout_per_char_us(I2C_PORT, address, buf, len, false, I2C_PER_CHAR_TIMEOUT_US);
     }
 };

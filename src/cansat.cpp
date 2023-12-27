@@ -7,28 +7,31 @@
 
 #include "pins.h"
 #include "dht20.h"
+#include "bme680.h"
 #include "i2c.h"
 
 #define DEBUG_MODE
 
 DHT20* dht;
+BME680* bme;
 
 /// @brief Setup sensors
 void setup() {
     I2C::init();
     
     dht = new DHT20();
+    bme = new BME680();
 
-    puts("Setup complete");
+    puts("Setup complete\n");
 }
 
 void printTask(void* pvParameters) {
     while (true) {
-        puts("Hello world!");
-        dht->updateData();
+    //     dht->updateData();
 
-        printf("The temperature is: %f C, humidity %f %%\n", dht->temperature, dht->humidity);
-        vTaskDelay(1000);
+    //     printf("The temperature is: %f C, humidity %f %%\n", dht->temperature, dht->humidity);
+    //     vTaskDelay(500);
+        tight_loop_contents();
     }
 }
 

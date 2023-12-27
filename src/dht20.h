@@ -13,6 +13,7 @@
 #define DHT20_STATUS_BUSY       0x80
 #define DHT20_STATUS_CALIBRATED 0x08
 
+/// @brief Class to handle communication with DHT20
 class DHT20 : public I2CSensor {
 protected:
     bool waitForProcessing(const bool useRTOSDelay = true);

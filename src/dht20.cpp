@@ -2,7 +2,7 @@
 
 /// @brief Constructor
 /// @param initialise Initialise DHT20 automatically. Defaults to true
-DHT20::DHT20(const bool initialise) : I2CSensor(i2cAddress) {
+DHT20::DHT20(const bool initialise) : I2CSensor(DHT20_ADDRESS) {
     if (initialise) init();
 }
 
@@ -25,7 +25,7 @@ bool DHT20::init(const uint attempts) {
 
         // Perform soft reset
         printf("Attempting DHT20 reset\n");
-        i2c_write_blocking(I2C_PORT, i2cAddress, &softResetCmd, 1, false);
+        i2c_write_timeout_per_char_us(I2C_PORT, i2cAddress, &softResetCmd, 1, false, I2C_PER_CHAR_TIMEOUT_US);
         sleep_ms(20);
 
         // Re-attempt if timeout
@@ -36,7 +36,7 @@ bool DHT20::init(const uint attempts) {
 
         // Attempt calibration
         printf("Attempting calibration\n");
-        i2c_write_blocking(I2C_PORT, i2cAddress, calibrateCmd, 3, false);
+        i2c_write_timeout_per_char_us(I2C_PORT, i2cAddress, calibrateCmd, 3, false, I2C_PER_CHAR_TIMEOUT_US);
 
         // Re-attempt if timeout
         if (!waitForProcessing(false)) {
@@ -62,12 +62,12 @@ bool DHT20::init(const uint attempts) {
         this->initialised = true;
         return true;
 
-        // Delay and print retrying message if failed
     retry:
-        sleep_ms(2000);
-
-        if (i < attempts - 1)
+        // Delay and print retrying message if failed
+        if (i < attempts - 1) {
+            sleep_ms(2000);
             printf("Retrying...\n");
+        }
     }
 
     printf("Failed to initialise DHT20\n");
@@ -82,7 +82,7 @@ bool DHT20::updateData() {
 
     // Trigger read
     constexpr uint8_t triggerCmd[] = { DHT20_READ_CMD, 0x33, 0x00 };
-    i2c_write_blocking(I2C_PORT, i2cAddress, triggerCmd, 3, false);
+    i2c_write_timeout_per_char_us(I2C_PORT, i2cAddress, triggerCmd, 3, false, I2C_PER_CHAR_TIMEOUT_US);
 
     // Wait for read
     if (!waitForProcessing()) {
@@ -90,7 +90,7 @@ bool DHT20::updateData() {
     }
 
     uint8_t readData[6];
-    i2c_read_blocking(I2C_PORT, i2cAddress, readData, 6, false);
+    i2c_read_timeout_per_char_us(I2C_PORT, i2cAddress, readData, 6, false, I2C_PER_CHAR_TIMEOUT_US);
 
     // Decode humidity
     uint32_t humidityBuf = readData[1];
@@ -118,7 +118,7 @@ bool DHT20::updateData() {
 /// @param useRTOSDelay Determines whether `vTaskDelay` or `sleep_ms` should be used - defaults to true
 /// @return True on success, false if exceeded the I2C timeout
 bool DHT20::waitForProcessing(const bool useRTOSDelay) {
-    const uint16_t maxCount = I2C_TIMEOUT_MS / 10;
+    const uint16_t maxCount = DHT20_PROCESSING_TIMEOUT_MS / 10;
     uint16_t count = 0;
 
     while (readStatus() & DHT20_STATUS_BUSY) {

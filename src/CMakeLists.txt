@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.13)
 add_executable(cansat
         cansat.cpp
         dht20.cpp
+        bme680.cpp
         pins.h
         exceptionHandlers.h
         i2c.h

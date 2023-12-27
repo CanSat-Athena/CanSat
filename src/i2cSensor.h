@@ -1,3 +1,4 @@
+#pragma once
 #include "pico/stdlib.h"
 #include <stdio.h>
 
@@ -16,7 +17,7 @@ protected:
     }
 
     /// @brief Write to register of sensor, wrapper around I2C::writeRegister
-    int writeRegister(const uint8_t reg, uint8_t* buf, const size_t len, const bool ignoreInit = false) {
+    int writeRegister(const uint8_t reg, const uint8_t* buf, const size_t len, const bool ignoreInit = false) {
         if (!initialised && !ignoreInit) return -1;
         return I2C::writeRegister(i2cAddress, reg, buf, len);
     }
@@ -27,7 +28,7 @@ protected:
         uint8_t read;
 
         // Return 0xFF if error
-        if (!i2c_read_blocking(I2C_PORT, i2cAddress, &read, 1, false)) {
+        if (!i2c_read_timeout_per_char_us(I2C_PORT, i2cAddress, &read, 1, false, I2C_PER_CHAR_TIMEOUT_US)) {
             return 0xFF;
         }
         return read;
