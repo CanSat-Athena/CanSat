@@ -1,10 +1,10 @@
 #include <FreeRTOS.h>
 #include <stdio.h>
 #include <task.h>
-#include "pico/stdlib.h"
-#include "hardware/exception.h"
-#include "exceptionHandlers.h"
+#include <pico/stdlib.h>
+#include <hardware/exception.h>
 
+#include "exceptionHandlers.h"
 #include "pins.h"
 #include "dht20.h"
 #include "bme680.h"
@@ -19,7 +19,7 @@ BME680* bme;
 void setup() {
     I2C::init();
     
-    dht = new DHT20();
+    // dht = new DHT20();
     bme = new BME680();
 
     puts("Setup complete\n");

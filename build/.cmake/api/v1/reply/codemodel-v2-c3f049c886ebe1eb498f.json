@@ -1182,7 +1182,7 @@
 				{
 					"directoryIndex" : 82,
 					"id" : "ELF2UF2Build::@145eef247bfb46b6828c",
-					"jsonFile" : "target-ELF2UF2Build-Debug-348956864e4174817509.json",
+					"jsonFile" : "target-ELF2UF2Build-Debug-1252b541b12a36192281.json",
 					"name" : "ELF2UF2Build",
 					"projectIndex" : 0
 				},
@@ -1217,7 +1217,7 @@
 				{
 					"directoryIndex" : 82,
 					"id" : "cansat::@145eef247bfb46b6828c",
-					"jsonFile" : "target-cansat-Debug-0ed27ec3d1e98122c921.json",
+					"jsonFile" : "target-cansat-Debug-dd6850c321f174bd9a51.json",
 					"name" : "cansat",
 					"projectIndex" : 0
 				},

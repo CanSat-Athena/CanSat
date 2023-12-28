@@ -3,7 +3,7 @@
 
 // I2C Addresses
 #define DHT20_ADDRESS  0x38
-#define BME680_ADDRESS 0x77
+#define BME680_ADDRESS (uint8_t)0x77
 
 // Other config
 #define DHT20_PROCESSING_TIMEOUT_MS 500

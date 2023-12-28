@@ -1,6 +1,6 @@
 #pragma once
-#include "pico/stdlib.h"
-#include "hardware/i2c.h"
+#include <pico/stdlib.h>
+#include <hardware/i2c.h>
 
 #include "pins.h"
 
@@ -30,7 +30,7 @@ public:
     /// @param len Number of bytes to read
     /// @return Number of bytes read, or PICO_ERROR_GENERIC if address not acknowledged or no device present.
     static int readRegister(const uint8_t address, const uint8_t reg, uint8_t* buf, const size_t len) {
-        i2c_write_timeout_per_char_us(I2C_PORT, address, &reg, 1, true, I2C_PER_CHAR_TIMEOUT_US);
+        uint8_t res = i2c_write_timeout_per_char_us(I2C_PORT, address, &reg, 1, true, I2C_PER_CHAR_TIMEOUT_US);
         return i2c_read_timeout_per_char_us(I2C_PORT, address, buf, len, false, I2C_PER_CHAR_TIMEOUT_US);
     }
 
