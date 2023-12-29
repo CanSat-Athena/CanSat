@@ -1,0 +1,81 @@
+{ // Sent once a second
+    "timestamp": 1234560,
+    "imu": { // Inertial motion unit
+        "accel": [
+            [
+                456,
+                345,
+                345
+            ],
+            [
+                245,
+                24,
+                245
+            ]
+            /* ... */
+        ],
+        "gyro": [
+            [
+                456,
+                345,
+                345
+            ],
+            [
+                245,
+                24,
+                245
+            ]
+            /* ... */
+        ] // 10Hz so 10 measurements
+    },
+    "dht": {
+        "temp": [
+            15.45235,
+            16.23525
+            /*...*/
+        ],
+        "humidity": [
+            50.42,
+            50.36
+            /*...*/
+        ]
+    },
+    "bme": {
+        "temp": [
+            15.45235,
+            16.23525
+            /*...*/
+        ],
+        "humidity": [
+            50.42,
+            50.36
+            /*...*/
+        ],
+        // Twice a second (2Hz)
+        "pressure": [
+            50.42,
+            50.36
+        ],
+        "voc": {
+            "ppm": 50.3, // Particles per million
+            "airQuality": 46, // Air quality estimate
+            "heaterTemp": 100
+        }
+    },
+    "windSpeed": 5, // Wind speed in km/h
+    "gps": {
+        "absoluteTimestamp": 6929593691,
+        "latitude": 50.423456266,
+        "longitude": 0.02576553,
+        "altitude": 250, // Altitude in m
+        "bearing": 20, // Bearing in degrees
+        "speed": 12, // Speed (knots)
+        "satellites": 3,
+        "fix": 1,
+        "quality": 1
+    },
+    "computed": {
+        "hasLanded": false,
+        "hasReachedTerminal": false
+    }
+}

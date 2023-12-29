@@ -27,10 +27,10 @@ void setup() {
 
 void printTask(void* pvParameters) {
     while (true) {
-    //     dht->updateData();
+        // dht->updateData();
 
-    //     printf("The temperature is: %f C, humidity %f %%\n", dht->temperature, dht->humidity);
-    //     vTaskDelay(500);
+        // printf("The temperature is: %f C, humidity %f %%\n", dht->temperature, dht->humidity);
+        // vTaskDelay(500);
         tight_loop_contents();
     }
 }
