@@ -1,7 +1,7 @@
 #include "pico/stdlib.h"
 #include <stdio.h>
 
-#include "pins.h"
+#include "config.h"
 
 class Sensor {
 protected:

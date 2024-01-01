@@ -5,7 +5,7 @@
 #include <hardware/exception.h>
 
 #include "exceptionHandlers.h"
-#include "pins.h"
+#include "config.h"
 #include "dht20.h"
 #include "bme680.h"
 #include "i2c.h"
@@ -28,10 +28,12 @@ void setup() {
 void printTask(void* pvParameters) {
     while (true) {
         // dht->updateData();
+        bme->updateData();
 
         // printf("The temperature is: %f C, humidity %f %%\n", dht->temperature, dht->humidity);
-        // vTaskDelay(500);
-        tight_loop_contents();
+        printf("BME680: \n");
+        vTaskDelay(500);
+        // tight_loop_contents();
     }
 }
 

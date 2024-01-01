@@ -20,8 +20,8 @@ class BME680 : public I2CSensor {
 public:
     float temperature = 0;
     float humidity = 0;
-    float pressure = 0;
-    float voc = 0;
+    uint32_t pressure = 0;
+    uint32_t gas_resistance = 0;
     uint64_t lastUpdated;
 
     struct bme68x_dev bme680;
@@ -35,29 +35,64 @@ public:
     }
 
     bool init(const uint attempts = 3);
-    bool updateData();
+    bool updateData(uint16_t heater_temp = 300, uint16_t heater_duration = 100);
+    bool configure(uint8_t filter, uint8_t odr, uint8_t os_humidity, uint8_t os_pressure, uint8_t os_temp);
 
-    bool setTemperatureOversampling(uint8_t os);
-    bool setPressureOversampling(uint8_t os);
-    bool setHumidityOversampling(uint8_t os);
-    bool setIIRFilterSize(uint8_t fs);
-    bool setGasHeater(uint16_t heaterTemp, uint16_t heaterTime);
-    bool setODR(uint8_t odr);
+    static int8_t i2c_read(uint8_t regAddr, uint8_t* regBuf, uint32_t len, void* bmePtr) {
+        BME680* bme = (BME680*)bmePtr;
 
-    /// @brief Read register of sensor, wrapper around I2C::readRegister
-    int readRegister(const uint8_t reg, uint8_t* buf, const size_t len, const bool ignoreInit = false) {
-        if (!initialised && !ignoreInit) return -1;
-        return I2C::readRegister(BME680_ADDRESS, reg, buf, len);
+        int8_t result = i2c_write_blocking(I2C_PORT, BME680_ADDRESS, &regAddr, 1, true);
+        result = i2c_read_blocking(I2C_PORT, BME680_ADDRESS, regBuf, len, false);
+
+        return result == PICO_ERROR_GENERIC ? 1 : 0;
     }
 
-    /// @brief Write to register of sensor, wrapper around I2C::writeRegister
-    int writeRegister(const uint8_t reg, const uint8_t* buf, const size_t len, const bool ignoreInit = false) {
-        if (!initialised && !ignoreInit) return -1;
-        return I2C::writeRegister(BME680_ADDRESS, reg, buf, len);
+    static int8_t i2c_write(uint8_t regAddr, uint8_t* regBuf, uint32_t len, void* bmePtr) {
+        BME680* bme = (BME680*)bmePtr;
+
+        uint8_t buffer[len + 1];
+        buffer[0] = regAddr;
+        for (auto x = 0u; x < len; x++) {
+            buffer[x + 1] = regBuf[x];
+        }
+
+        int8_t result = i2c_write_blocking(I2C_PORT, BME680_ADDRESS, buffer, len + 1, false); // +1 because need to write address as well
+
+        return result == PICO_ERROR_GENERIC ? 1 : 0;
+    }
+
+    static void delay_usec(uint32_t us, void* intf_ptr) {
+        (void)intf_ptr; // Unused parameter
+        sleep_us(us);
+    }
+
+    static void bme68x_check_rslt(const char api_name[], int8_t rslt) {
+        if (!VERBOSE_PRINT) return;
+        switch (rslt) {
+        case BME68X_OK:
+            /* Do nothing */
+            break;
+        case BME68X_E_NULL_PTR:
+            printf("%s: Error [%d] : Null pointer\r\n", api_name, rslt);
+            break;
+        case BME68X_E_COM_FAIL:
+            printf("%s: Error [%d] : Communication failure\r\n", api_name, rslt);
+            break;
+        case BME68X_E_INVALID_LENGTH:
+            printf("%s: Error [%d] : Incorrect length parameter\r\n", api_name, rslt);
+            break;
+        case BME68X_E_DEV_NOT_FOUND:
+            printf("%s: Error [%d] : Device not found\r\n", api_name, rslt);
+            break;
+        case BME68X_E_SELF_TEST:
+            printf("%s: Error [%d] : Self test error\r\n", api_name, rslt);
+            break;
+        case BME68X_W_NO_NEW_DATA:
+            printf("%s: Warning [%d] : No new data found\r\n", api_name, rslt);
+            break;
+        default:
+            printf("%s: Error [%d] : Unknown error code\r\n", api_name, rslt);
+            break;
+        }
     }
 };
-
-int8_t bme680_i2c_read(uint8_t regAddr, uint8_t* regBuf, uint32_t len, void* extraData);
-int8_t bme680_i2c_write(uint8_t regAddr, const uint8_t* regBuf, uint32_t len, void* extraData);
-
-static void delay_usec(uint32_t us, void* intf_ptr);

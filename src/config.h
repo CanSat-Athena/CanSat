@@ -7,5 +7,7 @@
 
 // Other config
 #define DHT20_PROCESSING_TIMEOUT_MS 500
-
 #define I2C_PER_CHAR_TIMEOUT_US 200
+
+// Use when debugging
+#define VERBOSE_PRINT true

@@ -13,11 +13,11 @@ bool BME680::init(const uint attempts) {
     bme680.chip_id = BME680_ADDRESS;
     bme680.intf = BME68X_I2C_INTF;
     bme680.intf_ptr = (void*)this;
-    bme680.read = &bme680_i2c_read;
-    bme680.write = &bme680_i2c_write;
+    bme680.read = (bme68x_read_fptr_t)&i2c_read;
+    bme680.write = (bme68x_write_fptr_t)&i2c_write;
 
-    bme680.amb_temp = 25;
-    bme680.delay_us = delay_usec;
+    bme680.amb_temp = 20;
+    bme680.delay_us = (bme68x_delay_us_fptr_t)&delay_usec;
 
     int8_t result;
 
@@ -25,32 +25,88 @@ bool BME680::init(const uint attempts) {
         printf("Trying to connect to BME680, attempt %d of %d\n", i + 1, attempts);
 
         result = bme68x_init(&bme680);
-
-        // Re-attempt if different value
+        bme68x_check_rslt("bme68x_init", result);
+        // Re-attempt if error
         if (result != BME68X_OK) {
-            printf("Failed to connect to BME680, received error: %d\n", result);
+            goto retry;
+        }
+
+        result = bme68x_get_conf(&bme680_conf, &bme680);
+        bme68x_check_rslt("bme68x_get_conf", result);
+        // Re-attempt if error
+        if (result != BME68X_OK) {
             goto retry;
         }
 
         printf("BME680 responded successfully\n");
         printf("Initialising settings\n");
 
-        setIIRFilterSize(BME68X_FILTER_SIZE_3);
-        setODR(BME68X_ODR_NONE);
-        setHumidityOversampling(BME68X_OS_2X);
-        setPressureOversampling(BME68X_OS_4X);
-        setTemperatureOversampling(BME68X_OS_8X);
-        setGasHeater(320, 150); // 320*C for 150 ms
+        configure(BME68X_FILTER_OFF, BME68X_ODR_NONE, BME68X_OS_16X, BME68X_OS_1X, BME68X_OS_2X);
 
-        result = bme68x_set_op_mode(BME68X_FORCED_MODE, &bme680);
-
-        // Re-attempt if result is not BME68X_OK
-        if (result != BME68X_OK) {
-            printf("Failed to initialise BME680, received error: %d\n", result);
-            goto retry;
+        if (VERBOSE_PRINT) {
+            printf("T1 = ");
+            printf("%d\n", bme680.calib.par_t1);
+            printf("T2 = ");
+            printf("%d\n", bme680.calib.par_t2);
+            printf("T3 = ");
+            printf("%d\n", bme680.calib.par_t3);
+            printf("P1 = ");
+            printf("%d\n", bme680.calib.par_p1);
+            printf("P2 = ");
+            printf("%d\n", bme680.calib.par_p2);
+            printf("P3 = ");
+            printf("%d\n", bme680.calib.par_p3);
+            printf("P4 = ");
+            printf("%d\n", bme680.calib.par_p4);
+            printf("P5 = ");
+            printf("%d\n", bme680.calib.par_p5);
+            printf("P6 = ");
+            printf("%d\n", bme680.calib.par_p6);
+            printf("P7 = ");
+            printf("%d\n", bme680.calib.par_p7);
+            printf("P8 = ");
+            printf("%d\n", bme680.calib.par_p8);
+            printf("P9 = ");
+            printf("%d\n", bme680.calib.par_p9);
+            printf("P10 = ");
+            printf("%d\n", bme680.calib.par_p10);
+            printf("H1 = ");
+            printf("%d\n", bme680.calib.par_h1);
+            printf("H2 = ");
+            printf("%d\n", bme680.calib.par_h2);
+            printf("H3 = ");
+            printf("%d\n", bme680.calib.par_h3);
+            printf("H4 = ");
+            printf("%d\n", bme680.calib.par_h4);
+            printf("H5 = ");
+            printf("%d\n", bme680.calib.par_h5);
+            printf("H6 = ");
+            printf("%d\n", bme680.calib.par_h6);
+            printf("H7 = ");
+            printf("%d\n", bme680.calib.par_h7);
+            printf("G1 = ");
+            printf("%d\n", bme680.calib.par_gh1);
+            printf("G2 = ");
+            printf("%d\n", bme680.calib.par_gh2);
+            printf("G3 = ");
+            printf("%d\n", bme680.calib.par_gh3);
+            printf("G1 = ");
+            printf("%d\n", bme680.calib.par_gh1);
+            printf("G2 = ");
+            printf("%d\n", bme680.calib.par_gh2);
+            printf("G3 = ");
+            printf("%d\n", bme680.calib.par_gh3);
+            printf("Heat Range = ");
+            printf("%d\n", bme680.calib.res_heat_range);
+            printf("Heat Val = ");
+            printf("%d\n", bme680.calib.res_heat_val);
+            printf("SW Error = ");
+            printf("%d\n", bme680.calib.range_sw_err);
         }
 
+        printf("Initialised BME680\n");
         this->initialised = true;
+
         return true;
 
     retry:
@@ -66,149 +122,64 @@ bool BME680::init(const uint attempts) {
     return false;
 }
 
-bool BME680::updateData() {
-    return false;
-}
+bool BME680::updateData(uint16_t heater_temp, uint16_t heater_duration) {
+    int8_t result = 0;
+    uint8_t n_fields;
+    uint32_t delayPeriod;
+    struct bme68x_data *data;
 
-/*!
- *  @brief  Setter for temperature oversampling, borrowed from Adafruit BME680 library
- *  @param  oversample
- *          Oversampling setting, can be BME68X_OS_NONE (turn off temperature
- * reading), BME68X_OS_1X, BME68X_OS_2X, BME68X_OS_4X, BME68X_OS_8X or
- * BME68X_OS_16X
- *  @return True on success, false on failure
- */
-bool BME680::setTemperatureOversampling(uint8_t oversample) {
-    if (oversample > BME68X_OS_16X)
+    sleep_us(delayPeriod);
+
+    bme680_heater_conf.enable = BME68X_ENABLE;
+    bme680_heater_conf.heatr_temp = heater_temp;
+    bme680_heater_conf.heatr_dur = heater_duration;
+
+    result = bme68x_set_heatr_conf(BME68X_FORCED_MODE, &bme680_heater_conf, &bme680);
+    bme68x_check_rslt("bme68x_set_heatr_conf", result);
+    if (result != BME68X_OK) return false;
+
+    result = bme68x_set_op_mode(BME68X_FORCED_MODE, &bme680);
+    bme68x_check_rslt("bme68x_set_op_mode", result);
+    if (result != BME68X_OK) return false;
+
+    delayPeriod = bme68x_get_meas_dur(BME68X_FORCED_MODE, &bme680_conf, &bme680) + (bme680_heater_conf.heatr_dur * 1000);
+    sleep_us(delayPeriod);
+
+    result = bme68x_get_data(BME68X_FORCED_MODE, data, &n_fields, &bme680);
+    bme68x_check_rslt("bme68x_get_data", result);
+    if (result != BME68X_OK) return false;
+
+    if (result != BME68X_OK)
         return false;
 
-    bme680_conf.os_temp = oversample;
+    if (n_fields) {
+        temperature = data->temperature;
+        humidity = data->humidity;
+        pressure = data->pressure;
 
-    int8_t rslt = bme68x_set_conf(&bme680_conf, &bme680);
-    return rslt == 0;
-}
-
-/*!
- *  @brief  Setter for humidity oversampling, borrowed from Adafruit BME680 library
- *  @param  oversample
- *          Oversampling setting, can be BME68X_OS_NONE (turn off humidity
- * reading), BME68X_OS_1X, BME68X_OS_2X, BME68X_OS_4X, BME68X_OS_8X or
- * BME68X_OS_16X
- *
- * More oversampling = higher power usage
- *  @return True on success, false on failure
- */
-bool BME680::setHumidityOversampling(uint8_t oversample) {
-    if (oversample > BME68X_OS_16X)
-        return false;
-
-    bme680_conf.os_hum = oversample;
-
-    int8_t rslt = bme68x_set_conf(&bme680_conf, &bme680);
-    return rslt == 0;
-}
-
-/*!
- *  @brief  Setter for pressure oversampling, borrowed from Adafruit BME680 library
- *  @param  oversample
- *          Oversampling setting, can be BME68X_OS_NONE (turn off pressure
- * reading), BME68X_OS_1X, BME68X_OS_2X, BME68X_OS_4X, BME68X_OS_8X or
- * BME68X_OS_16X
- *  @return True on success, false on failure
- */
-bool BME680::setPressureOversampling(uint8_t oversample) {
-    if (oversample > BME68X_OS_16X)
-        return false;
-
-    bme680_conf.os_pres = oversample;
-
-    int8_t rslt = bme68x_set_conf(&bme680_conf, &bme680);
-    return rslt == 0;
-}
-
-/*!
- *  @brief  Enable and configure gas reading + heater, borrowed from Adafruit BME680 library
- *  @param  heaterTemp Desired temperature in degrees Centigrade
- *  @param  heaterTime Time to keep heater on in milliseconds
- *  @return True on success, false on failure
- */
-bool BME680::setGasHeater(uint16_t heaterTemp, uint16_t heaterTime) {
-    if ((heaterTemp == 0) || (heaterTime == 0)) {
-        bme680_heater_conf.enable = BME68X_DISABLE;
-    } else {
-        bme680_heater_conf.enable = BME68X_ENABLE;
-        bme680_heater_conf.heatr_temp = heaterTemp;
-        bme680_heater_conf.heatr_dur = heaterTime;
+        if (data->status & (BME68X_HEAT_STAB_MSK | BME68X_GASM_VALID_MSK)) {
+            gas_resistance = data->gas_resistance;
+        } else {
+            gas_resistance = 0;
+        }
     }
 
-    int8_t rslt = bme68x_set_heatr_conf(BME68X_FORCED_MODE, &bme680_heater_conf, &bme680);
-    return rslt == 0;
+    return true;
 }
 
-/*!
- *  @brief  Setter for Output Data Rate, borrowed from Adafruit BME680 library
- *  @param  odr
- *          Output data rate setting, can be BME68X_ODR_NONE,
- * BME68X_ODR_0_59_MS, BME68X_ODR_10_MS, BME68X_ODR_20_MS, BME68X_ODR_62_5_MS,
- * BME68X_ODR_125_MS, BME68X_ODR_250_MS, BME68X_ODR_500_MS, BME68X_ODR_1000_MS
- *  @return True on success, False on failure
- */
-bool BME680::setODR(uint8_t odr) {
-    if (odr > BME68X_ODR_NONE)
-        return false;
+bool BME680::configure(uint8_t filter, uint8_t odr, uint8_t os_humidity, uint8_t os_pressure, uint8_t os_temp) {
+    int8_t result = 0;
 
+    bme680_conf.filter = filter;
     bme680_conf.odr = odr;
+    bme680_conf.os_hum = os_humidity;
+    bme680_conf.os_pres = os_pressure;
+    bme680_conf.os_temp = os_temp;
 
-    int8_t rslt = bme68x_set_conf(&bme680_conf, &bme680);
-    return rslt == 0;
-}
+    bme68x_set_conf(&bme680_conf, &bme680);
+    bme68x_check_rslt("bme68x_set_conf", result);
 
-/*!
- *  @brief  Setter for IIR filter, borrowed from Adafruit BME680 library
- *  @param  filterSize Size of the filter (in samples).
- *          Can be BME68X_FILTER_SIZE_0 (no filtering), BME68X_FILTER_SIZE_1,
- * BME68X_FILTER_SIZE_3, BME68X_FILTER_SIZE_7, BME68X_FILTER_SIZE_15,
- * BME68X_FILTER_SIZE_31, BME68X_FILTER_SIZE_63, BME68X_FILTER_SIZE_127
- *  @return True on success, false on failure
- */
-bool BME680::setIIRFilterSize(uint8_t filterSize) {
-    if (filterSize > BME68X_FILTER_SIZE_127)
-        return false;
+    if (result != BME68X_OK) return false;
 
-    bme680_conf.filter = filterSize;
-
-    int8_t rslt = bme68x_set_conf(&bme680_conf, &bme680);
-    return rslt == 0;
-}
-
-
-int8_t bme680_i2c_read(uint8_t regAddr, uint8_t* regBuf, uint32_t len, void* bmePtr) {
-    BME680* bme = (BME680*)bmePtr;
-
-    int8_t result = bme->readRegister(regAddr, regBuf, len, true);      // Ignore init
-
-    if (result == len) {
-        return 0;
-    }
-
-    // Error
-    return -1;
-}
-
-int8_t bme680_i2c_write(uint8_t regAddr, const uint8_t* regBuf, uint32_t len, void* bmePtr) {
-    BME680* bme = (BME680*)bmePtr;
-
-    int8_t result = bme->writeRegister(regAddr, regBuf, len, true);       // Ignore init
-
-    if (result == len) {
-        return 0;
-    }
-
-    // Error
-    return -1;
-}
-
-static void delay_usec(uint32_t us, void* intf_ptr) {
-    (void)intf_ptr; // Unused parameter
-    sleep_us(us);
+    return true;
 }

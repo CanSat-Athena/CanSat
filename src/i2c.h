@@ -2,7 +2,7 @@
 #include <pico/stdlib.h>
 #include <hardware/i2c.h>
 
-#include "pins.h"
+#include "config.h"
 
 class I2C {
 public:

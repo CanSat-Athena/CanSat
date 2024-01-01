@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 #include "sensor.h"
-#include "pins.h"
+#include "config.h"
 #include "i2c.h"
 
 class I2CSensor : public Sensor {
