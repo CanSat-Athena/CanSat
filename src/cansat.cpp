@@ -1,6 +1,6 @@
 #include <FreeRTOS.h>
-#include <stdio.h>
 #include <task.h>
+#include <stdio.h>
 #include <pico/stdlib.h>
 #include <hardware/exception.h>
 
@@ -18,7 +18,7 @@ BME680* bme;
 /// @brief Setup sensors
 void setup() {
     I2C::init();
-    
+
     // dht = new DHT20();
     bme = new BME680();
 
@@ -31,9 +31,17 @@ void printTask(void* pvParameters) {
         bme->updateData();
 
         // printf("The temperature is: %f C, humidity %f %%\n", dht->temperature, dht->humidity);
-        printf("BME680: \n");
-        vTaskDelay(500);
-        // tight_loop_contents();
+        printf("BME680: last updated: %lu, temp: %.2f, pressure: %.2f, humidity: %.2f, g resistance: %.2f, status: 0x%x, g index: %d, m index: %d\n",
+            bme->lastUpdated,
+            bme->temperature,
+            bme->pressure,
+            bme->humidity,
+            bme->gasResistance,
+            bme->readStatus,
+            bme->gasIndex,
+            bme->measureIndex);
+        // TODO: update to make sure argument is always at least 10
+        vTaskDelay(500 - bme->timeTaken);
     }
 }
 

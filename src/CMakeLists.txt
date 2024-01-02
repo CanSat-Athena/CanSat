@@ -4,8 +4,8 @@ add_executable(cansat
         cansat.cpp
         dht20.cpp
         bme680.cpp
-        BoschBME68XApi/bme68x.c
-        pins.h
+        bme68x/bme68x.cpp
+        bme68x/BoschBME68XApi/bme68x.c
         exceptionHandlers.h
         i2c.h
         )

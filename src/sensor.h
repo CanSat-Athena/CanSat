@@ -8,7 +8,7 @@ protected:
     bool initialised = false;
 
 public:
-    uint64_t lastUpdated;
+    uint32_t lastUpdated;
     
     bool init(const uint attempts = 3) { return false; }
     bool updateData() { return false; }
