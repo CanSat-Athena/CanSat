@@ -4,6 +4,7 @@ add_executable(cansat
         cansat.cpp
         dht20.cpp
         bme680.cpp
+        lightSensor.cpp
         bme68x/bme68x.cpp
         bme68x/BoschBME68XApi/bme68x.c
         exceptionHandlers.h
@@ -30,6 +31,7 @@ target_link_libraries(cansat PUBLIC
         hardware_spi
         hardware_i2c
         hardware_timer
+        hardware_adc
         hardware_watchdog
         hardware_clocks
         hardware_exception

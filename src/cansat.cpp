@@ -19,7 +19,7 @@ BME680* bme;
 void setup() {
     I2C::init();
 
-    // dht = new DHT20();
+    dht = new DHT20();
     bme = new BME680();
 
     puts("Setup complete\n");
@@ -27,10 +27,10 @@ void setup() {
 
 void printTask(void* pvParameters) {
     while (true) {
-        // dht->updateData();
+        dht->updateData();
         bme->updateData();
 
-        // printf("The temperature is: %f C, humidity %f %%\n", dht->temperature, dht->humidity);
+        printf("DHT: temp: %f C, humidity %f %%\n", dht->temperature, dht->humidity);
         printf("BME680: last updated: %lu, temp: %.2f, pressure: %.2f, humidity: %.2f, g resistance: %.2f, status: 0x%x, g index: %d, m index: %d\n",
             bme->lastUpdated,
             bme->temperature,

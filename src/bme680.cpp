@@ -114,6 +114,8 @@ bool BME680::init(const uint attempts) {
 }
 
 bool BME680::updateData(uint16_t heater_temp, uint16_t heater_duration) {
+    if (!initialised) return false;
+    
     absolute_time_t absoluteTime = get_absolute_time();
     uint32_t startOfMeasurement = to_ms_since_boot(absoluteTime);
 
