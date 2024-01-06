@@ -8,19 +8,23 @@
 #include "config.h"
 #include "dht20.h"
 #include "bme680.h"
+#include "lightSensor.h"
 #include "i2c.h"
 
 #define DEBUG_MODE
 
 DHT20* dht;
 BME680* bme;
+LightSensor* light;
 
 /// @brief Setup sensors
 void setup() {
     I2C::init();
+    ADC::init();
 
     dht = new DHT20();
     bme = new BME680();
+    light = new LightSensor();
 
     puts("Setup complete\n");
 }
@@ -29,6 +33,7 @@ void printTask(void* pvParameters) {
     while (true) {
         dht->updateData();
         bme->updateData();
+        light->updateData();
 
         printf("DHT: temp: %f C, humidity %f %%\n", dht->temperature, dht->humidity);
         printf("BME680: last updated: %lu, temp: %.2f, pressure: %.2f, humidity: %.2f, g resistance: %.2f, status: 0x%x, g index: %d, m index: %d\n",
@@ -40,6 +45,8 @@ void printTask(void* pvParameters) {
             bme->readStatus,
             bme->gasIndex,
             bme->measureIndex);
+        printf("Light: ADC value: %d", light->lightValue);
+
         // TODO: update to make sure argument is always at least 10
         vTaskDelay(500 - bme->timeTaken);
     }
