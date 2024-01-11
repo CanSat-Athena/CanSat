@@ -11,7 +11,7 @@ class ADC {
 public:
     /// @brief Initialises ADC
     /// @return True on success
-    static bool init() {        
+    static bool init() {
         adc_init();
         return true;
     }

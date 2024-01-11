@@ -35,6 +35,7 @@ target_link_libraries(cansat PUBLIC
         hardware_watchdog
         hardware_clocks
         hardware_exception
+        hardware_flash
         pico_multicore
         FreeRTOS-Kernel-Heap4
         )

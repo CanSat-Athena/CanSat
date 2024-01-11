@@ -45,7 +45,7 @@ void printTask(void* pvParameters) {
             bme->readStatus,
             bme->gasIndex,
             bme->measureIndex);
-        printf("Light: ADC value: %d", light->lightValue);
+        printf("Light: ADC value: %d\n", light->lightValue);
 
         // TODO: update to make sure argument is always at least 10
         vTaskDelay(500 - bme->timeTaken);
