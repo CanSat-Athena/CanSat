@@ -4,3 +4,6 @@
 [submodule "src/bme68x/BoschBME68XApi"]
 	path = src/bme68x/BoschBME68XApi
 	url = https://github.com/boschsensortec/BME68x-Sensor-API.git
+[submodule "src/littlefs"]
+	path = src/littlefs
+	url = https://github.com/littlefs-project/littlefs.git
