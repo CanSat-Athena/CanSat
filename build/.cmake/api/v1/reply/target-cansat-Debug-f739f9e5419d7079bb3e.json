@@ -43,7 +43,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 28,
+				"line" : 32,
 				"parent" : 0
 			},
 			{
@@ -70,7 +70,7 @@
 			{
 				"command" : 6,
 				"file" : 0,
-				"line" : 46,
+				"line" : 50,
 				"parent" : 0
 			},
 			{
@@ -98,7 +98,7 @@
 			{
 				"command" : 7,
 				"file" : 0,
-				"line" : 23,
+				"line" : 27,
 				"parent" : 0
 			},
 			{
@@ -110,7 +110,7 @@
 			{
 				"command" : 9,
 				"file" : 0,
-				"line" : 14,
+				"line" : 18,
 				"parent" : 0
 			}
 		]
@@ -602,7 +602,9 @@
 				2,
 				3,
 				4,
-				49
+				5,
+				6,
+				53
 			]
 		},
 		{
@@ -1069,17 +1071,15 @@
 			},
 			"sourceIndexes" : 
 			[
-				5,
+				7,
 				8,
 				9,
-				10,
-				11,
 				12,
 				13,
+				14,
 				15,
 				16,
 				17,
-				18,
 				19,
 				20,
 				21,
@@ -1092,18 +1092,18 @@
 				28,
 				29,
 				30,
+				31,
 				32,
 				33,
-				35,
-				38,
+				34,
+				36,
+				37,
 				39,
+				42,
 				43,
-				44,
-				46,
+				47,
+				48,
 				50,
-				51,
-				52,
-				53,
 				54,
 				55,
 				56,
@@ -1140,7 +1140,11 @@
 				87,
 				88,
 				89,
-				90
+				90,
+				91,
+				92,
+				93,
+				94
 			]
 		},
 		{
@@ -1599,17 +1603,17 @@
 			"language" : "ASM",
 			"sourceIndexes" : 
 			[
-				14,
-				31,
-				34,
-				36,
-				37,
+				18,
+				35,
+				38,
 				40,
 				41,
-				42,
+				44,
 				45,
-				47,
-				48
+				46,
+				49,
+				51,
+				52
 			]
 		}
 	],
@@ -2484,16 +2488,16 @@
 				3,
 				4,
 				5,
+				6,
+				7,
 				8,
 				9,
-				10,
-				11,
 				12,
 				13,
+				14,
 				15,
 				16,
 				17,
-				18,
 				19,
 				20,
 				21,
@@ -2506,18 +2510,18 @@
 				28,
 				29,
 				30,
+				31,
 				32,
 				33,
-				35,
-				38,
+				34,
+				36,
+				37,
 				39,
+				42,
 				43,
-				44,
-				46,
-				49,
+				47,
+				48,
 				50,
-				51,
-				52,
 				53,
 				54,
 				55,
@@ -2555,32 +2559,36 @@
 				87,
 				88,
 				89,
-				90
+				90,
+				91,
+				92,
+				93,
+				94
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				6,
-				7
+				10,
+				11
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				14,
-				31,
-				34,
-				36,
-				37,
+				18,
+				35,
+				38,
 				40,
 				41,
-				42,
+				44,
 				45,
-				47,
-				48
+				46,
+				49,
+				51,
+				52
 			]
 		}
 	],
@@ -2613,6 +2621,18 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
+			"path" : "src/filesystem.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/littlefs.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "src/bme68x/bme68x.cpp",
 			"sourceGroupIndex" : 0
 		},
@@ -2620,6 +2640,18 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
 			"path" : "src/bme68x/BoschBME68XApi/bme68x.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "src/littlefs/lfs.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "src/littlefs/lfs_util.c",
 			"sourceGroupIndex" : 0
 		},
 		{

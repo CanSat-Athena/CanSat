@@ -5,8 +5,12 @@ add_executable(cansat
         dht20.cpp
         bme680.cpp
         lightSensor.cpp
+        filesystem.cpp
+        littlefs.cpp
         bme68x/bme68x.cpp
         bme68x/BoschBME68XApi/bme68x.c
+        littlefs/lfs.c
+        littlefs/lfs_util.c
         exceptionHandlers.h
         i2c.h
         )

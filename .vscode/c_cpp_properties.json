@@ -1,18 +1,22 @@
 {
-  "configurations": [
-    {
-      "name": "Linux",
-      "includePath": [
-        "${workspaceFolder}/**",
-        "${env:PICO_SDK_PATH}/**"
-      ],
-      "defines": [],
-      "compilerPath": "/usr/lib64/ccache/arm-none-eabi-gcc",
-      "cStandard": "gnu17",
-      "cppStandard": "gnu++14",
-      "intelliSenseMode": "linux-gcc-arm",
-      "configurationProvider" : "ms-vscode.cmake-tools"
-    }
-  ],
-  "version": 4
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:PICO_SDK_PATH}/**",
+                "${env:PICO_SDK_PATH}/src/common/pico_time/include",
+                "${env:PICO_SDK_PATH}/src/common/pico_sync/include",
+                "${env:PICO_SDK_PATH}/src/host/hardware_sync/include",
+                "${env:PICO_SDK_PATH}/src/rp2040/hardware_regs/include",
+                "${env:PICO_SDK_PATH}/src/rp2_common/hardware_flash/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/lib64/ccache/arm-none-eabi-gcc",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-arm"
+        }
+    ],
+    "version": 4
 }

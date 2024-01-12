@@ -34,7 +34,7 @@ bool BME680::init(const uint attempts) {
 
         configure(BME68X_FILTER_OFF, BME68X_ODR_NONE, BME68X_OS_16X, BME68X_OS_1X, BME68X_OS_2X);
 
-        if (VERBOSE_PRINT) {
+        if (EXTRA_VERBOSE_BME680) {
             printf("T1 = ");
             printf("%d\n", bme68x->device.calib.par_t1);
             printf("T2 = ");
