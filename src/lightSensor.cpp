@@ -7,6 +7,7 @@ bool LightSensor::init(const uint attempts) {
     ADC::init();
     ADC::initGPIO(LIGHT_SENSOR_GPIO);
     this->initialised = true;
+    printf("Light:      Initialised\n");
 
     return true;
 }

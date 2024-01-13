@@ -21,30 +21,30 @@ bool DHT20::init(const uint attempts) {
     uint8_t status;
 
     for (int i = 0; i < attempts; i++) {
-        printf("Trying to connect to DHT20, attempt %d of %d\n", i + 1, attempts);
+        printf("DHT20:      Trying to connect, attempt %d of %d\n", i + 1, attempts);
 
         // Perform soft reset
-        printf("Attempting DHT20 reset\n");
+        printf("DHT20:      Attempting reset\n");
         i2c_write_timeout_per_char_us(I2C_PORT, i2cAddress, &softResetCmd, 1, false, I2C_PER_CHAR_TIMEOUT_US);
         sleep_ms(20);
 
         // Re-attempt if timeout
         if (!waitForProcessing(false)) {
-            printf("DHT20 connection timeout\n");
+            printf("DHT20:      Connection timeout\n");
             goto retry;
         }
 
         // Attempt calibration
-        printf("Attempting calibration\n");
+        printf("DHT20:      Attempting calibration\n");
         i2c_write_timeout_per_char_us(I2C_PORT, i2cAddress, calibrateCmd, 3, false, I2C_PER_CHAR_TIMEOUT_US);
 
         // Re-attempt if timeout
         if (!waitForProcessing(false)) {
-            printf("DHT20 connection timeout\n");
+            printf("DHT20:      Connection timeout\n");
             sleep_ms(2000);
 
             if (i < attempts - 1)
-                printf("Retrying...\n");
+                printf("DHT20:      Retrying...\n");
 
             continue;
         }
@@ -53,11 +53,11 @@ bool DHT20::init(const uint attempts) {
 
         // Re-attempt if not calibrated
         if (!(status & DHT20_STATUS_CALIBRATED)) {
-            printf("DHT20 calibration error\n");
+            printf("DHT20:      Calibration error\n");
             goto retry;
         }
 
-        printf("DHT20 responded successfully; I2C status: 0x%x\n", status);
+        printf("DHT20:      Initialised successfully; I2C status: 0x%x\n", status);
 
         this->initialised = true;
         return true;
@@ -66,11 +66,11 @@ bool DHT20::init(const uint attempts) {
         // Delay and print retrying message if failed
         if (i < attempts - 1) {
             sleep_ms(2000);
-            printf("Retrying...\n");
+            printf("DHT20:      Retrying...\n");
         }
     }
 
-    printf("Failed to initialise DHT20\n");
+    printf("DHT20:      Failed to initialise\n");
 
     return false;
 }

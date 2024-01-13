@@ -12,12 +12,12 @@ bool BME680::init(const uint attempts) {
     int8_t result;
 
     for (int i = 0; i < attempts; i++) {
-        printf("Trying to connect to BME680, attempt %d of %d\n", i + 1, attempts);
+        printf("BME680:     Trying to connect, attempt %d of %d\n", i + 1, attempts);
 
         result = bme68x->init();
         // Re-attempt if error
         if (!result) {
-            printf("Failed at BME680 init()\n");
+            printf("BME680:     Failed at init()\n");
             goto retry;
         }
 
@@ -25,12 +25,12 @@ bool BME680::init(const uint attempts) {
         bme68x->bme68x_check_rslt("bme68x_get_conf", result);
         // Re-attempt if error
         if (result != BME68X_OK) {
-            printf("Failed at bme68x_get_conf()\n");
+            printf("BME680:     Failed at bme68x_get_conf()\n");
             goto retry;
         }
 
-        printf("BME680 responded successfully\n");
-        printf("Initialising settings\n");
+        printf("BME680:     Responded successfully\n");
+        printf("BME680:     Initialising settings\n");
 
         configure(BME68X_FILTER_OFF, BME68X_ODR_NONE, BME68X_OS_16X, BME68X_OS_1X, BME68X_OS_2X);
 
@@ -95,7 +95,7 @@ bool BME680::init(const uint attempts) {
             printf("%d\n", bme68x->device.calib.range_sw_err);
         }
 
-        printf("Initialised BME680\n");
+        printf("BME680:     Initialised successfully\n");
         this->initialised = true;
 
         return true;
@@ -104,11 +104,11 @@ bool BME680::init(const uint attempts) {
         // Delay and print retrying message if failed
         if (i < attempts - 1) {
             sleep_ms(2000);
-            printf("Retrying...\n");
+            printf("BME680:     Retrying...\n");
         }
     }
 
-    printf("Failed to initialise BME680\n");
+    printf("BME680:     Failed to initialise\n");
 
     return false;
 }

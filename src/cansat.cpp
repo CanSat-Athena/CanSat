@@ -17,19 +17,23 @@
 DHT20* dht;
 BME680* bme;
 LightSensor* light;
+Filesystem* fs;
 
 /// @brief Setup sensors
 void setup() {
+    printf("------------------\n");
     I2C::init();
     ADC::init();
 
+    // Set up filesystem
+    fs = new Filesystem();
+
+    // Set up sensors
     dht = new DHT20();
     bme = new BME680();
     light = new LightSensor();
 
-    fs();
-
-    puts("Setup complete\n");
+    printf("Setup complete\n------------------\n");
 }
 
 void printTask(void* pvParameters) {
