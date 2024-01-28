@@ -70,7 +70,7 @@ void Filesystem::nuke() {
     }
 }
 
-void Filesystem::destroy() {
+void Filesystem::uninit() {
     // Unmount filesystem
     lfs_unmount(&lfs);
 

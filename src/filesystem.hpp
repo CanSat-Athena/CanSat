@@ -14,7 +14,7 @@ public:
     }
 
     ~Filesystem() {
-        this->destroy();
+        this->uninit();
     }
 
     /// @brief Initialises (mounts) the filesystem
@@ -22,8 +22,9 @@ public:
     bool init();
 
     /// @brief Uninitialises (unmounts) the filesystem
-    void destroy();
+    void uninit();
 
     /// @brief Erases the filesystem
     void nuke();
+
 };

@@ -21,7 +21,6 @@ protected:
 public:
     float temperature = 0;
     float humidity = 0;
-    uint64_t lastUpdated;
 
     DHT20(bool initialise = true);
 

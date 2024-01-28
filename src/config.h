@@ -13,7 +13,18 @@
 #define FS_SIZE (256 * 1024)
 // #define NUKE_FS_ON_NEXT_BOOT
 
-// Use when debugging
-#define VERBOSE_PRINT true
+// Sensor read frequencies
+#define DHT20_READ_FREQ 1
+#define BME680_READ_FREQ 2
+#define LIGHT_READ_FREQ 10
 
+// Sensor delay times (ms)
+#define DHT20_READ_TIME 1000 / DHT20_READ_FREQ
+#define BME680_READ_TIME 1000 / BME680_READ_FREQ
+#define LIGHT_READ_TIME 1000 / LIGHT_READ_FREQ
+
+// Use when debugging
+#define DEBUG_MODE
+
+#define VERBOSE_PRINT true
 #define EXTRA_VERBOSE_BME680 false

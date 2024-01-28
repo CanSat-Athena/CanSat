@@ -1,5 +1,5 @@
 #pragma once
-#include "pico/stdlib.h"
+#include <pico/stdlib.h>
 #include <stdio.h>
 
 #include "config.h"
@@ -11,8 +11,9 @@ protected:
 public:
     uint32_t lastUpdated;
     
-    bool init(const uint attempts = 3) { return false; }
-    bool updateData() { return false; }
+    virtual bool init(const uint attempts = 3) { return false; }
+    virtual bool updateData() { return false; }
+    virtual void getData(void* dataStruct) {}
 
     /// @brief Checks if the sensor is initialised
     /// @return true if the sensor has been initialised

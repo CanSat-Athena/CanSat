@@ -11,8 +11,7 @@
 #include "lightSensor.h"
 #include "i2c.h"
 #include "filesystem.hpp"
-
-#define DEBUG_MODE
+#include "commonTypes.h"
 
 DHT20* dht;
 BME680* bme;
@@ -59,6 +58,28 @@ void printTask(void* pvParameters) {
     }
 }
 
+void sensorReadTask(void* pvParameters) {
+    TickType_t lastStartTime;
+    sensor_t* sensor = (sensor_t*)pvParameters;
+
+    while (true) {
+        // Get start time
+        lastStartTime = xTaskGetTickCount();
+
+        // Read data
+        printf("Reading from %s\n", sensor->name);
+        sensor->sensor->updateData();
+
+        // Dump data to queue
+        // TODO
+        // xQueueSendToBack();
+
+        // Delay
+        vTaskDelayUntil(&lastStartTime, DHT20_READ_TIME);
+    }
+
+}
+
 int main() {
     stdio_init_all();
 
@@ -68,8 +89,17 @@ int main() {
     setup();
 
     TaskHandle_t printTaskHandle;
-
     xTaskCreate(printTask, "print", 512, NULL, 2, &printTaskHandle);
+
+    sensor_t dht20 = {
+        dht,
+        (char*)"DHT20",
+        NULL,
+        DHT20_READ_FREQ,
+        DHT20_READ_TIME
+    };
+    TaskHandle_t dht20ReadTask;
+    xTaskCreate(sensorReadTask, "DHT20 read", 512, &dht20, 2, &dht20ReadTask);
 
     vTaskStartScheduler();
     return 0;
