@@ -11,12 +11,14 @@
 #include "lightSensor.h"
 #include "i2c.h"
 #include "filesystem.hpp"
+#include "dataHandler.h"
 #include "commonTypes.h"
 
 DHT20* dht;
 BME680* bme;
 LightSensor* light;
 Filesystem* fs;
+DataHandler* datahandler;
 
 /// @brief Setup sensors
 void setup() {
@@ -31,6 +33,9 @@ void setup() {
     dht = new DHT20();
     bme = new BME680();
     light = new LightSensor();
+
+    // Set up data handler
+    datahandler = new DataHandler();
 
     printf("Setup complete\n------------------\n");
 }
@@ -71,13 +76,12 @@ void sensorReadTask(void* pvParameters) {
         sensor->sensor->updateData();
 
         // Dump data to queue
-        // TODO
-        // xQueueSendToBack();
+        sensorData_t data = sensor->sensor->getData();
+        xQueueSendToBack(*(sensor->queue), &data, 10);
 
         // Delay
         vTaskDelayUntil(&lastStartTime, DHT20_READ_TIME);
     }
-
 }
 
 int main() {
@@ -92,11 +96,11 @@ int main() {
     xTaskCreate(printTask, "print", 512, NULL, 2, &printTaskHandle);
 
     sensor_t dht20 = {
-        dht,
-        (char*)"DHT20",
-        NULL,
-        DHT20_READ_FREQ,
-        DHT20_READ_TIME
+        .sensor = dht,
+        .name = (char*)"DHT20",
+        .queue =  &(datahandler->dht20Queue),
+        .updateFreq = DHT20_READ_FREQ,
+        .updateTime = DHT20_READ_TIME
     };
     TaskHandle_t dht20ReadTask;
     xTaskCreate(sensorReadTask, "DHT20 read", 512, &dht20, 2, &dht20ReadTask);

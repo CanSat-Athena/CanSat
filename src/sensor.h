@@ -1,8 +1,11 @@
 #pragma once
 #include <pico/stdlib.h>
 #include <stdio.h>
+#include <FreeRTOS.h>
+#include <queue.h>
 
 #include "config.h"
+#include "commonTypes.h"
 
 class Sensor {
 protected:
@@ -13,7 +16,7 @@ public:
     
     virtual bool init(const uint attempts = 3) { return false; }
     virtual bool updateData() { return false; }
-    virtual void getData(void* dataStruct) {}
+    virtual sensorData_t getData() {return sensorData_t {};}
 
     /// @brief Checks if the sensor is initialised
     /// @return true if the sensor has been initialised
@@ -21,3 +24,17 @@ public:
         return initialised;
     }
 };
+
+typedef struct sensor_t {
+    Sensor* sensor;
+
+    // Readable name, used for print statements
+    char* name;
+
+    // FreeRTOS queue to dump data onto
+    QueueHandle_t* queue;
+
+    // Update intervals
+    uint16_t updateFreq;
+    uint16_t updateTime;
+} sensor_t;

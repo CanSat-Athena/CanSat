@@ -114,6 +114,22 @@ bool DHT20::updateData() {
     return true;
 }
 
+sensorData_t DHT20::getData() {
+    // ds = new dht20Data_t {
+    //     .temperature = this->temperature,
+    //     .humidity = this->humidity,
+    //     .lastUpdated = this->lastUpdated
+    // };
+
+    return sensorData_t{
+        .dht20 = dht20Data_t {
+            .temperature = this->temperature,
+            .humidity = this->humidity,
+            .lastUpdated = this->lastUpdated
+        }
+    };
+}
+
 /// @brief Wait for DHT20 status busy pin to return to 0
 /// @param useRTOSDelay Determines whether `vTaskDelay` or `sleep_ms` should be used - defaults to true
 /// @return True on success, false if exceeded the I2C timeout

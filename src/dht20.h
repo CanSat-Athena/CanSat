@@ -5,6 +5,7 @@
 #include <task.h>
 
 #include "i2cSensor.h"
+#include "commonTypes.h"
 
 #define DHT20_STATUSWORD_REG    0x71
 #define DHT20_CALIBRATE_CMD     0xE1
@@ -26,4 +27,5 @@ public:
 
     bool init(const uint attempts = 3);
     bool updateData();
+    sensorData_t getData();
 };

@@ -3,22 +3,7 @@
 #include <FreeRTOS.h>
 #include <queue.h>
 
-#include "sensor.h"
-
-typedef struct sensor_t {
-    Sensor* sensor;
-
-    // Readable name, used for print statements
-    char* name;
-
-    // FreeRTOS queue to dump data onto
-    QueueHandle_t* queue;
-
-    // Update intervals
-    uint16_t updateFreq;
-    uint16_t updateTime;
-} sensor_t;
-
+// #include "sensor.h"
 
 /*
    Sensor Data Structs
@@ -47,3 +32,9 @@ typedef struct lightData_t {
     uint16_t lightIntensity;
     uint64_t lastUpdated;
 } lightData_t;
+
+typedef union sensorData_t {
+    dht20Data_t dht20;
+    bme680Data_t bme680;
+    lightData_t lightData;
+} sensorData_t;
