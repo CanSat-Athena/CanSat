@@ -36,6 +36,12 @@ public:
     }
 
     bool init(const uint attempts = 3);
-    bool updateData(uint16_t heater_temp = 300, uint16_t heater_duration = 100);
+    bool updateData(uint16_t heater_temp, uint16_t heater_duration);
+    bool updateData() {
+        return this->updateData(300, 100);
+    }
+
     bool configure(uint8_t filter, uint8_t odr, uint8_t os_humidity, uint8_t os_pressure, uint8_t os_temp);
+
+    sensorData_t getData();
 };

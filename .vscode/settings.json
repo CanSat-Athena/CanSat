@@ -95,6 +95,6 @@
     "sync.h": "c",
     "gpio.h": "c"
   },
-  "cortex-debug.variableUseNaturalFormat": false,
+  "cortex-debug.variableUseNaturalFormat": true,
   "C_Cpp.errorSquiggles": "enabled",
 }

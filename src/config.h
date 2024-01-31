@@ -15,7 +15,7 @@
 
 // Sensor read frequencies
 #define DHT20_READ_FREQ 1
-#define BME680_READ_FREQ 2
+#define BME680_READ_FREQ 1
 #define LIGHT_READ_FREQ 10
 
 // Sensor delay times (ms)

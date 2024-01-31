@@ -80,7 +80,7 @@ void sensorReadTask(void* pvParameters) {
         xQueueSendToBack(*(sensor->queue), &data, 10);
 
         // Delay
-        vTaskDelayUntil(&lastStartTime, DHT20_READ_TIME);
+        vTaskDelayUntil(&lastStartTime, sensor->updateTime);
     }
 }
 
@@ -92,18 +92,38 @@ int main() {
 
     setup();
 
-    TaskHandle_t printTaskHandle;
-    xTaskCreate(printTask, "print", 512, NULL, 2, &printTaskHandle);
+    // TaskHandle_t printTaskHandle;
+    // xTaskCreate(printTask, "print", 512, NULL, 2, &printTaskHandle);
 
-    sensor_t dht20 = {
-        .sensor = dht,
-        .name = (char*)"DHT20",
-        .queue =  &(datahandler->dht20Queue),
-        .updateFreq = DHT20_READ_FREQ,
-        .updateTime = DHT20_READ_TIME
+    // sensor_t dht20 = {
+    //     .sensor = dht,
+    //     .name = (char*)"DHT20",
+    //     .queue =  &(datahandler->dht20Queue),
+    //     .updateFreq = DHT20_READ_FREQ,
+    //     .updateTime = DHT20_READ_TIME
+    // };
+    // TaskHandle_t dht20ReadTask;
+    // xTaskCreate(sensorReadTask, "DHT20 read", 512, &dht20, 2, &dht20ReadTask);
+
+    sensor_t bme680 = {
+        .sensor = bme,
+        .name = (char*)"BME680",
+        .queue =  &(datahandler->bme680Queue),
+        .updateFreq = BME680_READ_FREQ,
+        .updateTime = BME680_READ_TIME
     };
-    TaskHandle_t dht20ReadTask;
-    xTaskCreate(sensorReadTask, "DHT20 read", 512, &dht20, 2, &dht20ReadTask);
+    TaskHandle_t bme680ReadTask;
+    xTaskCreate(sensorReadTask, "BME680 read", 512, &bme680, 3, &bme680ReadTask);
+
+    sensor_t light = {
+        .sensor = bme,
+        .name = (char*)"Light",
+        .queue =  &(datahandler->lightQueue),
+        .updateFreq = LIGHT_READ_FREQ,
+        .updateTime = LIGHT_READ_TIME
+    };
+    TaskHandle_t lightReadTask;
+    xTaskCreate(sensorReadTask, "Light sensor read", 512, &light, 2, &lightReadTask);
 
     vTaskStartScheduler();
     return 0;

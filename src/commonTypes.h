@@ -13,7 +13,7 @@
 typedef struct dht20Data_t {
     float temperature;
     float humidity;
-    uint64_t lastUpdated;
+    uint32_t lastUpdated;
 } dht20Data_t;
 
 typedef struct bme680Data_t {
@@ -25,12 +25,12 @@ typedef struct bme680Data_t {
     uint8_t measureIndex;
     uint32_t timeTaken;
     uint8_t readStatus;
-    uint8_t lastUpdated;
+    uint32_t lastUpdated;
 } bme680Data_t;
 
 typedef struct lightData_t {
     uint16_t lightIntensity;
-    uint64_t lastUpdated;
+    uint32_t lastUpdated;
 } lightData_t;
 
 typedef union sensorData_t {
