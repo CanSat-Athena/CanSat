@@ -63,17 +63,13 @@ bool BME68X::read_forced(bme68x_data* data, uint16_t heater_temp, uint16_t heate
     if (result != BME68X_OK) return false;
 
     delay_period = bme68x_get_meas_dur(BME68X_FORCED_MODE, &conf, &device) + (heatr_conf.heatr_dur * 1000);
-    
-    vTaskDelay(delay_period / 1000 + 10);
 
-    for (int i = 0; i < 5; i++) {
-        result = bme68x_get_data(BME68X_FORCED_MODE, data, &n_fields, &device);
-        bme68x_check_rslt("bme68x_get_data", result);
-        if (result == BME68X_OK) break;
-        vTaskDelay(1);
-    }
+    vTaskDelay(delay_period / 1000 + 5);
+
+    result = bme68x_get_data(BME68X_FORCED_MODE, data, &n_fields, &device);
+    bme68x_check_rslt("bme68x_get_data", result);
     if (result != BME68X_OK) return false;
-    
+
     return true;
 }
 
