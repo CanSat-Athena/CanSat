@@ -109,18 +109,14 @@ bool DHT20::updateData() {
     // Update data
     temperature = ((float)temperatureBuf * 200 / 0x100000) - 50;
     humidity = ((float)humidityBuf * 100) / 0x100000;
-    lastUpdated = 0;        // To be changed
+
+    auto absoluteTime = get_absolute_time();
+    lastUpdated = to_ms_since_boot(absoluteTime);
 
     return true;
 }
 
 sensorData_t DHT20::getData() {
-    // ds = new dht20Data_t {
-    //     .temperature = this->temperature,
-    //     .humidity = this->humidity,
-    //     .lastUpdated = this->lastUpdated
-    // };
-
     return sensorData_t{
         .dht20 = dht20Data_t {
             .temperature = this->temperature,

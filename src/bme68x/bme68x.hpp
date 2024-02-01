@@ -16,6 +16,7 @@
 #include "stdio.h"
 
 #include "config.h"
+#include "globals.h"
 
 class BME68X {
 public:

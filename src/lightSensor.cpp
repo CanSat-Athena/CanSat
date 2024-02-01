@@ -16,6 +16,8 @@ bool LightSensor::init(const uint attempts) {
 /// @return True on success
 bool LightSensor::updateData() {
     if (!initialised) return false;
+    if (xSemaphoreTake(sensorReadMutex, (TickType_t)BME680_READ_TIME) != pdTRUE) return false;
+
     lightValue = ADC::readADC(LIGHT_SENSOR_GPIO);
 
     return true;

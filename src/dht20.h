@@ -6,6 +6,7 @@
 
 #include "i2cSensor.h"
 #include "commonTypes.h"
+#include "globals.h"
 
 #define DHT20_STATUSWORD_REG    0x71
 #define DHT20_CALIBRATE_CMD     0xE1

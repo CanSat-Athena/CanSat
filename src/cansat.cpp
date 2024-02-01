@@ -13,12 +13,15 @@
 #include "filesystem.hpp"
 #include "dataHandler.h"
 #include "commonTypes.h"
+#include "globals.h"
 
 DHT20* dht;
 BME680* bme;
 LightSensor* light;
 Filesystem* fs;
 DataHandler* datahandler;
+
+SemaphoreHandle_t sensorReadMutex;
 
 /// @brief Setup sensors
 void setup() {
@@ -84,6 +87,12 @@ void sensorReadTask(void* pvParameters) {
     }
 }
 
+void initTask(void* pvParameters) {
+    sensorReadMutex = xSemaphoreCreateMutex();
+
+    vTaskDelete(NULL);
+}
+
 int main() {
     stdio_init_all();
 
@@ -92,18 +101,20 @@ int main() {
 
     setup();
 
+    xTaskCreate(initTask, "init", 512, NULL, 5, NULL);
+
     // TaskHandle_t printTaskHandle;
     // xTaskCreate(printTask, "print", 512, NULL, 2, &printTaskHandle);
 
-    // sensor_t dht20 = {
-    //     .sensor = dht,
-    //     .name = (char*)"DHT20",
-    //     .queue =  &(datahandler->dht20Queue),
-    //     .updateFreq = DHT20_READ_FREQ,
-    //     .updateTime = DHT20_READ_TIME
-    // };
-    // TaskHandle_t dht20ReadTask;
-    // xTaskCreate(sensorReadTask, "DHT20 read", 512, &dht20, 2, &dht20ReadTask);
+    sensor_t dht20 = {
+        .sensor = dht,
+        .name = (char*)"DHT20",
+        .queue =  &(datahandler->dht20Queue),
+        .updateFreq = DHT20_READ_FREQ,
+        .updateTime = DHT20_READ_TIME
+    };
+    TaskHandle_t dht20ReadTask;
+    xTaskCreate(sensorReadTask, "DHT20 read", 512, &dht20, 2, &dht20ReadTask);
 
     sensor_t bme680 = {
         .sensor = bme,
@@ -115,15 +126,15 @@ int main() {
     TaskHandle_t bme680ReadTask;
     xTaskCreate(sensorReadTask, "BME680 read", 512, &bme680, 3, &bme680ReadTask);
 
-    sensor_t light = {
-        .sensor = bme,
+    sensor_t lightSensor = {
+        .sensor = light,
         .name = (char*)"Light",
         .queue =  &(datahandler->lightQueue),
         .updateFreq = LIGHT_READ_FREQ,
         .updateTime = LIGHT_READ_TIME
     };
     TaskHandle_t lightReadTask;
-    xTaskCreate(sensorReadTask, "Light sensor read", 512, &light, 2, &lightReadTask);
+    xTaskCreate(sensorReadTask, "Light sensor read", 512, &lightSensor, 2, &lightReadTask);
 
     vTaskStartScheduler();
     return 0;
