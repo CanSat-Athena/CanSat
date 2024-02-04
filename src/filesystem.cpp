@@ -1,63 +1,100 @@
 #include "filesystem.hpp"
 
-// void fs() {
-//     lfs_t lfs;
-//     lfs_file_t file;
+int Filesystem::ls(const char* path) {
+    lfs_dir_t dir;
+    int err = lfs_dir_open(&lfs, &dir, path);
+    if (err) {
+        return err;
+    }
 
-// #ifdef NUKE_FS_ON_NEXT_BOOT
-// #endif
+    struct lfs_info info;
 
-//     printf("Setting up filesystem\n");
+    // Loop over each file
+    while (true) {
+        int res = lfs_dir_read(&lfs, &dir, &info);
+        if (res < 0) {
+            return res;
+        }
 
-//     // mount the filesystem
-//     int err = lfs_mount(&lfs, &pico_cfg);
+        if (res == 0) {
+            break;
+        }
 
-//     // reformat if we can't mount the filesystem
-//     // this should only happen on the first boot
-//     if (err) {
-//         printf("Reformatting...");
-//         lfs_format(&lfs, &pico_cfg);
-//         lfs_mount(&lfs, &pico_cfg);
-//     }
+        // Get if file, directory or other
+        switch (info.type) {
+        case LFS_TYPE_REG: printf("reg "); break;
+        case LFS_TYPE_DIR: printf("dir "); break;
+        default:           printf("?   "); break;
+        }
 
-//     // read current count
-//     uint32_t boot_count = 0;
-//     lfs_file_open(&lfs, &file, "boot_count", LFS_O_RDWR | LFS_O_CREAT);
-//     lfs_file_read(&lfs, &file, &boot_count, sizeof(boot_count));
+        static const char* prefixes[] = { "", "K", "M", "G" };
+        for (int i = sizeof(prefixes) / sizeof(prefixes[0]) - 1; i >= 0; i--) {
+            if (info.size >= (1 << 10 * i) - 1) {
+                printf("%*u%sB ", 4 - (i != 0), info.size >> 10 * i, prefixes[i]);
+                break;
+            }
+        }
 
-//     // update boot count
-//     boot_count += 1;
-//     lfs_file_rewind(&lfs, &file);
-//     lfs_file_write(&lfs, &file, &boot_count, sizeof(boot_count));
+        // Print file
+        printf("%s\n", info.name);
+    }
 
-//     // remember the storage is not updated until the file is closed successfully
-//     lfs_file_close(&lfs, &file);
+    // Close directory
+    err = lfs_dir_close(&lfs, &dir);
+    if (err) {
+        return err;
+    }
 
-//     // release any resources used
-//     lfs_unmount(&lfs);
-
-//     // print the boot count
-//     printf("boot_count: %d\n", boot_count);
-// }
+    return 0;
+}
 
 bool Filesystem::init() {
     printf("Filesystem: Setting up\n");
 
+#ifdef NUKE_FS_ON_NEXT_BOOT
+    printf("Filesystem: Reformatting...\n");
+    lfs_format(&lfs, &pico_cfg);
+#endif
+
     // mount the filesystem
     int err = lfs_mount(&lfs, &pico_cfg);
 
-    // reformat if we can't mount the filesystem
-    // this should only happen on the first boot
     if (err) {
+        printf("Filesystem: Failed to mount\n");
         printf("Filesystem: Reformatting...\n");
         lfs_format(&lfs, &pico_cfg);
-        lfs_mount(&lfs, &pico_cfg);
+        err = lfs_mount(&lfs, &pico_cfg);
     }
+
+#ifdef NUKE_FS_ON_NEXT_BOOT
+    ls(&lfs, "/");
+    while (true) tight_loop_contents();
+#endif
 
     printf("Filesystem: Initialised\n");
 
-    this->initialised = true;
+    lfs_file_open(&lfs, &bootCountFile, "boot_count", LFS_O_RDWR | LFS_O_CREAT);
+    lfs_file_read(&lfs, &bootCountFile, &(this->bootCount), sizeof(bootCount));
 
+    // update boot count
+    bootCount += 1;
+    lfs_file_rewind(&lfs, &bootCountFile);
+    lfs_file_write(&lfs, &bootCountFile, &bootCount, sizeof(bootCount));
+
+    // The storage is not updated until the file is closed successfully (or synced)
+    lfs_file_close(&lfs, &bootCountFile);
+    printf("Filesystem: boot_count updated, new boot count is %u\n", bootCount);
+
+    // Create data file
+    char dataFileName[70];
+    sprintf(dataFileName, "data_%u", this->bootCount);
+    printf("Filesystem: Created file %s\n", dataFileName);
+    lfs_file_open(&lfs, &dataFile, dataFileName, LFS_O_RDWR | LFS_O_CREAT | LFS_O_APPEND | LFS_O_TRUNC);
+    lfs_file_sync(&lfs, &dataFile);
+
+    ls("/");
+
+    this->initialised = true;
     return true;
 }
 

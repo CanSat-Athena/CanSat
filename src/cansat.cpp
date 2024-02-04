@@ -10,7 +10,6 @@
 #include "bme680.h"
 #include "lightSensor.h"
 #include "i2c.h"
-#include "filesystem.hpp"
 #include "dataHandler.h"
 #include "commonTypes.h"
 #include "globals.h"
@@ -18,19 +17,14 @@
 DHT20* dht;
 BME680* bme;
 LightSensor* light;
-Filesystem* fs;
 DataHandler* datahandler;
-
-SemaphoreHandle_t sensorReadMutex;
 
 /// @brief Setup sensors
 void setup() {
+    sleep_ms(500);
     printf("------------------\n");
     I2C::init();
     ADC::init();
-
-    // Set up filesystem
-    fs = new Filesystem();
 
     // Set up sensors
     dht = new DHT20();
@@ -40,6 +34,7 @@ void setup() {
     // Set up data handler
     datahandler = new DataHandler();
 
+    // sleep_ms(500);
     printf("Setup complete\n------------------\n");
 }
 
@@ -87,12 +82,6 @@ void sensorReadTask(void* pvParameters) {
     }
 }
 
-void initTask(void* pvParameters) {
-    sensorReadMutex = xSemaphoreCreateMutex();
-
-    vTaskDelete(NULL);
-}
-
 int main() {
     stdio_init_all();
 
@@ -100,8 +89,6 @@ int main() {
     exception_set_exclusive_handler(HARDFAULT_EXCEPTION, hardfault_handler);
 
     setup();
-
-    xTaskCreate(initTask, "init", 512, NULL, 5, NULL);
 
     // TaskHandle_t printTaskHandle;
     // xTaskCreate(printTask, "print", 512, NULL, 2, &printTaskHandle);

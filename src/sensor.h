@@ -36,6 +36,6 @@ typedef struct sensor_t {
     QueueHandle_t* queue;
 
     // Update intervals
-    uint16_t updateFreq;
+    float updateFreq;
     uint16_t updateTime;
 } sensor_t;

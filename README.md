@@ -1,5 +1,5 @@
 # CanSat Project
 
-The code for the 2024 CanSat competition (Team Athena)
+Our code for the 2024 CanSat competition (Project Athena)
 
-> Note: will be made public after the competition concludes
+> Note: will be made public on 19th of February (CDR deadline)

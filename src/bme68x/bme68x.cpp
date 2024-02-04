@@ -54,6 +54,7 @@ bool BME68X::read_forced(bme68x_data* data, uint16_t heater_temp, uint16_t heate
     heatr_conf.enable = BME68X_ENABLE;
     heatr_conf.heatr_temp = heater_temp;
     heatr_conf.heatr_dur = heater_duration;
+
     result = bme68x_set_heatr_conf(BME68X_FORCED_MODE, &heatr_conf, &device);
     bme68x_check_rslt("bme68x_set_heatr_conf", result);
     if (result != BME68X_OK) return false;
@@ -64,10 +65,14 @@ bool BME68X::read_forced(bme68x_data* data, uint16_t heater_temp, uint16_t heate
 
     delay_period = bme68x_get_meas_dur(BME68X_FORCED_MODE, &conf, &device) + (heatr_conf.heatr_dur * 1000);
 
-    vTaskDelay(delay_period / 1000 + 5);
+    vTaskDelay(delay_period / 1000 + 1);
 
-    result = bme68x_get_data(BME68X_FORCED_MODE, data, &n_fields, &device);
-    bme68x_check_rslt("bme68x_get_data", result);
+    for (int i = 0; i < 5; i++) {
+        result = bme68x_get_data(BME68X_FORCED_MODE, data, &n_fields, &device);
+        bme68x_check_rslt("bme68x_get_data", result);
+        if (result == BME68X_OK) break;
+        vTaskDelay(1);
+    }
     if (result != BME68X_OK) return false;
 
     return true;

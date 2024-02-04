@@ -1,11 +1,14 @@
 #pragma once
 #include <pico/stdlib.h>
 #include <hardware/i2c.h>
+// #include <FreeRTOS.h>
+// #include <semphr.h>
 
 #include "config.h"
 
 class I2C {
 public:
+    // SemaphoreHandle_t i2cMutex;
     /// @brief Initialise I2C
     /// @param sdaPin The GPIO pin SDA is connected to
     /// @param sclPin The GPIO pin SCL is connected to

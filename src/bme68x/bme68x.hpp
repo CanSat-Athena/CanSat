@@ -37,14 +37,14 @@ public:
             buffer[x + 1] = reg_data[x];
         }
 
-        int result = i2c_write_timeout_per_char_us(I2C_PORT, BME680_ADDRESS, buffer, length + 1, false, 400);
+        int result = i2c_write_timeout_per_char_us(I2C_PORT, BME680_ADDRESS, buffer, length + 1, false, I2C_PER_CHAR_TIMEOUT_US);
 
         return result == PICO_ERROR_GENERIC ? 1 : 0;
     };
 
     static int read_bytes(uint8_t reg_addr, uint8_t* reg_data, uint32_t length, void* intf_ptr) {
-        int result = i2c_write_timeout_per_char_us(I2C_PORT, BME680_ADDRESS, &reg_addr, 1, true, 400);
-        result = i2c_read_timeout_per_char_us(I2C_PORT, BME680_ADDRESS, reg_data, length, false, 400);
+        int result = i2c_write_timeout_per_char_us(I2C_PORT, BME680_ADDRESS, &reg_addr, 1, true, I2C_PER_CHAR_TIMEOUT_US);
+        result = i2c_read_timeout_per_char_us(I2C_PORT, BME680_ADDRESS, reg_data, length, false, I2C_PER_CHAR_TIMEOUT_US);
 
         return result == PICO_ERROR_GENERIC ? 1 : 0;
     };
