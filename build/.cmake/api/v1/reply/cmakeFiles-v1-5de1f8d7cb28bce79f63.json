@@ -583,6 +583,10 @@
 		},
 		{
 			"isExternal" : true,
+			"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_lwip/tools/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
 			"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/CMakeLists.txt"
 		},
 		{

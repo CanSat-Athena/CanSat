@@ -1,5 +1,6 @@
 // Used for resetting pico (no builtin reset functionality)
 #include "hardware/watchdog.h"
+#include "config.h"
 
 #define log_core_num(fmt, ...) printf("[core %d] " fmt, portGET_CORE_ID(), ##__VA_ARGS__)
 

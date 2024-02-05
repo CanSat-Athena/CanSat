@@ -9,9 +9,9 @@
 					"childIndexes" : 
 					[
 						1,
-						81,
 						82,
-						83
+						83,
+						84
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -27,7 +27,7 @@
 					[
 						2,
 						3,
-						80
+						81
 					],
 					"jsonFile" : "directory-pico-sdk-Debug-8fc0866a220df9f33e42.json",
 					"minimumCMakeVersion" : 
@@ -55,7 +55,7 @@
 					[
 						4,
 						16,
-						77
+						78
 					],
 					"jsonFile" : "directory-pico-sdk.src-Debug-71f1578373edbc45b79d.json",
 					"minimumCMakeVersion" : 
@@ -267,13 +267,13 @@
 						65,
 						66,
 						68,
-						69,
 						70,
 						71,
 						72,
 						73,
 						74,
-						76
+						75,
+						77
 					],
 					"jsonFile" : "directory-pico-sdk.src.rp2_common-Debug-7ae168f9ae8895d9d47e.json",
 					"minimumCMakeVersion" : 
@@ -862,6 +862,10 @@
 				},
 				{
 					"build" : "pico-sdk/src/rp2_common/pico_lwip",
+					"childIndexes" : 
+					[
+						69
+					],
 					"jsonFile" : "directory-pico-sdk.src.rp2_common.pico_lwip-Debug-843617c2c8be966ff910.json",
 					"minimumCMakeVersion" : 
 					{
@@ -870,6 +874,17 @@
 					"parentIndex" : 16,
 					"projectIndex" : 1,
 					"source" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_lwip"
+				},
+				{
+					"build" : "pico-sdk/src/rp2_common/pico_lwip/tools",
+					"jsonFile" : "directory-pico-sdk.src.rp2_common.pico_lwip.tools-Debug-64f924db13c3c4ffe9ec.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 68,
+					"projectIndex" : 1,
+					"source" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_lwip/tools"
 				},
 				{
 					"build" : "pico-sdk/src/rp2_common/pico_cyw43_arch",
@@ -930,7 +945,7 @@
 					"build" : "pico-sdk/src/rp2_common/pico_fix",
 					"childIndexes" : 
 					[
-						75
+						76
 					],
 					"jsonFile" : "directory-pico-sdk.src.rp2_common.pico_fix-Debug-76589af12399a10a8343.json",
 					"minimumCMakeVersion" : 
@@ -948,7 +963,7 @@
 					{
 						"string" : "3.13"
 					},
-					"parentIndex" : 74,
+					"parentIndex" : 75,
 					"projectIndex" : 1,
 					"source" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration"
 				},
@@ -967,8 +982,8 @@
 					"build" : "pico-sdk/src/rp2040",
 					"childIndexes" : 
 					[
-						78,
-						79
+						79,
+						80
 					],
 					"jsonFile" : "directory-pico-sdk.src.rp2040-Debug-45a846be7f96fffcedb7.json",
 					"minimumCMakeVersion" : 
@@ -986,7 +1001,7 @@
 					{
 						"string" : "3.13"
 					},
-					"parentIndex" : 77,
+					"parentIndex" : 78,
 					"projectIndex" : 1,
 					"source" : "/home/arca/pico/pico-sdk/src/rp2040/hardware_regs"
 				},
@@ -997,7 +1012,7 @@
 					{
 						"string" : "3.13"
 					},
-					"parentIndex" : 77,
+					"parentIndex" : 78,
 					"projectIndex" : 1,
 					"source" : "/home/arca/pico/pico-sdk/src/rp2040/hardware_structs"
 				},
@@ -1063,8 +1078,8 @@
 					"directoryIndexes" : 
 					[
 						0,
-						82,
-						83
+						83,
+						84
 					],
 					"name" : "cansat",
 					"targetIndexes" : 
@@ -1155,7 +1170,8 @@
 						77,
 						78,
 						79,
-						80
+						80,
+						81
 					],
 					"name" : "pico_sdk",
 					"parentIndex" : 0,
@@ -1171,7 +1187,7 @@
 				{
 					"directoryIndexes" : 
 					[
-						81
+						82
 					],
 					"name" : "FreeRTOS-Kernel",
 					"parentIndex" : 0
@@ -1180,9 +1196,9 @@
 			"targets" : 
 			[
 				{
-					"directoryIndex" : 82,
+					"directoryIndex" : 83,
 					"id" : "ELF2UF2Build::@145eef247bfb46b6828c",
-					"jsonFile" : "target-ELF2UF2Build-Debug-adb945235fde7349b6ab.json",
+					"jsonFile" : "target-ELF2UF2Build-Debug-5180dbed41af9ab9bef2.json",
 					"name" : "ELF2UF2Build",
 					"projectIndex" : 0
 				},
@@ -1215,16 +1231,16 @@
 					"projectIndex" : 1
 				},
 				{
-					"directoryIndex" : 82,
+					"directoryIndex" : 83,
 					"id" : "cansat::@145eef247bfb46b6828c",
-					"jsonFile" : "target-cansat-Debug-dcccb24b49c1ada8845d.json",
+					"jsonFile" : "target-cansat-Debug-ee6a443480e206785684.json",
 					"name" : "cansat",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 66,
 					"id" : "cyw43_driver_picow_cyw43_bus_pio_spi_pio_h::@c2fb4f534018e64680d5",
-					"jsonFile" : "target-cyw43_driver_picow_cyw43_bus_pio_spi_pio_h-Debug-b776caf5562ba2e9896c.json",
+					"jsonFile" : "target-cyw43_driver_picow_cyw43_bus_pio_spi_pio_h-Debug-b8c5f2afdad13c274ed3.json",
 					"name" : "cyw43_driver_picow_cyw43_bus_pio_spi_pio_h",
 					"projectIndex" : 1
 				}

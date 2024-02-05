@@ -125,8 +125,8 @@ bool BME680::updateData(uint16_t heater_temp, uint16_t heater_duration) {
     bool result = bme68x->read_forced(&data);
     if (!result) return false;
 
-    absoluteTime = get_absolute_time();
-    this->lastUpdated = to_ms_since_boot(absoluteTime);
+    // absoluteTime = get_absolute_time();
+    // this->lastUpdated = to_ms_since_boot(absoluteTime);
 
     this->temperature = data.temperature;
     this->pressure = data.pressure;
@@ -155,7 +155,6 @@ sensorData_t BME680::getData() {
             .measureIndex = this->measureIndex,
             .timeTaken = this->timeTaken,
             .readStatus = this->readStatus,
-            .lastUpdated = this->lastUpdated
         }
     };
 }

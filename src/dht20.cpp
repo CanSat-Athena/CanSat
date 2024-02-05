@@ -121,7 +121,6 @@ sensorData_t DHT20::getData() {
         .dht20 = dht20Data_t {
             .temperature = this->temperature,
             .humidity = this->humidity,
-            .lastUpdated = this->lastUpdated
         }
     };
 }

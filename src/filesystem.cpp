@@ -67,7 +67,8 @@ bool Filesystem::init() {
     }
 
 #ifdef NUKE_FS_ON_NEXT_BOOT
-    ls(&lfs, "/");
+    ls("/");
+    printf("Filesystem: Nuked");
     while (true) tight_loop_contents();
 #endif
 
@@ -86,10 +87,9 @@ bool Filesystem::init() {
     printf("Filesystem: boot_count updated, new boot count is %u\n", bootCount);
 
     // Create data file
-    char dataFileName[70];
     sprintf(dataFileName, "data_%u", this->bootCount);
     printf("Filesystem: Created file %s\n", dataFileName);
-    lfs_file_open(&lfs, &dataFile, dataFileName, LFS_O_RDWR | LFS_O_CREAT | LFS_O_APPEND | LFS_O_TRUNC);
+    lfs_file_open(&lfs, &dataFile, dataFileName, LFS_O_RDWR | LFS_O_CREAT | LFS_O_TRUNC);
     lfs_file_sync(&lfs, &dataFile);
 
     ls("/");
@@ -112,4 +112,13 @@ void Filesystem::uninit() {
     lfs_unmount(&lfs);
 
     this->initialised = false;
+}
+ 
+int Filesystem::addData(dataLine_t data) {
+    // lfs_file_write(&lfs, &dataFile, &data, sizeof(dataLine_t));
+    char a[] = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+    // int err = lfs_file_write(&lfs, &dataFile, &a, strlen(a+1));
+    // printf("err: %d\n", err);
+    // err = lfs_file_sync(&lfs, &dataFile);
+    return 0;
 }

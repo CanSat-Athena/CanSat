@@ -122,6 +122,8 @@
 /* Define to trap errors during development. */
 #define configASSERT(x)                         assert(x)
 
+#define configNUM_CORES configNUMBER_OF_CORES
+
 /* Set the following definitions to 1 to include the API function, or zero
 to exclude the API function. */
 #define INCLUDE_vTaskPrioritySet                1

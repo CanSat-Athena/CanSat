@@ -17,11 +17,12 @@
 DHT20* dht;
 BME680* bme;
 LightSensor* light;
-DataHandler* datahandler;
+DataHandler* dataHandler;
 
 /// @brief Setup sensors
 void setup() {
     sleep_ms(500);
+
     printf("------------------\n");
     I2C::init();
     ADC::init();
@@ -32,9 +33,7 @@ void setup() {
     light = new LightSensor();
 
     // Set up data handler
-    datahandler = new DataHandler();
-
-    // sleep_ms(500);
+    dataHandler = new DataHandler();
     printf("Setup complete\n------------------\n");
 }
 
@@ -90,13 +89,10 @@ int main() {
 
     setup();
 
-    // TaskHandle_t printTaskHandle;
-    // xTaskCreate(printTask, "print", 512, NULL, 2, &printTaskHandle);
-
     sensor_t dht20 = {
         .sensor = dht,
         .name = (char*)"DHT20",
-        .queue =  &(datahandler->dht20Queue),
+        .queue = &(dataHandler->dht20Queue),
         .updateFreq = DHT20_READ_FREQ,
         .updateTime = DHT20_READ_TIME
     };
@@ -106,7 +102,7 @@ int main() {
     sensor_t bme680 = {
         .sensor = bme,
         .name = (char*)"BME680",
-        .queue =  &(datahandler->bme680Queue),
+        .queue = &(dataHandler->bme680Queue),
         .updateFreq = BME680_READ_FREQ,
         .updateTime = BME680_READ_TIME
     };
@@ -116,12 +112,15 @@ int main() {
     sensor_t lightSensor = {
         .sensor = light,
         .name = (char*)"Light",
-        .queue =  &(datahandler->lightQueue),
+        .queue = &(dataHandler->lightQueue),
         .updateFreq = LIGHT_READ_FREQ,
         .updateTime = LIGHT_READ_TIME
     };
     TaskHandle_t lightReadTask;
     xTaskCreate(sensorReadTask, "Light sensor read", 512, &lightSensor, 2, &lightReadTask);
+
+    TaskHandle_t dataHandlerTaskHandle;
+    xTaskCreate(DataHandler::dataHandlerTask, "Data handler", 4096, NULL, 3, &dataHandlerTaskHandle);
 
     vTaskStartScheduler();
     return 0;

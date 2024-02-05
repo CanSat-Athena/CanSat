@@ -1,20 +1,23 @@
 #pragma once
-#include "pico/stdio.h"
+#include <pico/stdio.h>
 
 #include "littlefs.hpp"
 #include "config.h"
+#include "commonTypes.h"
 
 class Filesystem {
 protected:
     bool initialised = false;
-    uint32_t bootCount = 0;
-    lfs_t lfs;
 
     lfs_file_t bootCountFile;
     lfs_file_t bootLogFile;         // Yet to be implemented
-    lfs_file_t dataFile;
+
+    char dataFileName[50];
 
 public:
+    lfs_t lfs;
+    lfs_file_t dataFile;
+    uint32_t bootCount = 0;
     Filesystem(const bool initialise = true) {
         init();
     }
@@ -32,9 +35,14 @@ public:
 
     /// @brief Erases the filesystem
     void nuke();
-    
+
     /// @brief Lists the directory given
     /// @param path String path to directory
     /// @return Any errors received
     int ls(const char* path);
+
+    /// @brief Adds data to the data file
+    /// @param data The line to write
+    /// @return The number of bytes written, or a negative error code on failure.
+    int addData(dataLine_t data);
 };

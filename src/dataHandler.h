@@ -1,4 +1,6 @@
+#pragma once
 #include <FreeRTOS.h>
+#include <task.h>
 #include <queue.h>
 #include <pico/stdlib.h>
 
@@ -7,7 +9,6 @@
 #include "filesystem.hpp"
 
 class DataHandler {
-protected:
 public:
     QueueHandle_t dht20Queue, bme680Queue, lightQueue;
     Filesystem* filesystem;

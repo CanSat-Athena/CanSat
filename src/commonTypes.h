@@ -3,7 +3,11 @@
 #include <FreeRTOS.h>
 #include <queue.h>
 
-// #include "sensor.h"
+#include "config.h"
+
+#ifndef max
+#define max(a,b) ((a) > (b) ? (a) : (b))
+#endif
 
 /*
    Sensor Data Structs
@@ -13,7 +17,6 @@
 typedef struct dht20Data_t {
     float temperature;
     float humidity;
-    uint32_t lastUpdated;
 } dht20Data_t;
 
 typedef struct bme680Data_t {
@@ -25,12 +28,10 @@ typedef struct bme680Data_t {
     uint8_t measureIndex;
     uint32_t timeTaken;
     uint8_t readStatus;
-    uint32_t lastUpdated;
 } bme680Data_t;
 
 typedef struct lightData_t {
     uint16_t lightIntensity;
-    uint32_t lastUpdated;
 } lightData_t;
 
 typedef union sensorData_t {
@@ -38,3 +39,10 @@ typedef union sensorData_t {
     bme680Data_t bme680;
     lightData_t lightData;
 } sensorData_t;
+
+typedef struct dataLine_t {
+    uint32_t timestamp;
+    dht20Data_t dht20[(int)max(DHT20_READ_FREQ, 1)];
+    bme680Data_t bme680[(int)max(BME680_READ_FREQ, 1)];
+    lightData_t lightData[(int)max(LIGHT_READ_FREQ, 1)];
+} dataLine_t;
