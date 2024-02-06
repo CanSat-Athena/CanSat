@@ -72,9 +72,13 @@ bool Filesystem::init() {
     while (true) tight_loop_contents();
 #endif
 
-    printf("Filesystem: Initialised\n");
+    printf("Filesystem: Mounted\n");
 
-    lfs_file_open(&lfs, &bootCountFile, "boot_count", LFS_O_RDWR | LFS_O_CREAT);
+    static struct lfs_file_config bootCountConfig;
+	bootCountConfig.buffer = bootCountBuf;  // use the static buffer
+	bootCountConfig.attr_count = 0;
+
+    lfs_file_opencfg(&lfs, &bootCountFile, "boot_count", LFS_O_RDWR | LFS_O_CREAT, &bootCountConfig);
     lfs_file_read(&lfs, &bootCountFile, &(this->bootCount), sizeof(bootCount));
 
     // update boot count
@@ -88,11 +92,17 @@ bool Filesystem::init() {
 
     // Create data file
     sprintf(dataFileName, "data_%u", this->bootCount);
-    printf("Filesystem: Created file %s\n", dataFileName);
+
     lfs_file_open(&lfs, &dataFile, dataFileName, LFS_O_RDWR | LFS_O_CREAT | LFS_O_TRUNC);
     lfs_file_sync(&lfs, &dataFile);
 
+    printf("Filesystem: Created file %s\n", dataFileName);
     ls("/");
+
+    printf("Filesystem: Launching filesystem handler on core 1\n");
+    // multicore_launch_core1(filesystemHandler);
+
+    printf("Filesystem: Initialised\n");
 
     this->initialised = true;
     return true;
@@ -115,10 +125,7 @@ void Filesystem::uninit() {
 }
  
 int Filesystem::addData(dataLine_t data) {
-    // lfs_file_write(&lfs, &dataFile, &data, sizeof(dataLine_t));
-    char a[] = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-    // int err = lfs_file_write(&lfs, &dataFile, &a, strlen(a+1));
-    // printf("err: %d\n", err);
-    // err = lfs_file_sync(&lfs, &dataFile);
-    return 0;
+    lfs_file_write(&lfs, &dataFile, &data, sizeof(dataLine_t));
+    int err = lfs_file_sync(&lfs, &dataFile);
+    return err;
 }

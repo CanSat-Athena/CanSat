@@ -26,8 +26,8 @@ target_include_directories(cansat PRIVATE
 )
 
 add_compile_definitions(
-        FREE_RTOS_KERNEL_SMP=1
-        portSUPPORT_SMP=1
+        # FREE_RTOS_KERNEL_SMP=1
+        # portSUPPORT_SMP=1
 )
 
 target_link_libraries(cansat PUBLIC

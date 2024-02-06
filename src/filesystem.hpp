@@ -10,6 +10,7 @@ protected:
     bool initialised = false;
 
     lfs_file_t bootCountFile;
+    uint8_t bootCountBuf[256];
     lfs_file_t bootLogFile;         // Yet to be implemented
 
     char dataFileName[50];
@@ -18,6 +19,7 @@ public:
     lfs_t lfs;
     lfs_file_t dataFile;
     uint32_t bootCount = 0;
+
     Filesystem(const bool initialise = true) {
         init();
     }
@@ -45,4 +47,6 @@ public:
     /// @param data The line to write
     /// @return The number of bytes written, or a negative error code on failure.
     int addData(dataLine_t data);
+
+    static void filesystemHandler();
 };

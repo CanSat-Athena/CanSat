@@ -17,7 +17,6 @@
 			"find_package",
 			"pico_add_uf2_output",
 			"pico_add_extra_outputs",
-			"add_compile_definitions",
 			"target_compile_definitions",
 			"target_include_directories"
 		],
@@ -97,18 +96,12 @@
 			},
 			{
 				"command" : 7,
-				"file" : 0,
-				"line" : 28,
-				"parent" : 0
-			},
-			{
-				"command" : 8,
 				"file" : 4,
 				"line" : 30,
 				"parent" : 7
 			},
 			{
-				"command" : 9,
+				"command" : 8,
 				"file" : 0,
 				"line" : 19,
 				"parent" : 0
@@ -159,7 +152,7 @@
 					"define" : "CFG_TUSB_OS=OPT_OS_PICO"
 				},
 				{
-					"backtrace" : 12,
+					"backtrace" : 2,
 					"define" : "FREE_RTOS_KERNEL_SMP=1"
 				},
 				{
@@ -331,42 +324,38 @@
 					"define" : "PICO_RP2040_USB_DEVICE_UFRAME_FIX=1"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 12,
 					"define" : "PICO_TARGET_NAME=\"cansat\""
 				},
 				{
 					"backtrace" : 2,
 					"define" : "PICO_USE_BLOCKED_RAM=0"
-				},
-				{
-					"backtrace" : 12,
-					"define" : "portSUPPORT_SMP=1"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/home/arca/pico/cansat-code"
 				},
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/home/arca/pico/cansat-code/src"
 				},
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/home/arca/pico/cansat-code/src/Config"
 				},
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/home/arca/pico/cansat-code/src/lib/FreeRTOS-Kernel/include"
 				},
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/home/arca/pico/cansat-code/src/lib/FreeRTOS-Kernel/portable/GCC/ARM_CM0"
 				},
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/home/arca/pico/pico-sdk/**"
 				},
 				{
@@ -634,7 +623,7 @@
 					"define" : "CFG_TUSB_OS=OPT_OS_PICO"
 				},
 				{
-					"backtrace" : 12,
+					"backtrace" : 2,
 					"define" : "FREE_RTOS_KERNEL_SMP=1"
 				},
 				{
@@ -806,42 +795,38 @@
 					"define" : "PICO_RP2040_USB_DEVICE_UFRAME_FIX=1"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 12,
 					"define" : "PICO_TARGET_NAME=\"cansat\""
 				},
 				{
 					"backtrace" : 2,
 					"define" : "PICO_USE_BLOCKED_RAM=0"
-				},
-				{
-					"backtrace" : 12,
-					"define" : "portSUPPORT_SMP=1"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/home/arca/pico/cansat-code"
 				},
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/home/arca/pico/cansat-code/src"
 				},
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/home/arca/pico/cansat-code/src/Config"
 				},
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/home/arca/pico/cansat-code/src/lib/FreeRTOS-Kernel/include"
 				},
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/home/arca/pico/cansat-code/src/lib/FreeRTOS-Kernel/portable/GCC/ARM_CM0"
 				},
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/home/arca/pico/pico-sdk/**"
 				},
 				{
@@ -1174,7 +1159,7 @@
 					"define" : "CFG_TUSB_OS=OPT_OS_PICO"
 				},
 				{
-					"backtrace" : 12,
+					"backtrace" : 2,
 					"define" : "FREE_RTOS_KERNEL_SMP=1"
 				},
 				{
@@ -1346,42 +1331,38 @@
 					"define" : "PICO_RP2040_USB_DEVICE_UFRAME_FIX=1"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 12,
 					"define" : "PICO_TARGET_NAME=\"cansat\""
 				},
 				{
 					"backtrace" : 2,
 					"define" : "PICO_USE_BLOCKED_RAM=0"
-				},
-				{
-					"backtrace" : 12,
-					"define" : "portSUPPORT_SMP=1"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/home/arca/pico/cansat-code"
 				},
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/home/arca/pico/cansat-code/src"
 				},
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/home/arca/pico/cansat-code/src/Config"
 				},
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/home/arca/pico/cansat-code/src/lib/FreeRTOS-Kernel/include"
 				},
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/home/arca/pico/cansat-code/src/lib/FreeRTOS-Kernel/portable/GCC/ARM_CM0"
 				},
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/home/arca/pico/pico-sdk/**"
 				},
 				{

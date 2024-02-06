@@ -31,7 +31,7 @@ struct lfs_config pico_cfg {
     .block_size = FLASH_SECTOR_SIZE,
     .block_count = FS_SIZE / FLASH_SECTOR_SIZE,
     .block_cycles = (int32_t)500,
-    .cache_size = FLASH_SECTOR_SIZE / 4,
+    .cache_size = 256,
     .lookahead_size = 32
 };
 
