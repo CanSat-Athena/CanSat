@@ -48,13 +48,13 @@ typedef struct dataLine_t {
     lightData_t lightData[(int)max(LIGHT_READ_FREQ, 1)];
 } dataLine_t;
 
-/// @brief Filesystem action type (can be DATA_READ, DATA_WRITE)
-enum fsActionType { DATA_READ, DATA_WRITE };
+// /// @brief Filesystem action type (can be DATA_READ, DATA_WRITE)
+// enum fsActionType { DATA_READ, DATA_WRITE };
 
-// Filesystem action
-typedef struct fsAction_t {
-    fsActionType type;
-    union data {
-        dataLine_t write;
-    };
-} fsAction_t;
+// // Filesystem action
+// typedef struct fsAction_t {
+//     fsActionType type;
+//     union data {
+//         dataLine_t write;
+//     };
+// } fsAction_t;

@@ -17,6 +17,7 @@
 			"find_package",
 			"pico_add_uf2_output",
 			"pico_add_extra_outputs",
+			"add_compile_definitions",
 			"target_compile_definitions",
 			"target_include_directories"
 		],
@@ -42,7 +43,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 33,
+				"line" : 35,
 				"parent" : 0
 			},
 			{
@@ -69,7 +70,7 @@
 			{
 				"command" : 6,
 				"file" : 0,
-				"line" : 51,
+				"line" : 53,
 				"parent" : 0
 			},
 			{
@@ -96,14 +97,20 @@
 			},
 			{
 				"command" : 7,
+				"file" : 0,
+				"line" : 29,
+				"parent" : 0
+			},
+			{
+				"command" : 8,
 				"file" : 4,
 				"line" : 30,
 				"parent" : 7
 			},
 			{
-				"command" : 8,
+				"command" : 9,
 				"file" : 0,
-				"line" : 19,
+				"line" : 20,
 				"parent" : 0
 			}
 		]
@@ -154,6 +161,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "FREE_RTOS_KERNEL_SMP=1"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "LFS_THREADSAFE"
 				},
 				{
 					"backtrace" : 2,
@@ -324,7 +335,7 @@
 					"define" : "PICO_RP2040_USB_DEVICE_UFRAME_FIX=1"
 				},
 				{
-					"backtrace" : 12,
+					"backtrace" : 13,
 					"define" : "PICO_TARGET_NAME=\"cansat\""
 				},
 				{
@@ -335,27 +346,27 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/cansat-code"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/cansat-code/src"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/cansat-code/src/Config"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/cansat-code/src/lib/FreeRTOS-Kernel/include"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/cansat-code/src/lib/FreeRTOS-Kernel/portable/GCC/ARM_CM0"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/pico-sdk/**"
 				},
 				{
@@ -594,7 +605,8 @@
 				5,
 				6,
 				7,
-				54
+				8,
+				55
 			]
 		},
 		{
@@ -625,6 +637,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "FREE_RTOS_KERNEL_SMP=1"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "LFS_THREADSAFE"
 				},
 				{
 					"backtrace" : 2,
@@ -795,7 +811,7 @@
 					"define" : "PICO_RP2040_USB_DEVICE_UFRAME_FIX=1"
 				},
 				{
-					"backtrace" : 12,
+					"backtrace" : 13,
 					"define" : "PICO_TARGET_NAME=\"cansat\""
 				},
 				{
@@ -806,27 +822,27 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/cansat-code"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/cansat-code/src"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/cansat-code/src/Config"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/cansat-code/src/lib/FreeRTOS-Kernel/include"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/cansat-code/src/lib/FreeRTOS-Kernel/portable/GCC/ARM_CM0"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/pico-sdk/**"
 				},
 				{
@@ -1057,16 +1073,15 @@
 			},
 			"sourceIndexes" : 
 			[
-				8,
 				9,
 				10,
-				13,
+				11,
 				14,
 				15,
 				16,
 				17,
 				18,
-				20,
+				19,
 				21,
 				22,
 				23,
@@ -1082,15 +1097,15 @@
 				33,
 				34,
 				35,
-				37,
+				36,
 				38,
-				40,
-				43,
+				39,
+				41,
 				44,
-				48,
+				45,
 				49,
-				51,
-				55,
+				50,
+				52,
 				56,
 				57,
 				58,
@@ -1130,7 +1145,8 @@
 				92,
 				93,
 				94,
-				95
+				95,
+				96
 			]
 		},
 		{
@@ -1161,6 +1177,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "FREE_RTOS_KERNEL_SMP=1"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "LFS_THREADSAFE"
 				},
 				{
 					"backtrace" : 2,
@@ -1331,7 +1351,7 @@
 					"define" : "PICO_RP2040_USB_DEVICE_UFRAME_FIX=1"
 				},
 				{
-					"backtrace" : 12,
+					"backtrace" : 13,
 					"define" : "PICO_TARGET_NAME=\"cansat\""
 				},
 				{
@@ -1342,27 +1362,27 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/cansat-code"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/cansat-code/src"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/cansat-code/src/Config"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/cansat-code/src/lib/FreeRTOS-Kernel/include"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/cansat-code/src/lib/FreeRTOS-Kernel/portable/GCC/ARM_CM0"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/home/arca/pico/pico-sdk/**"
 				},
 				{
@@ -1585,17 +1605,17 @@
 			"language" : "ASM",
 			"sourceIndexes" : 
 			[
-				19,
-				36,
-				39,
-				41,
+				20,
+				37,
+				40,
 				42,
-				45,
+				43,
 				46,
 				47,
-				50,
-				52,
-				53
+				48,
+				51,
+				53,
+				54
 			]
 		}
 	],
@@ -2475,13 +2495,13 @@
 				8,
 				9,
 				10,
-				13,
+				11,
 				14,
 				15,
 				16,
 				17,
 				18,
-				20,
+				19,
 				21,
 				22,
 				23,
@@ -2497,15 +2517,15 @@
 				33,
 				34,
 				35,
-				37,
+				36,
 				38,
-				40,
-				43,
+				39,
+				41,
 				44,
-				48,
+				45,
 				49,
-				51,
-				54,
+				50,
+				52,
 				55,
 				56,
 				57,
@@ -2546,32 +2566,33 @@
 				92,
 				93,
 				94,
-				95
+				95,
+				96
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				11,
-				12
+				12,
+				13
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				19,
-				36,
-				39,
-				41,
+				20,
+				37,
+				40,
 				42,
-				45,
+				43,
 				46,
 				47,
-				50,
-				52,
-				53
+				48,
+				51,
+				53,
+				54
 			]
 		}
 	],
@@ -2593,6 +2614,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/bme680.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/imu.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

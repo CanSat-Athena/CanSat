@@ -11,7 +11,6 @@ protected:
 
     lfs_file_t bootCountFile;
     uint8_t bootCountBuf[256];
-    lfs_file_t bootLogFile;         // Yet to be implemented
 
     char dataFileName[50];
 
@@ -48,5 +47,12 @@ public:
     /// @return The number of bytes written, or a negative error code on failure.
     int addData(dataLine_t data);
 
-    static void filesystemHandler();
+    /// @brief Prints filesystem usage
+    void printUsage();
+
+    /// @brief Prints lfs_size_t parameter as an automatically converted size (eg B, KB, MB, GB)
+    /// @param size The size in bytes to print
+    void printSize(lfs_ssize_t size);
+
+    static void filesystemInputTask();
 };

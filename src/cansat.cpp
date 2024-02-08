@@ -81,12 +81,7 @@ void sensorReadTask(void* pvParameters) {
     }
 }
 
-int main() {
-    stdio_init_all();
-
-    // Safe hardfault handler
-    exception_set_exclusive_handler(HARDFAULT_EXCEPTION, hardfault_handler);
-
+void initTask(void* pvParameters) {
     setup();
 
     sensor_t dht20 = {
@@ -121,6 +116,17 @@ int main() {
 
     TaskHandle_t dataHandlerTaskHandle;
     xTaskCreate(DataHandler::dataHandlerTask, "Data handler", 4096, NULL, 3, &dataHandlerTaskHandle);
+
+    vTaskDelete(NULL);
+}
+
+int main() {
+    stdio_init_all();
+
+    // Safe hardfault handler
+    exception_set_exclusive_handler(HARDFAULT_EXCEPTION, hardfault_handler);
+
+    xTaskCreate(initTask, "Init", 1024, NULL, 4, NULL);
 
     vTaskStartScheduler();
     return 0;

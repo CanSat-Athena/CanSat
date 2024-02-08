@@ -4,6 +4,7 @@ add_executable(cansat
         cansat.cpp
         dht20.cpp
         bme680.cpp
+        imu.cpp
         lightSensor.cpp
         filesystem.cpp
         littlefs.cpp
@@ -28,6 +29,7 @@ target_include_directories(cansat PRIVATE
 add_compile_definitions(
         # FREE_RTOS_KERNEL_SMP=1
         # portSUPPORT_SMP=1
+        LFS_THREADSAFE
 )
 
 target_link_libraries(cansat PUBLIC

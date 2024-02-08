@@ -27,16 +27,10 @@ int Filesystem::ls(const char* path) {
         default:           printf("?   "); break;
         }
 
-        static const char* prefixes[] = { "", "K", "M", "G" };
-        for (int i = sizeof(prefixes) / sizeof(prefixes[0]) - 1; i >= 0; i--) {
-            if (info.size >= (1 << 10 * i) - 1) {
-                printf("%*u%sB ", 4 - (i != 0), info.size >> 10 * i, prefixes[i]);
-                break;
-            }
-        }
+        printSize(info.size);
 
         // Print file
-        printf("%s\n", info.name);
+        printf(" %s\n", info.name);
     }
 
     // Close directory
@@ -51,6 +45,9 @@ int Filesystem::ls(const char* path) {
 bool Filesystem::init() {
     printf("Filesystem: Setting up\n");
 
+    printf("Filesystem: Initialising mutex\n");
+    filesystemMutex = xSemaphoreCreateMutex();
+
 #ifdef NUKE_FS_ON_NEXT_BOOT
     printf("Filesystem: Reformatting...\n");
     lfs_format(&lfs, &pico_cfg);
@@ -61,6 +58,11 @@ bool Filesystem::init() {
 
     if (err) {
         printf("Filesystem: Failed to mount\n");
+        printf("Filesystem: Formatting in 60 seconds \n");
+
+        // Wait 60 seconds
+        sleep_ms(60 * 1000);
+
         printf("Filesystem: Reformatting...\n");
         lfs_format(&lfs, &pico_cfg);
         err = lfs_mount(&lfs, &pico_cfg);
@@ -75,8 +77,8 @@ bool Filesystem::init() {
     printf("Filesystem: Mounted\n");
 
     static struct lfs_file_config bootCountConfig;
-	bootCountConfig.buffer = bootCountBuf;  // use the static buffer
-	bootCountConfig.attr_count = 0;
+    bootCountConfig.buffer = bootCountBuf;  // use the static buffer
+    bootCountConfig.attr_count = 0;
 
     lfs_file_opencfg(&lfs, &bootCountFile, "boot_count", LFS_O_RDWR | LFS_O_CREAT, &bootCountConfig);
     lfs_file_read(&lfs, &bootCountFile, &(this->bootCount), sizeof(bootCount));
@@ -98,9 +100,7 @@ bool Filesystem::init() {
 
     printf("Filesystem: Created file %s\n", dataFileName);
     ls("/");
-
-    printf("Filesystem: Launching filesystem handler on core 1\n");
-    // multicore_launch_core1(filesystemHandler);
+    printUsage();
 
     printf("Filesystem: Initialised\n");
 
@@ -123,7 +123,29 @@ void Filesystem::uninit() {
 
     this->initialised = false;
 }
- 
+
+void Filesystem::printUsage() {
+    lfs_ssize_t size = lfs_fs_size(&lfs);
+    uint32_t size_bytes = size * BLOCK_SIZE_BYTES;
+    float usage = (float)size_bytes / (float)FS_SIZE;
+
+    printf("Filesystem: Used/total: ");
+    printSize(size_bytes);
+    printf("/");
+    printSize(FS_SIZE);
+    printf(" (%.2f%%)\n", usage * 100);
+}
+
+void Filesystem::printSize(lfs_ssize_t size) {
+    static const char* prefixes[] = { "", "K", "M", "G" };
+    for (int i = sizeof(prefixes) / sizeof(prefixes[0]) - 1; i >= 0; i--) {
+        if (size >= (1 << 10 * i) - 1) {
+            printf("%*u%sB", 4 - (i != 0), size >> 10 * i, prefixes[i]);
+            break;
+        }
+    }
+}
+
 int Filesystem::addData(dataLine_t data) {
     lfs_file_write(&lfs, &dataFile, &data, sizeof(dataLine_t));
     int err = lfs_file_sync(&lfs, &dataFile);
