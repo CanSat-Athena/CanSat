@@ -29,7 +29,7 @@ public:
 
     bool init();
     void uninit();
-    void nuke();
+    void nuke(bool loop = true);
 
     int addData(dataLine_t data);
 
@@ -39,4 +39,6 @@ public:
     void readFile(uint32_t bootCount);
 
     static void filesystemInputTask(void* pvParameters);
+    static void filesystemNukeTask(void* pvParameters);
+    static void filesystemDeleteTask(void* pvParameters);
 };

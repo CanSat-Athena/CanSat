@@ -13,7 +13,7 @@
 #define I2C_PER_CHAR_TIMEOUT_US 600
 
 // Filesystem
-#define FS_SIZE (512 * 1024)
+#define FS_SIZE (1024 * 1024) // 1MB
 // #define NUKE_FS_ON_NEXT_BOOT
 
 // Sensor read frequencies

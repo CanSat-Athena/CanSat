@@ -99,6 +99,7 @@ bool Filesystem::init() {
     printf("Filesystem: Created file %s\n", dataFileName);
 
     ls("/");
+    printf("Filesystem: ");
     printUsage();
 
     // Start filesystem input task
@@ -111,11 +112,11 @@ bool Filesystem::init() {
 }
 
 /// @brief Launches an intercontinental ballistic missile headed towards the filesystem
-void Filesystem::nuke() {
+void Filesystem::nuke(bool loop) {
     printf("Filesystem: Nuking the filesystem...\n");
     lfs_format(&lfs, &pico_cfg);
-    printf("Filesystem: Filesystem has been nuked. \nFilesystem: Please re-upload program with NUKE_FS_ON_NEXT_BOOT removed from config.h to continue normal operation\n");
-    while (true) {
+    if (loop) printf("Filesystem: Filesystem has been nuked. \nFilesystem: Please re-upload program with NUKE_FS_ON_NEXT_BOOT removed from config.h to continue normal operation\n");
+    while (loop) {
         tight_loop_contents();
     }
 }
@@ -134,7 +135,7 @@ void Filesystem::printUsage() {
     uint32_t size_bytes = size * BLOCK_SIZE_BYTES;
     float usage = (float)size_bytes / (float)FS_SIZE;
 
-    printf("Filesystem: Used/total: ");
+    printf("Used/total: ");
     printSize(size_bytes);
     printf("/");
     printSize(FS_SIZE);
@@ -162,6 +163,8 @@ int Filesystem::addData(dataLine_t data) {
     return err;
 }
 
+/// @brief Prints a file to the console
+/// @param bootCount Boot count of file to print
 void Filesystem::readFile(uint32_t bootCount) {
     char dataFileName[50];
     sprintf(dataFileName, "data_%u", bootCount);
@@ -226,9 +229,17 @@ void Filesystem::readFile(uint32_t bootCount) {
 /// @brief Task to handle filesystem input from USB
 /// @param pvParameters unused
 void Filesystem::filesystemInputTask(void* pvParameters) {
-    printf("Filesystem: Enter 'd' to print a data file\n");
     char c;
     char fileBootCount[45];
+
+    char helpText[] = "Commands:\n"
+        "'p' to print a data file\n"
+        "'l' to list directory\n"
+        "'u' to show filesystem usage\n"
+        "'d' to delete a file\n"
+        "'n' to nuke the filesystem\n"
+        "'h' to display this message\n";
+    printf(helpText);
 
     while (true) {
         vTaskDelay(40);
@@ -237,14 +248,122 @@ void Filesystem::filesystemInputTask(void* pvParameters) {
         char c = getchar();
 
         switch (c) {
-        case 'd':
+        case 'p':
             printf("d\nEnter boot count: ");
             dataHandler->filesystem->readFile(getIntInput());
             break;
-            // Todo: erase
+        case 'n': {
+            // Get confirmation
+            printf("Press 'Y' (uppercase) to confirm nuke: ");
+            char c2 = getchar();
+            if (c2 == 'Y') {
+                printf("\n");
+
+                // Launch the ICBMs
+                xTaskCreate(filesystemNukeTask, "Filesystem nuke", 512, NULL, 20, NULL);
+            } else {
+                printf("\nAborting nuclear operation\n");
+            }
+            break;
+        }
+        case 'd': {
+            printf("d\nEnter boot count of file to delete: ");
+            uint32_t bootCount = getIntInput();
+
+            char dataFileName[50];
+            sprintf(dataFileName, "data_%u", bootCount);
+            printf("Will delete file: %s\n", dataFileName);
+
+            // Get confirmation
+            printf("Press 'Y' (uppercase) to confirm delete: ");
+            char c2 = getchar();
+            if (c2 == 'Y') {
+                printf("\n");
+
+                // Delete file
+                xTaskCreate(filesystemDeleteTask, "File delete", 512, &dataFileName, 21, NULL);
+            } else {
+                printf("\nAborting file delete\n");
+            }
+            break;
+        }
+        case 'l':
+            printf("Listing directory \"/\"\n");
+            dataHandler->filesystem->ls("/");
+            break;
+        case 'u':
+            printf("Filesystem usage: ");
+            dataHandler->filesystem->printUsage();
+            break;
+        case 'h':
+            printf(helpText);
+            break;
         default:
-            printf("Invalid command: %c\n", c);
+            printf("Invalid command: '%c'. Press 'h' for help\n", c);
             break;
         }
     }
+}
+
+/// @brief When run, safely nukes the filesystem.
+///        Note: must be run with higher priority than other filesystem tasks
+/// @param pvParameters unused
+void Filesystem::filesystemNukeTask(void* pvParameters) {
+    lfs_file_close(&(dataHandler->filesystem->lfs), &(dataHandler->filesystem->dataFile));
+    lfs_unmount(&(dataHandler->filesystem->lfs));
+    dataHandler->filesystem->nuke(false);
+    lfs_mount(&(dataHandler->filesystem->lfs), &pico_cfg);
+
+    lfs_file_open(&(dataHandler->filesystem->lfs), &(dataHandler->filesystem->bootCountFile), "boot_count", LFS_O_RDWR | LFS_O_CREAT);
+    lfs_file_read(&(dataHandler->filesystem->lfs), &(dataHandler->filesystem->bootCountFile), &(dataHandler->filesystem->bootCount), sizeof(dataHandler->filesystem->bootCount));
+
+    // update boot count
+    (dataHandler->filesystem->bootCount) = 1;
+    lfs_file_rewind(&(dataHandler->filesystem->lfs), &(dataHandler->filesystem->bootCountFile));
+    lfs_file_write(&(dataHandler->filesystem->lfs), &(dataHandler->filesystem->bootCountFile), &(dataHandler->filesystem->bootCount), sizeof(dataHandler->filesystem->bootCount));
+
+    // The storage is not updated until the file is closed successfully (or synced)
+    lfs_file_close(&(dataHandler->filesystem->lfs), &(dataHandler->filesystem->bootCountFile));
+    printf("Filesystem: boot_count updated, new boot count is %u\n", (dataHandler->filesystem->bootCount));
+
+    // Create data file
+    sprintf(dataHandler->filesystem->dataFileName, "data_%u", dataHandler->filesystem->bootCount);
+    lfs_file_open(&(dataHandler->filesystem->lfs), &(dataHandler->filesystem->dataFile), dataHandler->filesystem->dataFileName, LFS_O_RDWR | LFS_O_CREAT | LFS_O_TRUNC);
+    lfs_file_sync(&(dataHandler->filesystem->lfs), &(dataHandler->filesystem->dataFile));
+    printf("Filesystem: Created file %s\n", dataHandler->filesystem->dataFileName);
+
+    vTaskDelete(NULL);
+}
+
+/// @brief Deletes a file from the filesystem
+///        Note: must be run with higher priority than other filesystem tasks
+/// @param pvParameters The name of the file to delete
+void Filesystem::filesystemDeleteTask(void* pvParameters) {
+    char* dataFileName = (char*)pvParameters;
+
+    bool isCurrentFile = strcmp(dataFileName, dataHandler->filesystem->dataFileName) == 0;
+
+    if (isCurrentFile) {
+        lfs_file_close(&(dataHandler->filesystem->lfs), &(dataHandler->filesystem->dataFile));
+    }
+
+    // Delete file
+    int err = lfs_remove(&(dataHandler->filesystem->lfs), dataFileName);
+
+    // Handle errors
+    if (err == LFS_ERR_NOENT) {
+        printf("Error: File %s does not exist\n", dataFileName);
+    } else if (err < 0) {
+        printf("Error: Failed to open file %s\n", dataFileName);
+    } else {
+        printf("Deleted file %s\n", dataFileName);
+    }
+
+    if (isCurrentFile) {
+        lfs_file_open(&(dataHandler->filesystem->lfs), &(dataHandler->filesystem->dataFile), dataHandler->filesystem->dataFileName, LFS_O_RDWR | LFS_O_CREAT | LFS_O_TRUNC);
+        lfs_file_sync(&(dataHandler->filesystem->lfs), &(dataHandler->filesystem->dataFile));
+        printf("Created file %s\n", dataHandler->filesystem->dataFileName);
+    }
+
+    vTaskDelete(NULL);
 }
