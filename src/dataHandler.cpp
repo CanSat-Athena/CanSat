@@ -10,6 +10,10 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
 
         dataLine_t data{};
 
+        // Update timestamp
+        absolute_time_t absoluteTime = get_absolute_time();
+        data.timestamp = to_ms_since_boot(absoluteTime);
+
         // Get DHT20 data
         for (int i = 0; i < DHT20_READ_FREQ; i++) {
             sensorData_t dhtData{};

@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 
 add_executable(cansat
         cansat.cpp
+        globals.cpp
         dht20.cpp
         bme680.cpp
         imu.cpp

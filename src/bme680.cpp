@@ -151,10 +151,9 @@ sensorData_t BME680::getData() {
             .humidity = this->humidity,
             .pressure = this->pressure,
             .gasResistance = this->gasResistance,
-            .gasIndex = this->gasIndex,
-            .measureIndex = this->measureIndex,
-            .timeTaken = this->timeTaken,
-            .readStatus = this->readStatus,
+            // .gasIndex = this->gasIndex,
+            // .measureIndex = this->measureIndex,
+            // .readStatus = this->readStatus,
         }
     };
 }

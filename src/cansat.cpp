@@ -69,7 +69,7 @@ void sensorReadTask(void* pvParameters) {
         lastStartTime = xTaskGetTickCount();
 
         // Read data
-        printf("Reading from %s\n", sensor->name);
+        // printf("Reading from %s\n", sensor->name);
         sensor->sensor->updateData();
 
         // Dump data to queue

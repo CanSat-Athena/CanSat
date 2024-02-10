@@ -1,5 +1,9 @@
 #include "filesystem.hpp"
+#include "globals.h"
 
+/// @brief Lists the directory given
+/// @param path String path to directory
+/// @return Any errors received
 int Filesystem::ls(const char* path) {
     lfs_dir_t dir;
     int err = lfs_dir_open(&lfs, &dir, path);
@@ -42,6 +46,8 @@ int Filesystem::ls(const char* path) {
     return 0;
 }
 
+/// @brief Initialises (mounts) the filesystem
+/// @return True if successful
 bool Filesystem::init() {
     printf("Filesystem: Setting up\n");
 
@@ -49,8 +55,8 @@ bool Filesystem::init() {
     filesystemMutex = xSemaphoreCreateMutex();
 
 #ifdef NUKE_FS_ON_NEXT_BOOT
-    printf("Filesystem: Reformatting...\n");
-    lfs_format(&lfs, &pico_cfg);
+    // Launch the ICBMs
+    nuke();
 #endif
 
     // mount the filesystem
@@ -67,12 +73,6 @@ bool Filesystem::init() {
         lfs_format(&lfs, &pico_cfg);
         err = lfs_mount(&lfs, &pico_cfg);
     }
-
-#ifdef NUKE_FS_ON_NEXT_BOOT
-    ls("/");
-    printf("Filesystem: Nuked");
-    while (true) tight_loop_contents();
-#endif
 
     printf("Filesystem: Mounted\n");
 
@@ -94,22 +94,25 @@ bool Filesystem::init() {
 
     // Create data file
     sprintf(dataFileName, "data_%u", this->bootCount);
-
     lfs_file_open(&lfs, &dataFile, dataFileName, LFS_O_RDWR | LFS_O_CREAT | LFS_O_TRUNC);
     lfs_file_sync(&lfs, &dataFile);
-
     printf("Filesystem: Created file %s\n", dataFileName);
+
     ls("/");
     printUsage();
 
-    printf("Filesystem: Initialised\n");
+    // Start filesystem input task
+    printf("Filesystem: Starting input task\n");
+    xTaskCreate(filesystemInputTask, "Filesystem input", 1024, NULL, 1, NULL);
 
+    printf("Filesystem: Initialised\n");
     this->initialised = true;
     return true;
 }
 
+/// @brief Launches an intercontinental ballistic missile headed towards the filesystem
 void Filesystem::nuke() {
-    printf("Filesystem: nuking the filesystem...\n");
+    printf("Filesystem: Nuking the filesystem...\n");
     lfs_format(&lfs, &pico_cfg);
     printf("Filesystem: Filesystem has been nuked. \nFilesystem: Please re-upload program with NUKE_FS_ON_NEXT_BOOT removed from config.h to continue normal operation\n");
     while (true) {
@@ -117,6 +120,7 @@ void Filesystem::nuke() {
     }
 }
 
+/// @brief Uninitialises (unmounts) the filesystem
 void Filesystem::uninit() {
     // Unmount filesystem
     lfs_unmount(&lfs);
@@ -124,6 +128,7 @@ void Filesystem::uninit() {
     this->initialised = false;
 }
 
+/// @brief Prints filesystem usage
 void Filesystem::printUsage() {
     lfs_ssize_t size = lfs_fs_size(&lfs);
     uint32_t size_bytes = size * BLOCK_SIZE_BYTES;
@@ -136,6 +141,8 @@ void Filesystem::printUsage() {
     printf(" (%.2f%%)\n", usage * 100);
 }
 
+/// @brief Prints lfs_size_t parameter as an automatically converted size (eg B, KB, MB, GB)
+/// @param size The size in bytes to print
 void Filesystem::printSize(lfs_ssize_t size) {
     static const char* prefixes[] = { "", "K", "M", "G" };
     for (int i = sizeof(prefixes) / sizeof(prefixes[0]) - 1; i >= 0; i--) {
@@ -146,8 +153,98 @@ void Filesystem::printSize(lfs_ssize_t size) {
     }
 }
 
+/// @brief Adds data to the data file
+/// @param data The line to write
+/// @return The number of bytes written, or a negative error code on failure.
 int Filesystem::addData(dataLine_t data) {
     lfs_file_write(&lfs, &dataFile, &data, sizeof(dataLine_t));
     int err = lfs_file_sync(&lfs, &dataFile);
     return err;
+}
+
+void Filesystem::readFile(uint32_t bootCount) {
+    char dataFileName[50];
+    sprintf(dataFileName, "data_%u", bootCount);
+
+    lfs_file_t dataFile;
+    int err = lfs_file_open(&lfs, &dataFile, dataFileName, LFS_O_RDONLY);
+
+    // Handle errors
+    if (err == LFS_ERR_NOENT) {
+        printf("Error: File %s does not exist\n", dataFileName);
+        return;
+    } else if (err < 0) {
+        printf("Error: Failed to open file %s\n", dataFileName);
+        return;
+    }
+
+    printf("Printing file %s:\n", dataFileName);
+
+    lfs_ssize_t readStatus = 0;
+    dataLine_t line;
+
+    // Print each line
+    while (true) {
+        readStatus = lfs_file_read(&lfs, &dataFile, (void*)(&line), sizeof(dataLine_t));
+        if (readStatus < sizeof(dataLine_t)) break;
+
+        printf("%u: ", line.timestamp);
+
+        // Get DHT20 data
+        printf("[");
+        for (int i = 0; i < DHT20_READ_FREQ; i++) {
+            printf("[%f, %f], ", line.dht20[i].temperature, line.dht20[i].humidity);
+        }
+        printf("], ");
+
+        // Get BME680 data
+        printf("[");
+        for (int i = 0; i < BME680_READ_FREQ; i++) {
+            printf("[%f, %f, %f, %f], ",
+                line.bme680[i].temperature,
+                line.bme680[i].humidity,
+                line.bme680[i].pressure,
+                line.bme680[i].gasResistance
+            );
+        }
+        printf("], ");
+
+        // Get light data
+        printf("[");
+        for (int i = 0; i < LIGHT_READ_FREQ; i++) {
+            printf("%u, ", line.lightData[i].lightIntensity);
+        }
+        printf("], ");
+
+        printf("\n");
+    }
+
+    // Don't forget to close
+    lfs_file_close(&lfs, &dataFile);
+}
+
+/// @brief Task to handle filesystem input from USB
+/// @param pvParameters unused
+void Filesystem::filesystemInputTask(void* pvParameters) {
+    printf("Filesystem: Enter 'd' to print a data file\n");
+    char c;
+    char fileBootCount[45];
+
+    while (true) {
+        vTaskDelay(40);
+
+        printf("$ ");
+        char c = getchar();
+
+        switch (c) {
+        case 'd':
+            printf("d\nEnter boot count: ");
+            dataHandler->filesystem->readFile(getIntInput());
+            break;
+            // Todo: erase
+        default:
+            printf("Invalid command: %c\n", c);
+            break;
+        }
+    }
 }

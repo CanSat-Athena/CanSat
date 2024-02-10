@@ -27,32 +27,16 @@ public:
         this->uninit();
     }
 
-    /// @brief Initialises (mounts) the filesystem
-    /// @return True if successful
     bool init();
-
-    /// @brief Uninitialises (unmounts) the filesystem
     void uninit();
-
-    /// @brief Erases the filesystem
     void nuke();
 
-    /// @brief Lists the directory given
-    /// @param path String path to directory
-    /// @return Any errors received
-    int ls(const char* path);
-
-    /// @brief Adds data to the data file
-    /// @param data The line to write
-    /// @return The number of bytes written, or a negative error code on failure.
     int addData(dataLine_t data);
 
-    /// @brief Prints filesystem usage
+    int ls(const char* path);    
     void printUsage();
-
-    /// @brief Prints lfs_size_t parameter as an automatically converted size (eg B, KB, MB, GB)
-    /// @param size The size in bytes to print
     void printSize(lfs_ssize_t size);
+    void readFile(uint32_t bootCount);
 
-    static void filesystemInputTask();
+    static void filesystemInputTask(void* pvParameters);
 };

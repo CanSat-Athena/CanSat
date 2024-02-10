@@ -20,3 +20,13 @@ bool LightSensor::updateData() {
 
     return true;
 }
+
+/// @brief Returns the data as a struct
+/// @return The data
+sensorData_t LightSensor::getData() {
+    return {
+       .lightData = lightData_t {
+            .lightIntensity = lightValue
+       } 
+    };
+}

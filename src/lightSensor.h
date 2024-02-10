@@ -21,4 +21,5 @@ public:
     
     bool init(const uint attempts = 3);
     bool updateData();
+    sensorData_t getData();
 };

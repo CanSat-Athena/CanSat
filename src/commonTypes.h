@@ -24,10 +24,9 @@ typedef struct bme680Data_t {
     float humidity;
     float pressure;
     float gasResistance;
-    uint8_t gasIndex;
-    uint8_t measureIndex;
-    uint32_t timeTaken;
-    uint8_t readStatus;
+    // uint8_t gasIndex;
+    // uint8_t measureIndex;
+    // uint8_t readStatus;
 } bme680Data_t;
 
 typedef struct lightData_t {
