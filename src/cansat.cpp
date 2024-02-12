@@ -19,11 +19,9 @@ DHT20* dht;
 BME680* bme;
 GPS* gps;
 LightSensor* light;
-DataHandler* dataHandler;
 
 /// @brief Setup sensors
 void setup() {
-
     printf("------------------\n");
     I2C::init();
     ADC::init();
@@ -37,6 +35,7 @@ void setup() {
     // Set up data handler
     dataHandler = new DataHandler();
     printf("Setup complete\n------------------\n");
+    xEventGroupSetBits(eventGroup, 0b00000001);     // Set bit 0 to show initialisation complete
 }
 
 void sensorReadTask(void* pvParameters) {
@@ -105,6 +104,7 @@ int main() {
     // Safe hardfault handler
     exception_set_exclusive_handler(HARDFAULT_EXCEPTION, hardfault_handler);
 
+    eventGroup = xEventGroupCreate();
     xTaskCreate(initTask, "Init", 1024, NULL, 4, NULL);
 
     vTaskStartScheduler();

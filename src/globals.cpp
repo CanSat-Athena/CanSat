@@ -1,5 +1,8 @@
 #include "globals.h"
 
+DataHandler* dataHandler;
+EventGroupHandle_t eventGroup;
+
 // Gets an integer number from serial
 int32_t getIntInput() {
     char characters[10]{};
@@ -40,4 +43,12 @@ int32_t getIntInput() {
     }
 
     return atoi(characters);
+}
+
+/// @brief Compares two strings to see if the start is same
+/// @param a The string to be checked
+/// @param b The substring
+/// @return True if is a substring
+bool strStartsWith(const char* a, const char* b) {
+    return strncmp(a, b, strlen(b)) == 0;
 }

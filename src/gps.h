@@ -1,7 +1,7 @@
 #pragma once
 #include <FreeRTOS.h>
 #include <task.h>
-#include <stream_buffer.h>
+#include <queue.h>
 #include <pico/stdlib.h>
 #include <hardware/uart.h>
 #include <hardware/irq.h>
@@ -19,13 +19,12 @@
 
 class GPS : public Sensor {
 private:
-    static const UBaseType_t gpsTaskNotificationArrayIndex = 1;
-    static StreamBufferHandle_t gpsBuffer;
-
+    static QueueHandle_t gpsQueue;
+    static volatile char gpsLine[100];
+    static volatile uint8_t gpsLineIndex;
     static lwgps_t lwgps;
 
 public:
-
     GPS(bool initialise = true) {
         if (initialise) init();
     }

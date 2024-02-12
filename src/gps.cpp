@@ -1,6 +1,8 @@
 #include "gps.h"
 
-StreamBufferHandle_t GPS::gpsBuffer;
+QueueHandle_t GPS::gpsQueue;
+volatile char GPS::gpsLine[100];
+volatile uint8_t GPS::gpsLineIndex;
 lwgps_t GPS::lwgps;
 
 bool GPS::init() {
@@ -24,7 +26,7 @@ bool GPS::init() {
 
     // Set up buffer
     printf("GPS:        Setting up buffer\n");
-    gpsBuffer = xStreamBufferCreate(256, 1);
+    gpsQueue = xQueueCreate(10, sizeof(char[100]));
 
     // Set up task
     printf("GPS:        Setting up task\n");
@@ -35,12 +37,11 @@ bool GPS::init() {
 }
 
 void GPS::gpsTask(void* pvParameters) {
-    uint32_t ulNotificationValue;
-    char singleCharBuffer;
     char line[100];
     uint8_t lineIndex = 0;
 
-    vTaskDelay(2000);   // TODO: Remove this delay
+    xEventGroupWaitBits(eventGroup, 0b00000001, pdFALSE, pdTRUE, portMAX_DELAY);   // Wait for initialisation to complete
+    vTaskDelay(100);   // TODO: Remove this delay
 
     // Set up and enable interrupt handlers
     int UART_IRQ = GPS_UART == uart0 ? UART0_IRQ : UART1_IRQ;
@@ -52,17 +53,15 @@ void GPS::gpsTask(void* pvParameters) {
 
     while (true) {
         // Wait for data
-        if (xStreamBufferReceive(gpsBuffer, &singleCharBuffer, 1, portMAX_DELAY) == 1) {
-            line[lineIndex++] = singleCharBuffer;
-
-            if (singleCharBuffer == '\n' || lineIndex >= 99) {
-                line[lineIndex] = '\0';
-
+        if (xQueueReceive(gpsQueue, &line, portMAX_DELAY) == 1) {
+            if (strStartsWith(line, "$GPGGA") || strStartsWith(line, "$GNGGA") ||
+                strStartsWith(line, "$GPGSA") || strStartsWith(line, "$GNGSA") ||
+                strStartsWith(line, "$GPGSV") || strStartsWith(line, "$GNGSV") ||
+                strStartsWith(line, "$GPRMC") || strStartsWith(line, "$GNRMC")) {
                 // Process GPS data
                 uint8_t err = lwgps_process(&lwgps, line, strlen(line));
-
-                printf("GPS:        %d, %d\n", lwgps.is_valid, lwgps.seconds);
-                lineIndex = 0;
+                printf("GPS:        %d, %d:%d:%d, altitude: %f, speed: %f, lat: %f, lon: %f\n", lwgps.is_valid, 
+                    lwgps.hours, lwgps.minutes, lwgps.seconds, lwgps.altitude, lwgps.speed, lwgps.latitude, lwgps.longitude);
             }
         }
     }
@@ -74,7 +73,14 @@ void GPS::uartInterruptHandler() {
 
         char character = uart_getc(GPS_UART);
 
-        xStreamBufferSendFromISR(gpsBuffer, &character, 1, &xHigherPriorityTaskWoken);
-        portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+        // Add character to line
+        gpsLine[gpsLineIndex++] = character;
+
+        if (character == '\n' || gpsLineIndex >= 99) {
+            gpsLine[gpsLineIndex] = '\0';
+            xQueueSendToBackFromISR(gpsQueue, (void*)&gpsLine, &xHigherPriorityTaskWoken);
+            portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+            gpsLineIndex = 0;
+        }
     }
 }
