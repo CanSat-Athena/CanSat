@@ -1,7 +1,11 @@
 #include <pico/stdlib.h>
+// #include "lwgps/lwgps.hpp"
 
 // PINS & PORTS
 #define I2C_PORT i2c0
+#define GPS_UART uart1
+#define GPS_TX_PIN 8
+#define GPS_RX_PIN 9
 
 // I2C Addresses
 #define DHT20_ADDRESS  0x38

@@ -1056,6 +1056,10 @@
 				},
 				{
 					"build" : "lib",
+					"childIndexes" : 
+					[
+						85
+					],
 					"jsonFile" : "directory-lib-Debug-c12f15c6f888b43a891c.json",
 					"minimumCMakeVersion" : 
 					{
@@ -1064,6 +1068,32 @@
 					"parentIndex" : 0,
 					"projectIndex" : 0,
 					"source" : "lib"
+				},
+				{
+					"build" : "lib/lwgps",
+					"childIndexes" : 
+					[
+						86
+					],
+					"jsonFile" : "directory-lib.lwgps-Debug-42bc5acd98fa671ec95b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 84,
+					"projectIndex" : 3,
+					"source" : "lib/lwgps"
+				},
+				{
+					"build" : "lib/lwgps/lwgps",
+					"jsonFile" : "directory-lib.lwgps.lwgps-Debug-85aab79ae5eee06fd498.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 85,
+					"projectIndex" : 3,
+					"source" : "lib/lwgps/lwgps"
 				}
 			],
 			"name" : "Debug",
@@ -1073,7 +1103,8 @@
 					"childIndexes" : 
 					[
 						1,
-						2
+						2,
+						3
 					],
 					"directoryIndexes" : 
 					[
@@ -1191,6 +1222,15 @@
 					],
 					"name" : "FreeRTOS-Kernel",
 					"parentIndex" : 0
+				},
+				{
+					"directoryIndexes" : 
+					[
+						85,
+						86
+					],
+					"name" : "LwLibPROJECT",
+					"parentIndex" : 0
 				}
 			],
 			"targets" : 
@@ -1198,7 +1238,7 @@
 				{
 					"directoryIndex" : 83,
 					"id" : "ELF2UF2Build::@145eef247bfb46b6828c",
-					"jsonFile" : "target-ELF2UF2Build-Debug-199caad9c38fd713237b.json",
+					"jsonFile" : "target-ELF2UF2Build-Debug-10084d9c7035ffadbb3f.json",
 					"name" : "ELF2UF2Build",
 					"projectIndex" : 0
 				},
@@ -1233,7 +1273,7 @@
 				{
 					"directoryIndex" : 83,
 					"id" : "cansat::@145eef247bfb46b6828c",
-					"jsonFile" : "target-cansat-Debug-81c7656d5f8f052243db.json",
+					"jsonFile" : "target-cansat-Debug-214708312a73d40f4825.json",
 					"name" : "cansat",
 					"projectIndex" : 0
 				},

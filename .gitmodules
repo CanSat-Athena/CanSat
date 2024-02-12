@@ -7,3 +7,7 @@
 [submodule "lib/FreeRTOS-Kernel"]
 	path = lib/FreeRTOS-Kernel
 	url = https://github.com/FreeRTOS/FreeRTOS-Kernel.git
+[submodule "lib/lwgps"]
+	path = lib/lwgps
+	url = https://github.com/MaJerle/lwgps
+	branch = main

@@ -3,6 +3,7 @@
 
 void DataHandler::dataHandlerTask(void* DHPointer) {
     TickType_t lastStartTime;
+    vTaskDelay(1000);
 
     while (true) {
         // Get start time

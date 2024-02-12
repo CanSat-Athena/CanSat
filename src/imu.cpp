@@ -9,7 +9,6 @@ bool IMU::init(const int attempts) {
     for (int i = 0; i < attempts; i++) {
         printf("IMU:        Trying to connect, attempt %d of %d\n", i + 1, attempts);
 
-        
         // printf("IMU:        Initialised successfully; I2C status: 0x%x\n", status);
 
         this->initialised = true;

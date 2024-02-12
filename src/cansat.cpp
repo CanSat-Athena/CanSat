@@ -8,6 +8,7 @@
 #include "config.h"
 #include "dht20.h"
 #include "bme680.h"
+#include "gps.h"
 #include "lightSensor.h"
 #include "i2c.h"
 #include "dataHandler.h"
@@ -16,18 +17,19 @@
 
 DHT20* dht;
 BME680* bme;
+GPS* gps;
 LightSensor* light;
 DataHandler* dataHandler;
 
 /// @brief Setup sensors
 void setup() {
-    sleep_ms(500);
 
     printf("------------------\n");
     I2C::init();
     ADC::init();
-
+    
     // Set up sensors
+    gps = new GPS();
     dht = new DHT20();
     bme = new BME680();
     light = new LightSensor();
@@ -35,29 +37,6 @@ void setup() {
     // Set up data handler
     dataHandler = new DataHandler();
     printf("Setup complete\n------------------\n");
-}
-
-void printTask(void* pvParameters) {
-    while (true) {
-        // dht->updateData();
-        // bme->updateData();
-        // light->updateData();
-
-        // printf("DHT: temp: %f C, humidity %f %%\n", dht->temperature, dht->humidity);
-        // printf("BME680: last updated: %lu, temp: %.2f, pressure: %.2f, humidity: %.2f, g resistance: %.2f, status: 0x%x, g index: %d, m index: %d\n",
-        //     bme->lastUpdated,
-        //     bme->temperature,
-        //     bme->pressure,
-        //     bme->humidity,
-        //     bme->gasResistance,
-        //     bme->readStatus,
-        //     bme->gasIndex,
-        //     bme->measureIndex);
-        // printf("Light: ADC value: %d\n", light->lightValue);
-
-        // TODO: update to make sure argument is always at least 10
-        vTaskDelay(500 - bme->timeTaken);
-    }
 }
 
 void sensorReadTask(void* pvParameters) {

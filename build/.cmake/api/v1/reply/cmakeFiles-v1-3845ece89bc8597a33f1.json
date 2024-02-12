@@ -704,6 +704,12 @@
 		},
 		{
 			"path" : "lib/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/lwgps/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/lwgps/lwgps/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

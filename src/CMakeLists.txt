@@ -7,6 +7,7 @@ add_executable(cansat
         bme680.cpp
         imu.cpp
         lightSensor.cpp
+        gps.cpp
         filesystem.cpp
         littlefs.cpp
         dataHandler.cpp
@@ -31,6 +32,7 @@ add_compile_definitions(
         # FREE_RTOS_KERNEL_SMP=1
         # portSUPPORT_SMP=1
         LFS_THREADSAFE
+        LWGPS_IGNORE_USER_OPTS
 )
 
 target_link_libraries(cansat PUBLIC
@@ -40,12 +42,15 @@ target_link_libraries(cansat PUBLIC
         hardware_i2c
         hardware_timer
         hardware_adc
+        hardware_uart
         hardware_watchdog
         hardware_clocks
         hardware_exception
+        hardware_irq
         hardware_flash
         pico_multicore
         FreeRTOS-Kernel-Heap4
+        lwgps
         )
 
 pico_enable_stdio_usb(cansat 1)
