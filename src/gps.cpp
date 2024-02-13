@@ -41,7 +41,7 @@ void GPS::gpsTask(void* pvParameters) {
     uint8_t lineIndex = 0;
 
     xEventGroupWaitBits(eventGroup, 0b00000001, pdFALSE, pdTRUE, portMAX_DELAY);   // Wait for initialisation to complete
-    vTaskDelay(100);   // TODO: Remove this delay
+    vTaskDelay(100);
 
     // Set up and enable interrupt handlers
     int UART_IRQ = GPS_UART == uart0 ? UART0_IRQ : UART1_IRQ;
@@ -60,8 +60,6 @@ void GPS::gpsTask(void* pvParameters) {
                 strStartsWith(line, "$GPRMC") || strStartsWith(line, "$GNRMC")) {
                 // Process GPS data
                 uint8_t err = lwgps_process(&lwgps, line, strlen(line));
-                printf("GPS:        %d, %d:%d:%d, altitude: %f, speed: %f, lat: %f, lon: %f\n", lwgps.is_valid, 
-                    lwgps.hours, lwgps.minutes, lwgps.seconds, lwgps.altitude, lwgps.speed, lwgps.latitude, lwgps.longitude);
             }
         }
     }
@@ -83,4 +81,16 @@ void GPS::uartInterruptHandler() {
             gpsLineIndex = 0;
         }
     }
+}
+
+sensorData_t GPS::getDataStatic() {
+    return {
+        .gpsData = gpsData_t {
+            .latitude = lwgps.latitude,
+            .longitude = lwgps.longitude,
+            .altitude = lwgps.altitude,
+
+            .fix = lwgps.fix
+        }
+    };
 }

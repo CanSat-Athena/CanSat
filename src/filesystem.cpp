@@ -219,6 +219,11 @@ void Filesystem::readFile(uint32_t bootCount) {
         }
         printf("], ");
 
+        // Get GPS data
+        printf("[");
+        printf("%f, %f, %f, %u", line.gpsData[0].latitude, line.gpsData[0].longitude, line.gpsData[0].altitude, line.gpsData[0].fix);
+        printf("], ");
+
         printf("\n");
     }
 

@@ -42,6 +42,11 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
             }
         }
 
+        // Get GPS data
+        sensorData_t gpsData = GPS::getDataStatic();
+        data.gpsData[0] = gpsData.gpsData;
+        // printf("GPS data: %f, %f, %f\n", data.gpsData[0].latitude, data.gpsData[0].longitude, data.gpsData[0].altitude);
+
         // Write the data
         dataHandler->filesystem->addData(data);
 

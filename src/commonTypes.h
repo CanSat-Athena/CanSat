@@ -33,10 +33,19 @@ typedef struct lightData_t {
     uint16_t lightIntensity;
 } lightData_t;
 
+typedef struct gpsData_t {
+    double latitude;
+    double longitude;
+    double altitude;
+
+    uint8_t fix;
+} gpsData_t;
+
 typedef union sensorData_t {
     dht20Data_t dht20;
     bme680Data_t bme680;
     lightData_t lightData;
+    gpsData_t gpsData;
 } sensorData_t;
 
 // Data to be stored
@@ -45,6 +54,7 @@ typedef struct dataLine_t {
     dht20Data_t dht20[(int)max(DHT20_READ_FREQ, 1)];
     bme680Data_t bme680[(int)max(BME680_READ_FREQ, 1)];
     lightData_t lightData[(int)max(LIGHT_READ_FREQ, 1)];
+    gpsData_t gpsData[1];
 } dataLine_t;
 
 // /// @brief Filesystem action type (can be DATA_READ, DATA_WRITE)

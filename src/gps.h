@@ -22,6 +22,7 @@ private:
     static QueueHandle_t gpsQueue;
     static volatile char gpsLine[100];
     static volatile uint8_t gpsLineIndex;
+
     static lwgps_t lwgps;
 
 public:
@@ -30,6 +31,7 @@ public:
     }
 
     bool init();
+    static sensorData_t getDataStatic();
 
     static void gpsTask(void* pvParameters);
     static void uartInterruptHandler();

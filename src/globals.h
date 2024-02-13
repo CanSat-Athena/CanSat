@@ -3,6 +3,7 @@
 #include <semphr.h>
 #include <event_groups.h>
 #include "dataHandler.h"
+#include "gps.h"
 
 extern DataHandler* dataHandler;
 extern EventGroupHandle_t eventGroup;
