@@ -42,10 +42,18 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
             }
         }
 
+        // Get wind data
+        for (int i = 0; i < ANEMOMETER_READ_FREQ; i++) {
+            sensorData_t anemometerData{};
+
+            if (xQueueReceive(dataHandler->anemometerQueue, &anemometerData, (TickType_t)10) == pdPASS) {
+                data.anemometerData[i] = anemometerData.anemometerData;
+            }
+        }
+
         // Get GPS data
         sensorData_t gpsData = GPS::getDataStatic();
         data.gpsData[0] = gpsData.gpsData;
-        // printf("GPS data: %f, %f, %f\n", data.gpsData[0].latitude, data.gpsData[0].longitude, data.gpsData[0].altitude);
 
         // Write the data
         dataHandler->filesystem->addData(data);

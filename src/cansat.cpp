@@ -10,6 +10,7 @@
 #include "bme680.h"
 #include "gps.h"
 #include "lightSensor.h"
+#include "anemometer.h"
 #include "i2c.h"
 #include "dataHandler.h"
 #include "commonTypes.h"
@@ -19,6 +20,7 @@ DHT20* dht;
 BME680* bme;
 GPS* gps;
 LightSensor* light;
+Anemometer* anemometer;
 
 /// @brief Setup sensors
 void setup() {
@@ -27,10 +29,11 @@ void setup() {
     ADC::init();
     
     // Set up sensors
-    gps = new GPS();
+    // gps = new GPS();
     dht = new DHT20();
     bme = new BME680();
     light = new LightSensor();
+    anemometer = new Anemometer();
 
     // Set up data handler
     dataHandler = new DataHandler();
@@ -39,13 +42,10 @@ void setup() {
 }
 
 void sensorReadTask(void* pvParameters) {
-    TickType_t lastStartTime;
+    TickType_t lastStartTime = xTaskGetTickCount();
     sensor_t* sensor = (sensor_t*)pvParameters;
 
     while (true) {
-        // Get start time
-        lastStartTime = xTaskGetTickCount();
-
         // Read data
         // printf("Reading from %s\n", sensor->name);
         sensor->sensor->updateData();
@@ -91,6 +91,16 @@ void initTask(void* pvParameters) {
     };
     TaskHandle_t lightReadTask;
     xTaskCreate(sensorReadTask, "Light sensor read", 512, &lightSensor, 2, &lightReadTask);
+
+    sensor_t anemometerSensor = {
+        .sensor = anemometer,
+        .name = (char*)"Anemometer",
+        .queue = &(dataHandler->anemometerQueue),
+        .updateFreq = ANEMOMETER_READ_FREQ,
+        .updateTime = ANEMOMETER_READ_TIME
+    };
+    TaskHandle_t anemometerReadTask;
+    xTaskCreate(sensorReadTask, "Anemometer sensor read", 512, &anemometerSensor, 2, &anemometerReadTask);
 
     TaskHandle_t dataHandlerTaskHandle;
     xTaskCreate(DataHandler::dataHandlerTask, "Data handler", 4096, NULL, 3, &dataHandlerTaskHandle);

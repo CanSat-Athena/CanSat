@@ -4,6 +4,7 @@ add_executable(cansat
         cansat.cpp
         globals.cpp
         dht20.cpp
+        anemometer.cpp
         bme680.cpp
         imu.cpp
         lightSensor.cpp
@@ -40,6 +41,7 @@ target_link_libraries(cansat PUBLIC
         pico_stdlib
         hardware_spi
         hardware_i2c
+        hardware_gpio
         hardware_timer
         hardware_adc
         hardware_uart

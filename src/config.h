@@ -6,6 +6,7 @@
 #define GPS_UART uart1
 #define GPS_TX_PIN 8
 #define GPS_RX_PIN 9
+#define ANEMOMETER_PIN 6
 
 // I2C Addresses
 #define DHT20_ADDRESS  0x38
@@ -24,11 +25,13 @@
 #define DHT20_READ_FREQ 1
 #define BME680_READ_FREQ 0.5
 #define LIGHT_READ_FREQ 5
+#define ANEMOMETER_READ_FREQ 1
 
 // Sensor delay times (ms)
 #define DHT20_READ_TIME (uint32_t)(1000.0f / DHT20_READ_FREQ)
 #define BME680_READ_TIME (uint32_t)(1000.0f / BME680_READ_FREQ)
 #define LIGHT_READ_TIME (uint32_t)(1000.0f / LIGHT_READ_FREQ)
+#define ANEMOMETER_READ_TIME (uint32_t)(1000.0f / ANEMOMETER_READ_FREQ)
 
 // Use when debugging
 #define DEBUG_MODE

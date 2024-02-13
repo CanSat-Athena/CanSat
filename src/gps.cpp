@@ -40,7 +40,8 @@ void GPS::gpsTask(void* pvParameters) {
     char line[100];
     uint8_t lineIndex = 0;
 
-    xEventGroupWaitBits(eventGroup, 0b00000001, pdFALSE, pdTRUE, portMAX_DELAY);   // Wait for initialisation to complete
+    // Wait for initialisation to complete
+    xEventGroupWaitBits(eventGroup, 0b00000001, pdFALSE, pdTRUE, portMAX_DELAY);
     vTaskDelay(100);
 
     // Set up and enable interrupt handlers

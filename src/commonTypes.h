@@ -33,6 +33,10 @@ typedef struct lightData_t {
     uint16_t lightIntensity;
 } lightData_t;
 
+typedef struct anemometerData_t {
+    uint32_t triggerCount;
+} anemometerData_t;
+
 typedef struct gpsData_t {
     double latitude;
     double longitude;
@@ -46,6 +50,7 @@ typedef union sensorData_t {
     bme680Data_t bme680;
     lightData_t lightData;
     gpsData_t gpsData;
+    anemometerData_t anemometerData;
 } sensorData_t;
 
 // Data to be stored
@@ -54,6 +59,7 @@ typedef struct dataLine_t {
     dht20Data_t dht20[(int)max(DHT20_READ_FREQ, 1)];
     bme680Data_t bme680[(int)max(BME680_READ_FREQ, 1)];
     lightData_t lightData[(int)max(LIGHT_READ_FREQ, 1)];
+    anemometerData_t anemometerData[(int)max(ANEMOMETER_READ_FREQ, 1)];
     gpsData_t gpsData[1];
 } dataLine_t;
 

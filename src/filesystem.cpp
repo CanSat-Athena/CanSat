@@ -219,6 +219,13 @@ void Filesystem::readFile(uint32_t bootCount) {
         }
         printf("], ");
 
+        // Get anemometer data
+        printf("[");
+        for (int i = 0; i < ANEMOMETER_READ_FREQ; i++) {
+            printf("%u, ", line.anemometerData[i].triggerCount);
+        }
+        printf("], ");
+
         // Get GPS data
         printf("[");
         printf("%f, %f, %f, %u", line.gpsData[0].latitude, line.gpsData[0].longitude, line.gpsData[0].altitude, line.gpsData[0].fix);
@@ -262,10 +269,18 @@ void Filesystem::filesystemInputTask(void* pvParameters) {
             printf("Press 'Y' (uppercase) to confirm nuke: ");
             char c2 = getchar();
             if (c2 == 'Y') {
-                printf("\n");
+                // Get confirmation 2
+                printf("\nPress 'C' (uppercase) to confirm nuke: ");
+                char c3 = getchar();
 
-                // Launch the ICBMs
-                xTaskCreate(filesystemNukeTask, "Filesystem nuke", 512, NULL, 20, NULL);
+                if (c3 == 'C') {
+                    printf("\n");
+
+                    // Launch the ICBMs
+                    xTaskCreate(filesystemNukeTask, "Filesystem nuke", 512, NULL, 20, NULL);
+                } else {
+                    printf("\nAborting nuclear operation\n");
+                }
             } else {
                 printf("\nAborting nuclear operation\n");
             }
