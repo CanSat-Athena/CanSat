@@ -23,7 +23,7 @@
 
 // Sensor read frequencies
 #define DHT20_READ_FREQ 1
-#define BME680_READ_FREQ 0.5
+#define BME680_READ_FREQ 2
 #define LIGHT_READ_FREQ 5
 #define ANEMOMETER_READ_FREQ 1
 
