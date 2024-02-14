@@ -248,6 +248,7 @@ void Filesystem::filesystemInputTask(void* pvParameters) {
         "'p' to print a data file\n"
         "'l' to list directory\n"
         "'u' to show filesystem usage\n"
+        "'c' to clear screen\n"
         "'d' to delete a file\n"
         "'n' to nuke the filesystem\n"
         "'h' to display this message\n";
@@ -307,6 +308,10 @@ void Filesystem::filesystemInputTask(void* pvParameters) {
             }
             break;
         }
+        case 'c':
+            // Clear screen
+            printf("\033[2J\033[H");
+            break;
         case 'l':
             printf("Listing directory \"/\"\n");
             dataHandler->filesystem->ls("/");
