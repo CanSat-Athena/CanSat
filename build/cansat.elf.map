@@ -2289,9 +2289,9 @@ Discarded input sections
  .debug_frame   0x00000000      0x120 src/CMakeFiles/cansat.dir/__/lib/lwgps/lwgps/src/lwgps/lwgps.c.obj
  .ARM.attributes
                 0x00000000       0x2c src/CMakeFiles/cansat.dir/__/lib/lwgps/lwgps/src/lwgps/lwgps.c.obj
- .text          0x00000000        0x0 /tmp/ccAlNhEm.o
- .data          0x00000000        0x0 /tmp/ccAlNhEm.o
- .bss           0x00000000        0x0 /tmp/ccAlNhEm.o
+ .text          0x00000000        0x0 /tmp/cc0tPbRx.o
+ .data          0x00000000        0x0 /tmp/cc0tPbRx.o
+ .bss           0x00000000        0x0 /tmp/cc0tPbRx.o
  .data          0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .bss           0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .text          0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
@@ -2747,7 +2747,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/
 .boot2          0x10000000      0x100
                 0x10000000                        __boot2_start__ = .
  *(.boot2)
- .boot2         0x10000000      0x100 /tmp/ccAlNhEm.o
+ .boot2         0x10000000      0x100 /tmp/cc0tPbRx.o
                 0x10000100                        __boot2_end__ = .
                 0x00000001                        ASSERT (((__boot2_end__ - __boot2_start__) == 0x100), ERROR: Pico second stage bootloader must be 256 bytes in size)
 
@@ -2954,1337 +2954,1337 @@ LOAD /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/
                 0x10001154       0x60 src/CMakeFiles/cansat.dir/filesystem.cpp.obj
                 0x10001154                Filesystem::printUsage()
  .text._ZN10Filesystem4initEv
-                0x100011b4      0x190 src/CMakeFiles/cansat.dir/filesystem.cpp.obj
+                0x100011b4      0x194 src/CMakeFiles/cansat.dir/filesystem.cpp.obj
                 0x100011b4                Filesystem::init()
  .text._ZN10Filesystem7addDataE10dataLine_t
-                0x10001344       0x32 src/CMakeFiles/cansat.dir/filesystem.cpp.obj
-                0x10001344                Filesystem::addData(dataLine_t)
- *fill*         0x10001376        0x2 
+                0x10001348       0x32 src/CMakeFiles/cansat.dir/filesystem.cpp.obj
+                0x10001348                Filesystem::addData(dataLine_t)
+ *fill*         0x1000137a        0x2 
  .text._ZN10Filesystem8readFileEm
-                0x10001378      0x1dc src/CMakeFiles/cansat.dir/filesystem.cpp.obj
-                0x10001378                Filesystem::readFile(unsigned long)
+                0x1000137c      0x1dc src/CMakeFiles/cansat.dir/filesystem.cpp.obj
+                0x1000137c                Filesystem::readFile(unsigned long)
  .text._ZN10Filesystem19filesystemInputTaskEPv
-                0x10001554      0x188 src/CMakeFiles/cansat.dir/filesystem.cpp.obj
-                0x10001554                Filesystem::filesystemInputTask(void*)
+                0x10001558      0x188 src/CMakeFiles/cansat.dir/filesystem.cpp.obj
+                0x10001558                Filesystem::filesystemInputTask(void*)
  .text._ZL13flash_fs_syncPK10lfs_config
-                0x100016dc        0x4 src/CMakeFiles/cansat.dir/littlefs.cpp.obj
+                0x100016e0        0x4 src/CMakeFiles/cansat.dir/littlefs.cpp.obj
  .text._ZL15flash_fs_unlockPK10lfs_config
-                0x100016e0       0x24 src/CMakeFiles/cansat.dir/littlefs.cpp.obj
+                0x100016e4       0x24 src/CMakeFiles/cansat.dir/littlefs.cpp.obj
  .text._ZL13flash_fs_lockPK10lfs_config
-                0x10001704       0x20 src/CMakeFiles/cansat.dir/littlefs.cpp.obj
+                0x10001708       0x20 src/CMakeFiles/cansat.dir/littlefs.cpp.obj
  .text._ZL14flash_fs_erasePK10lfs_configm
-                0x10001724       0x20 src/CMakeFiles/cansat.dir/littlefs.cpp.obj
+                0x10001728       0x20 src/CMakeFiles/cansat.dir/littlefs.cpp.obj
  .text._ZL13flash_fs_progPK10lfs_configmmPKvm
-                0x10001744       0x26 src/CMakeFiles/cansat.dir/littlefs.cpp.obj
- *fill*         0x1000176a        0x2 
+                0x10001748       0x26 src/CMakeFiles/cansat.dir/littlefs.cpp.obj
+ *fill*         0x1000176e        0x2 
  .text._ZL13flash_fs_readPK10lfs_configmmPvm
-                0x1000176c       0x20 src/CMakeFiles/cansat.dir/littlefs.cpp.obj
+                0x10001770       0x20 src/CMakeFiles/cansat.dir/littlefs.cpp.obj
  .text.to_ms_since_boot
-                0x1000178c       0x1c src/CMakeFiles/cansat.dir/dataHandler.cpp.obj
+                0x10001790       0x1c src/CMakeFiles/cansat.dir/dataHandler.cpp.obj
  .text.update_us_since_boot
-                0x100017a8       0x24 src/CMakeFiles/cansat.dir/dataHandler.cpp.obj
+                0x100017ac       0x24 src/CMakeFiles/cansat.dir/dataHandler.cpp.obj
  .text.get_absolute_time
-                0x100017cc       0x16 src/CMakeFiles/cansat.dir/dataHandler.cpp.obj
- *fill*         0x100017e2        0x2 
+                0x100017d0       0x16 src/CMakeFiles/cansat.dir/dataHandler.cpp.obj
+ *fill*         0x100017e6        0x2 
  .text._ZN11DataHandler15dataHandlerTaskEPv
-                0x100017e4      0x148 src/CMakeFiles/cansat.dir/dataHandler.cpp.obj
-                0x100017e4                DataHandler::dataHandlerTask(void*)
+                0x100017e8      0x148 src/CMakeFiles/cansat.dir/dataHandler.cpp.obj
+                0x100017e8                DataHandler::dataHandlerTask(void*)
  .text._ZN6BME68X8delay_usEmPv
-                0x1000192c        0xa src/CMakeFiles/cansat.dir/bme68x/bme68x.cpp.obj
-                0x1000192c                BME68X::delay_us(unsigned long, void*)
- *fill*         0x10001936        0x2 
+                0x10001930        0xa src/CMakeFiles/cansat.dir/bme68x/bme68x.cpp.obj
+                0x10001930                BME68X::delay_us(unsigned long, void*)
+ *fill*         0x1000193a        0x2 
  .text._ZN6BME68X11write_bytesEhPhmPv
-                0x10001938       0x50 src/CMakeFiles/cansat.dir/bme68x/bme68x.cpp.obj
-                0x10001938                BME68X::write_bytes(unsigned char, unsigned char*, unsigned long, void*)
+                0x1000193c       0x50 src/CMakeFiles/cansat.dir/bme68x/bme68x.cpp.obj
+                0x1000193c                BME68X::write_bytes(unsigned char, unsigned char*, unsigned long, void*)
  .text._ZN6BME68X10read_bytesEhPhmPv
-                0x10001988       0x48 src/CMakeFiles/cansat.dir/bme68x/bme68x.cpp.obj
-                0x10001988                BME68X::read_bytes(unsigned char, unsigned char*, unsigned long, void*)
+                0x1000198c       0x48 src/CMakeFiles/cansat.dir/bme68x/bme68x.cpp.obj
+                0x1000198c                BME68X::read_bytes(unsigned char, unsigned char*, unsigned long, void*)
  .text._ZN6BME68X9configureEhhhhh
-                0x100019d0       0x74 src/CMakeFiles/cansat.dir/bme68x/bme68x.cpp.obj
-                0x100019d0                BME68X::configure(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
+                0x100019d4       0x74 src/CMakeFiles/cansat.dir/bme68x/bme68x.cpp.obj
+                0x100019d4                BME68X::configure(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
  .text._ZN6BME68X4initEv
-                0x10001a44       0x80 src/CMakeFiles/cansat.dir/bme68x/bme68x.cpp.obj
-                0x10001a44                BME68X::init()
+                0x10001a48       0x80 src/CMakeFiles/cansat.dir/bme68x/bme68x.cpp.obj
+                0x10001a48                BME68X::init()
  .text._ZN6BME68X11read_forcedEP11bme68x_data
-                0x10001ac4       0x94 src/CMakeFiles/cansat.dir/bme68x/bme68x.cpp.obj
-                0x10001ac4                BME68X::read_forced(bme68x_data*)
+                0x10001ac8       0x94 src/CMakeFiles/cansat.dir/bme68x/bme68x.cpp.obj
+                0x10001ac8                BME68X::read_forced(bme68x_data*)
  .text.calc_temperature
-                0x10001b58       0x94 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10001b5c       0x94 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
  .text.calc_pressure
-                0x10001bec      0x1d0 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10001bf0      0x1d0 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
  .text.calc_humidity
-                0x10001dbc      0x128 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10001dc0      0x128 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
  .text.calc_gas_resistance_low
-                0x10001ee4       0xd0 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10001ee8       0xd0 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
  .text.calc_gas_resistance_high
-                0x10001fb4       0x40 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10001fb8       0x40 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
  .text.calc_res_heat
-                0x10001ff4      0x108 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10001ff8      0x108 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
  .text.calc_gas_wait
-                0x100020fc       0x26 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10002100       0x26 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
  .text.null_ptr_check
-                0x10002122       0x32 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10002126       0x32 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
  .text.set_mem_page
-                0x10002154       0x74 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10002158       0x74 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
  .text.get_mem_page
-                0x100021c8       0x3a src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x100021cc       0x3a src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
  .text.boundary_check
-                0x10002202       0x36 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10002206       0x36 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
  .text.calc_heatr_dur_shared
-                0x10002238       0x40 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x1000223c       0x40 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
  .text.swap_fields
-                0x10002278       0x12 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x1000227c       0x12 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
  .text.sort_sensor_data
-                0x1000228a       0x44 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x1000228e       0x44 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
  .text.bme68x_set_regs
-                0x100022ce       0xe0 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
-                0x100022ce                bme68x_set_regs
+                0x100022d2       0xe0 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x100022d2                bme68x_set_regs
  .text.set_conf
-                0x100023ae      0x192 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x100023b2      0x192 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
  .text.bme68x_get_regs
-                0x10002540       0x6c src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
-                0x10002540                bme68x_get_regs
+                0x10002544       0x6c src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10002544                bme68x_get_regs
  .text.read_variant_id
-                0x100025ac       0x28 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x100025b0       0x28 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
  .text.get_calib_data
-                0x100025d4      0x126 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
- *fill*         0x100026fa        0x2 
+                0x100025d8      0x126 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+ *fill*         0x100026fe        0x2 
  .text.read_field_data
-                0x100026fc      0x1a8 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10002700      0x1a8 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
  .text.read_all_field_data
-                0x100028a4      0x20e src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
- *fill*         0x10002ab2        0x2 
+                0x100028a8      0x20e src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+ *fill*         0x10002ab6        0x2 
  .text.bme68x_soft_reset
-                0x10002ab4       0x64 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
-                0x10002ab4                bme68x_soft_reset
+                0x10002ab8       0x64 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10002ab8                bme68x_soft_reset
  .text.bme68x_init
-                0x10002b18       0x38 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
-                0x10002b18                bme68x_init
+                0x10002b1c       0x38 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10002b1c                bme68x_init
  .text.bme68x_get_conf
-                0x10002b50       0x5e src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
-                0x10002b50                bme68x_get_conf
- *fill*         0x10002bae        0x2 
+                0x10002b54       0x5e src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10002b54                bme68x_get_conf
+ *fill*         0x10002bb2        0x2 
  .text.bme68x_set_op_mode
-                0x10002bb0       0x94 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
-                0x10002bb0                bme68x_set_op_mode
+                0x10002bb4       0x94 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10002bb4                bme68x_set_op_mode
  .text.bme68x_get_op_mode
-                0x10002c44       0x2c src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
-                0x10002c44                bme68x_get_op_mode
+                0x10002c48       0x2c src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10002c48                bme68x_get_op_mode
  .text.bme68x_set_conf
-                0x10002c70      0x144 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
-                0x10002c70                bme68x_set_conf
+                0x10002c74      0x144 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10002c74                bme68x_set_conf
  .text.bme68x_get_meas_dur
-                0x10002db4       0x8c src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
-                0x10002db4                bme68x_get_meas_dur
+                0x10002db8       0x8c src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10002db8                bme68x_get_meas_dur
  .text.bme68x_get_data
-                0x10002e40      0x14c src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
-                0x10002e40                bme68x_get_data
+                0x10002e44      0x14c src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10002e44                bme68x_get_data
  .text.bme68x_set_heatr_conf
-                0x10002f8c       0xa4 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
-                0x10002f8c                bme68x_set_heatr_conf
+                0x10002f90       0xa4 src/CMakeFiles/cansat.dir/bme68x/BoschBME68XApi/bme68x.c.obj
+                0x10002f90                bme68x_set_heatr_conf
  .text.lfs_pair_issync
-                0x10003030       0x2e src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10003034       0x2e src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_gstate_xor
-                0x1000305e       0x1a src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10003062       0x1a src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_gstate_hasmovehere
-                0x10003078       0x3c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x1000307c       0x3c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_mlist_isopen
-                0x100030b4       0x1a src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100030b8       0x1a src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_mlist_remove
-                0x100030ce       0x16 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100030d2       0x16 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_mlist_append
-                0x100030e4        0x8 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100030e8        0x8 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_fs_disk_version
-                0x100030ec        0x8 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100030f0        0x8 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_fs_disk_version_major
-                0x100030f4        0xa src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100030f8        0xa src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_fs_disk_version_minor
-                0x100030fe        0xa src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10003102        0xa src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_alloc_ckpoint
-                0x10003108        0x6 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x1000310c        0x6 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_alloc_drop
-                0x1000310e        0xe src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10003112        0xe src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_alloc_lookahead
-                0x1000311c       0x2c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10003120       0x2c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_traverse_filter
-                0x10003148       0x7c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x1000314c       0x7c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_commit_size
-                0x100031c4       0x1c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100031c8       0x1c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_needsrelocation
-                0x100031e0       0x28 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100031e4       0x28 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_close_
-                0x10003208        0xa src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x1000320c        0xa src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_file_size_
-                0x10003212       0x16 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10003216       0x16 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_fs_prepsuperblock
-                0x10003228       0x14 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x1000322c       0x14 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_fs_prepmove
-                0x1000323c       0x48 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10003240       0x48 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_fs_size_count
-                0x10003284        0xa src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
- *fill*         0x1000328e        0x2 
+                0x10003288        0xa src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+ *fill*         0x10003292        0x2 
  .text.lfs_bd_erase
-                0x10003290       0x40 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10003294       0x40 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_fs_preporphans
-                0x100032d0       0x64 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100032d4       0x64 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_cache_zero
-                0x10003334       0x1a src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10003338       0x1a src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_ctz_index
-                0x1000334e       0x42 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10003352       0x42 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_bd_read
-                0x10003390      0x21c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10003394      0x21c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_getslice
-                0x100035ac      0x164 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100035b0      0x164 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_get
-                0x10003710       0x1a src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
- *fill*         0x1000372a        0x2 
+                0x10003714       0x1a src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+ *fill*         0x1000372e        0x2 
  .text.lfs_dir_getgstate
-                0x1000372c       0x34 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10003730       0x34 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_ctz_traverse
-                0x10003760       0x9a src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10003764       0x9a src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_fs_parent_match
-                0x100037fa       0x4c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
- *fill*         0x10003846        0x2 
+                0x100037fe       0x4c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+ *fill*         0x1000384a        0x2 
  .text.lfs_dir_traverse
-                0x10003848      0x32c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x1000384c      0x32c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_getread
-                0x10003b74      0x134 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10003b78      0x134 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_bd_cmp
-                0x10003ca8       0x82 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
- *fill*         0x10003d2a        0x2 
+                0x10003cac       0x82 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+ *fill*         0x10003d2e        0x2 
  .text.lfs_bd_flush
-                0x10003d2c       0xc4 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10003d30       0xc4 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_bd_prog
-                0x10003df0       0xf8 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10003df4       0xf8 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_bd_sync
-                0x10003ee8       0x38 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10003eec       0x38 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_find_match
-                0x10003f20       0x42 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10003f24       0x42 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_ctz_find
-                0x10003f62       0x9c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
- *fill*         0x10003ffe        0x2 
+                0x10003f66       0x9c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+ *fill*         0x10004002        0x2 
  .text.lfs_file_flushedread
-                0x10004000      0x108 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10004004      0x108 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_bd_crc
-                0x10004108       0x6c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x1000410c       0x6c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_fetchmatch
-                0x10004174      0x53c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10004178      0x53c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_fs_parent
-                0x100046b0       0xe0 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100046b4       0xe0 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_fetch
-                0x10004790       0x1a src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
- *fill*         0x100047aa        0x2 
+                0x10004794       0x1a src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+ *fill*         0x100047ae        0x2 
  .text.lfs_fs_traverse_
-                0x100047ac      0x1d0 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100047b0      0x1d0 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_alloc_scan
-                0x1000497c       0x50 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10004980       0x50 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_alloc
-                0x100049cc       0xac src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100049d0       0xac src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_alloc
-                0x10004a78       0x8e src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
- *fill*         0x10004b06        0x2 
+                0x10004a7c       0x8e src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+ *fill*         0x10004b0a        0x2 
  .text.lfs_file_relocate
-                0x10004b08      0x144 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10004b0c      0x144 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_file_outline
-                0x10004c4c       0x28 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10004c50       0x28 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_ctz_extend
-                0x10004c74      0x190 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10004c78      0x190 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_file_flushedwrite
-                0x10004e04      0x178 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10004e08      0x178 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_file_flush
-                0x10004f7c      0x110 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10004f80      0x110 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_file_read_
-                0x1000508c       0x48 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10005090       0x48 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_file_seek_
-                0x100050d4       0x96 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100050d8       0x96 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_file_rewind_
-                0x1000516a       0x12 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x1000516e       0x12 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_file_write_
-                0x1000517c       0xa8 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10005180       0xa8 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_fs_size_
-                0x10005224       0x20 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10005228       0x20 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_fs_pred
-                0x10005244       0xd0 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10005248       0xd0 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_commitprog
-                0x10005314       0x40 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10005318       0x40 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_commitattr
-                0x10005354       0xd0 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10005358       0xd0 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_commit_commit
-                0x10005424       0x12 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
- *fill*         0x10005436        0x2 
+                0x10005428       0x12 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+ *fill*         0x1000543a        0x2 
  .text.lfs_dir_commitcrc
-                0x10005438      0x218 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x1000543c      0x218 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_compact
-                0x10005650      0x2d8 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10005654      0x2d8 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_split
-                0x10005928       0x90 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x1000592c       0x90 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_splittingcompact
-                0x100059b8      0x1dc src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100059bc      0x1dc src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_relocatingcommit
-                0x10005b94      0x394 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10005b98      0x394 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_orphaningcommit
-                0x10005f28      0x3d0 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10005f2c      0x3d0 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_fs_deorphan
-                0x100062f8      0x208 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100062fc      0x208 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_commit
-                0x10006500       0x1a src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
- *fill*         0x1000651a        0x2 
+                0x10006504       0x1a src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+ *fill*         0x1000651e        0x2 
  .text.lfs_fs_desuperblock
-                0x1000651c       0x8c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10006520       0x8c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_fs_demove
-                0x100065a8       0xb4 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100065ac       0xb4 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_fs_forceconsistency
-                0x1000665c       0x22 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
- *fill*         0x1000667e        0x2 
+                0x10006660       0x22 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+ *fill*         0x10006682        0x2 
  .text.lfs_dir_drop
-                0x10006680       0x44 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10006684       0x44 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_file_sync_
-                0x100066c4       0xbc src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100066c8       0xbc src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_deinit
-                0x10006780       0x38 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10006784       0x38 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_init
-                0x100067b8      0x36c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100067bc      0x36c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_format_
-                0x10006b24       0xf4 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10006b28       0xf4 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_unmount_
-                0x10006c18        0x8 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10006c1c        0x8 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_mount_
-                0x10006c20      0x32c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10006c24      0x32c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_file_close_
-                0x10006f4c       0x28 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10006f50       0x28 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_find
-                0x10006f74      0x194 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10006f78      0x194 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_remove_
-                0x10007108       0xf8 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x1000710c       0xf8 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_open_
-                0x10007200       0x98 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10007204       0x98 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_file_opencfg_
-                0x10007298      0x260 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x1000729c      0x260 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_file_open_
-                0x100074f8       0x14 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100074fc       0x14 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_getinfo
-                0x1000750c       0xa8 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10007510       0xa8 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_dir_read_
-                0x100075b4       0xb0 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100075b8       0xb0 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
  .text.lfs_format
-                0x10007664       0x26 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
-                0x10007664                lfs_format
+                0x10007668       0x26 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10007668                lfs_format
  .text.lfs_mount
-                0x1000768a       0x26 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
-                0x1000768a                lfs_mount
+                0x1000768e       0x26 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x1000768e                lfs_mount
  .text.lfs_unmount
-                0x100076b0       0x22 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
-                0x100076b0                lfs_unmount
+                0x100076b4       0x22 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100076b4                lfs_unmount
  .text.lfs_remove
-                0x100076d2       0x26 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
-                0x100076d2                lfs_remove
+                0x100076d6       0x26 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100076d6                lfs_remove
  .text.lfs_file_open
-                0x100076f8       0x5c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
-                0x100076f8                lfs_file_open
+                0x100076fc       0x5c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100076fc                lfs_file_open
  .text.lfs_file_opencfg
-                0x10007754       0x60 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
-                0x10007754                lfs_file_opencfg
+                0x10007758       0x60 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10007758                lfs_file_opencfg
  .text.lfs_file_close
-                0x100077b4       0x4c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
-                0x100077b4                lfs_file_close
+                0x100077b8       0x4c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100077b8                lfs_file_close
  .text.lfs_file_sync
-                0x10007800       0x50 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
-                0x10007800                lfs_file_sync
+                0x10007804       0x50 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10007804                lfs_file_sync
  .text.lfs_file_read
-                0x10007850       0x5c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
-                0x10007850                lfs_file_read
+                0x10007854       0x5c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10007854                lfs_file_read
  .text.lfs_file_write
-                0x100078ac       0x5c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
-                0x100078ac                lfs_file_write
+                0x100078b0       0x5c src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100078b0                lfs_file_write
  .text.lfs_file_rewind
-                0x10007908       0x26 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
-                0x10007908                lfs_file_rewind
- *fill*         0x1000792e        0x2 
+                0x1000790c       0x26 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x1000790c                lfs_file_rewind
+ *fill*         0x10007932        0x2 
  .text.lfs_dir_open
-                0x10007930       0x54 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
-                0x10007930                lfs_dir_open
+                0x10007934       0x54 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10007934                lfs_dir_open
  .text.lfs_dir_close
-                0x10007984       0x26 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
-                0x10007984                lfs_dir_close
+                0x10007988       0x26 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x10007988                lfs_dir_close
  .text.lfs_dir_read
-                0x100079aa       0x2a src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
-                0x100079aa                lfs_dir_read
+                0x100079ae       0x2a src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100079ae                lfs_dir_read
  .text.lfs_fs_size
-                0x100079d4       0x22 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
-                0x100079d4                lfs_fs_size
- *fill*         0x100079f6        0x2 
- .text.lfs_crc  0x100079f8       0x34 src/CMakeFiles/cansat.dir/littlefs/lfs_util.c.obj
-                0x100079f8                lfs_crc
+                0x100079d8       0x22 src/CMakeFiles/cansat.dir/littlefs/lfs.c.obj
+                0x100079d8                lfs_fs_size
+ *fill*         0x100079fa        0x2 
+ .text.lfs_crc  0x100079fc       0x34 src/CMakeFiles/cansat.dir/littlefs/lfs_util.c.obj
+                0x100079fc                lfs_crc
  .text.gpio_set_function
-                0x10007a2c       0x30 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x10007a2c                gpio_set_function
+                0x10007a30       0x30 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x10007a30                gpio_set_function
  .text.gpio_set_pulls
-                0x10007a5c       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x10007a5c                gpio_set_pulls
+                0x10007a60       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x10007a60                gpio_set_pulls
  .text.gpio_set_irq_callback
-                0x10007a90       0x48 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x10007a90                gpio_set_irq_callback
+                0x10007a94       0x48 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x10007a94                gpio_set_irq_callback
  .text.gpio_acknowledge_irq
-                0x10007ad8       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x10007ad8                gpio_acknowledge_irq
+                0x10007adc       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x10007adc                gpio_acknowledge_irq
  .text._gpio_set_irq_enabled
-                0x10007af0       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x10007af4       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
  .text.gpio_set_irq_enabled
-                0x10007b24       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x10007b24                gpio_set_irq_enabled
+                0x10007b28       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x10007b28                gpio_set_irq_enabled
  .text.gpio_set_irq_enabled_with_callback
-                0x10007b44       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x10007b44                gpio_set_irq_enabled_with_callback
+                0x10007b48       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x10007b48                gpio_set_irq_enabled_with_callback
  .text.gpio_default_irq_handler
-                0x10007b64       0x98 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x10007b68       0x98 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
  .text.gpio_set_input_enabled
-                0x10007bfc       0x30 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x10007bfc                gpio_set_input_enabled
+                0x10007c00       0x30 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x10007c00                gpio_set_input_enabled
  .text.gpio_init
-                0x10007c2c       0x16 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x10007c2c                gpio_init
- *fill*         0x10007c42        0x2 
+                0x10007c30       0x16 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x10007c30                gpio_init
+ *fill*         0x10007c46        0x2 
  .text.running_on_fpga
-                0x10007c44       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
-                0x10007c44                running_on_fpga
+                0x10007c48       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+                0x10007c48                running_on_fpga
  .text.hw_claim_lock
-                0x10007c58       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
-                0x10007c58                hw_claim_lock
+                0x10007c5c       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+                0x10007c5c                hw_claim_lock
  .text.hw_claim_unlock
-                0x10007c70       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
-                0x10007c70                hw_claim_unlock
+                0x10007c74       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+                0x10007c74                hw_claim_unlock
  .text.hw_claim_or_assert
-                0x10007c84       0x32 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
-                0x10007c84                hw_claim_or_assert
+                0x10007c88       0x32 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+                0x10007c88                hw_claim_or_assert
  .text.hw_claim_unused_from_range
-                0x10007cb6       0x50 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
-                0x10007cb6                hw_claim_unused_from_range
- *fill*         0x10007d06        0x2 
+                0x10007cba       0x50 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+                0x10007cba                hw_claim_unused_from_range
+ *fill*         0x10007d0a        0x2 
  .text.spin_locks_reset
-                0x10007d08       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
-                0x10007d08                spin_locks_reset
+                0x10007d0c       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+                0x10007d0c                spin_locks_reset
  .text.next_striped_spin_lock_num
-                0x10007d28       0x1c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
-                0x10007d28                next_striped_spin_lock_num
+                0x10007d2c       0x1c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+                0x10007d2c                next_striped_spin_lock_num
  .text.spin_lock_claim_unused
-                0x10007d44       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
-                0x10007d44                spin_lock_claim_unused
+                0x10007d48       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+                0x10007d48                spin_lock_claim_unused
  .text.set_raw_irq_handler_and_unlock
-                0x10007d68       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10007d6c       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
  .text.resolve_branch
-                0x10007d90       0x30 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10007d94       0x30 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
  .text.make_branch
-                0x10007dc0       0x48 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10007dc4       0x48 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
  .text.insert_branch_and_link
-                0x10007e08       0x40 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10007e0c       0x40 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
  .text.irq_is_enabled
-                0x10007e48       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x10007e48                irq_is_enabled
+                0x10007e4c       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10007e4c                irq_is_enabled
  .text.irq_set_mask_enabled
-                0x10007e60       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x10007e60                irq_set_mask_enabled
+                0x10007e64       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10007e64                irq_set_mask_enabled
  .text.irq_set_enabled
-                0x10007e80        0xe src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x10007e80                irq_set_enabled
- *fill*         0x10007e8e        0x2 
+                0x10007e84        0xe src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10007e84                irq_set_enabled
+ *fill*         0x10007e92        0x2 
  .text.irq_set_pending
-                0x10007e90       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x10007e90                irq_set_pending
+                0x10007e94       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10007e94                irq_set_pending
  .text.irq_get_vtable_handler
-                0x10007ea0       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x10007ea0                irq_get_vtable_handler
+                0x10007ea4       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10007ea4                irq_get_vtable_handler
  .text.irq_has_shared_handler
-                0x10007eb0       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x10007eb0                irq_has_shared_handler
+                0x10007eb4       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10007eb4                irq_has_shared_handler
  .text.irq_set_exclusive_handler
-                0x10007ed4       0x54 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x10007ed4                irq_set_exclusive_handler
+                0x10007ed8       0x54 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10007ed8                irq_set_exclusive_handler
  .text.irq_add_shared_handler
-                0x10007f28      0x210 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x10007f28                irq_add_shared_handler
+                0x10007f2c      0x210 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10007f2c                irq_add_shared_handler
  .text.irq_remove_handler
-                0x10008138      0x188 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x10008138                irq_remove_handler
+                0x1000813c      0x188 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x1000813c                irq_remove_handler
  .text.irq_set_priority
-                0x100082c0       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x100082c0                irq_set_priority
+                0x100082c4       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x100082c4                irq_set_priority
  .text.irq_add_tail_to_free_list
-                0x100082e8       0xf0 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x100082e8                irq_add_tail_to_free_list
+                0x100082ec       0xf0 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x100082ec                irq_add_tail_to_free_list
  .text.irq_init_priorities
-                0x100083d8       0x1c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x100083d8                irq_init_priorities
+                0x100083dc       0x1c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x100083dc                irq_init_priorities
  .text.user_irq_claim_unused
-                0x100083f4       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x100083f4                user_irq_claim_unused
+                0x100083f8       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x100083f8                user_irq_claim_unused
  .text.lock_init
-                0x10008420       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
-                0x10008420                lock_init
+                0x10008424       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
+                0x10008424                lock_init
  .text.update_us_since_boot
-                0x10008430       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+                0x10008434       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
  .text.delayed_by_ms
-                0x10008454       0x44 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+                0x10008458       0x44 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
  .text.get_absolute_time
-                0x10008498       0x22 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+                0x1000849c       0x22 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
  .text.make_timeout_time_ms
-                0x100084ba       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+                0x100084be       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
  .text.mutex_init
-                0x100084da       0x1c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
-                0x100084da                mutex_init
+                0x100084de       0x1c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+                0x100084de                mutex_init
  .text.recursive_mutex_init
-                0x100084f6       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
-                0x100084f6                recursive_mutex_init
- *fill*         0x10008516        0x2 
+                0x100084fa       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+                0x100084fa                recursive_mutex_init
+ *fill*         0x1000851a        0x2 
  .text.critical_section_init_with_lock_num
-                0x10008518       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
-                0x10008518                critical_section_init_with_lock_num
+                0x1000851c       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
+                0x1000851c                critical_section_init_with_lock_num
  .text.critical_section_init
-                0x1000852c       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
-                0x1000852c                critical_section_init
+                0x10008530       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
+                0x10008530                critical_section_init
  .text.time_reached
-                0x10008540       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10008544       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.get_entry
-                0x10008568       0x38 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x1000856c       0x38 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.timer_pool_entry_comparator
-                0x100085a0       0x2e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x100085a0                timer_pool_entry_comparator
- *fill*         0x100085ce        0x2 
+                0x100085a4       0x2e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x100085a4                timer_pool_entry_comparator
+ *fill*         0x100085d2        0x2 
  .text.update_us_since_boot
-                0x100085d0       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x100085d4       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.delayed_by_us
-                0x100085f4       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x100085f8       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.ph_get_node
-                0x10008628       0x30 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x1000862c       0x30 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.ph_contains_node
-                0x10008658       0x1e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x1000865c       0x1e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.ph_new_node
-                0x10008676       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000869e        0x2 
+                0x1000867a       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x100086a2        0x2 
  .text.ph_add_child_node
-                0x100086a0       0x6c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x100086a4       0x6c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.ph_merge_nodes
-                0x1000870c       0x3e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000874a        0x2 
+                0x10008710       0x3e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000874e        0x2 
  .text.ph_insert_node
-                0x1000874c       0x3c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10008750       0x3c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.ph_free_node
-                0x10008788       0x5c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x1000878c       0x5c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.get_entry_id_high
-                0x100087e4       0x30 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x100087e8       0x30 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.alarm_pool_post_alloc_init
-                0x10008814       0x40 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10008818       0x40 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.get_absolute_time
-                0x10008854       0x22 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10008858       0x22 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.make_timeout_time_us
-                0x10008876       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000889a        0x2 
+                0x1000887a       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000889e        0x2 
  .text.add_alarm_under_lock
-                0x1000889c       0x94 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x100088a0       0x94 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.alarm_pool_alarm_callback
-                0x10008930      0x210 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10008934      0x210 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.sleep_until_callback
-                0x10008b40       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10008b44       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.alarm_pool_init_default
-                0x10008b68       0x40 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x10008b68                alarm_pool_init_default
+                0x10008b6c       0x40 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10008b6c                alarm_pool_init_default
  .text.alarm_pool_get_default
-                0x10008ba8       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x10008ba8                alarm_pool_get_default
+                0x10008bac       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10008bac                alarm_pool_get_default
  .text.alarm_pool_add_alarm_at
-                0x10008bd4      0x10e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x10008bd4                alarm_pool_add_alarm_at
+                0x10008bd8      0x10e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10008bd8                alarm_pool_add_alarm_at
  .text.add_alarm_at
-                0x10008ce2       0x2e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10008ce6       0x2e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.alarm_pool_cancel_alarm
-                0x10008d10       0xa8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x10008d10                alarm_pool_cancel_alarm
+                0x10008d14       0xa8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10008d14                alarm_pool_cancel_alarm
  .text.cancel_alarm
-                0x10008db8       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10008dbc       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.alarm_pool_core_num
-                0x10008dc8        0x4 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x10008dc8                alarm_pool_core_num
+                0x10008dcc        0x4 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10008dcc                alarm_pool_core_num
  .text.sleep_until
-                0x10008dcc       0xa4 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x10008dcc                sleep_until
+                0x10008dd0       0xa4 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10008dd0                sleep_until
  .text.sleep_us
-                0x10008e70       0x1a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x10008e70                sleep_us
+                0x10008e74       0x1a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10008e74                sleep_us
  .text.sleep_ms
-                0x10008e8a       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x10008e8a                sleep_ms
- *fill*         0x10008e9e        0x2 
+                0x10008e8e       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10008e8e                sleep_ms
+ *fill*         0x10008ea2        0x2 
  .text.best_effort_wfe_or_timeout
-                0x10008ea0       0x44 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x10008ea0                best_effort_wfe_or_timeout
+                0x10008ea4       0x44 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10008ea4                best_effort_wfe_or_timeout
  .text.time_reached
-                0x10008ee4       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+                0x10008ee8       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
  .text.update_us_since_boot
-                0x10008f0c       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+                0x10008f10       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
  .text.get_absolute_time
-                0x10008f30       0x22 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
- *fill*         0x10008f52        0x2 
+                0x10008f34       0x22 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+ *fill*         0x10008f56        0x2 
  .text.delayed_by_us
-                0x10008f54       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+                0x10008f58       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
  .text.make_timeout_time_us
-                0x10008f88       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+                0x10008f8c       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
  .text.check_per_iteration_timeout_us
-                0x10008fac       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+                0x10008fb0       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
  .text.init_per_iteration_timeout_us
-                0x10008fd8       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
-                0x10008fd8                init_per_iteration_timeout_us
+                0x10008fdc       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+                0x10008fdc                init_per_iteration_timeout_us
  .text.update_us_since_boot
-                0x10009000       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x10009004       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
  .text.hardware_alarm_irq_handler
-                0x10009024       0x8c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x10009028       0x8c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
  .text.hardware_alarm_claim
-                0x100090b0       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x100090b0                hardware_alarm_claim
+                0x100090b4       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x100090b4                hardware_alarm_claim
  .text.time_us_64
-                0x100090c8       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x100090c8                time_us_64
+                0x100090cc       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x100090cc                time_us_64
  .text.busy_wait_until
-                0x100090e0       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x100090e0                busy_wait_until
+                0x100090e4       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x100090e4                busy_wait_until
  .text.busy_wait_us
-                0x10009108       0x3a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x10009108                busy_wait_us
- *fill*         0x10009142        0x2 
+                0x1000910c       0x3a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x1000910c                busy_wait_us
+ *fill*         0x10009146        0x2 
  .text.hardware_alarm_set_callback
-                0x10009144       0x90 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x10009144                hardware_alarm_set_callback
+                0x10009148       0x90 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x10009148                hardware_alarm_set_callback
  .text.hardware_alarm_set_target
-                0x100091d4       0xe8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x100091d4                hardware_alarm_set_target
+                0x100091d8       0xe8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x100091d8                hardware_alarm_set_target
  .text.hardware_alarm_cancel
-                0x100092bc       0x40 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x100092bc                hardware_alarm_cancel
+                0x100092c0       0x40 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x100092c0                hardware_alarm_cancel
  .text.ph_get_node
-                0x100092fc       0x30 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x10009300       0x30 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
  .text.ph_add_child_node
-                0x1000932c       0x6c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x10009330       0x6c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
  .text.ph_merge_nodes
-                0x10009398       0x3e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x1000939c       0x3e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
  .text.ph_clear
-                0x100093d6       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
-                0x100093d6                ph_clear
+                0x100093da       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x100093da                ph_clear
  .text.ph_post_alloc_init
-                0x1000940a        0xe src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
-                0x1000940a                ph_post_alloc_init
+                0x1000940e        0xe src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x1000940e                ph_post_alloc_init
  .text.ph_merge_two_pass
-                0x10009418       0x5c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
-                0x10009418                ph_merge_two_pass
+                0x1000941c       0x5c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x1000941c                ph_merge_two_pass
  .text.ph_remove_any_head
-                0x10009474       0xc0 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x10009478       0xc0 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
  .text.ph_remove_head
-                0x10009534       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
-                0x10009534                ph_remove_head
+                0x10009538       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x10009538                ph_remove_head
  .text.ph_remove_and_free_node
-                0x10009548       0xa0 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
-                0x10009548                ph_remove_and_free_node
+                0x1000954c       0xa0 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x1000954c                ph_remove_and_free_node
  .text.uart_disable_before_lcr_write
-                0x100095e8       0x48 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+                0x100095ec       0x48 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
  .text.uart_write_lcr_bits_masked
-                0x10009630       0x22 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
- *fill*         0x10009652        0x2 
+                0x10009634       0x22 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+ *fill*         0x10009656        0x2 
  .text.uart_set_baudrate
-                0x10009654       0x5c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
-                0x10009654                uart_set_baudrate
+                0x10009658       0x5c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+                0x10009658                uart_set_baudrate
  .text.uart_set_translate_crlf
-                0x100096b0       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
-                0x100096b0                uart_set_translate_crlf
+                0x100096b4       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+                0x100096b4                uart_set_translate_crlf
  .text.uart_init
-                0x100096d8       0x78 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
-                0x100096d8                uart_init
+                0x100096dc       0x78 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+                0x100096dc                uart_init
  .text.clock_configure
-                0x10009750      0x108 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
-                0x10009750                clock_configure
+                0x10009754      0x108 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+                0x10009754                clock_configure
  .text.clocks_init
-                0x10009858      0x100 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
-                0x10009858                clocks_init
+                0x1000985c      0x100 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+                0x1000985c                clocks_init
  .text.clock_get_hz
-                0x10009958        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
-                0x10009958                clock_get_hz
+                0x1000995c        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+                0x1000995c                clock_get_hz
  .text.pll_init
-                0x10009964      0x120 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
-                0x10009964                pll_init
+                0x10009968      0x120 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+                0x10009968                pll_init
  .text.watchdog_start_tick
-                0x10009a84       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
-                0x10009a84                watchdog_start_tick
+                0x10009a88       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+                0x10009a88                watchdog_start_tick
  .text.watchdog_update
-                0x10009a94       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
-                0x10009a94                watchdog_update
+                0x10009a98       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+                0x10009a98                watchdog_update
  .text._watchdog_enable
-                0x10009aa8       0x78 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
-                0x10009aa8                _watchdog_enable
+                0x10009aac       0x78 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+                0x10009aac                _watchdog_enable
  .text.watchdog_reboot
-                0x10009b20       0x48 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
-                0x10009b20                watchdog_reboot
+                0x10009b24       0x48 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+                0x10009b24                watchdog_reboot
  .text.xosc_init
-                0x10009b68       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
-                0x10009b68                xosc_init
- .text._exit    0x10009b90        0x4 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x10009b90                _exit
- .text._sbrk    0x10009b94       0x38 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x10009b94                _sbrk
- .text.exit     0x10009bcc        0x6 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x10009bcc                exit
- *fill*         0x10009bd2        0x2 
+                0x10009b6c       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+                0x10009b6c                xosc_init
+ .text._exit    0x10009b94        0x4 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x10009b94                _exit
+ .text._sbrk    0x10009b98       0x38 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x10009b98                _sbrk
+ .text.exit     0x10009bd0        0x6 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x10009bd0                exit
+ *fill*         0x10009bd6        0x2 
  .text.__assert_func
-                0x10009bd4       0x38 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x10009bd4                __assert_func
+                0x10009bd8       0x38 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x10009bd8                __assert_func
  .text.runtime_init
-                0x10009c0c       0xf8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x10009c0c                runtime_init
- .text.panic    0x10009d04       0x30 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x10009d04                panic
+                0x10009c10       0xf8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x10009c10                runtime_init
+ .text.panic    0x10009d08       0x30 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x10009d08                panic
  .text.panic_unsupported
-                0x10009d34        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x10009d34                panic_unsupported
+                0x10009d38        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x10009d38                panic_unsupported
  .text._out_buffer
-                0x10009d40        0x8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x10009d44        0x8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text._out_null
-                0x10009d48        0x2 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x10009d4c        0x2 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text._out_fct
-                0x10009d4a        0xe src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
- .text._atoi    0x10009d58       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x10009d4e        0xe src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+ .text._atoi    0x10009d5c       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text._out_rev
-                0x10009d7c       0xae src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x10009d80       0xae src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text._ntoa_format
-                0x10009e2a      0x110 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x10009e2e      0x110 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text._ntoa_long
-                0x10009f3a       0xbc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x10009f3e       0xbc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text._ntoa_long_long
-                0x10009ff6      0x10e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
- .text._etoa    0x1000a104      0x420 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
- .text._ftoa    0x1000a524      0x354 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x10009ffa      0x10e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+ .text._etoa    0x1000a108      0x420 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+ .text._ftoa    0x1000a528      0x354 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text._vsnprintf
-                0x1000a878      0x668 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x1000a87c      0x668 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text.__wrap_sprintf
-                0x1000aee0       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
-                0x1000aee0                __wrap_sprintf
+                0x1000aee4       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x1000aee4                __wrap_sprintf
  .text.vfctprintf
-                0x1000af0c       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
-                0x1000af0c                vfctprintf
- .text          0x1000af2c       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
- .text.clzsi    0x1000af3c        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
-                0x1000af3c                __wrap___clz
-                0x1000af3c                __wrap___clzsi2
-                0x1000af3c                __wrap___clzl
- .text.ctzsi    0x1000af48        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
-                0x1000af48                __wrap___ctzsi2
+                0x1000af10       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x1000af10                vfctprintf
+ .text          0x1000af30       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+ .text.clzsi    0x1000af40        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+                0x1000af40                __wrap___clz
+                0x1000af40                __wrap___clzsi2
+                0x1000af40                __wrap___clzl
+ .text.ctzsi    0x1000af4c        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+                0x1000af4c                __wrap___ctzsi2
  .text.popcountsi
-                0x1000af54        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
-                0x1000af54                __wrap___popcountsi2
+                0x1000af58        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+                0x1000af58                __wrap___popcountsi2
  .text.rom_func_lookup
-                0x1000af60       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
-                0x1000af60                rom_func_lookup
+                0x1000af64       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+                0x1000af64                rom_func_lookup
  .text.rom_data_lookup
-                0x1000af70       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
-                0x1000af70                rom_data_lookup
+                0x1000af74       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+                0x1000af74                rom_data_lookup
  .text.rom_funcs_lookup
-                0x1000af80       0x36 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
-                0x1000af80                rom_funcs_lookup
- *fill*         0x1000afb6        0x2 
+                0x1000af84       0x36 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+                0x1000af84                rom_funcs_lookup
+ *fill*         0x1000afba        0x2 
  .text.__wrap___aeabi_idiv
-                0x1000afb8       0x50 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
-                0x1000afb8                __wrap___aeabi_idivmod
-                0x1000afb8                divmod_s32s32
-                0x1000afb8                div_s32s32
-                0x1000afb8                __wrap___aeabi_idiv
-                0x1000afc0                divmod_s32s32_unsafe
-                0x1000afec                divmod_s32s32_savestate
+                0x1000afbc       0x50 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+                0x1000afbc                __wrap___aeabi_idivmod
+                0x1000afbc                divmod_s32s32
+                0x1000afbc                div_s32s32
+                0x1000afbc                __wrap___aeabi_idiv
+                0x1000afc4                divmod_s32s32_unsafe
+                0x1000aff0                divmod_s32s32_savestate
  .text.__wrap___aeabi_uidiv
-                0x1000b008       0x4c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
-                0x1000b008                __wrap___aeabi_uidiv
-                0x1000b008                __wrap___aeabi_uidivmod
-                0x1000b008                div_u32u32
-                0x1000b008                divmod_u32u32
-                0x1000b010                divmod_u32u32_unsafe
-                0x1000b038                divmod_u32u32_savestate
+                0x1000b00c       0x4c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+                0x1000b00c                __wrap___aeabi_uidiv
+                0x1000b00c                __wrap___aeabi_uidivmod
+                0x1000b00c                div_u32u32
+                0x1000b00c                divmod_u32u32
+                0x1000b014                divmod_u32u32_unsafe
+                0x1000b03c                divmod_u32u32_savestate
  .text.__wrap___aeabi_ldiv
-                0x1000b054      0x424 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
-                0x1000b054                div_s64s64
-                0x1000b054                divmod_s64s64
-                0x1000b054                __wrap___aeabi_ldivmod
-                0x1000b084                div_u64u64
-                0x1000b084                divmod_u64u64
-                0x1000b084                __wrap___aeabi_uldivmod
-                0x1000b094                divmod_u64u64_savestate
-                0x1000b0b4                divmod_s64s64_unsafe
-                0x1000b13c                divmod_u64u64_unsafe
+                0x1000b058      0x424 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+                0x1000b058                div_s64s64
+                0x1000b058                divmod_s64s64
+                0x1000b058                __wrap___aeabi_ldivmod
+                0x1000b088                div_u64u64
+                0x1000b088                divmod_u64u64
+                0x1000b088                __wrap___aeabi_uldivmod
+                0x1000b098                divmod_u64u64_savestate
+                0x1000b0b8                divmod_s64s64_unsafe
+                0x1000b140                divmod_u64u64_unsafe
  .text.__wrap___aeabi_darithmetic
-                0x1000b478       0x80 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x1000b478                __wrap___aeabi_drsub
-                0x1000b47e                __wrap___aeabi_dsub
-                0x1000b490                __wrap___aeabi_dadd
-                0x1000b4a2                __wrap___aeabi_ddiv
-                0x1000b4de                __wrap___aeabi_dmul
+                0x1000b47c       0x80 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x1000b47c                __wrap___aeabi_drsub
+                0x1000b482                __wrap___aeabi_dsub
+                0x1000b494                __wrap___aeabi_dadd
+                0x1000b4a6                __wrap___aeabi_ddiv
+                0x1000b4e2                __wrap___aeabi_dmul
  .text.__wrap___aeabi_cdcmple
-                0x1000b4f8       0x6c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x1000b4f8                __wrap___aeabi_cdrcmple
-                0x1000b508                __wrap___aeabi_cdcmple
-                0x1000b508                __wrap___aeabi_cdcmpeq
+                0x1000b4fc       0x6c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x1000b4fc                __wrap___aeabi_cdrcmple
+                0x1000b50c                __wrap___aeabi_cdcmple
+                0x1000b50c                __wrap___aeabi_cdcmpeq
  .text.__wrap___aeabi_dcmplt
-                0x1000b564        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x1000b564                __wrap___aeabi_dcmplt
+                0x1000b568        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x1000b568                __wrap___aeabi_dcmplt
  .text.__wrap___aeabi_dcmple
-                0x1000b570       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x1000b570                __wrap___aeabi_dcmple
+                0x1000b574       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x1000b574                __wrap___aeabi_dcmple
  .text.__wrap___aeabi_dcmpge
-                0x1000b580       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x1000b580                __wrap___aeabi_dcmpge
+                0x1000b584       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x1000b584                __wrap___aeabi_dcmpge
  .text.__wrap___aeabi_dcmpgt
-                0x1000b590        0xa src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x1000b590                __wrap___aeabi_dcmpgt
+                0x1000b594        0xa src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x1000b594                __wrap___aeabi_dcmpgt
  .text.__wrap___aeabi_dcmpun
-                0x1000b59a       0x1c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x1000b59a                __wrap___aeabi_dcmpun
- *fill*         0x1000b5b6        0x2 
+                0x1000b59e       0x1c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x1000b59e                __wrap___aeabi_dcmpun
+ *fill*         0x1000b5ba        0x2 
  .text.__wrap___aeabi_i2d
-                0x1000b5b8       0x38 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x1000b5b8                __wrap___aeabi_ui2d
-                0x1000b5c0                __wrap___aeabi_i2d
+                0x1000b5bc       0x38 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x1000b5bc                __wrap___aeabi_ui2d
+                0x1000b5c4                __wrap___aeabi_i2d
  .text.__wrap___aeabi_d2iz
-                0x1000b5f0       0x48 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x1000b5f0                __wrap___aeabi_d2iz
-                0x1000b5f0                double2int_z
+                0x1000b5f4       0x48 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x1000b5f4                __wrap___aeabi_d2iz
+                0x1000b5f4                double2int_z
  .text.__wrap___aeabi_d2uiz
-                0x1000b638       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x1000b638                double2uint
-                0x1000b638                __wrap___aeabi_d2uiz
+                0x1000b63c       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x1000b63c                double2uint
+                0x1000b63c                __wrap___aeabi_d2uiz
  .text.__aeabi_double_init
-                0x1000b650       0xcc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
-                0x1000b650                __aeabi_double_init
+                0x1000b654       0xcc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+                0x1000b654                __aeabi_double_init
  .text.double_table_shim_on_use_helper
-                0x1000b71c       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x1000b71c                double_table_shim_on_use_helper
+                0x1000b720       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x1000b720                double_table_shim_on_use_helper
  .text.__wrap___aeabi_dsub
-                0x1000b750       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x1000b750                drsub_shim
-                0x1000b756                dsub_shim
+                0x1000b754       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x1000b754                drsub_shim
+                0x1000b75a                dsub_shim
  .text.dadd_shim
-                0x1000b760      0x15c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x1000b760                dadd_shim
+                0x1000b764      0x15c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x1000b764                dadd_shim
  .text.dmul_shim
-                0x1000b8bc      0x15c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x1000b8bc                dmul_shim
+                0x1000b8c0      0x15c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x1000b8c0                dmul_shim
  .text.ddiv_shim
-                0x1000ba18      0x1b0 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x1000ba18                ddiv_shim
+                0x1000ba1c      0x1b0 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x1000ba1c                ddiv_shim
  .text.double2uint_shim
-                0x1000bbc8        0xe src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x1000bbc8                double2uint_shim
-                0x1000bbca                double2ufix_shim
- *fill*         0x1000bbd6        0x2 
+                0x1000bbcc        0xe src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x1000bbcc                double2uint_shim
+                0x1000bbce                double2ufix_shim
+ *fill*         0x1000bbda        0x2 
  .text.double2uint64_shim
-                0x1000bbd8       0x70 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x1000bbd8                double2uint64_shim
-                0x1000bbda                double2ufix64_shim
-                0x1000bbfa                d2fix_a
+                0x1000bbdc       0x70 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x1000bbdc                double2uint64_shim
+                0x1000bbde                double2ufix64_shim
+                0x1000bbfe                d2fix_a
  .text.dunpacks
-                0x1000bc48       0x3c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x1000bc48                dunpacks
+                0x1000bc4c       0x3c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x1000bc4c                dunpacks
  .text.__aeabi_lmul
-                0x1000bc84       0x32 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
-                0x1000bc84                __wrap___aeabi_lmul
- *fill*         0x1000bcb6        0x2 
+                0x1000bc88       0x32 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+                0x1000bc88                __wrap___aeabi_lmul
+ *fill*         0x1000bcba        0x2 
  .text.__wrap___aeabi_farithmetic
-                0x1000bcb8       0x58 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x1000bcb8                __wrap___aeabi_frsub
-                0x1000bcbe                __wrap___aeabi_fsub
-                0x1000bcc8                __wrap___aeabi_fadd
-                0x1000bcd2                __wrap___aeabi_fdiv
-                0x1000bcfe                __wrap___aeabi_fmul
+                0x1000bcbc       0x58 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x1000bcbc                __wrap___aeabi_frsub
+                0x1000bcc2                __wrap___aeabi_fsub
+                0x1000bccc                __wrap___aeabi_fadd
+                0x1000bcd6                __wrap___aeabi_fdiv
+                0x1000bd02                __wrap___aeabi_fmul
  .text.__wrap___aeabi_cfcmple
-                0x1000bd10       0x50 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x1000bd10                __wrap___aeabi_cfrcmple
-                0x1000bd1c                __wrap___aeabi_cfcmpeq
-                0x1000bd1c                __wrap___aeabi_cfcmple
+                0x1000bd14       0x50 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x1000bd14                __wrap___aeabi_cfrcmple
+                0x1000bd20                __wrap___aeabi_cfcmpeq
+                0x1000bd20                __wrap___aeabi_cfcmple
  .text.__wrap___aeabi_fcmplt
-                0x1000bd60        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x1000bd60                __wrap___aeabi_fcmplt
+                0x1000bd64        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x1000bd64                __wrap___aeabi_fcmplt
  .text.__wrap___aeabi_fcmpgt
-                0x1000bd6c        0xa src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x1000bd6c                __wrap___aeabi_fcmpgt
+                0x1000bd70        0xa src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x1000bd70                __wrap___aeabi_fcmpgt
  .text.__wrap___aeabi_ui2f
-                0x1000bd76        0xa src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x1000bd76                __wrap___aeabi_ui2f
+                0x1000bd7a        0xa src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x1000bd7a                __wrap___aeabi_ui2f
  .text.__wrap___aeabi_i2f
-                0x1000bd80       0x44 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x1000bd80                __wrap___aeabi_i2f
+                0x1000bd84       0x44 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x1000bd84                __wrap___aeabi_i2f
  .text.__wrap___aeabi_f2iz
-                0x1000bdc4       0x4e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x1000bdc4                __wrap___aeabi_f2iz
-                0x1000bdc4                float2int_z
- *fill*         0x1000be12        0x2 
+                0x1000bdc8       0x4e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x1000bdc8                __wrap___aeabi_f2iz
+                0x1000bdc8                float2int_z
+ *fill*         0x1000be16        0x2 
  .text.float2int
-                0x1000be14       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x1000be14                float2int
+                0x1000be18       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x1000be18                float2int
  .text.__wrap___aeabi_f2uiz
-                0x1000be28       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x1000be28                __wrap___aeabi_f2uiz
+                0x1000be2c       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x1000be2c                __wrap___aeabi_f2uiz
  .text.__wrap___aeabi_f2d
-                0x1000be38       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x1000be38                __wrap___aeabi_f2d
+                0x1000be3c       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x1000be3c                __wrap___aeabi_f2d
  .text.__aeabi_float_init
-                0x1000be4c       0xfc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
-                0x1000be4c                __aeabi_float_init
+                0x1000be50       0xfc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+                0x1000be50                __aeabi_float_init
  .text.float_table_shim_on_use_helper
-                0x1000bf48       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
-                0x1000bf48                float_table_shim_on_use_helper
+                0x1000bf4c       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+                0x1000bf4c                float_table_shim_on_use_helper
  .text.float232_shims
-                0x1000bf7c       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
-                0x1000bf7c                float2int_shim
-                0x1000bf7e                float2fix_shim
+                0x1000bf80       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+                0x1000bf80                float2int_shim
+                0x1000bf82                float2fix_shim
  .text.float2double_shim
-                0x1000bf94       0x30 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
-                0x1000bf94                float2double_shim
+                0x1000bf98       0x30 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+                0x1000bf98                float2double_shim
  .text.check_alloc
-                0x1000bfc4       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+                0x1000bfc8       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
  .text.__wrap_malloc
-                0x1000bfe4       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
-                0x1000bfe4                __wrap_malloc
+                0x1000bfe8       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+                0x1000bfe8                __wrap_malloc
  .text.__wrap_free
-                0x1000c010       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
-                0x1000c010                __wrap_free
- .text          0x1000c030       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-                0x1000c030                __aeabi_mem_init
- .text.memset   0x1000c040        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-                0x1000c040                __wrap_memset
- .text.memcpy   0x1000c04c        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-                0x1000c04c                __wrap___aeabi_memcpy
-                0x1000c04c                __wrap_memcpy
- .text._Znwj    0x1000c058        0x8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
-                0x1000c058                operator new(unsigned int)
+                0x1000c014       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+                0x1000c014                __wrap_free
+ .text          0x1000c034       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+                0x1000c034                __aeabi_mem_init
+ .text.memset   0x1000c044        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+                0x1000c044                __wrap_memset
+ .text.memcpy   0x1000c050        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+                0x1000c050                __wrap___aeabi_memcpy
+                0x1000c050                __wrap_memcpy
+ .text._Znwj    0x1000c05c        0x8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
+                0x1000c05c                operator new(unsigned int)
  .text.time_reached
-                0x1000c060       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c064       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .text.stdio_out_chars_no_crlf
-                0x1000c088        0xe src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
- *fill*         0x1000c096        0x2 
+                0x1000c08c        0xe src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+ *fill*         0x1000c09a        0x2 
  .text.stdio_out_chars_crlf
-                0x1000c098       0x80 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c09c       0x80 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .text.stdio_stack_buffer_flush
-                0x1000c118       0x44 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c11c       0x44 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .text.stdio_buffered_printer
-                0x1000c15c       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c160       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .text.update_us_since_boot
-                0x1000c17c       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c180       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .text.get_absolute_time
-                0x1000c1a0       0x22 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
- *fill*         0x1000c1c2        0x2 
+                0x1000c1a4       0x22 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+ *fill*         0x1000c1c6        0x2 
  .text.delayed_by_ms
-                0x1000c1c4       0x44 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c1c8       0x44 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .text.make_timeout_time_ms
-                0x1000c208       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c20c       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .text.stdio_get_until
-                0x1000c228       0x64 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c22c       0x64 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .text.stdout_serialize_begin
-                0x1000c28c       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x1000c28c                stdout_serialize_begin
+                0x1000c290       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c290                stdout_serialize_begin
  .text.stdout_serialize_end
-                0x1000c2ac       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x1000c2ac                stdout_serialize_end
+                0x1000c2b0       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c2b0                stdout_serialize_end
  .text.stdio_put_string
-                0x1000c2bc       0x98 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c2c0       0x98 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .text.__wrap_putchar
-                0x1000c354       0x1c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x1000c354                __wrap_putchar
+                0x1000c358       0x1c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c358                __wrap_putchar
  .text.stdio_set_driver_enabled
-                0x1000c370       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x1000c370                stdio_set_driver_enabled
+                0x1000c374       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c374                stdio_set_driver_enabled
  .text.stdio_flush
-                0x1000c39c       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x1000c39c                stdio_flush
+                0x1000c3a0       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c3a0                stdio_flush
  .text.__wrap_puts
-                0x1000c3bc       0x1e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x1000c3bc                __wrap_puts
- *fill*         0x1000c3da        0x2 
+                0x1000c3c0       0x1e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c3c0                __wrap_puts
+ *fill*         0x1000c3de        0x2 
  .text.__wrap_vprintf
-                0x1000c3dc       0x40 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x1000c3dc                __wrap_vprintf
+                0x1000c3e0       0x40 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c3e0                __wrap_vprintf
  .text.__wrap_printf
-                0x1000c41c       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x1000c41c                __wrap_printf
+                0x1000c420       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c420                __wrap_printf
  .text.stdio_init_all
-                0x1000c434        0xe src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x1000c434                stdio_init_all
- *fill*         0x1000c442        0x2 
+                0x1000c438        0xe src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c438                stdio_init_all
+ *fill*         0x1000c446        0x2 
  .text.__wrap_getchar
-                0x1000c444       0x40 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x1000c444                __wrap_getchar
+                0x1000c448       0x40 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000c448                __wrap_getchar
  .text.uart_putc
-                0x1000c484       0x60 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x1000c488       0x60 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .text.uart_getc
-                0x1000c4e4       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x1000c4e8       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .text.stdio_uart_out_chars
-                0x1000c508       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x1000c50c       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .text.stdio_uart_in_chars
-                0x1000c528       0x5c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
-                0x1000c528                stdio_uart_in_chars
+                0x1000c52c       0x5c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x1000c52c                stdio_uart_in_chars
  .text.on_uart_rx
-                0x1000c584       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x1000c588       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .text.stdio_uart_set_chars_available_callback
-                0x1000c5ac       0x8c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x1000c5b0       0x8c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .text.stdio_uart_init_full
-                0x1000c638       0x44 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
-                0x1000c638                stdio_uart_init_full
+                0x1000c63c       0x44 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x1000c63c                stdio_uart_init_full
  .text.stdio_uart_init
-                0x1000c67c       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
-                0x1000c67c                stdio_uart_init
+                0x1000c680       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x1000c680                stdio_uart_init
  .text.resetd_init
-                0x1000c6a4        0x2 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
- *fill*         0x1000c6a6        0x2 
+                0x1000c6a8        0x2 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+ *fill*         0x1000c6aa        0x2 
  .text.resetd_reset
-                0x1000c6a8        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x1000c6ac        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .text.resetd_open
-                0x1000c6b4       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x1000c6b8       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .text.resetd_xfer_cb
-                0x1000c6e8        0x4 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x1000c6ec        0x4 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .text.reset_usb_boot
-                0x1000c6ec       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x1000c6f0       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .text.resetd_control_xfer_cb
-                0x1000c704       0x5c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x1000c708       0x5c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .text.usbd_app_driver_get_cb
-                0x1000c760        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
-                0x1000c760                usbd_app_driver_get_cb
+                0x1000c764        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x1000c764                usbd_app_driver_get_cb
  .text.tud_cdc_line_coding_cb
-                0x1000c76c       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
-                0x1000c76c                tud_cdc_line_coding_cb
+                0x1000c770       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x1000c770                tud_cdc_line_coding_cb
  .text.stdio_usb_set_chars_available_callback
-                0x1000c794       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
-                0x1000c794                stdio_usb_set_chars_available_callback
+                0x1000c798       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x1000c798                stdio_usb_set_chars_available_callback
  .text.update_us_since_boot
-                0x1000c7a8       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x1000c7ac       0x24 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .text.get_absolute_time
-                0x1000c7cc       0x22 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- *fill*         0x1000c7ee        0x2 
+                0x1000c7d0       0x22 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ *fill*         0x1000c7f2        0x2 
  .text.delayed_by_ms
-                0x1000c7f0       0x44 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x1000c7f4       0x44 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .text.make_timeout_time_ms
-                0x1000c834       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x1000c838       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .text.delayed_by_us
-                0x1000c854       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- .text.usb_irq  0x1000c888       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x1000c858       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ .text.usb_irq  0x1000c88c       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .text.critical_section_enter_blocking
-                0x1000c898       0x16 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- *fill*         0x1000c8ae        0x2 
+                0x1000c89c       0x16 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ *fill*         0x1000c8b2        0x2 
  .text.timer_task
-                0x1000c8b0       0x4c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x1000c8b4       0x4c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .text.alarm_pool_add_alarm_in_us
-                0x1000c8fc       0x3a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x1000c900       0x3a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .text.add_alarm_in_us
-                0x1000c936       0x2e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x1000c93a       0x2e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .text.low_priority_worker_irq
-                0x1000c964       0x7c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x1000c968       0x7c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .text.tud_cdc_rx_cb
-                0x1000c9e0       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
-                0x1000c9e0                tud_cdc_rx_cb
+                0x1000c9e4       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x1000c9e4                tud_cdc_rx_cb
  .text.stdio_usb_init
-                0x1000ca00       0xd0 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
-                0x1000ca00                stdio_usb_init
+                0x1000ca04       0xd0 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x1000ca04                stdio_usb_init
  .text.stdio_usb_connected
-                0x1000cad0        0xa src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
-                0x1000cad0                stdio_usb_connected
- *fill*         0x1000cada        0x2 
+                0x1000cad4        0xa src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x1000cad4                stdio_usb_connected
+ *fill*         0x1000cade        0x2 
  .text.stdio_usb_in_chars
-                0x1000cadc       0x88 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
-                0x1000cadc                stdio_usb_in_chars
+                0x1000cae0       0x88 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x1000cae0                stdio_usb_in_chars
  .text.stdio_usb_out_chars
-                0x1000cb64       0xd8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x1000cb68       0xd8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .text.tud_descriptor_device_cb
-                0x1000cc3c        0x8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
-                0x1000cc3c                tud_descriptor_device_cb
+                0x1000cc40        0x8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x1000cc40                tud_descriptor_device_cb
  .text.tud_descriptor_configuration_cb
-                0x1000cc44        0x8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
-                0x1000cc44                tud_descriptor_configuration_cb
+                0x1000cc48        0x8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x1000cc48                tud_descriptor_configuration_cb
  .text.tud_descriptor_string_cb
-                0x1000cc4c       0x6c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
-                0x1000cc4c                tud_descriptor_string_cb
+                0x1000cc50       0x6c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x1000cc50                tud_descriptor_string_cb
  .text._retrieve_unique_id_on_boot
-                0x1000ccb8       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
+                0x1000ccbc       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
  .text.pico_get_unique_board_id_string
-                0x1000ccc8       0x5c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
-                0x1000ccc8                pico_get_unique_board_id_string
+                0x1000cccc       0x5c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
+                0x1000cccc                pico_get_unique_board_id_string
  .text.flash_get_unique_id
-                0x1000cd24       0x40 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
-                0x1000cd24                flash_get_unique_id
+                0x1000cd28       0x40 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
+                0x1000cd28                flash_get_unique_id
  .text.hw_endpoint_get_by_addr
-                0x1000cd64       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x1000cd68       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
  .text._hw_endpoint_alloc
-                0x1000cd7c       0x70 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x1000cd80       0x70 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
  .text.hw_endpoint_init
-                0x1000cdec       0x88 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x1000cdf0       0x88 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
  .text.dcd_event_sof
-                0x1000ce74       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x1000ce78       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
  .text.hw_endpoint_xfer
-                0x1000cea0       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x1000cea4       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
  .text.dcd_int_enable
-                0x1000ceb4       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x1000ceb4                dcd_int_enable
+                0x1000ceb8       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x1000ceb8                dcd_int_enable
  .text.dcd_set_address
-                0x1000cee0       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x1000cee0                dcd_set_address
+                0x1000cee4       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x1000cee4                dcd_set_address
  .text.dcd_connect
-                0x1000cf0c       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x1000cf0c                dcd_connect
+                0x1000cf10       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x1000cf10                dcd_connect
  .text.dcd_init
-                0x1000cf1c       0x80 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x1000cf1c                dcd_init
+                0x1000cf20       0x80 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x1000cf20                dcd_init
  .text.dcd_edpt0_status_complete
-                0x1000cf9c       0x1c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x1000cf9c                dcd_edpt0_status_complete
+                0x1000cfa0       0x1c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x1000cfa0                dcd_edpt0_status_complete
  .text.dcd_edpt_open
-                0x1000cfb8       0x40 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x1000cfb8                dcd_edpt_open
+                0x1000cfbc       0x40 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x1000cfbc                dcd_edpt_open
  .text.dcd_edpt_close_all
-                0x1000cff8        0x8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x1000cff8                dcd_edpt_close_all
+                0x1000cffc        0x8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x1000cffc                dcd_edpt_close_all
  .text.dcd_edpt_xfer
-                0x1000d000       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x1000d000                dcd_edpt_xfer
+                0x1000d004       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x1000d004                dcd_edpt_xfer
  .text.dcd_edpt_stall
-                0x1000d034       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x1000d034                dcd_edpt_stall
+                0x1000d038       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x1000d038                dcd_edpt_stall
  .text.dcd_edpt_clear_stall
-                0x1000d060       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x1000d060                dcd_edpt_clear_stall
+                0x1000d064       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x1000d064                dcd_edpt_clear_stall
  .text.rp2040_usb_init
-                0x1000d080       0x4c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
-                0x1000d080                rp2040_usb_init
+                0x1000d084       0x4c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+                0x1000d084                rp2040_usb_init
  .text.hw_endpoint_xfer_start
-                0x1000d0cc       0x50 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
-                0x1000d0cc                hw_endpoint_xfer_start
+                0x1000d0d0       0x50 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+                0x1000d0d0                hw_endpoint_xfer_start
  .text.configuration_reset
-                0x1000d11c       0x84 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d120       0x84 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
  .text.critical_section_enter_blocking
-                0x1000d1a0       0x16 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d1a4       0x16 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
  .text.usbd_reset
-                0x1000d1b6        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d1ba        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
  .text.invoke_class_control
-                0x1000d1c2       0x1a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d1c6       0x1a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
  .text.process_set_config
-                0x1000d1dc      0x178 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d1e0      0x178 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
  .text.process_get_descriptor
-                0x1000d354       0xdc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d358       0xdc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
  .text.tud_mounted
-                0x1000d430       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x1000d430                tud_mounted
+                0x1000d434       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d434                tud_mounted
  .text.tud_suspended
-                0x1000d440       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x1000d440                tud_suspended
+                0x1000d444       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d444                tud_suspended
  .text.tud_inited
-                0x1000d450       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x1000d450                tud_inited
+                0x1000d454       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d454                tud_inited
  .text.tud_init
-                0x1000d464       0xcc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x1000d464                tud_init
+                0x1000d468       0xcc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d468                tud_init
  .text.usbd_defer_func
-                0x1000d530       0x2a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x1000d530                usbd_defer_func
- *fill*         0x1000d55a        0x2 
+                0x1000d534       0x2a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d534                usbd_defer_func
+ *fill*         0x1000d55e        0x2 
  .text.usbd_edpt_open
-                0x1000d55c       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x1000d55c                usbd_edpt_open
+                0x1000d560       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d560                usbd_edpt_open
  .text.usbd_open_edpt_pair
-                0x1000d590       0x62 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x1000d590                usbd_open_edpt_pair
- *fill*         0x1000d5f2        0x2 
+                0x1000d594       0x62 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d594                usbd_open_edpt_pair
+ *fill*         0x1000d5f6        0x2 
  .text.usbd_edpt_claim
-                0x1000d5f4       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x1000d5f4                usbd_edpt_claim
+                0x1000d5f8       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d5f8                usbd_edpt_claim
  .text.usbd_edpt_release
-                0x1000d61c       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x1000d61c                usbd_edpt_release
+                0x1000d620       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d620                usbd_edpt_release
  .text.usbd_edpt_xfer
-                0x1000d644       0x78 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x1000d644                usbd_edpt_xfer
+                0x1000d648       0x78 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d648                usbd_edpt_xfer
  .text.usbd_edpt_stall
-                0x1000d6bc       0x48 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x1000d6bc                usbd_edpt_stall
+                0x1000d6c0       0x48 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d6c0                usbd_edpt_stall
  .text.usbd_edpt_clear_stall
-                0x1000d704       0x48 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x1000d704                usbd_edpt_clear_stall
+                0x1000d708       0x48 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d708                usbd_edpt_clear_stall
  .text.usbd_edpt_stalled
-                0x1000d74c       0x1c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x1000d74c                usbd_edpt_stalled
+                0x1000d750       0x1c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d750                usbd_edpt_stalled
  .text.process_control_request
-                0x1000d768      0x374 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000d76c      0x374 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
  .text.tud_task_ext
-                0x1000dadc      0x1a8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x1000dadc                tud_task_ext
+                0x1000dae0      0x1a8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x1000dae0                tud_task_ext
  .text._status_stage_xact
-                0x1000dc84       0x1a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
- *fill*         0x1000dc9e        0x2 
+                0x1000dc88       0x1a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+ *fill*         0x1000dca2        0x2 
  .text._data_stage_xact
-                0x1000dca0       0x58 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x1000dca4       0x58 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
  .text.tud_control_status
-                0x1000dcf8       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
-                0x1000dcf8                tud_control_status
+                0x1000dcfc       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x1000dcfc                tud_control_status
  .text.tud_control_xfer
-                0x1000dd20       0x68 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
-                0x1000dd20                tud_control_xfer
+                0x1000dd24       0x68 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x1000dd24                tud_control_xfer
  .text.usbd_control_reset
-                0x1000dd88       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
-                0x1000dd88                usbd_control_reset
+                0x1000dd8c       0x14 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x1000dd8c                usbd_control_reset
  .text.usbd_control_set_complete_callback
-                0x1000dd9c        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
-                0x1000dd9c                usbd_control_set_complete_callback
+                0x1000dda0        0xc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x1000dda0                usbd_control_set_complete_callback
  .text.usbd_control_set_request
-                0x1000dda8       0x1c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
-                0x1000dda8                usbd_control_set_request
+                0x1000ddac       0x1c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x1000ddac                usbd_control_set_request
  .text.usbd_control_xfer_cb
-                0x1000ddc4       0xbc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
-                0x1000ddc4                usbd_control_xfer_cb
+                0x1000ddc8       0xbc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x1000ddc8                usbd_control_xfer_cb
  .text._prep_out_transaction
-                0x1000de80       0x4a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
- *fill*         0x1000deca        0x2 
+                0x1000de84       0x4a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+ *fill*         0x1000dece        0x2 
  .text.tud_cdc_n_connected
-                0x1000decc       0x38 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x1000decc                tud_cdc_n_connected
+                0x1000ded0       0x38 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x1000ded0                tud_cdc_n_connected
  .text.tud_cdc_n_available
-                0x1000df04       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x1000df04                tud_cdc_n_available
+                0x1000df08       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x1000df08                tud_cdc_n_available
  .text.tud_cdc_n_read
-                0x1000df1c       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x1000df1c                tud_cdc_n_read
+                0x1000df20       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x1000df20                tud_cdc_n_read
  .text.tud_cdc_n_write_flush
-                0x1000df44       0xb8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x1000df44                tud_cdc_n_write_flush
+                0x1000df48       0xb8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x1000df48                tud_cdc_n_write_flush
  .text.tud_cdc_n_write
-                0x1000dffc       0x38 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x1000dffc                tud_cdc_n_write
+                0x1000e000       0x38 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x1000e000                tud_cdc_n_write
  .text.tud_cdc_n_write_available
-                0x1000e034       0x1c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x1000e034                tud_cdc_n_write_available
+                0x1000e038       0x1c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x1000e038                tud_cdc_n_write_available
  .text.cdcd_init
-                0x1000e050       0xbc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x1000e050                cdcd_init
+                0x1000e054       0xbc src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x1000e054                cdcd_init
  .text.cdcd_reset
-                0x1000e10c       0x44 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x1000e10c                cdcd_reset
+                0x1000e110       0x44 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x1000e110                cdcd_reset
  .text.cdcd_open
-                0x1000e150       0xc4 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x1000e150                cdcd_open
+                0x1000e154       0xc4 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x1000e154                cdcd_open
  .text.cdcd_control_xfer_cb
-                0x1000e214      0x134 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x1000e214                cdcd_control_xfer_cb
+                0x1000e218      0x134 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x1000e218                cdcd_control_xfer_cb
  .text.cdcd_xfer_cb
-                0x1000e348      0x130 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x1000e348                cdcd_xfer_cb
+                0x1000e34c      0x130 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x1000e34c                cdcd_xfer_cb
  .text.tusb_init
-                0x1000e478        0xa src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
-                0x1000e478                tusb_init
+                0x1000e47c        0xa src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+                0x1000e47c                tusb_init
  .text.tusb_inited
-                0x1000e482        0xe src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
-                0x1000e482                tusb_inited
+                0x1000e486        0xe src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+                0x1000e486                tusb_inited
  .text.tu_edpt_claim
-                0x1000e490       0x50 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
-                0x1000e490                tu_edpt_claim
+                0x1000e494       0x50 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+                0x1000e494                tu_edpt_claim
  .text.tu_edpt_release
-                0x1000e4e0       0x38 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
-                0x1000e4e0                tu_edpt_release
+                0x1000e4e4       0x38 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+                0x1000e4e4                tu_edpt_release
  .text.tu_edpt_validate
-                0x1000e518       0x78 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
-                0x1000e518                tu_edpt_validate
+                0x1000e51c       0x78 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+                0x1000e51c                tu_edpt_validate
  .text.tu_edpt_bind_driver
-                0x1000e590       0x26 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
-                0x1000e590                tu_edpt_bind_driver
+                0x1000e594       0x26 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+                0x1000e594                tu_edpt_bind_driver
  .text.advance_index
-                0x1000e5b6       0x1a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000e5ba       0x1a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
  .text._tu_fifo_peek
-                0x1000e5d0       0x56 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000e5d4       0x56 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
  .text._ff_pull_const_addr
-                0x1000e626       0x4c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000e62a       0x4c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
  .text._ff_pull_n
-                0x1000e672      0x110 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000e676      0x110 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
  .text._tu_fifo_peek_n
-                0x1000e782       0x6a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000e786       0x6a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
  .text._tu_fifo_read_n
-                0x1000e7ec       0x4e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000e7f0       0x4e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
  .text._ff_push_const_addr
-                0x1000e83a       0x40 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000e83e       0x40 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
  .text._ff_push_n
-                0x1000e87a      0x10c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000e87e      0x10c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
  .text._tu_fifo_write_n
-                0x1000e986       0xf0 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000e98a       0xf0 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
  .text.tu_fifo_config
-                0x1000ea76       0x7c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x1000ea76                tu_fifo_config
+                0x1000ea7a       0x7c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000ea7a                tu_fifo_config
  .text.tu_fifo_count
-                0x1000eaf2       0x2a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x1000eaf2                tu_fifo_count
+                0x1000eaf6       0x2a src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000eaf6                tu_fifo_count
  .text.tu_fifo_empty
-                0x1000eb1c        0xe src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x1000eb1c                tu_fifo_empty
+                0x1000eb20        0xe src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000eb20                tu_fifo_empty
  .text.tu_fifo_full
-                0x1000eb2a       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x1000eb2a                tu_fifo_full
+                0x1000eb2e       0x28 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000eb2e                tu_fifo_full
  .text.tu_fifo_remaining
-                0x1000eb52       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x1000eb52                tu_fifo_remaining
+                0x1000eb56       0x2c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000eb56                tu_fifo_remaining
  .text.tu_fifo_read
-                0x1000eb7e       0x42 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x1000eb7e                tu_fifo_read
+                0x1000eb82       0x42 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000eb82                tu_fifo_read
  .text.tu_fifo_read_n
-                0x1000ebc0        0xa src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x1000ebc0                tu_fifo_read_n
+                0x1000ebc4        0xa src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000ebc4                tu_fifo_read_n
  .text.tu_fifo_write
-                0x1000ebca       0x64 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x1000ebca                tu_fifo_write
+                0x1000ebce       0x64 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000ebce                tu_fifo_write
  .text.tu_fifo_write_n
-                0x1000ec2e        0xa src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x1000ec2e                tu_fifo_write_n
+                0x1000ec32        0xa src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000ec32                tu_fifo_write_n
  .text.tu_fifo_clear
-                0x1000ec38       0x3e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x1000ec38                tu_fifo_clear
+                0x1000ec3c       0x3e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000ec3c                tu_fifo_clear
  .text.tu_fifo_set_overwritable
-                0x1000ec76       0x46 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x1000ec76                tu_fifo_set_overwritable
+                0x1000ec7a       0x46 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000ec7a                tu_fifo_set_overwritable
  .text.i2c_write_blocking_internal
-                0x1000ecbc      0x146 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+                0x1000ecc0      0x146 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
  .text.i2c_read_blocking_internal
-                0x1000ee02       0xe6 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+                0x1000ee06       0xe6 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
  .text.i2c_set_baudrate
-                0x1000eee8       0xf0 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
-                0x1000eee8                i2c_set_baudrate
+                0x1000eeec       0xf0 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+                0x1000eeec                i2c_set_baudrate
  .text.i2c_init
-                0x1000efd8       0x58 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
-                0x1000efd8                i2c_init
+                0x1000efdc       0x58 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+                0x1000efdc                i2c_init
  .text.i2c_write_timeout_per_char_us
-                0x1000f030       0x3e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
-                0x1000f030                i2c_write_timeout_per_char_us
+                0x1000f034       0x3e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+                0x1000f034                i2c_write_timeout_per_char_us
  .text.i2c_read_timeout_per_char_us
-                0x1000f06e       0x3e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
-                0x1000f06e                i2c_read_timeout_per_char_us
+                0x1000f072       0x3e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+                0x1000f072                i2c_read_timeout_per_char_us
  .text.adc_init
-                0x1000f0ac       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
-                0x1000f0ac                adc_init
+                0x1000f0b0       0x34 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
+                0x1000f0b0                adc_init
  .text.exception_is_compile_time_default
-                0x1000f0e0       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.obj
+                0x1000f0e4       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.obj
  .text.set_raw_exception_handler_and_restore_interrupts
-                0x1000f100       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.obj
+                0x1000f104       0x18 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.obj
  .text.exception_get_vtable_handler
-                0x1000f118       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.obj
-                0x1000f118                exception_get_vtable_handler
+                0x1000f11c       0x10 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.obj
+                0x1000f11c                exception_get_vtable_handler
  .text.exception_set_exclusive_handler
-                0x1000f128       0x44 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.obj
-                0x1000f128                exception_set_exclusive_handler
+                0x1000f12c       0x44 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.obj
+                0x1000f12c                exception_set_exclusive_handler
  .text.prvHeapInit
-                0x1000f16c       0x58 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
+                0x1000f170       0x58 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
  .text.prvInsertBlockIntoFreeList
-                0x1000f1c4       0x88 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
+                0x1000f1c8       0x88 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
  .text.pvPortMalloc
-                0x1000f24c      0x188 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
-                0x1000f24c                pvPortMalloc
+                0x1000f250      0x188 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
+                0x1000f250                pvPortMalloc
  .text.vPortFree
-                0x1000f3d4       0xa4 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
-                0x1000f3d4                vPortFree
+                0x1000f3d8       0xa4 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
+                0x1000f3d8                vPortFree
  .text.time_reached
-                0x1000f478       0x28 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
+                0x1000f47c       0x28 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
  .text.vPortSVCHandler
-                0x1000f4a0        0x2 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
-                0x1000f4a0                vPortSVCHandler
- *fill*         0x1000f4a2        0xe 
+                0x1000f4a4        0x2 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
+                0x1000f4a4                vPortSVCHandler
+ *fill*         0x1000f4a6        0xa 
  .text.vPortStartFirstTask
                 0x1000f4b0       0x34 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
  *fill*         0x1000f4e4        0xc 
@@ -6087,7 +6087,7 @@ LOAD src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/stream_buffer.c.obj
 LOAD src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
 LOAD src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
 LOAD src/CMakeFiles/cansat.dir/__/lib/lwgps/lwgps/src/lwgps/lwgps.c.obj
-LOAD /tmp/ccAlNhEm.o
+LOAD /tmp/cc0tPbRx.o
 LOAD /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++.a
 LOAD /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a
 START GROUP
@@ -6260,7 +6260,7 @@ LOAD linker stubs
  .ARM.attributes
                 0x00000c72       0x2c src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
  .ARM.attributes
-                0x00000c9e       0x22 /tmp/ccAlNhEm.o
+                0x00000c9e       0x22 /tmp/cc0tPbRx.o
  .ARM.attributes
                 0x00000cc0       0x1e /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .ARM.attributes
