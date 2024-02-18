@@ -80,7 +80,7 @@ void initTask(void* pvParameters) {
         .updateTime = BME680_READ_TIME
     };
     TaskHandle_t bme680ReadTask;
-    xTaskCreate(sensorReadTask, "BME680 read", 512, &bme680, 3, &bme680ReadTask);
+    xTaskCreate(sensorReadTask, "BME680 read", 512, &bme680, 2, &bme680ReadTask);
 
     sensor_t lightSensor = {
         .sensor = light,
