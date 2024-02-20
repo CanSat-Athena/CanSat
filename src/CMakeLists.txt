@@ -33,6 +33,7 @@ add_compile_definitions(
         # FREE_RTOS_KERNEL_SMP=1
         # portSUPPORT_SMP=1
         LFS_THREADSAFE
+        CMAKE_BUILD_TYPE=Debug
         LWGPS_IGNORE_USER_OPTS
 )
 

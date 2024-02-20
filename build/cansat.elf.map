@@ -1743,6 +1743,8 @@ Discarded input sections
                 0x00000000       0x5e src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
  .text.vPortGetHeapStats
                 0x00000000       0x84 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
+ .text.vPortHeapResetState
+                0x00000000       0x2c src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
  .text          0x00000000        0x0 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
  .data          0x00000000        0x0 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
  .bss           0x00000000        0x0 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
@@ -2131,6 +2133,8 @@ Discarded input sections
                 0x00000000       0x5c src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
  .text.ulTaskGenericNotifyValueClear
                 0x00000000       0x50 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
+ .text.vTaskResetState
+                0x00000000       0x74 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
  .rodata.__func__.0
                 0x00000000       0x1e src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
  .rodata.__func__.1
@@ -2220,6 +2224,8 @@ Discarded input sections
                 0x00000000        0x4 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
  .text.vTimerSetTimerNumber
                 0x00000000        0x4 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
+ .text.vTimerResetState
+                0x00000000       0x14 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
  .rodata.__func__.0
                 0x00000000       0x17 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
  .rodata.__func__.1
@@ -2289,9 +2295,9 @@ Discarded input sections
  .debug_frame   0x00000000      0x120 src/CMakeFiles/cansat.dir/__/lib/lwgps/lwgps/src/lwgps/lwgps.c.obj
  .ARM.attributes
                 0x00000000       0x2c src/CMakeFiles/cansat.dir/__/lib/lwgps/lwgps/src/lwgps/lwgps.c.obj
- .text          0x00000000        0x0 /tmp/cc0tPbRx.o
- .data          0x00000000        0x0 /tmp/cc0tPbRx.o
- .bss           0x00000000        0x0 /tmp/cc0tPbRx.o
+ .text          0x00000000        0x0 /tmp/ccamBnxI.o
+ .data          0x00000000        0x0 /tmp/ccamBnxI.o
+ .bss           0x00000000        0x0 /tmp/ccamBnxI.o
  .data          0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .bss           0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .text          0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
@@ -2747,7 +2753,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/
 .boot2          0x10000000      0x100
                 0x10000000                        __boot2_start__ = .
  *(.boot2)
- .boot2         0x10000000      0x100 /tmp/cc0tPbRx.o
+ .boot2         0x10000000      0x100 /tmp/ccamBnxI.o
                 0x10000100                        __boot2_end__ = .
                 0x00000001                        ASSERT (((__boot2_end__ - __boot2_start__) == 0x100), ERROR: Pico second stage bootloader must be 256 bytes in size)
 
@@ -6087,7 +6093,7 @@ LOAD src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/stream_buffer.c.obj
 LOAD src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
 LOAD src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
 LOAD src/CMakeFiles/cansat.dir/__/lib/lwgps/lwgps/src/lwgps/lwgps.c.obj
-LOAD /tmp/cc0tPbRx.o
+LOAD /tmp/ccamBnxI.o
 LOAD /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++.a
 LOAD /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a
 START GROUP
@@ -6260,7 +6266,7 @@ LOAD linker stubs
  .ARM.attributes
                 0x00000c72       0x2c src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
  .ARM.attributes
-                0x00000c9e       0x22 /tmp/cc0tPbRx.o
+                0x00000c9e       0x22 /tmp/ccamBnxI.o
  .ARM.attributes
                 0x00000cc0       0x1e /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .ARM.attributes
@@ -6407,7 +6413,7 @@ LOAD linker stubs
  .comment       0x00000046       0x24 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-freer.o)
  .comment       0x00000046       0x24 /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/crtend.o
 
-.debug_info     0x00000000    0x5f242
+.debug_info     0x00000000    0x5f28f
  .debug_info    0x00000000     0x323b src/CMakeFiles/cansat.dir/cansat.cpp.obj
  .debug_info    0x0000323b     0x13d2 src/CMakeFiles/cansat.dir/globals.cpp.obj
  .debug_info    0x0000460d     0x199f src/CMakeFiles/cansat.dir/dht20.cpp.obj
@@ -6474,40 +6480,40 @@ LOAD linker stubs
  .debug_info    0x00048e3a      0x2c6 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
  .debug_info    0x00049100      0x53c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.obj
  .debug_info    0x0004963c     0x173e src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj
- .debug_info    0x0004ad7a      0x830 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
- .debug_info    0x0004b5aa     0x1de8 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
- .debug_info    0x0004d392      0xf74 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/event_groups.c.obj
- .debug_info    0x0004e306      0x2bf src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/list.c.obj
- .debug_info    0x0004e5c5     0x2e39 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/queue.c.obj
- .debug_info    0x000513fe     0x481c src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
- .debug_info    0x00055c1a     0x19c4 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
- .debug_info    0x000575de       0x3c /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
- .debug_info    0x0005761a      0x11e /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
- .debug_info    0x00057738      0x7f7 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atoi.o)
- .debug_info    0x00057f2f      0x7be /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-malloc.o)
- .debug_info    0x000586ed      0xcd2 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mallocr.o)
- .debug_info    0x000593bf      0x789 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mlock.o)
- .debug_info    0x00059b48      0xda7 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strtol.o)
- .debug_info    0x0005a8ef       0xb9 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-ctype_.o)
- .debug_info    0x0005a9a8     0x1116 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-findfp.o)
- .debug_info    0x0005babe      0x12b /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-memcmp.o)
- .debug_info    0x0005bbe9      0x130 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strchr.o)
- .debug_info    0x0005bd19       0xe9 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcspn.o)
- .debug_info    0x0005be02       0xe9 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strspn.o)
- .debug_info    0x0005beeb      0x7ee /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-reent.o)
- .debug_info    0x0005c6d9      0x733 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-impure.o)
- .debug_info    0x0005ce0c      0x7a0 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sbrkr.o)
- .debug_info    0x0005d5ac      0x719 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-errno.o)
- .debug_info    0x0005dcc5       0xf7 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-fini.o)
- .debug_info    0x0005ddbc      0x218 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-lock.o)
- .debug_info    0x0005dfd4       0xc1 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sysconf.o)
- .debug_info    0x0005e095       0x33 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcmp.o)
- .debug_info    0x0005e0c8       0xeb /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strlen-stub.o)
- .debug_info    0x0005e1b3      0x25f /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__atexit.o)
- .debug_info    0x0005e412      0x2dd /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__call_atexit.o)
- .debug_info    0x0005e6ef      0xb53 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-freer.o)
+ .debug_info    0x0004ad7a      0x83f src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
+ .debug_info    0x0004b5b9     0x1de8 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
+ .debug_info    0x0004d3a1      0xf74 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/event_groups.c.obj
+ .debug_info    0x0004e315      0x2bf src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/list.c.obj
+ .debug_info    0x0004e5d4     0x2e39 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/queue.c.obj
+ .debug_info    0x0005140d     0x4847 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
+ .debug_info    0x00055c54     0x19d7 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
+ .debug_info    0x0005762b       0x3c /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .debug_info    0x00057667      0x11e /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
+ .debug_info    0x00057785      0x7f7 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atoi.o)
+ .debug_info    0x00057f7c      0x7be /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-malloc.o)
+ .debug_info    0x0005873a      0xcd2 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mallocr.o)
+ .debug_info    0x0005940c      0x789 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mlock.o)
+ .debug_info    0x00059b95      0xda7 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strtol.o)
+ .debug_info    0x0005a93c       0xb9 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-ctype_.o)
+ .debug_info    0x0005a9f5     0x1116 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-findfp.o)
+ .debug_info    0x0005bb0b      0x12b /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-memcmp.o)
+ .debug_info    0x0005bc36      0x130 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strchr.o)
+ .debug_info    0x0005bd66       0xe9 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcspn.o)
+ .debug_info    0x0005be4f       0xe9 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strspn.o)
+ .debug_info    0x0005bf38      0x7ee /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-reent.o)
+ .debug_info    0x0005c726      0x733 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-impure.o)
+ .debug_info    0x0005ce59      0x7a0 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sbrkr.o)
+ .debug_info    0x0005d5f9      0x719 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-errno.o)
+ .debug_info    0x0005dd12       0xf7 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-fini.o)
+ .debug_info    0x0005de09      0x218 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-lock.o)
+ .debug_info    0x0005e021       0xc1 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sysconf.o)
+ .debug_info    0x0005e0e2       0x33 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcmp.o)
+ .debug_info    0x0005e115       0xeb /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strlen-stub.o)
+ .debug_info    0x0005e200      0x25f /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__atexit.o)
+ .debug_info    0x0005e45f      0x2dd /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__call_atexit.o)
+ .debug_info    0x0005e73c      0xb53 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-freer.o)
 
-.debug_abbrev   0x00000000    0x10249
+.debug_abbrev   0x00000000    0x10264
  .debug_abbrev  0x00000000      0x785 src/CMakeFiles/cansat.dir/cansat.cpp.obj
  .debug_abbrev  0x00000785      0x3a4 src/CMakeFiles/cansat.dir/globals.cpp.obj
  .debug_abbrev  0x00000b29      0x546 src/CMakeFiles/cansat.dir/dht20.cpp.obj
@@ -6574,41 +6580,41 @@ LOAD linker stubs
  .debug_abbrev  0x0000be98      0x10f src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
  .debug_abbrev  0x0000bfa7      0x2bd src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.obj
  .debug_abbrev  0x0000c264      0x4df src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj
- .debug_abbrev  0x0000c743      0x28d src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
- .debug_abbrev  0x0000c9d0      0x644 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
- .debug_abbrev  0x0000d014      0x28f src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/event_groups.c.obj
- .debug_abbrev  0x0000d2a3      0x10a src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/list.c.obj
- .debug_abbrev  0x0000d3ad      0x2f1 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/queue.c.obj
- .debug_abbrev  0x0000d69e      0x410 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
- .debug_abbrev  0x0000daae      0x2fb src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
- .debug_abbrev  0x0000dda9       0x26 /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
- .debug_abbrev  0x0000ddcf       0xbe /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
- .debug_abbrev  0x0000de8d      0x1eb /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atoi.o)
- .debug_abbrev  0x0000e078      0x208 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-malloc.o)
- .debug_abbrev  0x0000e280      0x2d7 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mallocr.o)
- .debug_abbrev  0x0000e557      0x1f8 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mlock.o)
- .debug_abbrev  0x0000e74f      0x33b /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strtol.o)
- .debug_abbrev  0x0000ea8a       0x62 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-ctype_.o)
- .debug_abbrev  0x0000eaec      0x473 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-findfp.o)
- .debug_abbrev  0x0000ef5f       0x90 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-memcmp.o)
- .debug_abbrev  0x0000efef       0x97 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strchr.o)
- .debug_abbrev  0x0000f086       0x9f /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcspn.o)
- .debug_abbrev  0x0000f125       0x9f /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strspn.o)
- .debug_abbrev  0x0000f1c4      0x228 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-reent.o)
- .debug_abbrev  0x0000f3ec      0x185 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-impure.o)
- .debug_abbrev  0x0000f571      0x216 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sbrkr.o)
- .debug_abbrev  0x0000f787      0x19a /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-errno.o)
- .debug_abbrev  0x0000f921       0xc9 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-fini.o)
- .debug_abbrev  0x0000f9ea      0x115 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-lock.o)
- .debug_abbrev  0x0000faff       0x80 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sysconf.o)
- .debug_abbrev  0x0000fb7f       0x28 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcmp.o)
- .debug_abbrev  0x0000fba7       0x90 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strlen-stub.o)
- .debug_abbrev  0x0000fc37      0x189 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__atexit.o)
- .debug_abbrev  0x0000fdc0      0x200 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__call_atexit.o)
- .debug_abbrev  0x0000ffc0      0x289 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-freer.o)
+ .debug_abbrev  0x0000c743      0x28f src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
+ .debug_abbrev  0x0000c9d2      0x644 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
+ .debug_abbrev  0x0000d016      0x28f src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/event_groups.c.obj
+ .debug_abbrev  0x0000d2a5      0x10a src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/list.c.obj
+ .debug_abbrev  0x0000d3af      0x2f1 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/queue.c.obj
+ .debug_abbrev  0x0000d6a0      0x410 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
+ .debug_abbrev  0x0000dab0      0x314 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
+ .debug_abbrev  0x0000ddc4       0x26 /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .debug_abbrev  0x0000ddea       0xbe /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
+ .debug_abbrev  0x0000dea8      0x1eb /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atoi.o)
+ .debug_abbrev  0x0000e093      0x208 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-malloc.o)
+ .debug_abbrev  0x0000e29b      0x2d7 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mallocr.o)
+ .debug_abbrev  0x0000e572      0x1f8 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mlock.o)
+ .debug_abbrev  0x0000e76a      0x33b /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strtol.o)
+ .debug_abbrev  0x0000eaa5       0x62 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-ctype_.o)
+ .debug_abbrev  0x0000eb07      0x473 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-findfp.o)
+ .debug_abbrev  0x0000ef7a       0x90 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-memcmp.o)
+ .debug_abbrev  0x0000f00a       0x97 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strchr.o)
+ .debug_abbrev  0x0000f0a1       0x9f /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcspn.o)
+ .debug_abbrev  0x0000f140       0x9f /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strspn.o)
+ .debug_abbrev  0x0000f1df      0x228 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-reent.o)
+ .debug_abbrev  0x0000f407      0x185 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-impure.o)
+ .debug_abbrev  0x0000f58c      0x216 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sbrkr.o)
+ .debug_abbrev  0x0000f7a2      0x19a /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-errno.o)
+ .debug_abbrev  0x0000f93c       0xc9 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-fini.o)
+ .debug_abbrev  0x0000fa05      0x115 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-lock.o)
+ .debug_abbrev  0x0000fb1a       0x80 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sysconf.o)
+ .debug_abbrev  0x0000fb9a       0x28 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcmp.o)
+ .debug_abbrev  0x0000fbc2       0x90 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strlen-stub.o)
+ .debug_abbrev  0x0000fc52      0x189 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__atexit.o)
+ .debug_abbrev  0x0000fddb      0x200 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__call_atexit.o)
+ .debug_abbrev  0x0000ffdb      0x289 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-freer.o)
 
 .debug_loclists
-                0x00000000    0x25af5
+                0x00000000    0x25b09
  .debug_loclists
                 0x00000000      0x238 src/CMakeFiles/cansat.dir/cansat.cpp.obj
  .debug_loclists
@@ -6732,51 +6738,51 @@ LOAD linker stubs
  .debug_loclists
                 0x0001df2e     0x21c1 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/queue.c.obj
  .debug_loclists
-                0x000200ef     0x2aee src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
+                0x000200ef     0x2b02 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
  .debug_loclists
-                0x00022bdd      0xe16 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
+                0x00022bf1      0xe16 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
  .debug_loclists
-                0x000239f3       0x30 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
+                0x00023a07       0x30 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
  .debug_loclists
-                0x00023a23       0x63 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atoi.o)
+                0x00023a37       0x63 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atoi.o)
  .debug_loclists
-                0x00023a86       0x54 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-malloc.o)
+                0x00023a9a       0x54 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-malloc.o)
  .debug_loclists
-                0x00023ada      0xb0c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mallocr.o)
+                0x00023aee      0xb0c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mallocr.o)
  .debug_loclists
-                0x000245e6       0x46 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mlock.o)
+                0x000245fa       0x46 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mlock.o)
  .debug_loclists
-                0x0002462c      0x665 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strtol.o)
+                0x00024640      0x665 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strtol.o)
  .debug_loclists
-                0x00024c91      0x318 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-findfp.o)
+                0x00024ca5      0x318 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-findfp.o)
  .debug_loclists
-                0x00024fa9      0x147 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-memcmp.o)
+                0x00024fbd      0x147 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-memcmp.o)
  .debug_loclists
-                0x000250f0      0x141 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strchr.o)
+                0x00025104      0x141 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strchr.o)
  .debug_loclists
-                0x00025231       0x94 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcspn.o)
+                0x00025245       0x94 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcspn.o)
  .debug_loclists
-                0x000252c5       0x7f /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strspn.o)
+                0x000252d9       0x7f /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strspn.o)
  .debug_loclists
-                0x00025344       0x4f /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-reent.o)
+                0x00025358       0x4f /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-reent.o)
  .debug_loclists
-                0x00025393       0x5f /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sbrkr.o)
+                0x000253a7       0x5f /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sbrkr.o)
  .debug_loclists
-                0x000253f2       0x34 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-fini.o)
+                0x00025406       0x34 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-fini.o)
  .debug_loclists
-                0x00025426       0x29 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-lock.o)
+                0x0002543a       0x29 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-lock.o)
  .debug_loclists
-                0x0002544f       0x40 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sysconf.o)
+                0x00025463       0x40 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sysconf.o)
  .debug_loclists
-                0x0002548f       0x64 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strlen-stub.o)
+                0x000254a3       0x64 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strlen-stub.o)
  .debug_loclists
-                0x000254f3      0x122 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__atexit.o)
+                0x00025507      0x122 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__atexit.o)
  .debug_loclists
-                0x00025615      0x113 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__call_atexit.o)
+                0x00025629      0x113 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__call_atexit.o)
  .debug_loclists
-                0x00025728      0x3cd /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-freer.o)
+                0x0002573c      0x3cd /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-freer.o)
 
-.debug_aranges  0x00000000     0x2cf0
+.debug_aranges  0x00000000     0x2d08
  .debug_aranges
                 0x00000000       0x80 src/CMakeFiles/cansat.dir/cansat.cpp.obj
  .debug_aranges
@@ -6910,72 +6916,72 @@ LOAD linker stubs
  .debug_aranges
                 0x00002128       0xe8 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj
  .debug_aranges
-                0x00002210       0x60 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
+                0x00002210       0x68 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
  .debug_aranges
-                0x00002270       0xf0 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
+                0x00002278       0xf0 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
  .debug_aranges
-                0x00002360       0x88 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/event_groups.c.obj
+                0x00002368       0x88 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/event_groups.c.obj
  .debug_aranges
-                0x000023e8       0x40 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/list.c.obj
+                0x000023f0       0x40 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/list.c.obj
  .debug_aranges
-                0x00002428      0x180 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/queue.c.obj
+                0x00002430      0x180 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/queue.c.obj
  .debug_aranges
-                0x000025a8      0x260 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
+                0x000025b0      0x268 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
  .debug_aranges
-                0x00002808      0x100 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
+                0x00002818      0x108 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
  .debug_aranges
-                0x00002908       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+                0x00002920       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .debug_aranges
-                0x00002928       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
+                0x00002940       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
  .debug_aranges
-                0x00002948       0x28 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atoi.o)
+                0x00002960       0x28 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atoi.o)
  .debug_aranges
-                0x00002970       0x28 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-malloc.o)
+                0x00002988       0x28 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-malloc.o)
  .debug_aranges
-                0x00002998       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mallocr.o)
+                0x000029b0       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mallocr.o)
  .debug_aranges
-                0x000029b8       0x28 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mlock.o)
+                0x000029d0       0x28 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mlock.o)
  .debug_aranges
-                0x000029e0       0x38 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strtol.o)
+                0x000029f8       0x38 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strtol.o)
  .debug_aranges
-                0x00002a18       0x18 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-ctype_.o)
+                0x00002a30       0x18 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-ctype_.o)
  .debug_aranges
-                0x00002a30       0x70 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-findfp.o)
+                0x00002a48       0x70 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-findfp.o)
  .debug_aranges
-                0x00002aa0       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-memcmp.o)
+                0x00002ab8       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-memcmp.o)
  .debug_aranges
-                0x00002ac0       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strchr.o)
+                0x00002ad8       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strchr.o)
  .debug_aranges
-                0x00002ae0       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcspn.o)
+                0x00002af8       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcspn.o)
  .debug_aranges
-                0x00002b00       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strspn.o)
+                0x00002b18       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strspn.o)
  .debug_aranges
-                0x00002b20       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-reent.o)
+                0x00002b38       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-reent.o)
  .debug_aranges
-                0x00002b40       0x18 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-impure.o)
+                0x00002b58       0x18 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-impure.o)
  .debug_aranges
-                0x00002b58       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sbrkr.o)
+                0x00002b70       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sbrkr.o)
  .debug_aranges
-                0x00002b78       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-errno.o)
+                0x00002b90       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-errno.o)
  .debug_aranges
-                0x00002b98       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-fini.o)
+                0x00002bb0       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-fini.o)
  .debug_aranges
-                0x00002bb8       0x68 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-lock.o)
+                0x00002bd0       0x68 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-lock.o)
  .debug_aranges
-                0x00002c20       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sysconf.o)
+                0x00002c38       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sysconf.o)
  .debug_aranges
-                0x00002c40       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcmp.o)
+                0x00002c58       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcmp.o)
  .debug_aranges
-                0x00002c60       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strlen-stub.o)
+                0x00002c78       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strlen-stub.o)
  .debug_aranges
-                0x00002c80       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__atexit.o)
+                0x00002c98       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__atexit.o)
  .debug_aranges
-                0x00002ca0       0x28 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__call_atexit.o)
+                0x00002cb8       0x28 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__call_atexit.o)
  .debug_aranges
-                0x00002cc8       0x28 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-freer.o)
+                0x00002ce0       0x28 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-freer.o)
 
 .debug_rnglists
-                0x00000000     0x2ff0
+                0x00000000     0x3002
  .debug_rnglists
                 0x00000000       0x5d src/CMakeFiles/cansat.dir/cansat.cpp.obj
  .debug_rnglists
@@ -7105,63 +7111,63 @@ LOAD linker stubs
  .debug_rnglists
                 0x00002440       0xc2 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj
  .debug_rnglists
-                0x00002502       0x47 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
+                0x00002502       0x4d src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
  .debug_rnglists
-                0x00002549       0xf6 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
+                0x0000254f       0xf6 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
  .debug_rnglists
-                0x0000263f       0x76 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/event_groups.c.obj
+                0x00002645       0x76 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/event_groups.c.obj
  .debug_rnglists
-                0x000026b5       0x2b src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/list.c.obj
+                0x000026bb       0x2b src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/list.c.obj
  .debug_rnglists
-                0x000026e0      0x1dc src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/queue.c.obj
+                0x000026e6      0x1dc src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/queue.c.obj
  .debug_rnglists
-                0x000028bc      0x375 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
+                0x000028c2      0x37b src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
  .debug_rnglists
-                0x00002c31       0xbc src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
+                0x00002c3d       0xc2 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
  .debug_rnglists
-                0x00002ced       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
+                0x00002cff       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
  .debug_rnglists
-                0x00002d00       0x19 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atoi.o)
+                0x00002d12       0x19 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atoi.o)
  .debug_rnglists
-                0x00002d19       0x19 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-malloc.o)
+                0x00002d2b       0x19 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-malloc.o)
  .debug_rnglists
-                0x00002d32       0x41 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mallocr.o)
+                0x00002d44       0x41 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mallocr.o)
  .debug_rnglists
-                0x00002d73       0x19 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mlock.o)
+                0x00002d85       0x19 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mlock.o)
  .debug_rnglists
-                0x00002d8c       0x35 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strtol.o)
+                0x00002d9e       0x35 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strtol.o)
  .debug_rnglists
-                0x00002dc1       0xc8 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-findfp.o)
+                0x00002dd3       0xc8 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-findfp.o)
  .debug_rnglists
-                0x00002e89       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-memcmp.o)
+                0x00002e9b       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-memcmp.o)
  .debug_rnglists
-                0x00002e9c       0x14 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strchr.o)
+                0x00002eae       0x14 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strchr.o)
  .debug_rnglists
-                0x00002eb0       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcspn.o)
+                0x00002ec2       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcspn.o)
  .debug_rnglists
-                0x00002ec3       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strspn.o)
+                0x00002ed5       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strspn.o)
  .debug_rnglists
-                0x00002ed6       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-reent.o)
+                0x00002ee8       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-reent.o)
  .debug_rnglists
-                0x00002ee9       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sbrkr.o)
+                0x00002efb       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sbrkr.o)
  .debug_rnglists
-                0x00002efc       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-errno.o)
+                0x00002f0e       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-errno.o)
  .debug_rnglists
-                0x00002f0f       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-fini.o)
+                0x00002f21       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-fini.o)
  .debug_rnglists
-                0x00002f22       0x49 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-lock.o)
+                0x00002f34       0x49 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-lock.o)
  .debug_rnglists
-                0x00002f6b       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sysconf.o)
+                0x00002f7d       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sysconf.o)
  .debug_rnglists
-                0x00002f7e       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strlen-stub.o)
+                0x00002f90       0x13 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strlen-stub.o)
  .debug_rnglists
-                0x00002f91       0x14 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__atexit.o)
+                0x00002fa3       0x14 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__atexit.o)
  .debug_rnglists
-                0x00002fa5       0x30 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__call_atexit.o)
+                0x00002fb7       0x30 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__call_atexit.o)
  .debug_rnglists
-                0x00002fd5       0x1b /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-freer.o)
+                0x00002fe7       0x1b /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-freer.o)
 
-.debug_line     0x00000000    0x31b1f
+.debug_line     0x00000000    0x31c16
  .debug_line    0x00000000      0xb85 src/CMakeFiles/cansat.dir/cansat.cpp.obj
  .debug_line    0x00000b85      0x3ad src/CMakeFiles/cansat.dir/globals.cpp.obj
  .debug_line    0x00000f32      0x91d src/CMakeFiles/cansat.dir/dht20.cpp.obj
@@ -7228,40 +7234,40 @@ LOAD linker stubs
  .debug_line    0x00025535      0x2a6 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
  .debug_line    0x000257db      0x3c4 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.obj
  .debug_line    0x00025b9f      0xdf6 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj
- .debug_line    0x00026995      0x764 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
- .debug_line    0x000270f9     0x119a src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
- .debug_line    0x00028293      0x86a src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/event_groups.c.obj
- .debug_line    0x00028afd      0x352 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/list.c.obj
- .debug_line    0x00028e4f     0x1b19 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/queue.c.obj
- .debug_line    0x0002a968     0x3043 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
- .debug_line    0x0002d9ab      0xc4f src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
- .debug_line    0x0002e5fa       0x4a /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
- .debug_line    0x0002e644       0xc7 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
- .debug_line    0x0002e70b      0x17b /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atoi.o)
- .debug_line    0x0002e886      0x183 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-malloc.o)
- .debug_line    0x0002ea09      0x958 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mallocr.o)
- .debug_line    0x0002f361      0x172 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mlock.o)
- .debug_line    0x0002f4d3      0x451 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strtol.o)
- .debug_line    0x0002f924       0x98 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-ctype_.o)
- .debug_line    0x0002f9bc      0x735 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-findfp.o)
- .debug_line    0x000300f1      0x165 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-memcmp.o)
- .debug_line    0x00030256      0x209 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strchr.o)
- .debug_line    0x0003045f      0x182 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcspn.o)
- .debug_line    0x000305e1      0x15e /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strspn.o)
- .debug_line    0x0003073f      0x1cf /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-reent.o)
- .debug_line    0x0003090e       0xe8 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-impure.o)
- .debug_line    0x000309f6      0x195 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sbrkr.o)
- .debug_line    0x00030b8b      0x117 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-errno.o)
- .debug_line    0x00030ca2       0xd1 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-fini.o)
- .debug_line    0x00030d73      0x15d /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-lock.o)
- .debug_line    0x00030ed0       0xe9 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sysconf.o)
- .debug_line    0x00030fb9       0x87 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcmp.o)
- .debug_line    0x00031040      0x1ab /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strlen-stub.o)
- .debug_line    0x000311eb      0x17a /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__atexit.o)
- .debug_line    0x00031365      0x28b /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__call_atexit.o)
- .debug_line    0x000315f0      0x52f /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-freer.o)
+ .debug_line    0x00026995      0x7a0 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
+ .debug_line    0x00027135     0x119a src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
+ .debug_line    0x000282cf      0x86a src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/event_groups.c.obj
+ .debug_line    0x00028b39      0x352 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/list.c.obj
+ .debug_line    0x00028e8b     0x1b19 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/queue.c.obj
+ .debug_line    0x0002a9a4     0x30da src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
+ .debug_line    0x0002da7e      0xc73 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
+ .debug_line    0x0002e6f1       0x4a /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .debug_line    0x0002e73b       0xc7 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
+ .debug_line    0x0002e802      0x17b /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atoi.o)
+ .debug_line    0x0002e97d      0x183 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-malloc.o)
+ .debug_line    0x0002eb00      0x958 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mallocr.o)
+ .debug_line    0x0002f458      0x172 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mlock.o)
+ .debug_line    0x0002f5ca      0x451 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strtol.o)
+ .debug_line    0x0002fa1b       0x98 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-ctype_.o)
+ .debug_line    0x0002fab3      0x735 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-findfp.o)
+ .debug_line    0x000301e8      0x165 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-memcmp.o)
+ .debug_line    0x0003034d      0x209 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strchr.o)
+ .debug_line    0x00030556      0x182 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcspn.o)
+ .debug_line    0x000306d8      0x15e /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strspn.o)
+ .debug_line    0x00030836      0x1cf /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-reent.o)
+ .debug_line    0x00030a05       0xe8 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-impure.o)
+ .debug_line    0x00030aed      0x195 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sbrkr.o)
+ .debug_line    0x00030c82      0x117 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-errno.o)
+ .debug_line    0x00030d99       0xd1 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-fini.o)
+ .debug_line    0x00030e6a      0x15d /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-lock.o)
+ .debug_line    0x00030fc7       0xe9 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sysconf.o)
+ .debug_line    0x000310b0       0x87 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcmp.o)
+ .debug_line    0x00031137      0x1ab /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strlen-stub.o)
+ .debug_line    0x000312e2      0x17a /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__atexit.o)
+ .debug_line    0x0003145c      0x28b /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__call_atexit.o)
+ .debug_line    0x000316e7      0x52f /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-freer.o)
 
-.debug_str      0x00000000     0xe9da
+.debug_str      0x00000000     0xea0f
  .debug_str     0x00000000     0x1789 src/CMakeFiles/cansat.dir/cansat.cpp.obj
                                0x1a05 (size before relaxing)
  .debug_str     0x00001789       0x9b src/CMakeFiles/cansat.dir/globals.cpp.obj
@@ -7394,72 +7400,72 @@ LOAD linker stubs
                                 0x3cc (size before relaxing)
  .debug_str     0x0000ae80      0x450 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj
                                 0xad2 (size before relaxing)
- .debug_str     0x0000b2d0      0x350 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
-                                0x51e (size before relaxing)
- .debug_str     0x0000b620      0x363 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
+ .debug_str     0x0000b2d0      0x364 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
+                                0x532 (size before relaxing)
+ .debug_str     0x0000b634      0x363 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
                                 0xd28 (size before relaxing)
- .debug_str     0x0000b983      0x3ea src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/event_groups.c.obj
+ .debug_str     0x0000b997      0x3ea src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/event_groups.c.obj
                                 0x6f0 (size before relaxing)
- .debug_str     0x0000bd6d       0xa9 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/list.c.obj
+ .debug_str     0x0000bd81       0xa9 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/list.c.obj
                                 0x2c3 (size before relaxing)
- .debug_str     0x0000be16      0x837 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/queue.c.obj
+ .debug_str     0x0000be2a      0x837 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/queue.c.obj
                                 0xcd4 (size before relaxing)
- .debug_str     0x0000c64d      0xfb2 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
-                               0x1771 (size before relaxing)
- .debug_str     0x0000d5ff      0x510 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
-                                0xa0d (size before relaxing)
- .debug_str     0x0000db0f       0xc0 /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .debug_str     0x0000c661      0xfc2 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
+                               0x1781 (size before relaxing)
+ .debug_str     0x0000d623      0x521 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
+                                0xa1e (size before relaxing)
+ .debug_str     0x0000db44       0xc0 /usr/lib/gcc/arm-none-eabi/13.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
                                  0xcc (size before relaxing)
- .debug_str     0x0000dbcf      0x151 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
+ .debug_str     0x0000dc04      0x151 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
                                 0x1ed (size before relaxing)
- .debug_str     0x0000dd20       0x3e /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atoi.o)
+ .debug_str     0x0000dd55       0x3e /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atoi.o)
                                 0x4c4 (size before relaxing)
- .debug_str     0x0000dd5e       0x4c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-malloc.o)
+ .debug_str     0x0000dd93       0x4c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-malloc.o)
                                 0x4e5 (size before relaxing)
- .debug_str     0x0000ddaa      0x219 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mallocr.o)
+ .debug_str     0x0000dddf      0x219 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mallocr.o)
                                 0x6e8 (size before relaxing)
- .debug_str     0x0000dfc3       0x91 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mlock.o)
+ .debug_str     0x0000dff8       0x91 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mlock.o)
                                 0x542 (size before relaxing)
- .debug_str     0x0000e054      0x1e4 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strtol.o)
+ .debug_str     0x0000e089      0x1e4 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strtol.o)
                                 0x752 (size before relaxing)
- .debug_str     0x0000e238       0x2d /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-ctype_.o)
+ .debug_str     0x0000e26d       0x2d /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-ctype_.o)
                                 0x1a9 (size before relaxing)
- .debug_str     0x0000e265      0x219 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-findfp.o)
+ .debug_str     0x0000e29a      0x219 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-findfp.o)
                                 0x748 (size before relaxing)
- .debug_str     0x0000e47e       0x2e /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-memcmp.o)
+ .debug_str     0x0000e4b3       0x2e /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-memcmp.o)
                                 0x1b0 (size before relaxing)
- .debug_str     0x0000e4ac       0x3b /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strchr.o)
+ .debug_str     0x0000e4e1       0x3b /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strchr.o)
                                 0x1bb (size before relaxing)
- .debug_str     0x0000e4e7       0x2f /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcspn.o)
+ .debug_str     0x0000e51c       0x2f /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcspn.o)
                                 0x1b2 (size before relaxing)
- .debug_str     0x0000e516       0x2e /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strspn.o)
+ .debug_str     0x0000e54b       0x2e /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strspn.o)
                                 0x1b0 (size before relaxing)
- .debug_str     0x0000e544       0x3c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-reent.o)
+ .debug_str     0x0000e579       0x3c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-reent.o)
                                 0x4df (size before relaxing)
- .debug_str     0x0000e580       0x2d /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-impure.o)
+ .debug_str     0x0000e5b5       0x2d /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-impure.o)
                                 0x4c5 (size before relaxing)
- .debug_str     0x0000e5ad       0x2c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sbrkr.o)
+ .debug_str     0x0000e5e2       0x2c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sbrkr.o)
                                 0x4c9 (size before relaxing)
- .debug_str     0x0000e5d9       0x2c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-errno.o)
+ .debug_str     0x0000e60e       0x2c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-errno.o)
                                 0x4ba (size before relaxing)
- .debug_str     0x0000e605       0x60 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-fini.o)
+ .debug_str     0x0000e63a       0x60 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-fini.o)
                                 0x1e7 (size before relaxing)
- .debug_str     0x0000e665      0x184 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-lock.o)
+ .debug_str     0x0000e69a      0x184 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-lock.o)
                                 0x347 (size before relaxing)
- .debug_str     0x0000e7e9       0x30 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sysconf.o)
+ .debug_str     0x0000e81e       0x30 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sysconf.o)
                                 0x1b9 (size before relaxing)
- .debug_str     0x0000e819       0x3a /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcmp.o)
+ .debug_str     0x0000e84e       0x3a /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcmp.o)
                                  0xab (size before relaxing)
- .debug_str     0x0000e853       0x38 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strlen-stub.o)
+ .debug_str     0x0000e888       0x38 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strlen-stub.o)
                                 0x1cd (size before relaxing)
- .debug_str     0x0000e88b       0x80 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__atexit.o)
+ .debug_str     0x0000e8c0       0x80 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__atexit.o)
                                 0x2c4 (size before relaxing)
- .debug_str     0x0000e90b       0x6e /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__call_atexit.o)
+ .debug_str     0x0000e940       0x6e /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__call_atexit.o)
                                 0x2ed (size before relaxing)
- .debug_str     0x0000e979       0x61 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-freer.o)
+ .debug_str     0x0000e9ae       0x61 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-freer.o)
                                 0x63e (size before relaxing)
 
-.debug_frame    0x00000000     0x6e8c
+.debug_frame    0x00000000     0x6ebc
  .debug_frame   0x00000000      0x168 src/CMakeFiles/cansat.dir/cansat.cpp.obj
  .debug_frame   0x00000168       0x48 src/CMakeFiles/cansat.dir/globals.cpp.obj
  .debug_frame   0x000001b0      0x140 src/CMakeFiles/cansat.dir/dht20.cpp.obj
@@ -7516,35 +7522,35 @@ LOAD linker stubs
  .debug_frame   0x00005138       0x20 src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
  .debug_frame   0x00005158       0x7c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.obj
  .debug_frame   0x000051d4      0x28c src/CMakeFiles/cansat.dir/home/arca/pico/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj
- .debug_frame   0x00005460       0xe0 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
- .debug_frame   0x00005540      0x26c src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
- .debug_frame   0x000057ac      0x16c src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/event_groups.c.obj
- .debug_frame   0x00005918       0x6c src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/list.c.obj
- .debug_frame   0x00005984      0x4a0 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/queue.c.obj
- .debug_frame   0x00005e24      0x734 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
- .debug_frame   0x00006558      0x2f4 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
- .debug_frame   0x0000684c       0x28 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
- .debug_frame   0x00006874       0x40 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atoi.o)
- .debug_frame   0x000068b4       0x40 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-malloc.o)
- .debug_frame   0x000068f4       0x3c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mallocr.o)
- .debug_frame   0x00006930       0x40 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mlock.o)
- .debug_frame   0x00006970       0x84 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strtol.o)
- .debug_frame   0x000069f4      0x138 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-findfp.o)
- .debug_frame   0x00006b2c       0x2c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-memcmp.o)
- .debug_frame   0x00006b58       0x30 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strchr.o)
- .debug_frame   0x00006b88       0x2c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcspn.o)
- .debug_frame   0x00006bb4       0x2c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strspn.o)
- .debug_frame   0x00006be0       0x2c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-reent.o)
- .debug_frame   0x00006c0c       0x2c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sbrkr.o)
- .debug_frame   0x00006c38       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-errno.o)
- .debug_frame   0x00006c58       0x2c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-fini.o)
- .debug_frame   0x00006c84       0xb0 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-lock.o)
- .debug_frame   0x00006d34       0x28 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sysconf.o)
- .debug_frame   0x00006d5c       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcmp.o)
- .debug_frame   0x00006d7c       0x28 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strlen-stub.o)
- .debug_frame   0x00006da4       0x38 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__atexit.o)
- .debug_frame   0x00006ddc       0x54 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__call_atexit.o)
- .debug_frame   0x00006e30       0x5c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-freer.o)
+ .debug_frame   0x00005460       0xf0 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c.obj
+ .debug_frame   0x00005550      0x26c src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
+ .debug_frame   0x000057bc      0x16c src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/event_groups.c.obj
+ .debug_frame   0x00005928       0x6c src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/list.c.obj
+ .debug_frame   0x00005994      0x4a0 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/queue.c.obj
+ .debug_frame   0x00005e34      0x744 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
+ .debug_frame   0x00006578      0x304 src/CMakeFiles/cansat.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
+ .debug_frame   0x0000687c       0x28 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atexit.o)
+ .debug_frame   0x000068a4       0x40 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-atoi.o)
+ .debug_frame   0x000068e4       0x40 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-malloc.o)
+ .debug_frame   0x00006924       0x3c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mallocr.o)
+ .debug_frame   0x00006960       0x40 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-mlock.o)
+ .debug_frame   0x000069a0       0x84 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strtol.o)
+ .debug_frame   0x00006a24      0x138 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-findfp.o)
+ .debug_frame   0x00006b5c       0x2c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-memcmp.o)
+ .debug_frame   0x00006b88       0x30 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strchr.o)
+ .debug_frame   0x00006bb8       0x2c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcspn.o)
+ .debug_frame   0x00006be4       0x2c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strspn.o)
+ .debug_frame   0x00006c10       0x2c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-reent.o)
+ .debug_frame   0x00006c3c       0x2c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sbrkr.o)
+ .debug_frame   0x00006c68       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-errno.o)
+ .debug_frame   0x00006c88       0x2c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-fini.o)
+ .debug_frame   0x00006cb4       0xb0 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-lock.o)
+ .debug_frame   0x00006d64       0x28 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-sysconf.o)
+ .debug_frame   0x00006d8c       0x20 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strcmp.o)
+ .debug_frame   0x00006dac       0x28 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-strlen-stub.o)
+ .debug_frame   0x00006dd4       0x38 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__atexit.o)
+ .debug_frame   0x00006e0c       0x54 /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-__call_atexit.o)
+ .debug_frame   0x00006e60       0x5c /usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(libc_a-freer.o)
 
 .debug_line_str
                 0x00000000      0x364

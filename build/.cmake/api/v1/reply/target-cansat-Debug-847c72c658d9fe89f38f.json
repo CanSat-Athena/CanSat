@@ -43,7 +43,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 39,
+				"line" : 40,
 				"parent" : 0
 			},
 			{
@@ -70,7 +70,7 @@
 			{
 				"command" : 6,
 				"file" : 0,
-				"line" : 61,
+				"line" : 62,
 				"parent" : 0
 			},
 			{
@@ -157,6 +157,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "CFG_TUSB_OS=OPT_OS_PICO"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "CMAKE_BUILD_TYPE=Debug"
 				},
 				{
 					"backtrace" : 2,
@@ -644,6 +648,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "CFG_TUSB_OS=OPT_OS_PICO"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "CMAKE_BUILD_TYPE=Debug"
 				},
 				{
 					"backtrace" : 2,
@@ -1193,6 +1201,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "CFG_TUSB_OS=OPT_OS_PICO"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "CMAKE_BUILD_TYPE=Debug"
 				},
 				{
 					"backtrace" : 2,
