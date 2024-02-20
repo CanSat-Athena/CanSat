@@ -249,6 +249,7 @@ void Filesystem::filesystemInputTask(void* pvParameters) {
         "'l' to list directory\n"
         "'u' to show filesystem usage\n"
         "'c' to clear screen\n"
+        "'b' to to show boot count\n"
         "'d' to delete a file\n"
         "'n' to nuke the filesystem\n"
         "'h' to display this message\n";
@@ -262,8 +263,11 @@ void Filesystem::filesystemInputTask(void* pvParameters) {
 
         switch (c) {
         case 'p':
-            printf("d\nEnter boot count: ");
+            printf("Enter boot count: ");
             dataHandler->filesystem->readFile(getIntInput());
+            break;
+        case 'b':
+            printf("The boot count is %u\n", dataHandler->filesystem->bootCount);
             break;
         case 'n': {
             // Get confirmation
@@ -280,15 +284,16 @@ void Filesystem::filesystemInputTask(void* pvParameters) {
                     // Launch the ICBMs
                     xTaskCreate(filesystemNukeTask, "Filesystem nuke", 512, NULL, 20, NULL);
                 } else {
-                    printf("\nAborting nuclear operation\n");
+                    goto abort;
                 }
             } else {
+                abort:
                 printf("\nAborting nuclear operation\n");
             }
             break;
         }
         case 'd': {
-            printf("d\nEnter boot count of file to delete: ");
+            printf("Enter boot count of file to delete: ");
             uint32_t bootCount = getIntInput();
 
             char dataFileName[50];
