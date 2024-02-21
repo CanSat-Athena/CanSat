@@ -29,7 +29,7 @@ void setup() {
     ADC::init();
     
     // Set up sensors
-    // gps = new GPS();
+    gps = new GPS();
     dht = new DHT20();
     bme = new BME680();
     light = new LightSensor();

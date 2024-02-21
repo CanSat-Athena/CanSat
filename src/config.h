@@ -24,8 +24,17 @@
 // Sensor read frequencies
 #define DHT20_READ_FREQ 1
 #define BME680_READ_FREQ 2
-#define LIGHT_READ_FREQ 5
+#define LIGHT_READ_FREQ 1
 #define ANEMOMETER_READ_FREQ 1
+
+// Watchdog
+#define WATCHDOG_TIME 10000
+#define WATCHDOG_TASK_TIME 50000          // Must be significantly less than WATCHDOG_TIME
+
+// Let's make it idiot-proof
+#if WATCHDOG_TASK_TIME > WATCHDOG_TIME
+#warning WATCHDOG_TASK_TIME is less than WATCHDOG_TIME, watchdog will cause a reboot
+#endif
 
 // Sensor delay times (ms)
 #define DHT20_READ_TIME (uint32_t)(1000.0f / DHT20_READ_FREQ)
