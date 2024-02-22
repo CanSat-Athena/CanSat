@@ -7,7 +7,7 @@ Our code for the 2024 CanSat competition (Project Athena). This is the code that
 ## Credits
 
 [FreeRTOS Kernel](https://github.com/FreeRTOS/FreeRTOS-Kernel.git)\
-[ICM parsing library](https://github.com/Yudetamago-AM/pico-icm20948)\
+[ICM-20948 library](https://github.com/Yudetamago-AM/pico-icm20948)\
 [LoRaWAN library](https://github.com/ArmDeveloperEcosystem/lorawan-library-for-pico)\
 [lwgps](https://github.com/MaJerle/lwgps)\
 [littlefs](https://github.com/littlefs-project/littlefs.git)\

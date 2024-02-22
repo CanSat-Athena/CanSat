@@ -16,6 +16,7 @@ add_executable(cansat
         bme68x/BoschBME68XApi/bme68x.c
         littlefs/lfs.c
         littlefs/lfs_util.c
+        pico-icm20948/src/pico-icm20948.c
         exceptionHandlers.h
         i2c.h
         )
@@ -37,6 +38,8 @@ add_compile_definitions(
         LWGPS_IGNORE_USER_OPTS
 )
 
+add_subdirectory(pico-icm20948)
+
 target_link_libraries(cansat PUBLIC
         freertos_config
         pico_stdlib
@@ -54,6 +57,7 @@ target_link_libraries(cansat PUBLIC
         pico_multicore
         FreeRTOS-Kernel-Heap4
         lwgps
+        pico-icm20948
         )
 
 pico_enable_stdio_usb(cansat 1)

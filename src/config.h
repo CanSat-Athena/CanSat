@@ -29,7 +29,7 @@
 
 // Watchdog
 #define WATCHDOG_TIME 10000
-#define WATCHDOG_TASK_TIME 50000          // Must be significantly less than WATCHDOG_TIME
+#define WATCHDOG_TASK_TIME 500          // Must be significantly less than WATCHDOG_TIME
 
 // Let's make it idiot-proof
 #if WATCHDOG_TASK_TIME > WATCHDOG_TIME

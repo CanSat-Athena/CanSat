@@ -6,8 +6,10 @@
 
 #include "config.h"
 
+
 class I2C {
 public:
+    static inline i2c_inst_t i2cInstance = { i2c0_hw, false };
     // SemaphoreHandle_t i2cMutex;
     /// @brief Initialise I2C
     /// @param sdaPin The GPIO pin SDA is connected to

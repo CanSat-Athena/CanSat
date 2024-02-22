@@ -11,6 +11,7 @@ include(pico_sdk_import.cmake)
 
 # Define project
 project(cansat C CXX ASM)
+SET(PROJECT_NAME cansat)
 #enable_language( C CXX ASM )
 
 # Initialize the Raspberry Pi Pico SDK

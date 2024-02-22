@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "src/pico-icm20948/examples/ex1_read_raw",
+		"source" : "src/pico-icm20948/examples/ex1_read_raw"
+	}
+}

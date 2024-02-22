@@ -8,6 +8,7 @@
 #include "config.h"
 #include "dht20.h"
 #include "bme680.h"
+#include "imu.h"
 #include "gps.h"
 #include "lightSensor.h"
 #include "anemometer.h"
@@ -19,6 +20,7 @@
 DHT20* dht;
 BME680* bme;
 GPS* gps;
+IMU* imu;
 LightSensor* light;
 Anemometer* anemometer;
 
@@ -32,6 +34,7 @@ void setup() {
     gps = new GPS();
     dht = new DHT20();
     bme = new BME680();
+    imu = new IMU();
     light = new LightSensor();
     anemometer = new Anemometer();
 

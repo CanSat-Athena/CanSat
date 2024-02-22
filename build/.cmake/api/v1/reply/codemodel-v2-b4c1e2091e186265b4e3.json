@@ -11,7 +11,7 @@
 						1,
 						82,
 						83,
-						84
+						90
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -582,9 +582,9 @@
 					"source" : "/home/arca/pico/pico-sdk/src/rp2_common/boot_stage2",
 					"targetIndexes" : 
 					[
-						2,
 						3,
-						4
+						4,
+						5
 					]
 				},
 				{
@@ -845,8 +845,8 @@
 					"source" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_cyw43_driver",
 					"targetIndexes" : 
 					[
-						1,
-						6
+						2,
+						7
 					]
 				},
 				{
@@ -1040,6 +1040,10 @@
 				},
 				{
 					"build" : "src",
+					"childIndexes" : 
+					[
+						84
+					],
 					"jsonFile" : "directory-src-Debug-b6cf2213fc5053b67c22.json",
 					"minimumCMakeVersion" : 
 					{
@@ -1050,15 +1054,104 @@
 					"source" : "src",
 					"targetIndexes" : 
 					[
+						6
+					]
+				},
+				{
+					"build" : "src/pico-icm20948",
+					"childIndexes" : 
+					[
+						85,
+						86,
+						87
+					],
+					"jsonFile" : "directory-src.pico-icm20948-Debug-0c0c3b2a328068848baa.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 83,
+					"projectIndex" : 3,
+					"source" : "src/pico-icm20948"
+				},
+				{
+					"build" : "src/pico-icm20948/MadgwickAHRS",
+					"jsonFile" : "directory-src.pico-icm20948.MadgwickAHRS-Debug-ce4337c4d2b1b23b4a5e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 84,
+					"projectIndex" : 3,
+					"source" : "src/pico-icm20948/MadgwickAHRS",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "src/pico-icm20948/src",
+					"jsonFile" : "directory-src.pico-icm20948.src-Debug-516b8e4c63d98c5f5748.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 84,
+					"projectIndex" : 3,
+					"source" : "src/pico-icm20948/src"
+				},
+				{
+					"build" : "src/pico-icm20948/examples",
+					"childIndexes" : 
+					[
+						88,
+						89
+					],
+					"jsonFile" : "directory-src.pico-icm20948.examples-Debug-7117ddd8962e20df540d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 84,
+					"projectIndex" : 3,
+					"source" : "src/pico-icm20948/examples"
+				},
+				{
+					"build" : "src/pico-icm20948/examples/ex1_read_raw",
+					"jsonFile" : "directory-src.pico-icm20948.examples.ex1_read_raw-Debug-b17aa192519473e624ef.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 87,
+					"projectIndex" : 3,
+					"source" : "src/pico-icm20948/examples/ex1_read_raw",
+					"targetIndexes" : 
+					[
 						0,
-						5
+						8
+					]
+				},
+				{
+					"build" : "src/pico-icm20948/examples/ex2_madgwick",
+					"jsonFile" : "directory-src.pico-icm20948.examples.ex2_madgwick-Debug-7937c9d4ae69a3f3a7d2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 87,
+					"projectIndex" : 3,
+					"source" : "src/pico-icm20948/examples/ex2_madgwick",
+					"targetIndexes" : 
+					[
+						9
 					]
 				},
 				{
 					"build" : "lib",
 					"childIndexes" : 
 					[
-						85
+						91
 					],
 					"jsonFile" : "directory-lib-Debug-c12f15c6f888b43a891c.json",
 					"minimumCMakeVersion" : 
@@ -1073,15 +1166,15 @@
 					"build" : "lib/lwgps",
 					"childIndexes" : 
 					[
-						86
+						92
 					],
 					"jsonFile" : "directory-lib.lwgps-Debug-42bc5acd98fa671ec95b.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.22"
 					},
-					"parentIndex" : 84,
-					"projectIndex" : 3,
+					"parentIndex" : 90,
+					"projectIndex" : 4,
 					"source" : "lib/lwgps"
 				},
 				{
@@ -1091,8 +1184,8 @@
 					{
 						"string" : "3.22"
 					},
-					"parentIndex" : 85,
-					"projectIndex" : 3,
+					"parentIndex" : 91,
+					"projectIndex" : 4,
 					"source" : "lib/lwgps/lwgps"
 				}
 			],
@@ -1104,19 +1197,19 @@
 					[
 						1,
 						2,
-						3
+						3,
+						4
 					],
 					"directoryIndexes" : 
 					[
 						0,
 						83,
-						84
+						90
 					],
 					"name" : "cansat",
 					"targetIndexes" : 
 					[
-						0,
-						5
+						6
 					]
 				},
 				{
@@ -1208,11 +1301,11 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						1,
 						2,
 						3,
 						4,
-						6
+						5,
+						7
 					]
 				},
 				{
@@ -1226,8 +1319,28 @@
 				{
 					"directoryIndexes" : 
 					[
+						84,
 						85,
-						86
+						86,
+						87,
+						88,
+						89
+					],
+					"name" : "picoICMLib",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						8,
+						9
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						91,
+						92
 					],
 					"name" : "LwLibPROJECT",
 					"parentIndex" : 0
@@ -1236,11 +1349,18 @@
 			"targets" : 
 			[
 				{
-					"directoryIndex" : 83,
-					"id" : "ELF2UF2Build::@145eef247bfb46b6828c",
-					"jsonFile" : "target-ELF2UF2Build-Debug-5c8cbad331681b5170c3.json",
+					"directoryIndex" : 88,
+					"id" : "ELF2UF2Build::@6d93fb0b6285b944a429",
+					"jsonFile" : "target-ELF2UF2Build-Debug-0b8d49b1b4b368e7f499.json",
 					"name" : "ELF2UF2Build",
-					"projectIndex" : 0
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 85,
+					"id" : "MadgwickAHRS::@6950dee9561c2019f0b4",
+					"jsonFile" : "target-MadgwickAHRS-Debug-9291deeb8ac84b97d87e.json",
+					"name" : "MadgwickAHRS",
+					"projectIndex" : 3
 				},
 				{
 					"directoryIndex" : 66,
@@ -1273,7 +1393,7 @@
 				{
 					"directoryIndex" : 83,
 					"id" : "cansat::@145eef247bfb46b6828c",
-					"jsonFile" : "target-cansat-Debug-847c72c658d9fe89f38f.json",
+					"jsonFile" : "target-cansat-Debug-3d3c0c1f228c52ab3fe9.json",
 					"name" : "cansat",
 					"projectIndex" : 0
 				},
@@ -1283,6 +1403,20 @@
 					"jsonFile" : "target-cyw43_driver_picow_cyw43_bus_pio_spi_pio_h-Debug-b8c5f2afdad13c274ed3.json",
 					"name" : "cyw43_driver_picow_cyw43_bus_pio_spi_pio_h",
 					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 88,
+					"id" : "ex1_read_raw::@6d93fb0b6285b944a429",
+					"jsonFile" : "target-ex1_read_raw-Debug-c22dfe106927b6390f4e.json",
+					"name" : "ex1_read_raw",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 89,
+					"id" : "ex2_madgwick::@5db462ccdd62dc79d5ed",
+					"jsonFile" : "target-ex2_madgwick-Debug-86c8169017c131296d9b.json",
+					"name" : "ex2_madgwick",
+					"projectIndex" : 3
 				}
 			]
 		}

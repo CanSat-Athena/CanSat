@@ -43,7 +43,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 40,
+				"line" : 43,
 				"parent" : 0
 			},
 			{
@@ -70,7 +70,7 @@
 			{
 				"command" : 6,
 				"file" : 0,
-				"line" : 62,
+				"line" : 66,
 				"parent" : 0
 			},
 			{
@@ -98,7 +98,7 @@
 			{
 				"command" : 7,
 				"file" : 0,
-				"line" : 32,
+				"line" : 33,
 				"parent" : 0
 			},
 			{
@@ -110,7 +110,7 @@
 			{
 				"command" : 9,
 				"file" : 0,
-				"line" : 23,
+				"line" : 24,
 				"parent" : 0
 			}
 		]
@@ -596,6 +596,10 @@
 				{
 					"backtrace" : 2,
 					"path" : "/home/arca/pico/cansat-code/lib/lwgps/lwgps/src/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/cansat-code/src/pico-icm20948/src"
 				}
 			],
 			"language" : "CXX",
@@ -621,7 +625,7 @@
 				9,
 				10,
 				11,
-				58
+				59
 			]
 		},
 		{
@@ -1087,6 +1091,10 @@
 				{
 					"backtrace" : 2,
 					"path" : "/home/arca/pico/cansat-code/lib/lwgps/lwgps/src/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/cansat-code/src/pico-icm20948/src"
 				}
 			],
 			"language" : "C",
@@ -1103,13 +1111,13 @@
 				12,
 				13,
 				14,
-				17,
+				15,
 				18,
 				19,
 				20,
 				21,
 				22,
-				24,
+				23,
 				25,
 				26,
 				27,
@@ -1125,15 +1133,15 @@
 				37,
 				38,
 				39,
-				41,
+				40,
 				42,
-				44,
-				47,
+				43,
+				45,
 				48,
-				52,
+				49,
 				53,
-				55,
-				59,
+				54,
+				56,
 				60,
 				61,
 				62,
@@ -1174,7 +1182,8 @@
 				97,
 				98,
 				99,
-				100
+				100,
+				101
 			]
 		},
 		{
@@ -1640,22 +1649,26 @@
 				{
 					"backtrace" : 2,
 					"path" : "/home/arca/pico/cansat-code/lib/lwgps/lwgps/src/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/cansat-code/src/pico-icm20948/src"
 				}
 			],
 			"language" : "ASM",
 			"sourceIndexes" : 
 			[
-				23,
-				40,
-				43,
-				45,
+				24,
+				41,
+				44,
 				46,
-				49,
+				47,
 				50,
 				51,
-				54,
-				56,
-				57
+				52,
+				55,
+				57,
+				58
 			]
 		}
 	],
@@ -1667,7 +1680,7 @@
 		},
 		{
 			"backtrace" : 11,
-			"id" : "ELF2UF2Build::@145eef247bfb46b6828c"
+			"id" : "ELF2UF2Build::@6d93fb0b6285b944a429"
 		}
 	],
 	"id" : "cansat::@145eef247bfb46b6828c",
@@ -2539,13 +2552,13 @@
 				12,
 				13,
 				14,
-				17,
+				15,
 				18,
 				19,
 				20,
 				21,
 				22,
-				24,
+				23,
 				25,
 				26,
 				27,
@@ -2561,15 +2574,15 @@
 				37,
 				38,
 				39,
-				41,
+				40,
 				42,
-				44,
-				47,
+				43,
+				45,
 				48,
-				52,
+				49,
 				53,
-				55,
-				58,
+				54,
+				56,
 				59,
 				60,
 				61,
@@ -2611,32 +2624,33 @@
 				97,
 				98,
 				99,
-				100
+				100,
+				101
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				15,
-				16
+				16,
+				17
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				23,
-				40,
-				43,
-				45,
+				24,
+				41,
+				44,
 				46,
-				49,
+				47,
 				50,
 				51,
-				54,
-				56,
-				57
+				52,
+				55,
+				57,
+				58
 			]
 		}
 	],
@@ -2730,6 +2744,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
 			"path" : "src/littlefs/lfs_util.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "src/pico-icm20948/src/pico-icm20948.c",
 			"sourceGroupIndex" : 0
 		},
 		{

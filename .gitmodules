@@ -11,3 +11,6 @@
 	path = lib/lwgps
 	url = https://github.com/MaJerle/lwgps
 	branch = main
+[submodule "src/pico-icm20948"]
+	path = src/pico-icm20948
+	url = https://github.com/CanSat-Athena/pico-icm20948.git

@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "src/pico-icm20948/MadgwickAHRS",
+		"source" : "src/pico-icm20948/MadgwickAHRS"
+	}
+}

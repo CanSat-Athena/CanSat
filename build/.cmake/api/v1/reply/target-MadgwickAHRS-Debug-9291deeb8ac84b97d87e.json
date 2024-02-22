@@ -1,0 +1,111 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "src/pico-icm20948/MadgwickAHRS/libMadgwickAHRS.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"add_compile_definitions"
+		],
+		"files" : 
+		[
+			"src/pico-icm20948/MadgwickAHRS/CMakeLists.txt",
+			"src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 33,
+				"parent" : 2
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-mcpu=cortex-m0plus -mthumb -Og -g -std=gnu11"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 3,
+					"define" : "CMAKE_BUILD_TYPE=Debug"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "LFS_THREADSAFE"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "LWGPS_IGNORE_USER_OPTS"
+				}
+			],
+			"language" : "C",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "11"
+			},
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"id" : "MadgwickAHRS::@6950dee9561c2019f0b4",
+	"name" : "MadgwickAHRS",
+	"nameOnDisk" : "libMadgwickAHRS.a",
+	"paths" : 
+	{
+		"build" : "src/pico-icm20948/MadgwickAHRS",
+		"source" : "src/pico-icm20948/MadgwickAHRS"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/pico-icm20948/MadgwickAHRS/MadgwickAHRS.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}
