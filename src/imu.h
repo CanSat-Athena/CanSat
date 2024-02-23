@@ -1,9 +1,11 @@
 #pragma once
 #include <pico/stdio.h>
 #include <FreeRTOS.h>
+#include <task.h>
 
 extern "C" {
 #include "pico-icm20948/src/pico-icm20948.h"
+#include "pico-icm20948/MadgwickAHRS/MadgwickAHRS.h"
 }
 
 #include "i2cSensor.h"
@@ -12,7 +14,7 @@ extern "C" {
 
 class IMU : public I2CSensor {
 private:
-    icm20948_config_t config = { IMU_ADDRESS, 0x0C, &I2C::i2cInstance };
+    icm20948_config_t config = { IMU_ADDRESS, 0x0C, vTaskDelay, I2C::take, I2C::give, &I2C::i2cInstance };
     icm20984_data_t data;
 
 public:
@@ -23,8 +25,6 @@ public:
         if (initialise) init();
     }
 
-    /// @brief Initialises the ICM-20948
-    /// @param attempts Number of attempts to retry for until failing
-    /// @return Failed or success
     bool init(const int attempts = 3);
+    bool updateData();
 };

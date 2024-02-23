@@ -85,6 +85,16 @@ void initTask(void* pvParameters) {
     TaskHandle_t bme680ReadTask;
     xTaskCreate(sensorReadTask, "BME680 read", 512, &bme680, 2, &bme680ReadTask);
 
+    sensor_t imuSensor = {
+        .sensor = imu,
+        .name = (char*)"IMU",
+        .queue = &(dataHandler->imuQueue),
+        .updateFreq = IMU_READ_FREQ,
+        .updateTime = IMU_READ_TIME
+    };
+    TaskHandle_t imuReadTask;
+    xTaskCreate(sensorReadTask, "IMU read", 512, &imuSensor, 2, &imuReadTask);
+
     sensor_t lightSensor = {
         .sensor = light,
         .name = (char*)"Light",

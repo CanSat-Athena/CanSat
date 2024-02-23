@@ -8,6 +8,8 @@
 #include "bme68x.hpp"
 #include "pico/stdlib.h"
 
+#include "i2c.h"
+
 bool BME68X::init() {
     int8_t result = 0;
 
@@ -59,16 +61,23 @@ bool BME68X::read_forced(bme68x_data* data) {
     uint8_t n_fields;
     uint32_t delay_period;
 
+    I2C::take();
     result = bme68x_set_op_mode(BME68X_FORCED_MODE, &device);
     bme68x_check_rslt("bme68x_set_op_mode", result);
-    if (result != BME68X_OK) return false;
+    if (result != BME68X_OK) {
+        I2C::give();
+        return false;
+    }
 
     delay_period = bme68x_get_meas_dur(BME68X_FORCED_MODE, &conf, &device) + (heatr_conf.heatr_dur * 1000);
+    I2C::give();
 
     vTaskDelay(delay_period / 1000 + 1);
 
     for (int i = 0; i < 5; i++) {
+        I2C::take();
         result = bme68x_get_data(BME68X_FORCED_MODE, data, &n_fields, &device);
+        I2C::give();
         bme68x_check_rslt("bme68x_get_data", result);
         if (result == BME68X_OK) break;
         vTaskDelay(1);

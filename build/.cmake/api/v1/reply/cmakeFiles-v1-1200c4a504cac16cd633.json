@@ -674,37 +674,13 @@
 			"path" : "/usr/share/cmake/Modules/ExternalProject.cmake"
 		},
 		{
-			"path" : "src/pico-icm20948/CMakeLists.txt"
-		},
-		{
-			"path" : "src/pico-icm20948/MadgwickAHRS/CMakeLists.txt"
-		},
-		{
-			"path" : "src/pico-icm20948/src/CMakeLists.txt"
-		},
-		{
-			"path" : "src/pico-icm20948/examples/CMakeLists.txt"
-		},
-		{
-			"path" : "src/pico-icm20948/examples/ex1_read_raw/CMakeLists.txt"
-		},
-		{
-			"isExternal" : true,
-			"path" : "/home/arca/pico/pico-sdk/tools/FindELF2UF2.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "/usr/share/cmake/Modules/ExternalProject.cmake"
-		},
-		{
 			"isCMake" : true,
 			"isExternal" : true,
 			"path" : "/usr/share/cmake/Modules/ExternalProject/mkdirs.cmake.in"
 		},
 		{
 			"isGenerated" : true,
-			"path" : "build/src/pico-icm20948/examples/ex1_read_raw/elf2uf2/tmp/ELF2UF2Build-mkdirs.cmake"
+			"path" : "build/src/elf2uf2/tmp/ELF2UF2Build-mkdirs.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -727,16 +703,13 @@
 			"path" : "/usr/share/cmake/Modules/ExternalProject/cfgcmd.txt.in"
 		},
 		{
-			"path" : "src/pico-icm20948/examples/ex2_madgwick/CMakeLists.txt"
+			"path" : "src/pico-icm20948/CMakeLists.txt"
 		},
 		{
-			"isExternal" : true,
-			"path" : "/home/arca/pico/pico-sdk/tools/FindELF2UF2.cmake"
+			"path" : "src/pico-icm20948/MadgwickAHRS/CMakeLists.txt"
 		},
 		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "/usr/share/cmake/Modules/ExternalProject.cmake"
+			"path" : "src/pico-icm20948/src/CMakeLists.txt"
 		},
 		{
 			"path" : "lib/CMakeLists.txt"

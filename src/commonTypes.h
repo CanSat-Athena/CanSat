@@ -29,6 +29,13 @@ typedef struct bme680Data_t {
     // uint8_t readStatus;
 } bme680Data_t;
 
+typedef struct imuData_t {
+    float temperature;
+    float humidity;
+    float pressure;
+    float gasResistance;
+} imuData_t;
+
 typedef struct lightData_t {
     uint16_t lightIntensity;
 } lightData_t;
@@ -48,6 +55,7 @@ typedef struct gpsData_t {
 typedef union sensorData_t {
     dht20Data_t dht20;
     bme680Data_t bme680;
+    imuData_t imu;
     lightData_t lightData;
     gpsData_t gpsData;
     anemometerData_t anemometerData;
@@ -58,6 +66,7 @@ typedef struct dataLine_t {
     uint32_t timestamp;
     dht20Data_t dht20[(int)max(DHT20_READ_FREQ, 1)];
     bme680Data_t bme680[(int)max(BME680_READ_FREQ, 1)];
+    imuData_t imu[(int)max(IMU_READ_FREQ, 1)];
     lightData_t lightData[(int)max(LIGHT_READ_FREQ, 1)];
     anemometerData_t anemometerData[(int)max(ANEMOMETER_READ_FREQ, 1)];
     gpsData_t gpsData[1];

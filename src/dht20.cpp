@@ -81,8 +81,10 @@ bool DHT20::updateData() {
     if (!initialised) return false;
 
     // Trigger read
+    I2C::take();
     constexpr uint8_t triggerCmd[] = { DHT20_READ_CMD, 0x33, 0x00 };
     i2c_write_timeout_per_char_us(I2C_PORT, i2cAddress, triggerCmd, 3, false, I2C_PER_CHAR_TIMEOUT_US);
+    I2C::give();
 
     // Wait for read
     if (!waitForProcessing()) {
@@ -90,7 +92,9 @@ bool DHT20::updateData() {
     }
 
     uint8_t readData[6];
+    I2C::take();
     i2c_read_timeout_per_char_us(I2C_PORT, i2cAddress, readData, 6, false, I2C_PER_CHAR_TIMEOUT_US);
+    I2C::give();
 
     // Decode humidity
     uint32_t humidityBuf = readData[1];

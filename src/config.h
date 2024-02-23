@@ -21,12 +21,6 @@
 #define FS_SIZE (1024 * 1024) // 1MB
 // #define NUKE_FS_ON_NEXT_BOOT
 
-// Sensor read frequencies
-#define DHT20_READ_FREQ 1
-#define BME680_READ_FREQ 2
-#define LIGHT_READ_FREQ 1
-#define ANEMOMETER_READ_FREQ 1
-
 // Watchdog
 #define WATCHDOG_TIME 10000
 #define WATCHDOG_TASK_TIME 500          // Must be significantly less than WATCHDOG_TIME
@@ -36,9 +30,17 @@
 #warning WATCHDOG_TASK_TIME is less than WATCHDOG_TIME, watchdog will cause a reboot
 #endif
 
+// Sensor read frequencies
+#define DHT20_READ_FREQ 1
+#define BME680_READ_FREQ 1
+#define IMU_READ_FREQ 20
+#define LIGHT_READ_FREQ 1
+#define ANEMOMETER_READ_FREQ 1
+
 // Sensor delay times (ms)
 #define DHT20_READ_TIME (uint32_t)(1000.0f / DHT20_READ_FREQ)
 #define BME680_READ_TIME (uint32_t)(1000.0f / BME680_READ_FREQ)
+#define IMU_READ_TIME (uint32_t)(1000.0f / IMU_READ_FREQ)
 #define LIGHT_READ_TIME (uint32_t)(1000.0f / LIGHT_READ_FREQ)
 #define ANEMOMETER_READ_TIME (uint32_t)(1000.0f / ANEMOMETER_READ_FREQ)
 

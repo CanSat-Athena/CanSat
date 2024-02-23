@@ -33,6 +33,15 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
             }
         }
 
+        // Get IMU data
+        for (int i = 0; i < IMU_READ_FREQ; i++) {
+            sensorData_t imuData{};
+
+            if (xQueueReceive(dataHandler->imuQueue, &imuData, (TickType_t)10) == pdPASS) {
+                data.imu[i] = imuData.imu;
+            }
+        }
+
         // Get light data
         for (int i = 0; i < LIGHT_READ_FREQ; i++) {
             sensorData_t lightData{};

@@ -1,16 +1,16 @@
 #pragma once
 #include <pico/stdlib.h>
 #include <hardware/i2c.h>
-// #include <FreeRTOS.h>
-// #include <semphr.h>
+#include <FreeRTOS.h>
+#include <semphr.h>
 
 #include "config.h"
 
-
 class I2C {
 public:
+    static inline SemaphoreHandle_t mutex;
     static inline i2c_inst_t i2cInstance = { i2c0_hw, false };
-    // SemaphoreHandle_t i2cMutex;
+
     /// @brief Initialise I2C
     /// @param sdaPin The GPIO pin SDA is connected to
     /// @param sclPin The GPIO pin SCL is connected to
@@ -26,6 +26,8 @@ public:
 
         // Init I2C
         i2c_init(I2C_PORT, 100 * 1000); // 100kHz
+
+        mutex = xSemaphoreCreateMutex();
     }
 
     /// @brief Reads I2C register of device
@@ -48,5 +50,17 @@ public:
     static int writeRegister(const uint8_t address, const uint8_t reg, const uint8_t* buf, const size_t len) {
         i2c_write_timeout_per_char_us(I2C_PORT, address, &reg, 1, true, I2C_PER_CHAR_TIMEOUT_US);
         return i2c_write_timeout_per_char_us(I2C_PORT, address, buf, len, false, I2C_PER_CHAR_TIMEOUT_US);
+    }
+
+    /// @brief Take the I2C mutex
+    /// @return True if successful
+    static bool take() {
+        return xSemaphoreTake(mutex, portMAX_DELAY) == pdTRUE;
+    }
+
+    /// @brief Give the I2C mutex
+    /// @return True if successful
+    static bool give() {
+        return xSemaphoreGive(mutex) == pdTRUE;
     }
 };

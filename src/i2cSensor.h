@@ -16,9 +16,12 @@ protected:
         uint8_t read;
 
         // Return 0xFF if error
+        I2C::take();
         if (!i2c_read_timeout_per_char_us(I2C_PORT, i2cAddress, &read, 1, false, I2C_PER_CHAR_TIMEOUT_US)) {
+            I2C::give();
             return 0xFF;
         }
+        I2C::give();
         return read;
     }
 
