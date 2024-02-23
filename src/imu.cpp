@@ -14,6 +14,12 @@ bool IMU::init(const int attempts) {
 
         if (icm20948_init(&config) != 0) goto retry;
         icm20948_set_mag_rate(&config, IMU_READ_FREQ);
+        // icm20948_cal_gyro(&config, &data.gyro_bias[0]);
+        // printf("IMU:        Calibrated gyro: %d %d %d\n", data.gyro_bias[0], data.gyro_bias[1], data.gyro_bias[2]);
+        // icm20948_cal_accel(&config, &data.accel_bias[0]);
+        // printf("IMU:        Calibrated accel: %d %d %d\n", data.accel_bias[0], data.accel_bias[1], data.accel_bias[2]);
+        // icm20948_cal_mag_simple(&config, &data.mag_bias[0]);
+        // printf("IMU:        Calibrated mag: %d %d %d\n", data.mag_bias[0], data.mag_bias[1], data.mag_bias[2]);
 
         printf("IMU:        Initialised successfully\n");
         this->initialised = true;
