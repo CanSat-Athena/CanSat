@@ -33,7 +33,7 @@
 // Sensor read frequencies
 #define DHT20_READ_FREQ 1
 #define BME680_READ_FREQ 1
-#define IMU_READ_FREQ 20
+#define IMU_READ_FREQ 20        // Also need to modify pico-icm20948.cpp
 #define LIGHT_READ_FREQ 1
 #define ANEMOMETER_READ_FREQ 1
 

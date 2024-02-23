@@ -28,19 +28,19 @@
 #ifndef FREERTOS_CONFIG_H
 #define FREERTOS_CONFIG_H
 
-/*-----------------------------------------------------------
- * Application specific definitions.
- *
- * These definitions should be adjusted for your particular hardware and
- * application requirements.
- *
- * THESE PARAMETERS ARE DESCRIBED WITHIN THE 'CONFIGURATION' SECTION OF THE
- * FreeRTOS API DOCUMENTATION AVAILABLE ON THE FreeRTOS.org WEB SITE.
- *
- * See http://www.freertos.org/a00110.html
- *----------------------------------------------------------*/
+ /*-----------------------------------------------------------
+  * Application specific definitions.
+  *
+  * These definitions should be adjusted for your particular hardware and
+  * application requirements.
+  *
+  * THESE PARAMETERS ARE DESCRIBED WITHIN THE 'CONFIGURATION' SECTION OF THE
+  * FreeRTOS API DOCUMENTATION AVAILABLE ON THE FreeRTOS.org WEB SITE.
+  *
+  * See http://www.freertos.org/a00110.html
+  *----------------------------------------------------------*/
 
-/* Scheduler Related */
+  /* Scheduler Related */
 #define configUSE_PREEMPTION                    1
 #define configUSE_TICKLESS_IDLE                 0
 #define configUSE_IDLE_HOOK                     0
@@ -84,7 +84,12 @@
 #define configUSE_DAEMON_TASK_STARTUP_HOOK      0
 
 /* Run time and task stats gathering related definitions. */
-#define configGENERATE_RUN_TIME_STATS           0
+// Change back on final, has performance issues
+#define configGENERATE_RUN_TIME_STATS           1
+#define configRECORD_STACK_HIGH_ADDRESS         1
+extern volatile unsigned long ulHighFrequencyTimerTicks;
+#define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS() ( ulHighFrequencyTimerTicks = 0UL )
+#define portGET_RUN_TIME_COUNTER_VALUE() ulHighFrequencyTimerTicks
 #define configUSE_TRACE_FACILITY                1
 #define configUSE_STATS_FORMATTING_FUNCTIONS    0
 

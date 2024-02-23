@@ -5,7 +5,6 @@
 
 extern "C" {
 #include "pico-icm20948/src/pico-icm20948.h"
-#include "pico-icm20948/MadgwickAHRS/MadgwickAHRS.h"
 }
 
 #include "i2cSensor.h"
@@ -27,4 +26,5 @@ public:
 
     bool init(const int attempts = 3);
     bool updateData();
+    sensorData_t getData();
 };

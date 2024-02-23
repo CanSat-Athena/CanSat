@@ -19,6 +19,7 @@ add_executable(cansat
         pico-icm20948/src/pico-icm20948.c
         exceptionHandlers.h
         i2c.h
+        ../Config/FreeRTOSConfig.cpp
         )
 
 target_include_directories(cansat PRIVATE

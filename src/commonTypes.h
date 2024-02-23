@@ -30,10 +30,9 @@ typedef struct bme680Data_t {
 } bme680Data_t;
 
 typedef struct imuData_t {
-    float temperature;
-    float humidity;
-    float pressure;
-    float gasResistance;
+    float accel_g[3],
+    gyro_dps[3],
+    mag_ut[3];
 } imuData_t;
 
 typedef struct lightData_t {

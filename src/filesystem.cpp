@@ -212,6 +212,17 @@ void Filesystem::readFile(uint32_t bootCount) {
         }
         printf("], ");
 
+        // Get IMU data
+        printf("[");
+        for (int i = 0; i < IMU_READ_FREQ; i++) {
+            printf("[[%f, %f, %f], [%f, %f, %f], [%f, %f, %f]], ",
+                line.imu[i].accel_g[0], line.imu[i].accel_g[1], line.imu[i].accel_g[2],
+                line.imu[i].gyro_dps[0], line.imu[i].gyro_dps[1], line.imu[i].gyro_dps[2],
+                line.imu[i].mag_ut[0], line.imu[i].mag_ut[1], line.imu[i].mag_ut[2]
+            );
+        }
+        printf("], ");
+
         // Get light data
         printf("[");
         for (int i = 0; i < LIGHT_READ_FREQ; i++) {
