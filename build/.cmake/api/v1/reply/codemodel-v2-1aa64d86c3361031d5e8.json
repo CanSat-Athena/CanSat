@@ -1299,14 +1299,14 @@
 				{
 					"directoryIndex" : 83,
 					"id" : "ELF2UF2Build::@145eef247bfb46b6828c",
-					"jsonFile" : "target-ELF2UF2Build-Debug-bff8cdb312baa03e68c2.json",
+					"jsonFile" : "target-ELF2UF2Build-Debug-8388564cd920bb793d08.json",
 					"name" : "ELF2UF2Build",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 85,
 					"id" : "MadgwickAHRS::@6950dee9561c2019f0b4",
-					"jsonFile" : "target-MadgwickAHRS-Debug-9bc94d505bceddb30cd9.json",
+					"jsonFile" : "target-MadgwickAHRS-Debug-d3f7d2058bda314b62ec.json",
 					"name" : "MadgwickAHRS",
 					"projectIndex" : 3
 				},
@@ -1341,7 +1341,7 @@
 				{
 					"directoryIndex" : 83,
 					"id" : "cansat::@145eef247bfb46b6828c",
-					"jsonFile" : "target-cansat-Debug-ae8aa93478764df6cf97.json",
+					"jsonFile" : "target-cansat-Debug-bb58fc615b2fe164cab8.json",
 					"name" : "cansat",
 					"projectIndex" : 0
 				},
