@@ -22,12 +22,12 @@
 // #define NUKE_FS_ON_NEXT_BOOT
 
 // Watchdog
-#define WATCHDOG_TIME 10000
-#define WATCHDOG_TASK_TIME 500          // Must be significantly less than WATCHDOG_TIME
+#define WATCHDOG_TIME 5000
+#define WATCHDOG_TASK_TIME 200          // Must be significantly less than WATCHDOG_TIME
 
 // Let's make it idiot-proof
-#if WATCHDOG_TASK_TIME > WATCHDOG_TIME
-#warning WATCHDOG_TASK_TIME is less than WATCHDOG_TIME, watchdog will cause a reboot
+#if WATCHDOG_TASK_TIME >= WATCHDOG_TIME
+#warning WATCHDOG_TASK_TIME is >= WATCHDOG_TIME, watchdog will cause a reboot
 #endif
 
 // Sensor read frequencies

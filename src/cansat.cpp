@@ -16,6 +16,7 @@
 #include "dataHandler.h"
 #include "commonTypes.h"
 #include "globals.h"
+#include "watchdog.h"
 
 DHT20* dht;
 BME680* bme;
@@ -27,6 +28,7 @@ Anemometer* anemometer;
 /// @brief Setup sensors
 void setup() {
     printf("------------------\n");
+    Watchdog::init();
     I2C::init();
     ADC::init();
     
@@ -123,6 +125,10 @@ void initTask(void* pvParameters) {
 
 int main() {
     stdio_init_all();
+
+    if (watchdog_caused_reboot()) {
+        printf("\n\nReboot caused by watchdog!\n");
+    }
 
     // Safe hardfault handler
     exception_set_exclusive_handler(HARDFAULT_EXCEPTION, hardfault_handler);

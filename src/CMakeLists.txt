@@ -9,6 +9,7 @@ add_executable(cansat
         imu.cpp
         lightSensor.cpp
         gps.cpp
+        watchdog.cpp
         filesystem.cpp
         littlefs.cpp
         dataHandler.cpp
