@@ -1,5 +1,6 @@
 #include "dataHandler.h"
 #include "globals.h"
+#include "streamHandler.h"
 
 void DataHandler::dataHandlerTask(void* DHPointer) {
     TickType_t lastStartTime;
@@ -66,6 +67,12 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
 
         // Write the data
         dataHandler->filesystem->addData(data);
+
+        // xHeapStats heapStats;
+        // vPortGetHeapStats(&heapStats);
+        // printf("%u\n", heapStats.xAvailableHeapSpaceInBytes);
+        char a[] = "abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;";
+        xStreamBufferSend(StreamHandler::terminalBuffer, a, sizeof(a), 50);
 
         // Delay
         vTaskDelayUntil(&lastStartTime, 1000);

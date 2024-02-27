@@ -10,6 +10,7 @@
 #include "bme680.h"
 #include "imu.h"
 #include "gps.h"
+#include "streamHandler.h"
 #include "lightSensor.h"
 #include "anemometer.h"
 #include "i2c.h"
@@ -29,6 +30,7 @@ Anemometer* anemometer;
 void setup() {
     printf("------------------\n");
     Watchdog::init();
+    StreamHandler::init();
     I2C::init();
     ADC::init();
     
@@ -118,7 +120,7 @@ void initTask(void* pvParameters) {
     xTaskCreate(sensorReadTask, "Anemometer sensor read", 512, &anemometerSensor, 2, &anemometerReadTask);
 
     TaskHandle_t dataHandlerTaskHandle;
-    xTaskCreate(DataHandler::dataHandlerTask, "Data handler", 4096, NULL, 3, &dataHandlerTaskHandle);
+    xTaskCreate(DataHandler::dataHandlerTask, "Data handler", 1024, NULL, 3, &dataHandlerTaskHandle);
 
     vTaskDelete(NULL);
 }
@@ -134,7 +136,7 @@ int main() {
     exception_set_exclusive_handler(HARDFAULT_EXCEPTION, hardfault_handler);
 
     eventGroup = xEventGroupCreate();
-    xTaskCreate(initTask, "Init", 1024, NULL, 4, NULL);
+    xTaskCreate(initTask, "Init", 512, NULL, 4, NULL);
 
     vTaskStartScheduler();
     return 0;

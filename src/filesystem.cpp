@@ -104,7 +104,7 @@ bool Filesystem::init() {
 
     // Start filesystem input task
     printf("Filesystem: Starting input task\n");
-    xTaskCreate(filesystemInputTask, "Filesystem input", 1024, NULL, 2, NULL);
+    xTaskCreate(filesystemInputTask, "Filesystem input", 512, NULL, 2, NULL);
 
     printf("Filesystem: Initialised\n");
     this->initialised = true;

@@ -13,6 +13,7 @@ add_executable(cansat
         filesystem.cpp
         littlefs.cpp
         dataHandler.cpp
+        streamHandler.cpp
         bme68x/bme68x.cpp
         bme68x/BoschBME68XApi/bme68x.c
         littlefs/lfs.c
