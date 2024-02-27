@@ -1,5 +1,6 @@
 #pragma once
 #include <pico/stdio.h>
+#include <stdarg.h>
 #include <FreeRTOS.h>
 #include <stream_buffer.h>
 #include <queue.h>
@@ -19,5 +20,5 @@ public:
     static void terminalBufferTask(void *unused);
     static void dataQueueTask(void *unused);
 
-    static void tPrintf(char *string, TickType_t timeout = 100);
+    static void tPrintf(const char *string, ...);
 };

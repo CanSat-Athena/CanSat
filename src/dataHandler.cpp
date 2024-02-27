@@ -82,12 +82,6 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
         // Write the data
         dataHandler->filesystem->addData(data);
 
-        // xHeapStats heapStats;
-        // vPortGetHeapStats(&heapStats);
-        // printf("%u\n", heapStats.xAvailableHeapSpaceInBytes);
-        char a[] = "abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;\n";
-        xStreamBufferSend(StreamHandler::terminalBuffer, a, sizeof(a), 50);
-
         // Delay
         vTaskDelayUntil(&lastStartTime, 1000);
     }

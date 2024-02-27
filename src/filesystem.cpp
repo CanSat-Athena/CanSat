@@ -26,15 +26,15 @@ int Filesystem::ls(const char* path) {
 
         // Get if file, directory or other
         switch (info.type) {
-        case LFS_TYPE_REG: printf("reg "); break;
-        case LFS_TYPE_DIR: printf("dir "); break;
-        default:           printf("?   "); break;
+        case LFS_TYPE_REG: StreamHandler::tPrintf("reg "); break;
+        case LFS_TYPE_DIR: StreamHandler::tPrintf("dir "); break;
+        default:           StreamHandler::tPrintf("?   "); break;
         }
 
         printSize(info.size);
 
         // Print file
-        printf(" %s\n", info.name);
+        StreamHandler::tPrintf(" %s\n", info.name);
     }
 
     // Close directory
@@ -49,9 +49,9 @@ int Filesystem::ls(const char* path) {
 /// @brief Initialises (mounts) the filesystem
 /// @return True if successful
 bool Filesystem::init() {
-    printf("Filesystem: Setting up\n");
+    StreamHandler::tPrintf("Filesystem: Setting up\n");
 
-    printf("Filesystem: Initialising mutex\n");
+    StreamHandler::tPrintf("Filesystem: Initialising mutex\n");
     filesystemMutex = xSemaphoreCreateMutexStatic(&filesystemMutexStaticSemaphore);
 
 #ifdef NUKE_FS_ON_NEXT_BOOT
@@ -63,18 +63,18 @@ bool Filesystem::init() {
     int err = lfs_mount(&lfs, &pico_cfg);
 
     if (err) {
-        printf("Filesystem: Failed to mount\n");
-        printf("Filesystem: Formatting in 60 seconds \n");
+        StreamHandler::tPrintf("Filesystem: Failed to mount\n");
+        StreamHandler::tPrintf("Filesystem: Formatting in 60 seconds \n");
 
         // Wait 60 seconds
         sleep_ms(60 * 1000);
 
-        printf("Filesystem: Reformatting...\n");
+        StreamHandler::tPrintf("Filesystem: Reformatting...\n");
         lfs_format(&lfs, &pico_cfg);
         err = lfs_mount(&lfs, &pico_cfg);
     }
 
-    printf("Filesystem: Mounted\n");
+    StreamHandler::tPrintf("Filesystem: Mounted\n");
 
     static struct lfs_file_config bootCountConfig;
     bootCountConfig.buffer = bootCountBuf;  // use the static buffer
@@ -90,32 +90,32 @@ bool Filesystem::init() {
 
     // The storage is not updated until the file is closed successfully (or synced)
     lfs_file_close(&lfs, &bootCountFile);
-    printf("Filesystem: boot_count updated, new boot count is %u\n", bootCount);
+    StreamHandler::tPrintf("Filesystem: boot_count updated, new boot count is %u\n", bootCount);
 
     // Create data file
     sprintf(dataFileName, "data_%u", this->bootCount);
     lfs_file_open(&lfs, &dataFile, dataFileName, LFS_O_RDWR | LFS_O_CREAT | LFS_O_TRUNC);
     lfs_file_sync(&lfs, &dataFile);
-    printf("Filesystem: Created file %s\n", dataFileName);
+    StreamHandler::tPrintf("Filesystem: Created file %s\n", dataFileName);
 
     ls("/");
-    printf("Filesystem: ");
+    StreamHandler::tPrintf("Filesystem: ");
     printUsage();
 
     // Start filesystem input task
-    printf("Filesystem: Starting input task\n");
+    StreamHandler::tPrintf("Filesystem: Starting input task\n");
     xTaskCreateStatic(filesystemInputTask, "Filesystem input", 512, NULL, 2, filesystemInputTaskStack, &filesystemInputTaskBuffer);
 
-    printf("Filesystem: Initialised\n");
+    StreamHandler::tPrintf("Filesystem: Initialised\n");
     this->initialised = true;
     return true;
 }
 
 /// @brief Launches an intercontinental ballistic missile headed towards the filesystem
 void Filesystem::nuke(bool loop) {
-    printf("Filesystem: Nuking the filesystem...\n");
+    StreamHandler::tPrintf("Filesystem: Nuking the filesystem...\n");
     lfs_format(&lfs, &pico_cfg);
-    if (loop) printf("Filesystem: Filesystem has been nuked. \nFilesystem: Please re-upload program with NUKE_FS_ON_NEXT_BOOT removed from config.h to continue normal operation\n");
+    if (loop) StreamHandler::tPrintf("Filesystem: Filesystem has been nuked. \nFilesystem: Please re-upload program with NUKE_FS_ON_NEXT_BOOT removed from config.h to continue normal operation\n");
     while (loop) {
         tight_loop_contents();
     }
@@ -135,11 +135,11 @@ void Filesystem::printUsage() {
     uint32_t size_bytes = size * BLOCK_SIZE_BYTES;
     float usage = (float)size_bytes / (float)FS_SIZE;
 
-    printf("Used/total: ");
+    StreamHandler::tPrintf("Used/total: ");
     printSize(size_bytes);
-    printf("/");
+    StreamHandler::tPrintf("/");
     printSize(FS_SIZE);
-    printf(" (%.2f%%)\n", usage * 100);
+    StreamHandler::tPrintf(" (%.2f%%)\n", usage * 100);
 }
 
 /// @brief Prints lfs_size_t parameter as an automatically converted size (eg B, KB, MB, GB)
@@ -148,7 +148,7 @@ void Filesystem::printSize(lfs_ssize_t size) {
     static const char* prefixes[] = { "", "K", "M", "G" };
     for (int i = sizeof(prefixes) / sizeof(prefixes[0]) - 1; i >= 0; i--) {
         if (size >= (1 << 10 * i) - 1) {
-            printf("%*u%sB", 4 - (i != 0), size >> 10 * i, prefixes[i]);
+            StreamHandler::tPrintf("%*u%sB", 4 - (i != 0), size >> 10 * i, prefixes[i]);
             break;
         }
     }
@@ -174,14 +174,14 @@ void Filesystem::readFile(uint32_t bootCount) {
 
     // Handle errors
     if (err == LFS_ERR_NOENT) {
-        printf("Error: File %s does not exist\n", dataFileName);
+        StreamHandler::tPrintf("Error: File %s does not exist\n", dataFileName);
         return;
     } else if (err < 0) {
-        printf("Error: Failed to open file %s\n", dataFileName);
+        StreamHandler::tPrintf("Error: Failed to open file %s\n", dataFileName);
         return;
     }
 
-    printf("Printing file %s:\n", dataFileName);
+    StreamHandler::tPrintf("Printing file %s:\n", dataFileName);
 
     lfs_ssize_t readStatus = 0;
     dataLine_t line;
@@ -191,58 +191,58 @@ void Filesystem::readFile(uint32_t bootCount) {
         readStatus = lfs_file_read(&lfs, &dataFile, (void*)(&line), sizeof(dataLine_t));
         if (readStatus < sizeof(dataLine_t)) break;
 
-        printf("%u: ", line.timestamp);
+        StreamHandler::tPrintf("%u: ", line.timestamp);
 
         // Get DHT20 data
-        printf("[");
+        StreamHandler::tPrintf("[");
         for (int i = 0; i < DHT20_READ_FREQ; i++) {
-            printf("[%f, %f], ", line.dht20[i].temperature, line.dht20[i].humidity);
+            StreamHandler::tPrintf("[%f, %f], ", line.dht20[i].temperature, line.dht20[i].humidity);
         }
-        printf("], ");
+        StreamHandler::tPrintf("], ");
 
         // Get BME680 data
-        printf("[");
+        StreamHandler::tPrintf("[");
         for (int i = 0; i < BME680_READ_FREQ; i++) {
-            printf("[%f, %f, %f, %f], ",
+            StreamHandler::tPrintf("[%f, %f, %f, %f], ",
                 line.bme680[i].temperature,
                 line.bme680[i].humidity,
                 line.bme680[i].pressure,
                 line.bme680[i].gasResistance
             );
         }
-        printf("], ");
+        StreamHandler::tPrintf("], ");
 
         // Get IMU data
-        printf("[");
+        StreamHandler::tPrintf("[");
         for (int i = 0; i < IMU_READ_FREQ; i++) {
-            printf("[[%f, %f, %f], [%f, %f, %f], [%f, %f, %f]], ",
+            StreamHandler::tPrintf("[[%f, %f, %f], [%f, %f, %f], [%f, %f, %f]], ",
                 line.imu[i].accel_g[0], line.imu[i].accel_g[1], line.imu[i].accel_g[2],
                 line.imu[i].gyro_dps[0], line.imu[i].gyro_dps[1], line.imu[i].gyro_dps[2],
                 line.imu[i].mag_ut[0], line.imu[i].mag_ut[1], line.imu[i].mag_ut[2]
             );
         }
-        printf("], ");
+        StreamHandler::tPrintf("], ");
 
         // Get light data
-        printf("[");
+        StreamHandler::tPrintf("[");
         for (int i = 0; i < LIGHT_READ_FREQ; i++) {
-            printf("%u, ", line.lightData[i].lightIntensity);
+            StreamHandler::tPrintf("%u, ", line.lightData[i].lightIntensity);
         }
-        printf("], ");
+        StreamHandler::tPrintf("], ");
 
         // Get anemometer data
-        printf("[");
+        StreamHandler::tPrintf("[");
         for (int i = 0; i < ANEMOMETER_READ_FREQ; i++) {
-            printf("%u, ", line.anemometerData[i].triggerCount);
+            StreamHandler::tPrintf("%u, ", line.anemometerData[i].triggerCount);
         }
-        printf("], ");
+        StreamHandler::tPrintf("], ");
 
         // Get GPS data
-        printf("[");
-        printf("%f, %f, %f, %u", line.gpsData[0].latitude, line.gpsData[0].longitude, line.gpsData[0].altitude, line.gpsData[0].fix);
-        printf("], ");
+        StreamHandler::tPrintf("[");
+        StreamHandler::tPrintf("%f, %f, %f, %u", line.gpsData[0].latitude, line.gpsData[0].longitude, line.gpsData[0].altitude, line.gpsData[0].fix);
+        StreamHandler::tPrintf("], ");
 
-        printf("\n");
+        StreamHandler::tPrintf("\n");
     }
 
     // Don't forget to close
@@ -264,33 +264,33 @@ void Filesystem::filesystemInputTask(void* pvParameters) {
         "'d' to delete a file\n"
         "'n' to nuke the filesystem\n"
         "'h' to display this message\n";
-    printf(helpText);
+    StreamHandler::tPrintf(helpText);
 
     while (true) {
         vTaskDelay(40);
 
-        printf("$ ");
+        StreamHandler::tPrintf("$ ");
         char c = getchar();
 
         switch (c) {
         case 'p':
-            printf("Enter boot count: ");
+            StreamHandler::tPrintf("Enter boot count: ");
             dataHandler->filesystem->readFile(getIntInput());
             break;
         case 'b':
-            printf("The boot count is %u\n", dataHandler->filesystem->bootCount);
+            StreamHandler::tPrintf("The boot count is %u\n", dataHandler->filesystem->bootCount);
             break;
         case 'n': {
             // Get confirmation
-            printf("Press 'Y' (uppercase) to confirm nuke: ");
+            StreamHandler::tPrintf("Press 'Y' (uppercase) to confirm nuke: ");
             char c2 = getchar();
             if (c2 == 'Y') {
                 // Get confirmation 2
-                printf("\nPress 'C' (uppercase) to confirm nuke: ");
+                StreamHandler::tPrintf("\nPress 'C' (uppercase) to confirm nuke: ");
                 char c3 = getchar();
 
                 if (c3 == 'C') {
-                    printf("\n");
+                    StreamHandler::tPrintf("\n");
 
                     // Launch the ICBMs
                     xTaskCreateStatic(filesystemNukeTask, "Filesystem nuke", 512, NULL, 20, filesystemNukeTaskStack, &filesystemNukeTaskBuffer);
@@ -299,48 +299,48 @@ void Filesystem::filesystemInputTask(void* pvParameters) {
                 }
             } else {
                 abort:
-                printf("\nAborting nuclear operation\n");
+                StreamHandler::tPrintf("\nAborting nuclear operation\n");
             }
             break;
         }
         case 'd': {
-            printf("Enter boot count of file to delete: ");
+            StreamHandler::tPrintf("Enter boot count of file to delete: ");
             uint32_t bootCount = getIntInput();
 
             char dataFileName[50];
             sprintf(dataFileName, "data_%u", bootCount);
-            printf("Will delete file: %s\n", dataFileName);
+            StreamHandler::tPrintf("Will delete file: %s\n", dataFileName);
 
             // Get confirmation
-            printf("Press 'Y' (uppercase) to confirm delete: ");
+            StreamHandler::tPrintf("Press 'Y' (uppercase) to confirm delete: ");
             char c2 = getchar();
             if (c2 == 'Y') {
-                printf("\n");
+                StreamHandler::tPrintf("\n");
 
                 // Delete file
                 xTaskCreateStatic(filesystemDeleteTask, "File delete", 512, &dataFileName, 21, filesystemDeleteTaskStack, &filesystemDeleteTaskBuffer);
             } else {
-                printf("\nAborting file delete\n");
+                StreamHandler::tPrintf("\nAborting file delete\n");
             }
             break;
         }
         case 'c':
             // Clear screen
-            printf("\033[2J\033[H");
+            StreamHandler::tPrintf("\033[2J\033[H");
             break;
         case 'l':
-            printf("Listing directory \"/\"\n");
+            StreamHandler::tPrintf("Listing directory \"/\"\n");
             dataHandler->filesystem->ls("/");
             break;
         case 'u':
-            printf("Filesystem usage: ");
+            StreamHandler::tPrintf("Filesystem usage: ");
             dataHandler->filesystem->printUsage();
             break;
         case 'h':
-            printf(helpText);
+            StreamHandler::tPrintf(helpText);
             break;
         default:
-            printf("Invalid command: '%c'. Press 'h' for help\n", c);
+            StreamHandler::tPrintf("Invalid command: '%c'. Press 'h' for help\n", c);
             break;
         }
     }
@@ -365,13 +365,13 @@ void Filesystem::filesystemNukeTask(void* pvParameters) {
 
     // The storage is not updated until the file is closed successfully (or synced)
     lfs_file_close(&(dataHandler->filesystem->lfs), &(dataHandler->filesystem->bootCountFile));
-    printf("Filesystem: boot_count updated, new boot count is %u\n", (dataHandler->filesystem->bootCount));
+    StreamHandler::tPrintf("Filesystem: boot_count updated, new boot count is %u\n", (dataHandler->filesystem->bootCount));
 
     // Create data file
     sprintf(dataHandler->filesystem->dataFileName, "data_%u", dataHandler->filesystem->bootCount);
     lfs_file_open(&(dataHandler->filesystem->lfs), &(dataHandler->filesystem->dataFile), dataHandler->filesystem->dataFileName, LFS_O_RDWR | LFS_O_CREAT | LFS_O_TRUNC);
     lfs_file_sync(&(dataHandler->filesystem->lfs), &(dataHandler->filesystem->dataFile));
-    printf("Filesystem: Created file %s\n", dataHandler->filesystem->dataFileName);
+    StreamHandler::tPrintf("Filesystem: Created file %s\n", dataHandler->filesystem->dataFileName);
 
     vTaskDelete(NULL);
 }
@@ -393,17 +393,17 @@ void Filesystem::filesystemDeleteTask(void* pvParameters) {
 
     // Handle errors
     if (err == LFS_ERR_NOENT) {
-        printf("Error: File %s does not exist\n", dataFileName);
+        StreamHandler::tPrintf("Error: File %s does not exist\n", dataFileName);
     } else if (err < 0) {
-        printf("Error: Failed to open file %s\n", dataFileName);
+        StreamHandler::tPrintf("Error: Failed to open file %s\n", dataFileName);
     } else {
-        printf("Deleted file %s\n", dataFileName);
+        StreamHandler::tPrintf("Deleted file %s\n", dataFileName);
     }
 
     if (isCurrentFile) {
         lfs_file_open(&(dataHandler->filesystem->lfs), &(dataHandler->filesystem->dataFile), dataHandler->filesystem->dataFileName, LFS_O_RDWR | LFS_O_CREAT | LFS_O_TRUNC);
         lfs_file_sync(&(dataHandler->filesystem->lfs), &(dataHandler->filesystem->dataFile));
-        printf("Created file %s\n", dataHandler->filesystem->dataFileName);
+        StreamHandler::tPrintf("Created file %s\n", dataHandler->filesystem->dataFileName);
     }
 
     vTaskDelete(NULL);

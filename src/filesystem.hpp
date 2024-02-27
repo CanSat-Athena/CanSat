@@ -2,6 +2,7 @@
 #include <pico/stdio.h>
 
 #include "littlefs.hpp"
+#include "streamHandler.h"
 #include "config.h"
 #include "commonTypes.h"
 

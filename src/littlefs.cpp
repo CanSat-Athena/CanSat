@@ -10,6 +10,7 @@
  */
 
 #include "littlefs.hpp"
+#include <cstring>
 
  // Pico specific hardware abstraction functions
 static int flash_fs_read(const struct lfs_config* config, lfs_block_t block, lfs_off_t off, void* buffer, lfs_size_t size);

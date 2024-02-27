@@ -9,6 +9,7 @@
 #include "littlefs/lfs.h"
 
 #include "config.h"
+#include "streamHandler.h"
 
 #define BLOCK_SIZE_BYTES (FLASH_SECTOR_SIZE)
 #define HW_FLASH_STORAGE_BYTES  FS_SIZE

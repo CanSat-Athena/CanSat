@@ -1,4 +1,5 @@
 #include "globals.h"
+#include "streamHandler.h"
 
 DataHandler* dataHandler;
 EventGroupHandle_t eventGroup;
@@ -37,7 +38,7 @@ int32_t getIntInput() {
         // Break to avoid overflow
         if (i + 1 == sizeof(characters) / sizeof(char)) {
             characters[i] = '\0';
-            printf("\n");
+            StreamHandler::tPrintf("\n");
             break;
         }
 
@@ -46,7 +47,7 @@ int32_t getIntInput() {
 
         // Handle enter key
         if (c == '\r' || c == '\n') {
-            printf("\n");
+            StreamHandler::tPrintf("\n");
             characters[i] = '\0';
             break;
         }
@@ -54,17 +55,17 @@ int32_t getIntInput() {
         // Handle backspace
         if (c == '\b') {
             if (i <= 0) {
-                printf("\a");
+                StreamHandler::tPrintf("\a");
                 i -= 1;
             } else {
-                printf("\b \b");
+                StreamHandler::tPrintf("\b \b");
                 i -= 2;
             }
             continue;
         }
 
         characters[i] = c;
-        printf("%c", c);
+        StreamHandler::tPrintf("%c", c);
     }
 
     return atoi(characters);

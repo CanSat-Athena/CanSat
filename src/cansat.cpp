@@ -28,7 +28,7 @@ Anemometer* anemometer;
 
 /// @brief Setup sensors
 void setup() {
-    printf("------------------\n");
+    printf("\n------------------\n");
     Watchdog::init();
     StreamHandler::init();
     I2C::init();
@@ -44,7 +44,7 @@ void setup() {
 
     // Set up data handler
     dataHandler = new DataHandler();
-    printf("Setup complete\n------------------\n");
+    StreamHandler::tPrintf("Setup complete\n------------------\n");
     xEventGroupSetBits(eventGroup, 0b00000001);     // Set bit 0 to show initialisation complete
 }
 

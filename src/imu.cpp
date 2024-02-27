@@ -1,4 +1,5 @@
 #include "imu.h"
+#include "streamHandler.h"
 
 /// @brief Initialises the ICM-20948
 /// @param attempts Number of attempts to retry for until failing
@@ -10,18 +11,18 @@ bool IMU::init(const int attempts) {
     sleep_ms(100);
 
     for (int i = 0; i < attempts; i++) {
-        printf("IMU:        Trying to connect, attempt %d of %d\n", i + 1, attempts);
+        StreamHandler::tPrintf("IMU:        Trying to connect, attempt %d of %d\n", i + 1, attempts);
 
         if (icm20948_init(&config) != 0) goto retry;
         icm20948_set_mag_rate(&config, IMU_READ_FREQ);
         // icm20948_cal_gyro(&config, &data.gyro_bias[0]);
-        // printf("IMU:        Calibrated gyro: %d %d %d\n", data.gyro_bias[0], data.gyro_bias[1], data.gyro_bias[2]);
+        // StreamHandler::tPrintf("IMU:        Calibrated gyro: %d %d %d\n", data.gyro_bias[0], data.gyro_bias[1], data.gyro_bias[2]);
         // icm20948_cal_accel(&config, &data.accel_bias[0]);
-        // printf("IMU:        Calibrated accel: %d %d %d\n", data.accel_bias[0], data.accel_bias[1], data.accel_bias[2]);
+        // StreamHandler::tPrintf("IMU:        Calibrated accel: %d %d %d\n", data.accel_bias[0], data.accel_bias[1], data.accel_bias[2]);
         // icm20948_cal_mag_simple(&config, &data.mag_bias[0]);
-        // printf("IMU:        Calibrated mag: %d %d %d\n", data.mag_bias[0], data.mag_bias[1], data.mag_bias[2]);
+        // StreamHandler::tPrintf("IMU:        Calibrated mag: %d %d %d\n", data.mag_bias[0], data.mag_bias[1], data.mag_bias[2]);
 
-        printf("IMU:        Initialised successfully\n");
+        StreamHandler::tPrintf("IMU:        Initialised successfully\n");
         this->initialised = true;
         return true;
 
@@ -29,11 +30,11 @@ bool IMU::init(const int attempts) {
         // Delay and print retrying message if failed
         if (i < attempts - 1) {
             sleep_ms(2000);
-            printf("IMU:        Retrying...\n");
+            StreamHandler::tPrintf("IMU:        Retrying...\n");
         }
     }
 
-    printf("IMU:        Failed to initialise\n");
+    StreamHandler::tPrintf("IMU:        Failed to initialise\n");
     return false;
 }
 
@@ -51,10 +52,10 @@ bool IMU::updateData() {
         mag_ut[i] = ((float)mag_raw[i] / 20) * 3;
     }
 
-    // printf("accel. x: %+2.5f, y: %+2.5f, z:%+2.5f\n", accel_g[0], accel_g[1], accel_g[2]);
-    // printf("gyro.  x: %+2.5f, y: %+2.5f, z:%+2.5f\n", gyro_dps[0], gyro_dps[1], gyro_dps[2]);
-    // printf("mag.   x: %+2.5f, y: %+2.5f, z:%+2.5f\n", mag_ut[0], mag_ut[1], mag_ut[2]);
-    // printf("temp: %+2.5f\n", temp_c);
+    // StreamHandler::tPrintf("accel. x: %+2.5f, y: %+2.5f, z:%+2.5f\n", accel_g[0], accel_g[1], accel_g[2]);
+    // StreamHandler::tPrintf("gyro.  x: %+2.5f, y: %+2.5f, z:%+2.5f\n", gyro_dps[0], gyro_dps[1], gyro_dps[2]);
+    // StreamHandler::tPrintf("mag.   x: %+2.5f, y: %+2.5f, z:%+2.5f\n", mag_ut[0], mag_ut[1], mag_ut[2]);
+    // StreamHandler::tPrintf("temp: %+2.5f\n", temp_c);
 
     return true;
 }

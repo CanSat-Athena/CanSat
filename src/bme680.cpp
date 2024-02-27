@@ -1,4 +1,5 @@
 #include "bme680.h"
+#include "streamHandler.h"
 
 /// @brief Initialise BME680
 /// @param attempts Number of times to retry connection before quitting. Defaults to: 3
@@ -12,12 +13,12 @@ bool BME680::init(const uint attempts) {
     int8_t result;
 
     for (int i = 0; i < attempts; i++) {
-        printf("BME680:     Trying to connect, attempt %d of %d\n", i + 1, attempts);
+        StreamHandler::tPrintf("BME680:     Trying to connect, attempt %d of %d\n", i + 1, attempts);
 
         result = bme68x->init();
         // Re-attempt if error
         if (!result) {
-            printf("BME680:     Failed at init()\n");
+            StreamHandler::tPrintf("BME680:     Failed at init()\n");
             goto retry;
         }
 
@@ -25,77 +26,77 @@ bool BME680::init(const uint attempts) {
         bme68x->bme68x_check_rslt("bme68x_get_conf", result);
         // Re-attempt if error
         if (result != BME68X_OK) {
-            printf("BME680:     Failed at bme68x_get_conf()\n");
+            StreamHandler::tPrintf("BME680:     Failed at bme68x_get_conf()\n");
             goto retry;
         }
 
-        printf("BME680:     Responded successfully\n");
-        printf("BME680:     Initialising settings\n");
+        StreamHandler::tPrintf("BME680:     Responded successfully\n");
+        StreamHandler::tPrintf("BME680:     Initialising settings\n");
 
         configure(BME68X_FILTER_OFF, BME68X_ODR_NONE, BME68X_OS_16X, BME68X_OS_1X, BME68X_OS_2X);
 
         if (EXTRA_VERBOSE_BME680) {
-            printf("T1 = ");
-            printf("%d\n", bme68x->device.calib.par_t1);
-            printf("T2 = ");
-            printf("%d\n", bme68x->device.calib.par_t2);
-            printf("T3 = ");
-            printf("%d\n", bme68x->device.calib.par_t3);
-            printf("P1 = ");
-            printf("%d\n", bme68x->device.calib.par_p1);
-            printf("P2 = ");
-            printf("%d\n", bme68x->device.calib.par_p2);
-            printf("P3 = ");
-            printf("%d\n", bme68x->device.calib.par_p3);
-            printf("P4 = ");
-            printf("%d\n", bme68x->device.calib.par_p4);
-            printf("P5 = ");
-            printf("%d\n", bme68x->device.calib.par_p5);
-            printf("P6 = ");
-            printf("%d\n", bme68x->device.calib.par_p6);
-            printf("P7 = ");
-            printf("%d\n", bme68x->device.calib.par_p7);
-            printf("P8 = ");
-            printf("%d\n", bme68x->device.calib.par_p8);
-            printf("P9 = ");
-            printf("%d\n", bme68x->device.calib.par_p9);
-            printf("P10 = ");
-            printf("%d\n", bme68x->device.calib.par_p10);
-            printf("H1 = ");
-            printf("%d\n", bme68x->device.calib.par_h1);
-            printf("H2 = ");
-            printf("%d\n", bme68x->device.calib.par_h2);
-            printf("H3 = ");
-            printf("%d\n", bme68x->device.calib.par_h3);
-            printf("H4 = ");
-            printf("%d\n", bme68x->device.calib.par_h4);
-            printf("H5 = ");
-            printf("%d\n", bme68x->device.calib.par_h5);
-            printf("H6 = ");
-            printf("%d\n", bme68x->device.calib.par_h6);
-            printf("H7 = ");
-            printf("%d\n", bme68x->device.calib.par_h7);
-            printf("G1 = ");
-            printf("%d\n", bme68x->device.calib.par_gh1);
-            printf("G2 = ");
-            printf("%d\n", bme68x->device.calib.par_gh2);
-            printf("G3 = ");
-            printf("%d\n", bme68x->device.calib.par_gh3);
-            printf("G1 = ");
-            printf("%d\n", bme68x->device.calib.par_gh1);
-            printf("G2 = ");
-            printf("%d\n", bme68x->device.calib.par_gh2);
-            printf("G3 = ");
-            printf("%d\n", bme68x->device.calib.par_gh3);
-            printf("Heat Range = ");
-            printf("%d\n", bme68x->device.calib.res_heat_range);
-            printf("Heat Val = ");
-            printf("%d\n", bme68x->device.calib.res_heat_val);
-            printf("SW Error = ");
-            printf("%d\n", bme68x->device.calib.range_sw_err);
+            StreamHandler::tPrintf("T1 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_t1);
+            StreamHandler::tPrintf("T2 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_t2);
+            StreamHandler::tPrintf("T3 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_t3);
+            StreamHandler::tPrintf("P1 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_p1);
+            StreamHandler::tPrintf("P2 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_p2);
+            StreamHandler::tPrintf("P3 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_p3);
+            StreamHandler::tPrintf("P4 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_p4);
+            StreamHandler::tPrintf("P5 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_p5);
+            StreamHandler::tPrintf("P6 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_p6);
+            StreamHandler::tPrintf("P7 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_p7);
+            StreamHandler::tPrintf("P8 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_p8);
+            StreamHandler::tPrintf("P9 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_p9);
+            StreamHandler::tPrintf("P10 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_p10);
+            StreamHandler::tPrintf("H1 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_h1);
+            StreamHandler::tPrintf("H2 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_h2);
+            StreamHandler::tPrintf("H3 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_h3);
+            StreamHandler::tPrintf("H4 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_h4);
+            StreamHandler::tPrintf("H5 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_h5);
+            StreamHandler::tPrintf("H6 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_h6);
+            StreamHandler::tPrintf("H7 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_h7);
+            StreamHandler::tPrintf("G1 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_gh1);
+            StreamHandler::tPrintf("G2 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_gh2);
+            StreamHandler::tPrintf("G3 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_gh3);
+            StreamHandler::tPrintf("G1 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_gh1);
+            StreamHandler::tPrintf("G2 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_gh2);
+            StreamHandler::tPrintf("G3 = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.par_gh3);
+            StreamHandler::tPrintf("Heat Range = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.res_heat_range);
+            StreamHandler::tPrintf("Heat Val = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.res_heat_val);
+            StreamHandler::tPrintf("SW Error = ");
+            StreamHandler::tPrintf("%d\n", bme68x->device.calib.range_sw_err);
         }
 
-        printf("BME680:     Initialised successfully\n");
+        StreamHandler::tPrintf("BME680:     Initialised successfully\n");
         this->initialised = true;
 
         return true;
@@ -104,11 +105,11 @@ bool BME680::init(const uint attempts) {
         // Delay and print retrying message if failed
         if (i < attempts - 1) {
             sleep_ms(2000);
-            printf("BME680:     Retrying...\n");
+            StreamHandler::tPrintf("BME680:     Retrying...\n");
         }
     }
 
-    printf("BME680:     Failed to initialise\n");
+    StreamHandler::tPrintf("BME680:     Failed to initialise\n");
 
     return false;
 }

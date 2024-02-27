@@ -1,4 +1,5 @@
 #include "gps.h"
+#include "streamHandler.h"
 
 QueueHandle_t GPS::gpsQueue;
 volatile char GPS::gpsLine[100];
@@ -14,7 +15,7 @@ bool GPS::init() {
     if (initialised) return false;
 
     // Initialise UART
-    printf("GPS:        Initialising UART\n");
+    StreamHandler::tPrintf("GPS:        Initialising UART\n");
     uart_init(GPS_UART, 9600);
     gpio_set_function(GPS_TX_PIN, GPIO_FUNC_UART);
     gpio_set_function(GPS_RX_PIN, GPIO_FUNC_UART);
@@ -26,18 +27,18 @@ bool GPS::init() {
     uart_set_fifo_enabled(GPS_UART, false);
 
     // Initialise lwgps
-    printf("GPS:        Initialising lwgps\n");
+    StreamHandler::tPrintf("GPS:        Initialising lwgps\n");
     lwgps_init(&lwgps);
 
     // Set up buffer
-    printf("GPS:        Setting up buffer\n");
+    StreamHandler::tPrintf("GPS:        Setting up buffer\n");
     gpsQueue = xQueueCreateStatic(GPS_QUEUE_SIZE, sizeof(char[100]), gpsBufferQueueStorageBuffer, &gpsBufferQueueBuffer);
 
     // Set up task
-    printf("GPS:        Setting up task\n");
+    StreamHandler::tPrintf("GPS:        Setting up task\n");
     xTaskCreateStatic(gpsTask, "GPS read", GPS_TASK_SIZE, NULL, 2, gpsTaskStack, &gpsTaskBuffer);
 
-    printf("GPS:        Initialised\n");
+    StreamHandler::tPrintf("GPS:        Initialised\n");
     return true;
 }
 

@@ -1,4 +1,5 @@
 #include "dht20.h"
+#include "streamHandler.h"
 
 /// @brief Constructor
 /// @param initialise Initialise DHT20 automatically. Defaults to true
@@ -21,30 +22,30 @@ bool DHT20::init(const uint attempts) {
     uint8_t status;
 
     for (int i = 0; i < attempts; i++) {
-        printf("DHT20:      Trying to connect, attempt %d of %d\n", i + 1, attempts);
+        StreamHandler::tPrintf("DHT20:      Trying to connect, attempt %d of %d\n", i + 1, attempts);
 
         // Perform soft reset
-        printf("DHT20:      Attempting reset\n");
+        StreamHandler::tPrintf("DHT20:      Attempting reset\n");
         i2c_write_timeout_per_char_us(I2C_PORT, i2cAddress, &softResetCmd, 1, false, I2C_PER_CHAR_TIMEOUT_US);
         sleep_ms(20);
 
         // Re-attempt if timeout
         if (!waitForProcessing(false)) {
-            printf("DHT20:      Connection timeout\n");
+            StreamHandler::tPrintf("DHT20:      Connection timeout\n");
             goto retry;
         }
 
         // Attempt calibration
-        printf("DHT20:      Attempting calibration\n");
+        StreamHandler::tPrintf("DHT20:      Attempting calibration\n");
         i2c_write_timeout_per_char_us(I2C_PORT, i2cAddress, calibrateCmd, 3, false, I2C_PER_CHAR_TIMEOUT_US);
 
         // Re-attempt if timeout
         if (!waitForProcessing(false)) {
-            printf("DHT20:      Connection timeout\n");
+            StreamHandler::tPrintf("DHT20:      Connection timeout\n");
             sleep_ms(2000);
 
             if (i < attempts - 1)
-                printf("DHT20:      Retrying...\n");
+                StreamHandler::tPrintf("DHT20:      Retrying...\n");
 
             continue;
         }
@@ -53,11 +54,11 @@ bool DHT20::init(const uint attempts) {
 
         // Re-attempt if not calibrated
         if (!(status & DHT20_STATUS_CALIBRATED)) {
-            printf("DHT20:      Calibration error\n");
+            StreamHandler::tPrintf("DHT20:      Calibration error\n");
             goto retry;
         }
 
-        printf("DHT20:      Initialised successfully; I2C status: 0x%x\n", status);
+        StreamHandler::tPrintf("DHT20:      Initialised successfully; I2C status: 0x%x\n", status);
 
         this->initialised = true;
         return true;
@@ -66,11 +67,11 @@ bool DHT20::init(const uint attempts) {
         // Delay and print retrying message if failed
         if (i < attempts - 1) {
             sleep_ms(2000);
-            printf("DHT20:      Retrying...\n");
+            StreamHandler::tPrintf("DHT20:      Retrying...\n");
         }
     }
 
-    printf("DHT20:      Failed to initialise\n");
+    StreamHandler::tPrintf("DHT20:      Failed to initialise\n");
 
     return false;
 }
