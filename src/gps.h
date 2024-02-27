@@ -17,6 +17,8 @@
 #define GPS_STOP_BITS 1
 #define GPS_PARITY    UART_PARITY_NONE
 
+#define GPS_QUEUE_SIZE 10
+
 class GPS : public Sensor {
 private:
     static QueueHandle_t gpsQueue;

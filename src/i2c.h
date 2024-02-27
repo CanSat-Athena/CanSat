@@ -6,6 +6,8 @@
 
 #include "config.h"
 
+static StaticSemaphore_t i2cMutexStaticSemaphore;
+
 class I2C {
 public:
     static inline SemaphoreHandle_t mutex;
@@ -27,7 +29,7 @@ public:
         // Init I2C
         i2c_init(I2C_PORT, 100 * 1000); // 100kHz
 
-        mutex = xSemaphoreCreateMutex();
+        mutex = xSemaphoreCreateMutexStatic(&i2cMutexStaticSemaphore);
     }
 
     /// @brief Reads I2C register of device

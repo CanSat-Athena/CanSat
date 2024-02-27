@@ -52,7 +52,7 @@ bool Filesystem::init() {
     printf("Filesystem: Setting up\n");
 
     printf("Filesystem: Initialising mutex\n");
-    filesystemMutex = xSemaphoreCreateMutex();
+    filesystemMutex = xSemaphoreCreateMutexStatic(&filesystemMutexStaticSemaphore);
 
 #ifdef NUKE_FS_ON_NEXT_BOOT
     // Launch the ICBMs
@@ -104,7 +104,7 @@ bool Filesystem::init() {
 
     // Start filesystem input task
     printf("Filesystem: Starting input task\n");
-    xTaskCreate(filesystemInputTask, "Filesystem input", 512, NULL, 2, NULL);
+    xTaskCreateStatic(filesystemInputTask, "Filesystem input", 512, NULL, 2, filesystemInputTaskStack, &filesystemInputTaskBuffer);
 
     printf("Filesystem: Initialised\n");
     this->initialised = true;
@@ -293,7 +293,7 @@ void Filesystem::filesystemInputTask(void* pvParameters) {
                     printf("\n");
 
                     // Launch the ICBMs
-                    xTaskCreate(filesystemNukeTask, "Filesystem nuke", 512, NULL, 20, NULL);
+                    xTaskCreateStatic(filesystemNukeTask, "Filesystem nuke", 512, NULL, 20, filesystemNukeTaskStack, &filesystemNukeTaskBuffer);
                 } else {
                     goto abort;
                 }
@@ -318,7 +318,7 @@ void Filesystem::filesystemInputTask(void* pvParameters) {
                 printf("\n");
 
                 // Delete file
-                xTaskCreate(filesystemDeleteTask, "File delete", 512, &dataFileName, 21, NULL);
+                xTaskCreateStatic(filesystemDeleteTask, "File delete", 512, &dataFileName, 21, filesystemDeleteTaskStack, &filesystemDeleteTaskBuffer);
             } else {
                 printf("\nAborting file delete\n");
             }

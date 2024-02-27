@@ -59,7 +59,7 @@ target_link_libraries(cansat PUBLIC
         hardware_irq
         hardware_flash
         pico_multicore
-        FreeRTOS-Kernel-Heap4
+        FreeRTOS-Kernel         # No heap
         lwgps
         pico-icm20948
         )

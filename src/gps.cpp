@@ -5,6 +5,11 @@ volatile char GPS::gpsLine[100];
 volatile uint8_t GPS::gpsLineIndex;
 lwgps_t GPS::lwgps;
 
+// GPS buffer queues
+uint8_t gpsBufferQueueStorageBuffer[GPS_QUEUE_SIZE];
+StaticQueue_t gpsBufferQueueBuffer;
+
+/// @brief Initialise GPS
 bool GPS::init() {
     if (initialised) return false;
 
@@ -26,11 +31,11 @@ bool GPS::init() {
 
     // Set up buffer
     printf("GPS:        Setting up buffer\n");
-    gpsQueue = xQueueCreate(10, sizeof(char[100]));
+    gpsQueue = xQueueCreateStatic(GPS_QUEUE_SIZE, sizeof(char[100]), gpsBufferQueueStorageBuffer, &gpsBufferQueueBuffer);
 
     // Set up task
     printf("GPS:        Setting up task\n");
-    xTaskCreate(gpsTask, "GPS read", 512, NULL, 2, NULL);
+    xTaskCreateStatic(gpsTask, "GPS read", GPS_TASK_SIZE, NULL, 2, gpsTaskStack, &gpsTaskBuffer);
 
     printf("GPS:        Initialised\n");
     return true;

@@ -2,6 +2,20 @@
 #include "globals.h"
 #include "streamHandler.h"
 
+uint8_t dhtQueueStorageBuffer[DHT20_READ_FREQ * 2 * sizeof(dht20Data_t)];
+uint8_t bmeQueueStorageBuffer[BME680_READ_FREQ * 2 * sizeof(bme680Data_t)];
+uint8_t imuQueueStorageBuffer[IMU_READ_FREQ * 2 * sizeof(imuData_t)];
+uint8_t lightQueueStorageBuffer[LIGHT_READ_FREQ * 2 * sizeof(lightData_t)];
+uint8_t anemometerQueueStorageBuffer[ANEMOMETER_READ_FREQ * 2 * sizeof(anemometerData_t)];
+uint8_t gpsQueueStorageBuffer[3 * 2 * sizeof(gpsData_t)];
+
+StaticQueue_t dhtQueueBuffer;
+StaticQueue_t bmeQueueBuffer;
+StaticQueue_t imuQueueBuffer;
+StaticQueue_t lightQueueBuffer;
+StaticQueue_t anemometerQueueBuffer;
+StaticQueue_t gpsQueueBuffer;
+
 void DataHandler::dataHandlerTask(void* DHPointer) {
     TickType_t lastStartTime;
     vTaskDelay(1000);
@@ -71,7 +85,7 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
         // xHeapStats heapStats;
         // vPortGetHeapStats(&heapStats);
         // printf("%u\n", heapStats.xAvailableHeapSpaceInBytes);
-        char a[] = "abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;";
+        char a[] = "abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;abdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;fgkjabdsfgsd;\n";
         xStreamBufferSend(StreamHandler::terminalBuffer, a, sizeof(a), 50);
 
         // Delay

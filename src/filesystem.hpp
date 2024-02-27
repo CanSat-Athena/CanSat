@@ -5,6 +5,16 @@
 #include "config.h"
 #include "commonTypes.h"
 
+static StackType_t filesystemInputTaskStack[FILESYSTEM_INPUT_TASK_SIZE];
+static StackType_t filesystemNukeTaskStack[FILESYSTEM_NUKE_TASK_SIZE];
+static StackType_t filesystemDeleteTaskStack[FILESYSTEM_DELETE_TASK_SIZE];
+
+static StaticTask_t filesystemInputTaskBuffer;
+static StaticTask_t filesystemNukeTaskBuffer;
+static StaticTask_t filesystemDeleteTaskBuffer;
+
+static StaticSemaphore_t filesystemMutexStaticSemaphore;
+
 class Filesystem {
 protected:
     bool initialised = false;
@@ -33,7 +43,7 @@ public:
 
     int addData(dataLine_t data);
 
-    int ls(const char* path);    
+    int ls(const char* path);
     void printUsage();
     void printSize(lfs_ssize_t size);
     void readFile(uint32_t bootCount);

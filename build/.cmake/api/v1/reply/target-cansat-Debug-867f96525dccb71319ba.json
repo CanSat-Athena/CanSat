@@ -1193,8 +1193,7 @@
 				100,
 				101,
 				102,
-				103,
-				104
+				103
 			]
 		},
 		{
@@ -2642,8 +2641,7 @@
 				100,
 				101,
 				102,
-				103,
-				104
+				103
 			]
 		},
 		{
@@ -3240,12 +3238,6 @@
 			"backtrace" : 2,
 			"compileGroupIndex" : 1,
 			"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_multicore/multicore.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 2,
-			"compileGroupIndex" : 1,
-			"path" : "lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c",
 			"sourceGroupIndex" : 0
 		},
 		{

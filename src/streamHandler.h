@@ -18,4 +18,6 @@ public:
 
     static void terminalBufferTask(void *unused);
     static void dataQueueTask(void *unused);
+
+    static void tPrintf(char *string, TickType_t timeout = 100);
 };

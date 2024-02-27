@@ -1,11 +1,14 @@
 #include "watchdog.h"
 
+StackType_t watchdogStack[WATCHDOG_TASK_SIZE];
+StaticTask_t watchdogTaskBuffer;
+
 /// @brief Initialise watchdog
 void Watchdog::init() {
     watchdog_enable(WATCHDOG_TIME, true);
 
     // Create watchdog task
-    xTaskCreate(watchdogTask, "Watchdog", 512, NULL, 30, NULL);
+    xTaskCreateStatic(watchdogTask, "Watchdog", WATCHDOG_TASK_SIZE, NULL, 30, watchdogStack, &watchdogTaskBuffer);
 }
 
 /// @brief Task to update watchdog

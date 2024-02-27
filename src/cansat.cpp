@@ -76,8 +76,7 @@ void initTask(void* pvParameters) {
         .updateFreq = DHT20_READ_FREQ,
         .updateTime = DHT20_READ_TIME
     };
-    TaskHandle_t dht20ReadTask;
-    xTaskCreate(sensorReadTask, "DHT20 read", 512, &dht20, 2, &dht20ReadTask);
+    TaskHandle_t dht20ReadTask = xTaskCreateStatic(sensorReadTask, "DHT20 read", DHT20_TASK_SIZE, &dht20, 2, dhtTaskStack, &dhtTaskBuffer);
 
     sensor_t bme680 = {
         .sensor = bme,
@@ -86,8 +85,7 @@ void initTask(void* pvParameters) {
         .updateFreq = BME680_READ_FREQ,
         .updateTime = BME680_READ_TIME
     };
-    TaskHandle_t bme680ReadTask;
-    xTaskCreate(sensorReadTask, "BME680 read", 512, &bme680, 2, &bme680ReadTask);
+    TaskHandle_t bme680ReadTask = xTaskCreateStatic(sensorReadTask, "BME680 read", BME680_TASK_SIZE, &bme680, 2, bmeTaskStack, &bmeTaskBuffer);
 
     sensor_t imuSensor = {
         .sensor = imu,
@@ -97,7 +95,7 @@ void initTask(void* pvParameters) {
         .updateTime = IMU_READ_TIME
     };
     TaskHandle_t imuReadTask;
-    xTaskCreate(sensorReadTask, "IMU read", 512, &imuSensor, 2, &imuReadTask);
+    xTaskCreateStatic(sensorReadTask, "IMU read", IMU_TASK_SIZE, &imuSensor, 2, imuTaskStack, &imuTaskBuffer);
 
     sensor_t lightSensor = {
         .sensor = light,
@@ -107,7 +105,7 @@ void initTask(void* pvParameters) {
         .updateTime = LIGHT_READ_TIME
     };
     TaskHandle_t lightReadTask;
-    xTaskCreate(sensorReadTask, "Light sensor read", 512, &lightSensor, 2, &lightReadTask);
+    xTaskCreateStatic(sensorReadTask, "Light sensor read", LIGHT_TASK_SIZE, &lightSensor, 2, lightTaskStack, &lightTaskBuffer);
 
     sensor_t anemometerSensor = {
         .sensor = anemometer,
@@ -117,10 +115,9 @@ void initTask(void* pvParameters) {
         .updateTime = ANEMOMETER_READ_TIME
     };
     TaskHandle_t anemometerReadTask;
-    xTaskCreate(sensorReadTask, "Anemometer sensor read", 512, &anemometerSensor, 2, &anemometerReadTask);
+    xTaskCreateStatic(sensorReadTask, "Anemometer sensor read", 512, &anemometerSensor, 2, anemometerTaskStack, &anemometerTaskBuffer);
 
-    TaskHandle_t dataHandlerTaskHandle;
-    xTaskCreate(DataHandler::dataHandlerTask, "Data handler", 1024, NULL, 3, &dataHandlerTaskHandle);
+    TaskHandle_t dataHandlerTaskHandle = xTaskCreateStatic(DataHandler::dataHandlerTask, "Data handler", DATA_HANDLER_TASK_SIZE, NULL, 3, dataHandlerTaskStack, &dataHandlerTaskBuffer);
 
     vTaskDelete(NULL);
 }
@@ -135,8 +132,8 @@ int main() {
     // Safe hardfault handler
     exception_set_exclusive_handler(HARDFAULT_EXCEPTION, hardfault_handler);
 
-    eventGroup = xEventGroupCreate();
-    xTaskCreate(initTask, "Init", 512, NULL, 4, NULL);
+    eventGroup = xEventGroupCreateStatic(&eventGroupStack);
+    xTaskCreateStatic(initTask, "Init", INIT_TASK_SIZE,  NULL, 4, initTaskStack, &initTaskBuffer);
 
     vTaskStartScheduler();
     return 0;
