@@ -5,17 +5,21 @@
 #define DATA_QUEUE_SIZE 5
 #define TERMINAL_BUFFER_SIZE RADIO_MAX_PACKET_SIZE * 6
 
-StackType_t terminalBufferStack[TERMINAL_BUFFER_TASK_SIZE];
-StackType_t dataQueueStack[DATA_QUEUE_TASK_SIZE];
+// Queue stacks
+static StackType_t terminalBufferStack[TERMINAL_BUFFER_TASK_SIZE];
+static StackType_t dataQueueStack[DATA_QUEUE_TASK_SIZE];
 
-StaticTask_t terminalBufferTaskBuffer;
-StaticTask_t dataQueueTaskBuffer;
+// Task buffers
+static StaticTask_t terminalBufferTaskBuffer;
+static StaticTask_t dataQueueTaskBuffer;
 
-uint8_t dataQueueStorageBuffer[DATA_QUEUE_SIZE];
-StaticQueue_t dataQueueBuffer;
+// Data queue
+static uint8_t dataQueueStorageBuffer[DATA_QUEUE_SIZE * sizeof(dataRadioLine_t)];
+static StaticQueue_t dataQueueBuffer;
 
-uint8_t terminalStreamBufferStorageArea[TERMINAL_BUFFER_SIZE + 1];
-StaticStreamBuffer_t terminalStaticStreamBuffer;
+// Terminal stream buffer
+static uint8_t terminalStreamBufferStorageArea[TERMINAL_BUFFER_SIZE + 1];
+static StaticStreamBuffer_t terminalStaticStreamBuffer;
 
 /// @brief Initialise the stream handler
 void StreamHandler::init() {
@@ -23,12 +27,13 @@ void StreamHandler::init() {
     terminalBuffer = xStreamBufferCreateStatic(TERMINAL_BUFFER_SIZE, 1, terminalStreamBufferStorageArea, &terminalStaticStreamBuffer);
 
     xTaskCreateStatic(terminalBufferTask, "Terminal buffer", TERMINAL_BUFFER_TASK_SIZE, NULL, 3, terminalBufferStack, &terminalBufferTaskBuffer);
+    xTaskCreateStatic(dataQueueTask, "Data queue", DATA_QUEUE_TASK_SIZE, NULL, 3, dataQueueStack, &dataQueueTaskBuffer);
 }
 
 /// @brief Task to handle the terminal buffer
 void StreamHandler::terminalBufferTask(void* unused) {
     packet_t packet;
-    packet.type = 'd';
+    packet.type = 't';
 
     uint32_t bytesRead = 0;
 
@@ -38,6 +43,21 @@ void StreamHandler::terminalBufferTask(void* unused) {
             packet.body[bytesRead] = '\0';
             printf("%s", packet.body);
         }
+    }
+}
+
+/// @brief Task to handle the data queue
+void StreamHandler::dataQueueTask(void* unused) {
+    packet_t packet;
+    packet.type = 'd';
+
+    dataRadioLine_t data;
+
+    while (true) {
+        if (xQueueReceive(StreamHandler::dataQueue, &data, portMAX_DELAY)) {
+            // TODO: Do stuff, send over radio
+        }
+        vTaskDelay(300);
     }
 }
 

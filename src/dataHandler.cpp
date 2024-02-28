@@ -17,18 +17,19 @@ StaticQueue_t anemometerQueueBuffer;
 StaticQueue_t gpsQueueBuffer;
 
 void DataHandler::dataHandlerTask(void* DHPointer) {
-    TickType_t lastStartTime;
+    // Get start time
+    TickType_t lastStartTime = xTaskGetTickCount();
     vTaskDelay(1000);
 
     while (true) {
-        // Get start time
-        lastStartTime = xTaskGetTickCount();
 
         dataLine_t data{};
+        dataRadioLine_t radioData{};
 
         // Update timestamp
         absolute_time_t absoluteTime = get_absolute_time();
         data.timestamp = to_ms_since_boot(absoluteTime);
+        radioData.timestamp = to_ms_since_boot(absoluteTime);
 
         // Get DHT20 data
         for (int i = 0; i < DHT20_READ_FREQ; i++) {
@@ -36,6 +37,7 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
 
             if (xQueueReceive(dataHandler->dht20Queue, &dhtData, (TickType_t)10) == pdPASS) {
                 data.dht20[i] = dhtData.dht20;
+                radioData.dht20[i] = dhtData.dht20;
             }
         }
 
@@ -45,6 +47,7 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
 
             if (xQueueReceive(dataHandler->bme680Queue, &bmeData, (TickType_t)10) == pdPASS) {
                 data.bme680[i] = bmeData.bme680;
+                radioData.bme680[i] = bmeData.bme680;
             }
         }
 
@@ -54,6 +57,7 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
 
             if (xQueueReceive(dataHandler->imuQueue, &imuData, (TickType_t)10) == pdPASS) {
                 data.imu[i] = imuData.imu;
+                radioData.imu[i] = imuData.imu;
             }
         }
 
@@ -63,6 +67,7 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
 
             if (xQueueReceive(dataHandler->lightQueue, &lightData, (TickType_t)10) == pdPASS) {
                 data.lightData[i] = lightData.lightData;
+                radioData.lightData[i] = lightData.lightData;
             }
         }
 
@@ -72,15 +77,18 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
 
             if (xQueueReceive(dataHandler->anemometerQueue, &anemometerData, (TickType_t)10) == pdPASS) {
                 data.anemometerData[i] = anemometerData.anemometerData;
+                radioData.anemometerData[i] = anemometerData.anemometerData;
             }
         }
 
         // Get GPS data
         sensorData_t gpsData = GPS::getDataStatic();
         data.gpsData[0] = gpsData.gpsData;
+        radioData.gpsData[0] = gpsData.gpsData;
 
         // Write the data
         dataHandler->filesystem->addData(data);
+        xQueueSendToBack(StreamHandler::dataQueue, &radioData, 100);
 
         // Delay
         vTaskDelayUntil(&lastStartTime, 1000);
