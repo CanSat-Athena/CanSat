@@ -4,5 +4,10 @@
 #include <queue.h>
 
 class Radio {
+public:
+    Radio() {
+        init();
+    }
     
+    void init();
 };

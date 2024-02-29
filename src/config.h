@@ -1,4 +1,5 @@
 #include <pico/stdlib.h>
+#include "pico/lorawan.h"
 // #include "lwgps/lwgps.hpp"
 
 // PINS & PORTS
@@ -68,3 +69,15 @@
 
 #define VERBOSE_PRINT true
 #define EXTRA_VERBOSE_BME680 false
+
+// -- LoRaWAN Stuff --
+#define LORAWAN_REGION          LORAMAC_REGION_EU433
+// LoRaWAN device address (32-bit)
+#define LORAWAN_DEV_ADDR                "16824591"
+// LoRaWAN Network Session Key (128-bit)
+#define LORAWAN_NETWORK_SESSION_KEY     "00000000000000000000000000000000"
+// LoRaWAN Application Session Key (128-bit)
+#define LORAWAN_APP_SESSION_KEY         "00000000000000000000000000000000"
+// LoRaWAN Channel Mask, NULL value will use the default channel mask 
+// for the region
+#define LORAWAN_CHANNEL_MASK            NULL
