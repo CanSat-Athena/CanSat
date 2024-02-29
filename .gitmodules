@@ -14,3 +14,6 @@
 [submodule "src/pico-icm20948"]
 	path = src/pico-icm20948
 	url = https://github.com/CanSat-Athena/pico-icm20948.git
+[submodule "src/pico-lora"]
+	path = src/pico-lora
+	url = https://github.com/akshayabali/pico-lora.git

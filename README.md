@@ -8,7 +8,7 @@ Our code for the 2024 CanSat competition (Project Athena). This is the code that
 
 [FreeRTOS Kernel](https://github.com/FreeRTOS/FreeRTOS-Kernel.git)\
 [ICM-20948 library](https://github.com/Yudetamago-AM/pico-icm20948)\
-[LoRaWAN library](https://github.com/ArmDeveloperEcosystem/lorawan-library-for-pico)\
-[lwgps](https://github.com/MaJerle/lwgps)\
-[littlefs](https://github.com/littlefs-project/littlefs.git)\
-[BoschBME68XApi](https://github.com/boschsensortec/BME68x-Sensor-API.git)
+[LoRa library](https://github.com/akshayabali/pico-lora.git) - Copyright (c) 2021 Akshaya Bali\
+[lwgps](https://github.com/MaJerle/lwgps) - Copyright (c) 2024 Tilen MAJERLE\
+[littlefs](https://github.com/littlefs-project/littlefs.git) - Copyright (c) 2022, The littlefs authors. Copyright (c) 2017, Arm Limited. All rights reserved.\
+[BoschBME68XApi](https://github.com/boschsensortec/BME68x-Sensor-API.git) - Copyright (c) 2023 Bosch Sensortec GmbH. All rights reserved.

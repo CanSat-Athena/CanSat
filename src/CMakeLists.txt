@@ -38,11 +38,6 @@ add_compile_definitions(
         # FREE_RTOS_KERNEL_SMP=1
         # portSUPPORT_SMP=1
         #LFS_CONFIG=littlefsConfig.h
-        # LORAWAN_REGION=LORAMAC_REGION_US915
-        # LORAWAN_DEVICE_EUI="0000000000000000"
-        # LORAWAN_APP_EUI="0000000000000000"
-        # LORAWAN_APP_KEY="00000000000000000000000000000000"
-        # LORAWAN_CHANNEL_MASK=NULL
         PICO_FLASH_SIZE_BYTES=16777216
         LFS_THREADSAFE
         CMAKE_BUILD_TYPE=Debug
@@ -68,7 +63,6 @@ target_link_libraries(cansat PUBLIC
         pico_multicore
         FreeRTOS-Kernel         # No heap
         lwgps
-        pico_lorawan
         pico-icm20948
         )
 

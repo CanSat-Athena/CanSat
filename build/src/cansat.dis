@@ -33,23 +33,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
  14 .comment      00000046  00000000  00000000  0001c3c8  2**0
                   CONTENTS, READONLY
- 15 .debug_info   0006fc5c  00000000  00000000  0001c40e  2**0
+ 15 .debug_info   0006f962  00000000  00000000  0001c40e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_abbrev 00011da9  00000000  00000000  0008c06a  2**0
+ 16 .debug_abbrev 00011ca8  00000000  00000000  0008bd70  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_loclists 00028a62  00000000  00000000  0009de13  2**0
+ 17 .debug_loclists 00028a62  00000000  00000000  0009da18  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_aranges 00002fc8  00000000  00000000  000c6878  2**3
+ 18 .debug_aranges 00002fc8  00000000  00000000  000c6480  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_rnglists 00003279  00000000  00000000  000c9840  2**0
+ 19 .debug_rnglists 00003279  00000000  00000000  000c9448  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_line   00035b74  00000000  00000000  000ccab9  2**0
+ 20 .debug_line   0003566c  00000000  00000000  000cc6c1  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_str    0000fddd  00000000  00000000  0010262d  2**0
+ 21 .debug_str    0000fdc9  00000000  00000000  00101d2d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_frame  00007680  00000000  00000000  0011240c  2**2
+ 22 .debug_frame  00007680  00000000  00000000  00111af8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 23 .debug_line_str 00000364  00000000  00000000  00119a8c  2**0
+ 23 .debug_line_str 00000364  00000000  00000000  00119178  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 /home/arca/pico/cansat-code/build/src/cansat.elf:     file format elf32-littlearm
@@ -39285,7 +39285,7 @@ Disassembly of section .data:
 200000c0 <mutex_enter_blocking>:
 200000c0:	b570      	push	{r4, r5, r6, lr}
 200000c2:	0004      	movs	r4, r0
-200000c4:	f000 fdcc 	bl	20000c60 <__ulPortLockGetCurrentOwnerId_veneer>
+200000c4:	f000 fd94 	bl	20000bf0 <__ulPortLockGetCurrentOwnerId_veneer>
 200000c8:	0005      	movs	r5, r0
 200000ca:	6822      	ldr	r2, [r4, #0]
 200000cc:	f3ef 8110 	mrs	r1, PRIMASK
@@ -39298,7 +39298,7 @@ Disassembly of section .data:
 200000de:	3301      	adds	r3, #1
 200000e0:	d003      	beq.n	200000ea <mutex_enter_blocking+0x2a>
 200000e2:	0020      	movs	r0, r4
-200000e4:	f000 fd9c 	bl	20000c20 <__vPortLockInternalSpinUnlockWithWait_veneer>
+200000e4:	f000 fddc 	bl	20000ca0 <__vPortLockInternalSpinUnlockWithWait_veneer>
 200000e8:	e7ef      	b.n	200000ca <mutex_enter_blocking+0xa>
 200000ea:	6065      	str	r5, [r4, #4]
 200000ec:	6823      	ldr	r3, [r4, #0]
@@ -39331,7 +39331,7 @@ Disassembly of section .data:
 20000128:	601a      	str	r2, [r3, #0]
 2000012a:	f385 8810 	msr	PRIMASK, r5
 2000012e:	bd70      	pop	{r4, r5, r6, pc}
-20000130:	f000 fd96 	bl	20000c60 <__ulPortLockGetCurrentOwnerId_veneer>
+20000130:	f000 fd5e 	bl	20000bf0 <__ulPortLockGetCurrentOwnerId_veneer>
 20000134:	6060      	str	r0, [r4, #4]
 20000136:	2001      	movs	r0, #1
 20000138:	e7f2      	b.n	20000120 <mutex_try_enter+0x24>
@@ -39348,7 +39348,7 @@ Disassembly of section .data:
 2000014a:	6803      	ldr	r3, [r0, #0]
 2000014c:	2b00      	cmp	r3, #0
 2000014e:	d017      	beq.n	20000180 <mutex_enter_block_until+0x40>
-20000150:	f000 fd86 	bl	20000c60 <__ulPortLockGetCurrentOwnerId_veneer>
+20000150:	f000 fd4e 	bl	20000bf0 <__ulPortLockGetCurrentOwnerId_veneer>
 20000154:	9001      	str	r0, [sp, #4]
 20000156:	6825      	ldr	r5, [r4, #0]
 20000158:	f3ef 8110 	mrs	r1, PRIMASK
@@ -39363,7 +39363,7 @@ Disassembly of section .data:
 2000016e:	003a      	movs	r2, r7
 20000170:	0033      	movs	r3, r6
 20000172:	0020      	movs	r0, r4
-20000174:	f000 fd4c 	bl	20000c10 <__xPortLockInternalSpinUnlockWithBestEffortWaitOrTimeout_veneer>
+20000174:	f000 fd64 	bl	20000c40 <__xPortLockInternalSpinUnlockWithBestEffortWaitOrTimeout_veneer>
 20000178:	2800      	cmp	r0, #0
 2000017a:	d0ec      	beq.n	20000156 <mutex_enter_block_until+0x16>
 2000017c:	2000      	movs	r0, #0
@@ -39372,7 +39372,7 @@ Disassembly of section .data:
 20000182:	4a09      	ldr	r2, [pc, #36]	@ (200001a8 <mutex_enter_block_until+0x68>)
 20000184:	4809      	ldr	r0, [pc, #36]	@ (200001ac <mutex_enter_block_until+0x6c>)
 20000186:	2185      	movs	r1, #133	@ 0x85
-20000188:	f000 fd5a 	bl	20000c40 <____assert_func_veneer>
+20000188:	f000 fd6a 	bl	20000c60 <____assert_func_veneer>
 2000018c:	9b01      	ldr	r3, [sp, #4]
 2000018e:	6063      	str	r3, [r4, #4]
 20000190:	6823      	ldr	r3, [r4, #0]
@@ -39400,7 +39400,7 @@ Disassembly of section .data:
 200001c4:	0020      	movs	r0, r4
 200001c6:	b003      	add	sp, #12
 200001c8:	bdf0      	pop	{r4, r5, r6, r7, pc}
-200001ca:	f000 fd49 	bl	20000c60 <__ulPortLockGetCurrentOwnerId_veneer>
+200001ca:	f000 fd11 	bl	20000bf0 <__ulPortLockGetCurrentOwnerId_veneer>
 200001ce:	9b01      	ldr	r3, [sp, #4]
 200001d0:	4298      	cmp	r0, r3
 200001d2:	d0f7      	beq.n	200001c4 <mutex_try_enter_block_until+0x14>
@@ -39416,7 +39416,7 @@ Disassembly of section .data:
 200001e4:	b082      	sub	sp, #8
 200001e6:	0004      	movs	r4, r0
 200001e8:	4668      	mov	r0, sp
-200001ea:	f000 fd21 	bl	20000c30 <__make_timeout_time_ms_veneer>
+200001ea:	f000 fd41 	bl	20000c70 <__make_timeout_time_ms_veneer>
 200001ee:	9a00      	ldr	r2, [sp, #0]
 200001f0:	9b01      	ldr	r3, [sp, #4]
 200001f2:	0020      	movs	r0, r4
@@ -39439,13 +39439,13 @@ Disassembly of section .data:
 20000216:	2301      	movs	r3, #1
 20000218:	425b      	negs	r3, r3
 2000021a:	6043      	str	r3, [r0, #4]
-2000021c:	f000 fd28 	bl	20000c70 <__vPortLockInternalSpinUnlockWithNotify_veneer>
+2000021c:	f000 fd18 	bl	20000c50 <__vPortLockInternalSpinUnlockWithNotify_veneer>
 20000220:	bd10      	pop	{r4, pc}
 20000222:	4b03      	ldr	r3, [pc, #12]	@ (20000230 <mutex_exit+0x34>)
 20000224:	4a03      	ldr	r2, [pc, #12]	@ (20000234 <mutex_exit+0x38>)
 20000226:	4804      	ldr	r0, [pc, #16]	@ (20000238 <mutex_exit+0x3c>)
 20000228:	21b4      	movs	r1, #180	@ 0xb4
-2000022a:	f000 fd09 	bl	20000c40 <____assert_func_veneer>
+2000022a:	f000 fd19 	bl	20000c60 <____assert_func_veneer>
 2000022e:	46c0      	nop			@ (mov r8, r8)
 20000230:	100169ac 	.word	0x100169ac
 20000234:	100169e4 	.word	0x100169e4
@@ -39568,12 +39568,12 @@ Disassembly of section .data:
 20000320:	4a0a      	ldr	r2, [pc, #40]	@ (2000034c <flash_range_erase+0xac>)
 20000322:	480b      	ldr	r0, [pc, #44]	@ (20000350 <flash_range_erase+0xb0>)
 20000324:	2141      	movs	r1, #65	@ 0x41
-20000326:	f000 fc8b 	bl	20000c40 <____assert_func_veneer>
+20000326:	f000 fc9b 	bl	20000c60 <____assert_func_veneer>
 2000032a:	4b0a      	ldr	r3, [pc, #40]	@ (20000354 <flash_range_erase+0xb4>)
 2000032c:	4a07      	ldr	r2, [pc, #28]	@ (2000034c <flash_range_erase+0xac>)
 2000032e:	4808      	ldr	r0, [pc, #32]	@ (20000350 <flash_range_erase+0xb0>)
 20000330:	2149      	movs	r1, #73	@ 0x49
-20000332:	f000 fc85 	bl	20000c40 <____assert_func_veneer>
+20000332:	f000 fc95 	bl	20000c60 <____assert_func_veneer>
 20000336:	46c0      	nop			@ (mov r8, r8)
 20000338:	00004649 	.word	0x00004649
 2000033c:	00005845 	.word	0x00005845
@@ -39651,12 +39651,12 @@ Disassembly of section .data:
 200003da:	4a0a      	ldr	r2, [pc, #40]	@ (20000404 <flash_range_program+0xac>)
 200003dc:	480a      	ldr	r0, [pc, #40]	@ (20000408 <flash_range_program+0xb0>)
 200003de:	2158      	movs	r1, #88	@ 0x58
-200003e0:	f000 fc2e 	bl	20000c40 <____assert_func_veneer>
+200003e0:	f000 fc3e 	bl	20000c60 <____assert_func_veneer>
 200003e4:	4b09      	ldr	r3, [pc, #36]	@ (2000040c <flash_range_program+0xb4>)
 200003e6:	4a07      	ldr	r2, [pc, #28]	@ (20000404 <flash_range_program+0xac>)
 200003e8:	4807      	ldr	r0, [pc, #28]	@ (20000408 <flash_range_program+0xb0>)
 200003ea:	2160      	movs	r1, #96	@ 0x60
-200003ec:	f000 fc28 	bl	20000c40 <____assert_func_veneer>
+200003ec:	f000 fc38 	bl	20000c60 <____assert_func_veneer>
 200003f0:	00004649 	.word	0x00004649
 200003f4:	00005845 	.word	0x00005845
 200003f8:	00005052 	.word	0x00005052
@@ -39716,7 +39716,7 @@ Disassembly of section .data:
 20000470:	4a1b      	ldr	r2, [pc, #108]	@ (200004e0 <flash_do_cmd+0xd0>)
 20000472:	481c      	ldr	r0, [pc, #112]	@ (200004e4 <flash_do_cmd+0xd4>)
 20000474:	2180      	movs	r1, #128	@ 0x80
-20000476:	f000 fbe3 	bl	20000c40 <____assert_func_veneer>
+20000476:	f000 fbf3 	bl	20000c60 <____assert_func_veneer>
 2000047a:	2b00      	cmp	r3, #0
 2000047c:	d007      	beq.n	2000048e <flash_do_cmd+0x7e>
 2000047e:	2a00      	cmp	r2, #0
@@ -39784,7 +39784,7 @@ Disassembly of section .data:
 20000506:	22f0      	movs	r2, #240	@ 0xf0
 20000508:	0092      	lsls	r2, r2, #2
 2000050a:	2100      	movs	r1, #0
-2000050c:	f000 fbb8 	bl	20000c80 <____wrap_memset_veneer>
+2000050c:	f000 fb68 	bl	20000be0 <____wrap_memset_veneer>
 20000510:	4b03      	ldr	r3, [pc, #12]	@ (20000520 <reset_non_control_endpoints+0x38>)
 20000512:	4a04      	ldr	r2, [pc, #16]	@ (20000524 <reset_non_control_endpoints+0x3c>)
 20000514:	601a      	str	r2, [r3, #0]
@@ -39847,7 +39847,7 @@ Disassembly of section .data:
 2000058c:	220c      	movs	r2, #12
 2000058e:	2100      	movs	r1, #0
 20000590:	a801      	add	r0, sp, #4
-20000592:	f000 fb75 	bl	20000c80 <____wrap_memset_veneer>
+20000592:	f000 fb25 	bl	20000be0 <____wrap_memset_veneer>
 20000596:	2307      	movs	r3, #7
 20000598:	466a      	mov	r2, sp
 2000059a:	7153      	strb	r3, [r2, #5]
@@ -39943,7 +39943,7 @@ Disassembly of section .data:
 20000656:	0d49      	lsrs	r1, r1, #21
 20000658:	2201      	movs	r2, #1
 2000065a:	2000      	movs	r0, #0
-2000065c:	f000 fac8 	bl	20000bf0 <__dcd_event_sof_veneer>
+2000065c:	f000 fad8 	bl	20000c10 <__dcd_event_sof_veneer>
 20000660:	2480      	movs	r4, #128	@ 0x80
 20000662:	02a4      	lsls	r4, r4, #10
 20000664:	06eb      	lsls	r3, r5, #27
@@ -39974,7 +39974,7 @@ Disassembly of section .data:
 2000069a:	220c      	movs	r2, #12
 2000069c:	2100      	movs	r1, #0
 2000069e:	0030      	movs	r0, r6
-200006a0:	f000 faee 	bl	20000c80 <____wrap_memset_veneer>
+200006a0:	f000 fa9e 	bl	20000be0 <____wrap_memset_veneer>
 200006a4:	2306      	movs	r3, #6
 200006a6:	7073      	strb	r3, [r6, #1]
 200006a8:	4a34      	ldr	r2, [pc, #208]	@ (2000077c <dcd_rp2040_irq+0x1b0>)
@@ -40009,7 +40009,7 @@ Disassembly of section .data:
 200006e6:	220c      	movs	r2, #12
 200006e8:	2100      	movs	r1, #0
 200006ea:	0030      	movs	r0, r6
-200006ec:	f000 fac8 	bl	20000c80 <____wrap_memset_veneer>
+200006ec:	f000 fa78 	bl	20000be0 <____wrap_memset_veneer>
 200006f0:	2301      	movs	r3, #1
 200006f2:	7073      	strb	r3, [r6, #1]
 200006f4:	2101      	movs	r1, #1
@@ -40027,7 +40027,7 @@ Disassembly of section .data:
 2000070e:	220c      	movs	r2, #12
 20000710:	2100      	movs	r1, #0
 20000712:	0030      	movs	r0, r6
-20000714:	f000 fab4 	bl	20000c80 <____wrap_memset_veneer>
+20000714:	f000 fa64 	bl	20000be0 <____wrap_memset_veneer>
 20000718:	2304      	movs	r3, #4
 2000071a:	7073      	strb	r3, [r6, #1]
 2000071c:	2101      	movs	r1, #1
@@ -40044,7 +40044,7 @@ Disassembly of section .data:
 20000734:	220c      	movs	r2, #12
 20000736:	2100      	movs	r1, #0
 20000738:	0030      	movs	r0, r6
-2000073a:	f000 faa1 	bl	20000c80 <____wrap_memset_veneer>
+2000073a:	f000 fa51 	bl	20000be0 <____wrap_memset_veneer>
 2000073e:	2305      	movs	r3, #5
 20000740:	7073      	strb	r3, [r6, #1]
 20000742:	2101      	movs	r1, #1
@@ -40058,7 +40058,7 @@ Disassembly of section .data:
 20000754:	0021      	movs	r1, r4
 20000756:	4069      	eors	r1, r5
 20000758:	4809      	ldr	r0, [pc, #36]	@ (20000780 <dcd_rp2040_irq+0x1b4>)
-2000075a:	f000 fa79 	bl	20000c50 <__panic_veneer>
+2000075a:	f000 fa61 	bl	20000c20 <__panic_veneer>
 2000075e:	46c0      	nop			@ (mov r8, r8)
 20000760:	50110000 	.word	0x50110000
 20000764:	40054000 	.word	0x40054000
@@ -40161,7 +40161,7 @@ Disassembly of section .data:
 20000834:	18c0      	adds	r0, r0, r3
 20000836:	6921      	ldr	r1, [r4, #16]
 20000838:	0032      	movs	r2, r6
-2000083a:	f000 fa31 	bl	20000ca0 <____wrap_memcpy_veneer>
+2000083a:	f000 fa21 	bl	20000c80 <____wrap_memcpy_veneer>
 2000083e:	6923      	ldr	r3, [r4, #16]
 20000840:	199b      	adds	r3, r3, r6
 20000842:	6123      	str	r3, [r4, #16]
@@ -40200,7 +40200,7 @@ Disassembly of section .data:
 20000880:	2181      	movs	r1, #129	@ 0x81
 20000882:	480f      	ldr	r0, [pc, #60]	@ (200008c0 <sync_ep_buffer+0x74>)
 20000884:	0049      	lsls	r1, r1, #1
-20000886:	f000 f9db 	bl	20000c40 <____assert_func_veneer>
+20000886:	f000 f9eb 	bl	20000c60 <____assert_func_veneer>
 2000088a:	041b      	lsls	r3, r3, #16
 2000088c:	d50d      	bpl.n	200008aa <sync_ep_buffer+0x5e>
 2000088e:	6920      	ldr	r0, [r4, #16]
@@ -40208,7 +40208,7 @@ Disassembly of section .data:
 20000892:	0189      	lsls	r1, r1, #6
 20000894:	1859      	adds	r1, r3, r1
 20000896:	002a      	movs	r2, r5
-20000898:	f000 fa02 	bl	20000ca0 <____wrap_memcpy_veneer>
+20000898:	f000 f9f2 	bl	20000c80 <____wrap_memcpy_veneer>
 2000089c:	8ae3      	ldrh	r3, [r4, #22]
 2000089e:	195b      	adds	r3, r3, r5
 200008a0:	82e3      	strh	r3, [r4, #22]
@@ -40221,7 +40221,7 @@ Disassembly of section .data:
 200008ae:	210a      	movs	r1, #10
 200008b0:	4803      	ldr	r0, [pc, #12]	@ (200008c0 <sync_ep_buffer+0x74>)
 200008b2:	31ff      	adds	r1, #255	@ 0xff
-200008b4:	f000 f9c4 	bl	20000c40 <____assert_func_veneer>
+200008b4:	f000 f9d4 	bl	20000c60 <____assert_func_veneer>
 200008b8:	10017aac 	.word	0x10017aac
 200008bc:	10017b8c 	.word	0x10017b8c
 200008c0:	10017acc 	.word	0x10017acc
@@ -40291,7 +40291,7 @@ Disassembly of section .data:
 2000093c:	009b      	lsls	r3, r3, #2
 2000093e:	4804      	ldr	r0, [pc, #16]	@ (20000950 <_hw_endpoint_buffer_control_update32+0x54>)
 20000940:	589a      	ldr	r2, [r3, r2]
-20000942:	f000 f985 	bl	20000c50 <__panic_veneer>
+20000942:	f000 f96d 	bl	20000c20 <__panic_veneer>
 20000946:	46c0      	nop			@ (mov r8, r8)
 20000948:	fffffbff 	.word	0xfffffbff
 2000094c:	20000de0 	.word	0x20000de0
@@ -40381,7 +40381,7 @@ Disassembly of section .data:
 200009fe:	009b      	lsls	r3, r3, #2
 20000a00:	4809      	ldr	r0, [pc, #36]	@ (20000a28 <hw_endpoint_xfer_continue+0x4c>)
 20000a02:	589a      	ldr	r2, [r3, r2]
-20000a04:	f000 f924 	bl	20000c50 <__panic_veneer>
+20000a04:	f000 f90c 	bl	20000c20 <__panic_veneer>
 20000a08:	0020      	movs	r0, r4
 20000a0a:	f7ff fed1 	bl	200007b0 <e15_is_critical_frame_period>
 20000a0e:	1e05      	subs	r5, r0, #0
@@ -40431,7 +40431,7 @@ Disassembly of section .data:
 20000a68:	f000 f8ca 	bl	20000c00 <__critical_section_enter_blocking_veneer>
 20000a6c:	0029      	movs	r1, r5
 20000a6e:	0020      	movs	r0, r4
-20000a70:	f000 f8b6 	bl	20000be0 <__tu_fifo_write_veneer>
+20000a70:	f000 f8de 	bl	20000c30 <__tu_fifo_write_veneer>
 20000a74:	6962      	ldr	r2, [r4, #20]
 20000a76:	69a3      	ldr	r3, [r4, #24]
 20000a78:	f3bf 8f5f 	dmb	sy
@@ -40461,7 +40461,7 @@ Disassembly of section .data:
 20000aac:	f000 f8a8 	bl	20000c00 <__critical_section_enter_blocking_veneer>
 20000ab0:	0029      	movs	r1, r5
 20000ab2:	0020      	movs	r0, r4
-20000ab4:	f000 f894 	bl	20000be0 <__tu_fifo_write_veneer>
+20000ab4:	f000 f8bc 	bl	20000c30 <__tu_fifo_write_veneer>
 20000ab8:	6962      	ldr	r2, [r4, #20]
 20000aba:	69a3      	ldr	r3, [r4, #24]
 20000abc:	f3bf 8f5f 	dmb	sy
@@ -40485,7 +40485,7 @@ Disassembly of section .data:
 20000ae4:	f000 f88c 	bl	20000c00 <__critical_section_enter_blocking_veneer>
 20000ae8:	0029      	movs	r1, r5
 20000aea:	0020      	movs	r0, r4
-20000aec:	f000 f878 	bl	20000be0 <__tu_fifo_write_veneer>
+20000aec:	f000 f8a0 	bl	20000c30 <__tu_fifo_write_veneer>
 20000af0:	6962      	ldr	r2, [r4, #20]
 20000af2:	69a3      	ldr	r3, [r4, #24]
 20000af4:	f3bf 8f5f 	dmb	sy
@@ -40542,7 +40542,7 @@ Disassembly of section .data:
 20000b5e:	220c      	movs	r2, #12
 20000b60:	2100      	movs	r1, #0
 20000b62:	a801      	add	r0, sp, #4
-20000b64:	f000 f88c 	bl	20000c80 <____wrap_memset_veneer>
+20000b64:	f000 f83c 	bl	20000be0 <____wrap_memset_veneer>
 20000b68:	782b      	ldrb	r3, [r5, #0]
 20000b6a:	466a      	mov	r2, sp
 20000b6c:	7113      	strb	r3, [r2, #4]
@@ -40555,7 +40555,7 @@ Disassembly of section .data:
 20000b7a:	f000 f841 	bl	20000c00 <__critical_section_enter_blocking_veneer>
 20000b7e:	a901      	add	r1, sp, #4
 20000b80:	0020      	movs	r0, r4
-20000b82:	f000 f82d 	bl	20000be0 <__tu_fifo_write_veneer>
+20000b82:	f000 f855 	bl	20000c30 <__tu_fifo_write_veneer>
 20000b86:	6962      	ldr	r2, [r4, #20]
 20000b88:	69a3      	ldr	r3, [r4, #24]
 20000b8a:	f3bf 8f5f 	dmb	sy
@@ -40570,7 +40570,7 @@ Disassembly of section .data:
 20000ba0:	f000 f82e 	bl	20000c00 <__critical_section_enter_blocking_veneer>
 20000ba4:	0029      	movs	r1, r5
 20000ba6:	0020      	movs	r0, r4
-20000ba8:	f000 f81a 	bl	20000be0 <__tu_fifo_write_veneer>
+20000ba8:	f000 f842 	bl	20000c30 <__tu_fifo_write_veneer>
 20000bac:	6962      	ldr	r2, [r4, #20]
 20000bae:	69a3      	ldr	r3, [r4, #24]
 20000bb0:	f3bf 8f5f 	dmb	sy
@@ -40592,23 +40592,23 @@ Disassembly of section .data:
 20000bdc:	0000      	movs	r0, r0
 	...
 
-20000be0 <__tu_fifo_write_veneer>:
+20000be0 <____wrap_memset_veneer>:
 20000be0:	b401      	push	{r0}
-20000be2:	4802      	ldr	r0, [pc, #8]	@ (20000bec <__tu_fifo_write_veneer+0xc>)
+20000be2:	4802      	ldr	r0, [pc, #8]	@ (20000bec <____wrap_memset_veneer+0xc>)
 20000be4:	4684      	mov	ip, r0
 20000be6:	bc01      	pop	{r0}
 20000be8:	4760      	bx	ip
 20000bea:	bf00      	nop
-20000bec:	1000fac3 	.word	0x1000fac3
+20000bec:	1000cf55 	.word	0x1000cf55
 
-20000bf0 <__dcd_event_sof_veneer>:
+20000bf0 <__ulPortLockGetCurrentOwnerId_veneer>:
 20000bf0:	b401      	push	{r0}
-20000bf2:	4802      	ldr	r0, [pc, #8]	@ (20000bfc <__dcd_event_sof_veneer+0xc>)
+20000bf2:	4802      	ldr	r0, [pc, #8]	@ (20000bfc <__ulPortLockGetCurrentOwnerId_veneer+0xc>)
 20000bf4:	4684      	mov	ip, r0
 20000bf6:	bc01      	pop	{r0}
 20000bf8:	4760      	bx	ip
 20000bfa:	bf00      	nop
-20000bfc:	1000dd6d 	.word	0x1000dd6d
+20000bfc:	10010461 	.word	0x10010461
 
 20000c00 <__critical_section_enter_blocking_veneer>:
 20000c00:	b401      	push	{r0}
@@ -40619,77 +40619,77 @@ Disassembly of section .data:
 20000c0a:	bf00      	nop
 20000c0c:	1000e099 	.word	0x1000e099
 
-20000c10 <__xPortLockInternalSpinUnlockWithBestEffortWaitOrTimeout_veneer>:
+20000c10 <__dcd_event_sof_veneer>:
 20000c10:	b401      	push	{r0}
-20000c12:	4802      	ldr	r0, [pc, #8]	@ (20000c1c <__xPortLockInternalSpinUnlockWithBestEffortWaitOrTimeout_veneer+0xc>)
+20000c12:	4802      	ldr	r0, [pc, #8]	@ (20000c1c <__dcd_event_sof_veneer+0xc>)
 20000c14:	4684      	mov	ip, r0
 20000c16:	bc01      	pop	{r0}
 20000c18:	4760      	bx	ip
 20000c1a:	bf00      	nop
-20000c1c:	10010625 	.word	0x10010625
+20000c1c:	1000dd6d 	.word	0x1000dd6d
 
-20000c20 <__vPortLockInternalSpinUnlockWithWait_veneer>:
+20000c20 <__panic_veneer>:
 20000c20:	b401      	push	{r0}
-20000c22:	4802      	ldr	r0, [pc, #8]	@ (20000c2c <__vPortLockInternalSpinUnlockWithWait_veneer+0xc>)
+20000c22:	4802      	ldr	r0, [pc, #8]	@ (20000c2c <__panic_veneer+0xc>)
 20000c24:	4684      	mov	ip, r0
 20000c26:	bc01      	pop	{r0}
 20000c28:	4760      	bx	ip
 20000c2a:	bf00      	nop
-20000c2c:	1001048d 	.word	0x1001048d
+20000c2c:	1000ab89 	.word	0x1000ab89
 
-20000c30 <__make_timeout_time_ms_veneer>:
+20000c30 <__tu_fifo_write_veneer>:
 20000c30:	b401      	push	{r0}
-20000c32:	4802      	ldr	r0, [pc, #8]	@ (20000c3c <__make_timeout_time_ms_veneer+0xc>)
+20000c32:	4802      	ldr	r0, [pc, #8]	@ (20000c3c <__tu_fifo_write_veneer+0xc>)
 20000c34:	4684      	mov	ip, r0
 20000c36:	bc01      	pop	{r0}
 20000c38:	4760      	bx	ip
 20000c3a:	bf00      	nop
-20000c3c:	100092db 	.word	0x100092db
+20000c3c:	1000fac3 	.word	0x1000fac3
 
-20000c40 <____assert_func_veneer>:
+20000c40 <__xPortLockInternalSpinUnlockWithBestEffortWaitOrTimeout_veneer>:
 20000c40:	b401      	push	{r0}
-20000c42:	4802      	ldr	r0, [pc, #8]	@ (20000c4c <____assert_func_veneer+0xc>)
+20000c42:	4802      	ldr	r0, [pc, #8]	@ (20000c4c <__xPortLockInternalSpinUnlockWithBestEffortWaitOrTimeout_veneer+0xc>)
 20000c44:	4684      	mov	ip, r0
 20000c46:	bc01      	pop	{r0}
 20000c48:	4760      	bx	ip
 20000c4a:	bf00      	nop
-20000c4c:	1000aa59 	.word	0x1000aa59
+20000c4c:	10010625 	.word	0x10010625
 
-20000c50 <__panic_veneer>:
+20000c50 <__vPortLockInternalSpinUnlockWithNotify_veneer>:
 20000c50:	b401      	push	{r0}
-20000c52:	4802      	ldr	r0, [pc, #8]	@ (20000c5c <__panic_veneer+0xc>)
+20000c52:	4802      	ldr	r0, [pc, #8]	@ (20000c5c <__vPortLockInternalSpinUnlockWithNotify_veneer+0xc>)
 20000c54:	4684      	mov	ip, r0
 20000c56:	bc01      	pop	{r0}
 20000c58:	4760      	bx	ip
 20000c5a:	bf00      	nop
-20000c5c:	1000ab89 	.word	0x1000ab89
+20000c5c:	10010555 	.word	0x10010555
 
-20000c60 <__ulPortLockGetCurrentOwnerId_veneer>:
+20000c60 <____assert_func_veneer>:
 20000c60:	b401      	push	{r0}
-20000c62:	4802      	ldr	r0, [pc, #8]	@ (20000c6c <__ulPortLockGetCurrentOwnerId_veneer+0xc>)
+20000c62:	4802      	ldr	r0, [pc, #8]	@ (20000c6c <____assert_func_veneer+0xc>)
 20000c64:	4684      	mov	ip, r0
 20000c66:	bc01      	pop	{r0}
 20000c68:	4760      	bx	ip
 20000c6a:	bf00      	nop
-20000c6c:	10010461 	.word	0x10010461
+20000c6c:	1000aa59 	.word	0x1000aa59
 
-20000c70 <__vPortLockInternalSpinUnlockWithNotify_veneer>:
+20000c70 <__make_timeout_time_ms_veneer>:
 20000c70:	b401      	push	{r0}
-20000c72:	4802      	ldr	r0, [pc, #8]	@ (20000c7c <__vPortLockInternalSpinUnlockWithNotify_veneer+0xc>)
+20000c72:	4802      	ldr	r0, [pc, #8]	@ (20000c7c <__make_timeout_time_ms_veneer+0xc>)
 20000c74:	4684      	mov	ip, r0
 20000c76:	bc01      	pop	{r0}
 20000c78:	4760      	bx	ip
 20000c7a:	bf00      	nop
-20000c7c:	10010555 	.word	0x10010555
+20000c7c:	100092db 	.word	0x100092db
 
-20000c80 <____wrap_memset_veneer>:
+20000c80 <____wrap_memcpy_veneer>:
 20000c80:	b401      	push	{r0}
-20000c82:	4802      	ldr	r0, [pc, #8]	@ (20000c8c <____wrap_memset_veneer+0xc>)
+20000c82:	4802      	ldr	r0, [pc, #8]	@ (20000c8c <____wrap_memcpy_veneer+0xc>)
 20000c84:	4684      	mov	ip, r0
 20000c86:	bc01      	pop	{r0}
 20000c88:	4760      	bx	ip
 20000c8a:	bf00      	nop
-20000c8c:	1000cf55 	.word	0x1000cf55
+20000c8c:	1000cf61 	.word	0x1000cf61
 
 20000c90 <__hw_endpoint_get_by_addr_veneer>:
 20000c90:	b401      	push	{r0}
@@ -40700,14 +40700,14 @@ Disassembly of section .data:
 20000c9a:	bf00      	nop
 20000c9c:	1000dc5d 	.word	0x1000dc5d
 
-20000ca0 <____wrap_memcpy_veneer>:
+20000ca0 <__vPortLockInternalSpinUnlockWithWait_veneer>:
 20000ca0:	b401      	push	{r0}
-20000ca2:	4802      	ldr	r0, [pc, #8]	@ (20000cac <____wrap_memcpy_veneer+0xc>)
+20000ca2:	4802      	ldr	r0, [pc, #8]	@ (20000cac <__vPortLockInternalSpinUnlockWithWait_veneer+0xc>)
 20000ca4:	4684      	mov	ip, r0
 20000ca6:	bc01      	pop	{r0}
 20000ca8:	4760      	bx	ip
 20000caa:	bf00      	nop
-20000cac:	1000cf61 	.word	0x1000cf61
+20000cac:	1001048d 	.word	0x1001048d
 
 20000cb0 <_ZN3I2C11i2cInstanceE>:
 20000cb0:	40044000 00000000                       .@.@....

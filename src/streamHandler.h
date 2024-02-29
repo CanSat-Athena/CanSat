@@ -6,7 +6,7 @@
 #include <queue.h>
 #include <task.h>
 
-#include "radio.h"
+#include "radio.hpp"
 #include "commonTypes.h"
 #include "config.h"
 
