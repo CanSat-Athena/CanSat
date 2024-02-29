@@ -8,7 +8,7 @@ void Watchdog::init() {
     watchdog_enable(WATCHDOG_TIME, true);
 
     // Create watchdog task
-    xTaskCreateStatic(watchdogTask, "Watchdog", WATCHDOG_TASK_SIZE, NULL, 30, watchdogStack, &watchdogTaskBuffer);
+    xTaskCreateStatic(watchdogTask, "Watchdog", WATCHDOG_TASK_SIZE, NULL, configMAX_PRIORITIES - 1, watchdogStack, &watchdogTaskBuffer);
 }
 
 /// @brief Task to update watchdog

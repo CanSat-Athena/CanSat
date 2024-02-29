@@ -1,6 +1,7 @@
 #pragma once
 #include <limits.h>
 #include "hardware/flash.h"
+#include "pico/flash.h"
 #include "hardware/regs/addressmap.h"
 #include <FreeRTOS.h>
 #include <semphr.h>

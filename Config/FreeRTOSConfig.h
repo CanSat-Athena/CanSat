@@ -74,8 +74,8 @@
 
 /* Memory allocation related definitions. */
 #define configSUPPORT_STATIC_ALLOCATION         1
-#define configSUPPORT_DYNAMIC_ALLOCATION        0
-// #define configTOTAL_HEAP_SIZE                   (128*1024)
+#define configSUPPORT_DYNAMIC_ALLOCATION        1
+#define configTOTAL_HEAP_SIZE                   (128*1024)
 #define configAPPLICATION_ALLOCATED_HEAP        0
 
 /* Hook function related definitions. */
@@ -99,7 +99,7 @@ extern volatile unsigned long ulHighFrequencyTimerTicks;
 
 /* Software timer related definitions. */
 #define configUSE_TIMERS                        1
-#define configTIMER_TASK_PRIORITY               ( configMAX_PRIORITIES - 1 )
+#define configTIMER_TASK_PRIORITY               ( configMAX_PRIORITIES - 2 )
 #define configTIMER_QUEUE_LENGTH                10
 #define configTIMER_TASK_STACK_DEPTH            1024
 
@@ -110,14 +110,14 @@ extern volatile unsigned long ulHighFrequencyTimerTicks;
 #define configMAX_API_CALL_INTERRUPT_PRIORITY   [dependent on processor and application]
 */
 
-// #if FREE_RTOS_KERNEL_SMP // set by the RP2040 SMP port of FreeRTOS
-// /* SMP port only */
-// #define configNUMBER_OF_CORES                   2
-// #define configTICK_CORE                         0
-// #define configRUN_MULTIPLE_PRIORITIES           1
-// #define configUSE_CORE_AFFINITY                 1
-// #define configUSE_PASSIVE_IDLE_HOOK             0
-// #endif
+#if FREE_RTOS_KERNEL_SMP // set by the RP2040 SMP port of FreeRTOS
+/* SMP port only */
+#define configNUMBER_OF_CORES                   2
+#define configTICK_CORE                         0
+#define configRUN_MULTIPLE_PRIORITIES           1
+#define configUSE_CORE_AFFINITY                 1
+#define configUSE_PASSIVE_IDLE_HOOK             0
+#endif
 
 /* RP2040 specific */
 #define configSUPPORT_PICO_SYNC_INTEROP         1

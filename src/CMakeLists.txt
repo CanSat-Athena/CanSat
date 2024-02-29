@@ -35,8 +35,8 @@ target_include_directories(cansat PRIVATE
 )
 
 add_compile_definitions(
-        # FREE_RTOS_KERNEL_SMP=1
-        # portSUPPORT_SMP=1
+        FREE_RTOS_KERNEL_SMP=1
+        portSUPPORT_SMP=1
         #LFS_CONFIG=littlefsConfig.h
         PICO_FLASH_SIZE_BYTES=16777216
         LFS_THREADSAFE
@@ -60,8 +60,9 @@ target_link_libraries(cansat PUBLIC
         hardware_exception
         hardware_irq
         hardware_flash
+        pico_flash
         pico_multicore
-        FreeRTOS-Kernel         # No heap
+        FreeRTOS-Kernel-Heap4         # No heap
         lwgps
         pico-icm20948
         )

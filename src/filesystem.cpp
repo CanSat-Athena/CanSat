@@ -67,7 +67,7 @@ bool Filesystem::init() {
         StreamHandler::tPrintf("Filesystem: Formatting in 60 seconds \n");
 
         // Wait 60 seconds
-        sleep_ms(60 * 1000);
+        vTaskDelay(60 * 1000);
 
         StreamHandler::tPrintf("Filesystem: Reformatting...\n");
         lfs_format(&lfs, &pico_cfg);
@@ -252,6 +252,10 @@ void Filesystem::readFile(uint32_t bootCount) {
 /// @brief Task to handle filesystem input from USB
 /// @param pvParameters unused
 void Filesystem::filesystemInputTask(void* pvParameters) {
+    // Wait for initialisation to complete
+    xEventGroupWaitBits(eventGroup, 0b00000001, pdFALSE, pdTRUE, portMAX_DELAY);
+    vTaskDelay(100);
+
     char c;
     char fileBootCount[45];
 

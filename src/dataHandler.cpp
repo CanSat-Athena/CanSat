@@ -17,9 +17,12 @@ StaticQueue_t anemometerQueueBuffer;
 StaticQueue_t gpsQueueBuffer;
 
 void DataHandler::dataHandlerTask(void* DHPointer) {
+    // Wait for initialisation to complete
+    xEventGroupWaitBits(eventGroup, 0b00000001, pdFALSE, pdTRUE, portMAX_DELAY);
+    vTaskDelay(1000);
+
     // Get start time
     TickType_t lastStartTime = xTaskGetTickCount();
-    vTaskDelay(1000);
 
     while (true) {
 

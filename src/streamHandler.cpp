@@ -4,6 +4,7 @@
 
 #define DATA_QUEUE_SIZE 5
 #define TERMINAL_BUFFER_SIZE RADIO_MAX_PACKET_SIZE * 6
+#define INPUT_BUFFER_SIZE 256
 
 // Queue stacks
 static StackType_t terminalBufferStack[TERMINAL_BUFFER_TASK_SIZE];
@@ -21,10 +22,15 @@ static StaticQueue_t dataQueueBuffer;
 static uint8_t terminalStreamBufferStorageArea[TERMINAL_BUFFER_SIZE + 1];
 static StaticStreamBuffer_t terminalStaticStreamBuffer;
 
+// Input buffer
+static uint8_t inputStreamBufferStorageArea[INPUT_BUFFER_SIZE + 1];
+static StaticStreamBuffer_t inputStaticStreamBuffer;
+
 /// @brief Initialise the stream handler
 void StreamHandler::init() {
     dataQueue = xQueueCreateStatic(DATA_QUEUE_SIZE, sizeof(dataRadioLine_t), dataQueueStorageBuffer, &dataQueueBuffer);
     terminalBuffer = xStreamBufferCreateStatic(TERMINAL_BUFFER_SIZE, 1, terminalStreamBufferStorageArea, &terminalStaticStreamBuffer);
+    inputBuffer = xStreamBufferCreateStatic(INPUT_BUFFER_SIZE, 1, inputStreamBufferStorageArea, &inputStaticStreamBuffer);
 
     xTaskCreateStatic(terminalBufferTask, "Terminal buffer", TERMINAL_BUFFER_TASK_SIZE, NULL, 3, terminalBufferStack, &terminalBufferTaskBuffer);
     xTaskCreateStatic(dataQueueTask, "Data queue", DATA_QUEUE_TASK_SIZE, NULL, 3, dataQueueStack, &dataQueueTaskBuffer);
@@ -59,6 +65,29 @@ void StreamHandler::dataQueueTask(void* unused) {
         }
         vTaskDelay(300);
     }
+}
+
+/// @brief Input timer callback - handles input from stdin queue
+/// @param t Repeating timer struct
+/// @return true
+bool inputTimerCallback(struct repeating_timer* t) {
+    // char character;
+    // int c;
+    // BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+
+    // while (true) {
+    //     c = getchar_timeout_us(0);
+
+    //     if (c != PICO_ERROR_TIMEOUT) {
+    //         character = (c & 0xFF);
+    //         xStreamBufferSendFromISR(inputBuffer, &character, sizeof(char), &xHigherPriorityTaskWoken);
+    //         portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+    //     } else {
+    //         break;
+    //     }
+    // }
+    printf("abcasdasdasd\n");
+    return true;
 }
 
 void StreamHandler::tPrintf(const char* string, ...) {

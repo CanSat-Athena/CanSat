@@ -14,11 +14,14 @@ class StreamHandler {
 public:
     static inline QueueHandle_t dataQueue;
     static inline StreamBufferHandle_t terminalBuffer;
+    static inline StreamBufferHandle_t inputBuffer;
 
     static void init();
 
-    static void terminalBufferTask(void *unused);
-    static void dataQueueTask(void *unused);
+    static void terminalBufferTask(void* unused);
+    static void dataQueueTask(void* unused);
 
-    static void tPrintf(const char *string, ...);
+    static void tPrintf(const char* string, ...);
 };
+
+bool inputTimerCallback(struct repeating_timer* t);

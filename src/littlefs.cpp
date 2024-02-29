@@ -39,6 +39,17 @@ struct lfs_config pico_cfg {
         .lookahead_size = 32
 };
 
+struct flashProgram_t {
+    uint32_t addr;
+    const uint8_t* buffer;
+    size_t size;
+} flashProgram_t;
+
+struct flashErase_t {
+    uint32_t flashOffset;
+    size_t size;
+} flashErase_t;
+
 SemaphoreHandle_t filesystemMutex;
 
 static int flash_fs_read(const struct lfs_config* config, lfs_block_t block, lfs_off_t off, void* buffer, lfs_size_t size) {
@@ -49,15 +60,28 @@ static int flash_fs_read(const struct lfs_config* config, lfs_block_t block, lfs
     return LFS_ERR_OK;
 }
 
+static void flashProgramFunc(void *param) {
+    struct flashProgram_t *fp = (struct flashProgram_t*)param;
+    flash_range_program(fp->addr, fp->buffer, fp->size);
+}
+
+static void flashEraseFunc(void *param) {
+    struct flashErase_t *fe = (struct flashErase_t*)param;
+    flash_range_erase(fe->flashOffset, fe->size);
+}
+
 static int flash_fs_prog(const struct lfs_config* config, lfs_block_t block, lfs_off_t off, const void* buffer, lfs_size_t size) {
     uint32_t fs_start = HW_FLASH_STORAGE_BASE;
     uint32_t addr = fs_start + (block * config->block_size) + off;
 
     // printf("[FS] WRITE: %p, %d\n", addr, size);
+    struct flashProgram_t fp = {
+        .addr = addr,
+        .buffer = (const uint8_t*)buffer,
+        .size = size
+    };
 
-    uint32_t ints = save_and_disable_interrupts();
-    flash_range_program(addr, (const uint8_t*)buffer, size);
-    restore_interrupts(ints);
+    flash_safe_execute(flashProgramFunc, &fp, UINT32_MAX);
 
     return LFS_ERR_OK;
 }
@@ -66,9 +90,13 @@ static int flash_fs_erase(const struct lfs_config* config, lfs_block_t block) {
     uint32_t fs_start = HW_FLASH_STORAGE_BASE;
     uint32_t offset = fs_start + (block * config->block_size);
 
-    uint32_t ints = save_and_disable_interrupts();
-    flash_range_erase(offset, config->block_size);
-    restore_interrupts(ints);
+    // printf("[FS] ERASE: %p\n", offset);
+    struct flashErase_t fe = {
+        .flashOffset = offset,
+        .size = config->block_size
+    };
+
+    flash_safe_execute(flashEraseFunc, &fe, UINT32_MAX);
 
     return LFS_ERR_OK;
 }

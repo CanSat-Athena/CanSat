@@ -70,7 +70,7 @@
 			{
 				"command" : 6,
 				"file" : 0,
-				"line" : 72,
+				"line" : 73,
 				"parent" : 0
 			},
 			{
@@ -163,7 +163,7 @@
 					"define" : "CMAKE_BUILD_TYPE=Debug"
 				},
 				{
-					"backtrace" : 2,
+					"backtrace" : 12,
 					"define" : "FREE_RTOS_KERNEL_SMP=1"
 				},
 				{
@@ -201,6 +201,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "LIB_PICO_FIX_RP2040_USB_DEVICE_ENUMERATION=1"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "LIB_PICO_FLASH=1"
 				},
 				{
 					"backtrace" : 2,
@@ -353,6 +357,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "PICO_USE_BLOCKED_RAM=0"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "portSUPPORT_SMP=1"
 				}
 			],
 			"includes" : 
@@ -584,6 +592,10 @@
 				{
 					"backtrace" : 2,
 					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_flash/include"
 				},
 				{
 					"backtrace" : 2,
@@ -666,7 +678,7 @@
 					"define" : "CMAKE_BUILD_TYPE=Debug"
 				},
 				{
-					"backtrace" : 2,
+					"backtrace" : 12,
 					"define" : "FREE_RTOS_KERNEL_SMP=1"
 				},
 				{
@@ -704,6 +716,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "LIB_PICO_FIX_RP2040_USB_DEVICE_ENUMERATION=1"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "LIB_PICO_FLASH=1"
 				},
 				{
 					"backtrace" : 2,
@@ -856,6 +872,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "PICO_USE_BLOCKED_RAM=0"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "portSUPPORT_SMP=1"
 				}
 			],
 			"includes" : 
@@ -1087,6 +1107,10 @@
 				{
 					"backtrace" : 2,
 					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_flash/include"
 				},
 				{
 					"backtrace" : 2,
@@ -1194,7 +1218,9 @@
 				101,
 				102,
 				103,
-				104
+				104,
+				105,
+				106
 			]
 		},
 		{
@@ -1227,7 +1253,7 @@
 					"define" : "CMAKE_BUILD_TYPE=Debug"
 				},
 				{
-					"backtrace" : 2,
+					"backtrace" : 12,
 					"define" : "FREE_RTOS_KERNEL_SMP=1"
 				},
 				{
@@ -1265,6 +1291,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "LIB_PICO_FIX_RP2040_USB_DEVICE_ENUMERATION=1"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "LIB_PICO_FLASH=1"
 				},
 				{
 					"backtrace" : 2,
@@ -1417,6 +1447,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "PICO_USE_BLOCKED_RAM=0"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "portSUPPORT_SMP=1"
 				}
 			],
 			"includes" : 
@@ -1648,6 +1682,10 @@
 				{
 					"backtrace" : 2,
 					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/hardware_exception/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_flash/include"
 				},
 				{
 					"backtrace" : 2,
@@ -2643,7 +2681,9 @@
 				101,
 				102,
 				103,
-				104
+				104,
+				105,
+				106
 			]
 		},
 		{
@@ -3245,7 +3285,19 @@
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 1,
+			"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_flash/flash.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
 			"path" : "/home/arca/pico/pico-sdk/src/rp2_common/pico_multicore/multicore.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "lib/FreeRTOS-Kernel/portable/MemMang/heap_4.c",
 			"sourceGroupIndex" : 0
 		},
 		{
