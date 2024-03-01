@@ -4,7 +4,9 @@
 #include <FreeRTOS.h>
 #include <stream_buffer.h>
 #include <queue.h>
+#include <timers.h>
 #include <task.h>
+#include <event_groups.h>
 
 #include "radio.hpp"
 #include "commonTypes.h"
@@ -16,12 +18,17 @@ public:
     static inline StreamBufferHandle_t terminalBuffer;
     static inline StreamBufferHandle_t inputBuffer;
 
+    static inline TimerHandle_t inputTimer;
+    static inline StaticTimer_t inputTimerBuffer;
+
     static void init();
 
     static void terminalBufferTask(void* unused);
     static void dataQueueTask(void* unused);
 
+    static void inputTimerCallback(TimerHandle_t xTimer);
+
+    static char getChar();
+
     static void tPrintf(const char* string, ...);
 };
-
-bool inputTimerCallback(struct repeating_timer* t);

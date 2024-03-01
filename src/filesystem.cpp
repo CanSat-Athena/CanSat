@@ -274,7 +274,7 @@ void Filesystem::filesystemInputTask(void* pvParameters) {
         vTaskDelay(40);
 
         StreamHandler::tPrintf("$ ");
-        char c = getchar();
+        char c = StreamHandler::getChar();
 
         switch (c) {
         case 'p':
@@ -287,11 +287,11 @@ void Filesystem::filesystemInputTask(void* pvParameters) {
         case 'n': {
             // Get confirmation
             StreamHandler::tPrintf("Press 'Y' (uppercase) to confirm nuke: ");
-            char c2 = getchar();
+            char c2 = StreamHandler::getChar();
             if (c2 == 'Y') {
                 // Get confirmation 2
                 StreamHandler::tPrintf("\nPress 'C' (uppercase) to confirm nuke: ");
-                char c3 = getchar();
+                char c3 = StreamHandler::getChar();
 
                 if (c3 == 'C') {
                     StreamHandler::tPrintf("\n");
@@ -317,7 +317,7 @@ void Filesystem::filesystemInputTask(void* pvParameters) {
 
             // Get confirmation
             StreamHandler::tPrintf("Press 'Y' (uppercase) to confirm delete: ");
-            char c2 = getchar();
+            char c2 = StreamHandler::getChar();
             if (c2 == 'Y') {
                 StreamHandler::tPrintf("\n");
 

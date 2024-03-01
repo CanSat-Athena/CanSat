@@ -43,7 +43,7 @@ int32_t getIntInput() {
         }
 
         // Read char
-        c = getchar();
+        c = StreamHandler::getChar();
 
         // Handle enter key
         if (c == '\r' || c == '\n') {
