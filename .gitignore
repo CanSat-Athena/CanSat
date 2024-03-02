@@ -19,5 +19,12 @@ build/**.dis
 build/**.hex
 build/**.core
 build/**.elf
-build/**.elf.map
+build/src/*.uf2
+build/src/**.map
+build/src/**.bin
+build/src/**.dis
+build/src/**.hex
+build/src/**.core
+build/src/**.elf
+build/src/**.elf.map
 build/.ninja_log
