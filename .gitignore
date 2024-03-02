@@ -10,6 +10,8 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+build/.ninja_deps
+build/.ninja_log
 build/*.uf2
 build/*.map
 build/*.bin
@@ -17,4 +19,5 @@ build/*.dis
 build/*.hex
 build/*.core
 build/*.elf
+build/*.elf.map
 build/.ninja_log
