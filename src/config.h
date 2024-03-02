@@ -7,6 +7,9 @@
 #define GPS_TX_PIN 8
 #define GPS_RX_PIN 9
 #define ANEMOMETER_PIN 6
+#define RADIO_NSS_PIN 20
+#define RADIO_RESET_PIN 21
+#define RADIO_DIO0_PIN 15
 
 // Task stack sizes
 #define INIT_TASK_SIZE 512

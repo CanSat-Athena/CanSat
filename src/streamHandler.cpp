@@ -29,14 +29,21 @@ static StaticStreamBuffer_t inputStaticStreamBuffer;
 
 /// @brief Initialise the stream handler
 void StreamHandler::init() {
+    radio = Radio();
+    
+    printf("StreamHnd:  Initialising queues and buffers\n");
     dataQueue = xQueueCreateStatic(DATA_QUEUE_SIZE, sizeof(dataRadioLine_t), dataQueueStorageBuffer, &dataQueueBuffer);
     terminalBuffer = xStreamBufferCreateStatic(TERMINAL_BUFFER_SIZE, 1, terminalStreamBufferStorageArea, &terminalStaticStreamBuffer);
     inputBuffer = xStreamBufferCreateStatic(INPUT_BUFFER_SIZE, 1, inputStreamBufferStorageArea, &inputStaticStreamBuffer);
 
+    printf("StreamHnd:  Initialising timer\n");
     inputTimer = xTimerCreateStatic("Input timer", INPUT_TIMER_PERIOD_MS, pdTRUE, (void*)0, inputTimerCallback, &inputTimerBuffer);
 
+    printf("StreamHnd:  Creating tasks\n");
     xTaskCreateStatic(terminalBufferTask, "Terminal buffer", TERMINAL_BUFFER_TASK_SIZE, NULL, 3, terminalBufferStack, &terminalBufferTaskBuffer);
     xTaskCreateStatic(dataQueueTask, "Data queue", DATA_QUEUE_TASK_SIZE, NULL, 3, dataQueueStack, &dataQueueTaskBuffer);
+
+    printf("StreamHnd:  Initialised\n");
 }
 
 /// @brief Task to handle the terminal buffer

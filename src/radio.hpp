@@ -4,6 +4,8 @@
 #include <queue.h>
 #include "pico-lora/src/LoRa-RP2040.h"
 
+#include "config.h"
+
 class Radio {
 public:
     Radio() {

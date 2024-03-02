@@ -13,13 +13,17 @@
 #include "config.h"
 
 class StreamHandler {
-public:
-    static inline QueueHandle_t dataQueue;
+private:
     static inline StreamBufferHandle_t terminalBuffer;
     static inline StreamBufferHandle_t inputBuffer;
 
     static inline TimerHandle_t inputTimer;
     static inline StaticTimer_t inputTimerBuffer;
+
+    static inline Radio radio;
+
+public:
+    static inline QueueHandle_t dataQueue;
 
     static void init();
 
