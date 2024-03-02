@@ -20,6 +20,8 @@ add_executable(cansat
         littlefs/lfs.c
         littlefs/lfs_util.c
         pico-icm20948/src/pico-icm20948.c
+        pico-lora/src/LoRa-RP2040.cpp
+        pico-lora/src/Print.cpp
         exceptionHandlers.h
         i2c.h
         ../Config/FreeRTOSConfig.cpp
