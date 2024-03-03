@@ -15,4 +15,6 @@ public:
     }
 
     void init();
+
+    void send(packet_t& packet);
 };

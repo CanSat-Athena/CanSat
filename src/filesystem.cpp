@@ -97,8 +97,6 @@ bool Filesystem::init() {
     lfs_file_open(&lfs, &dataFile, dataFileName, LFS_O_RDWR | LFS_O_CREAT | LFS_O_TRUNC);
     lfs_file_sync(&lfs, &dataFile);
     StreamHandler::tPrintf("Filesystem: Created file %s\n", dataFileName);
-
-    ls("/");
     StreamHandler::tPrintf("Filesystem: ");
     printUsage();
 
@@ -106,7 +104,7 @@ bool Filesystem::init() {
     StreamHandler::tPrintf("Filesystem: Starting input task\n");
     xTaskCreateStatic(filesystemInputTask, "Filesystem input", 512, NULL, 2, filesystemInputTaskStack, &filesystemInputTaskBuffer);
 
-    StreamHandler::tPrintf("Filesystem: Initialised\n");
+    StreamHandler::tPrintf("Filesystem: Initialised, %d\n", sizeof(dataLine_t));
     this->initialised = true;
     return true;
 }
@@ -181,72 +179,76 @@ void Filesystem::readFile(uint32_t bootCount) {
         return;
     }
 
+    StreamHandler::startLongPrint();
+
     StreamHandler::tPrintf("Printing file %s:\n", dataFileName);
 
     lfs_ssize_t readStatus = 0;
     dataLine_t line;
-
-    StreamHandler::startLongPrint();
 
     // Print each line
     while (true) {
         readStatus = lfs_file_read(&lfs, &dataFile, (void*)(&line), sizeof(dataLine_t));
         if (readStatus < sizeof(dataLine_t)) break;
 
-        StreamHandler::tPrintf("%u: ", line.timestamp);
+        StreamHandler::tPrintf("%u:", line.timestamp);
 
         // Get DHT20 data
         StreamHandler::tPrintf("[");
         for (int i = 0; i < DHT20_READ_FREQ; i++) {
-            StreamHandler::tPrintf("[%f, %f], ", line.dht20[i].temperature, line.dht20[i].humidity);
+            StreamHandler::tPrintf("[%f,%f]", line.dht20[i].temperature, line.dht20[i].humidity);
         }
-        StreamHandler::tPrintf("], ");
+        StreamHandler::tPrintf("]");
 
         // Get BME680 data
         StreamHandler::tPrintf("[");
         for (int i = 0; i < BME680_READ_FREQ; i++) {
-            StreamHandler::tPrintf("[%f, %f, %f, %f], ",
+            StreamHandler::tPrintf("[%f,%f,%f,%f]",
                 line.bme680[i].temperature,
                 line.bme680[i].humidity,
                 line.bme680[i].pressure,
                 line.bme680[i].gasResistance
             );
         }
-        StreamHandler::tPrintf("], ");
+        StreamHandler::tPrintf("]");
 
         // Get IMU data
         StreamHandler::tPrintf("[");
         for (int i = 0; i < IMU_READ_FREQ; i++) {
-            StreamHandler::tPrintf("[[%f, %f, %f], [%f, %f, %f], [%f, %f, %f]], ",
+            StreamHandler::tPrintf("[%f,%f,%f,%f,%f,%f,%f,%f,%f]",
                 line.imu[i].accel_g[0], line.imu[i].accel_g[1], line.imu[i].accel_g[2],
                 line.imu[i].gyro_dps[0], line.imu[i].gyro_dps[1], line.imu[i].gyro_dps[2],
                 line.imu[i].mag_ut[0], line.imu[i].mag_ut[1], line.imu[i].mag_ut[2]
             );
         }
-        StreamHandler::tPrintf("], ");
+        StreamHandler::tPrintf("]");
 
         // Get light data
         StreamHandler::tPrintf("[");
         for (int i = 0; i < LIGHT_READ_FREQ; i++) {
-            StreamHandler::tPrintf("%u, ", line.lightData[i].lightIntensity);
+            StreamHandler::tPrintf("%u,", line.lightData[i].lightIntensity);
         }
-        StreamHandler::tPrintf("], ");
+        StreamHandler::tPrintf("]");
 
         // Get anemometer data
         StreamHandler::tPrintf("[");
         for (int i = 0; i < ANEMOMETER_READ_FREQ; i++) {
-            StreamHandler::tPrintf("%u, ", line.anemometerData[i].triggerCount);
+            StreamHandler::tPrintf("%u,", line.anemometerData[i].triggerCount);
         }
-        StreamHandler::tPrintf("], ");
+        StreamHandler::tPrintf("]");
 
         // Get GPS data
         StreamHandler::tPrintf("[");
-        StreamHandler::tPrintf("%f, %f, %f, %u", line.gpsData[0].latitude, line.gpsData[0].longitude, line.gpsData[0].altitude, line.gpsData[0].fix);
-        StreamHandler::tPrintf("], ");
+        StreamHandler::tPrintf("%f,%f,%f,%u", line.gpsData[0].latitude, line.gpsData[0].longitude, line.gpsData[0].altitude, line.gpsData[0].fix);
+        StreamHandler::tPrintf("]");
+
+        StreamHandler::tPrintf((const char*)&line);
 
         StreamHandler::tPrintf("\n");
-        StreamHandler::endLongPrint();
+
     }
+
+    StreamHandler::endLongPrint();
 
     // Don't forget to close
     lfs_file_close(&lfs, &dataFile);

@@ -31,11 +31,12 @@ void setup() {
     printf("\n------------------\n");
     Watchdog::init();
     StreamHandler::init();
+    StreamHandler::startLongPrint();
     I2C::init();
     ADC::init();
 
     // Set up sensors
-    // gps = new GPS();
+    gps = new GPS();
     dht = new DHT20();
     bme = new BME680();
     imu = new IMU();
@@ -45,6 +46,7 @@ void setup() {
     // Set up data handler
     dataHandler = new DataHandler();
     StreamHandler::tPrintf("Setup complete\n------------------\n");
+    StreamHandler::endLongPrint();
     xEventGroupSetBits(eventGroup, 0b00000001);     // Set bit 0 to show initialisation complete
 }
 

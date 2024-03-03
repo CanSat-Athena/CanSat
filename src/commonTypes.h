@@ -13,12 +13,13 @@
    Sensor Data Structs
    Used for sharing data read from sensors
 */
-
+#pragma pack(1)
 typedef struct dht20Data_t {
     float temperature;
     float humidity;
 } dht20Data_t;
 
+#pragma pack(1)
 typedef struct bme680Data_t {
     float temperature;
     float humidity;
@@ -29,12 +30,14 @@ typedef struct bme680Data_t {
     // uint8_t readStatus;
 } bme680Data_t;
 
+#pragma pack(1)
 typedef struct imuData_t {
     float accel_g[3],
     gyro_dps[3],
     mag_ut[3];
 } imuData_t;
 
+#pragma pack(1)
 typedef struct lightData_t {
     uint16_t lightIntensity;
 } lightData_t;
@@ -51,6 +54,7 @@ typedef struct gpsData_t {
     uint8_t fix;
 } gpsData_t;
 
+#pragma pack(1)
 typedef union sensorData_t {
     dht20Data_t dht20;
     bme680Data_t bme680;
@@ -61,6 +65,7 @@ typedef union sensorData_t {
 } sensorData_t;
 
 // Data to be stored
+#pragma pack(1)
 typedef struct dataLine_t {
     uint32_t timestamp;
     dht20Data_t dht20[(int)max(DHT20_READ_FREQ, 1)];
@@ -72,6 +77,7 @@ typedef struct dataLine_t {
 } dataLine_t;
 
 // Data to be sent
+#pragma pack(1)
 typedef struct dataRadioLine_t {
     uint32_t timestamp;
     dht20Data_t dht20[(int)max(DHT20_READ_FREQ, 1)];
@@ -82,18 +88,8 @@ typedef struct dataRadioLine_t {
     gpsData_t gpsData[1];
 } dataRadioLine_t;
 
+#pragma pack(1)
 typedef struct packet_t {
     char type;
     uint8_t body[RADIO_MAX_PACKET_SIZE];
 } packet_t;
-
-// /// @brief Filesystem action type (can be DATA_READ, DATA_WRITE)
-// enum fsActionType { DATA_READ, DATA_WRITE };
-
-// // Filesystem action
-// typedef struct fsAction_t {
-//     fsActionType type;
-//     union data {
-//         dataLine_t write;
-//     };
-// } fsAction_t;

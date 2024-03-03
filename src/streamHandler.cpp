@@ -67,11 +67,7 @@ void StreamHandler::terminalBufferTask(void* unused) {
         if (bytesRead > 0) {
             packet.body[bytesRead] = '\0';
             printf("%s", packet.body);
-            LoRa.beginPacket();
-            for (int i = 0; i < strlen((const char*)packet.body); i++) {
-                LoRa.write(packet.body[i]);
-            }
-            LoRa.endPacket();
+            radio.send(packet);
         }
     }
 }
@@ -93,18 +89,6 @@ void StreamHandler::dataQueueTask(void* unused) {
         vTaskDelay(300);
     }
 }
-
-// void StreamHandler::radioTask(void* unused) {
-//     packet_t packet{};
-
-//     while (true) {
-//         if (xQueueReceive(StreamHandler::radioQueue, &packet, portMAX_DELAY)) {
-//             LoRa.beginPacket();
-//             LoRa.write((uint8_t*)(&packet.body), strlen((char*)packet.body));
-//             LoRa.endPacket();
-//         }
-//     }
-// }
 
 /// @brief Input timer callback - handles input from stdin queue
 /// @param t Repeating timer struct

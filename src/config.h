@@ -41,7 +41,8 @@
 
 // Radio
 #define RADIO_BANDWIDTH 500E3
-#define RADIO_MAX_PACKET_SIZE 210       // Max packet body size
+#define RADIO_SPREAD_FACTOR 500E3
+#define RADIO_MAX_PACKET_SIZE 150       // Max packet body size
 
 // Filesystem
 #define FS_SIZE (14 * 1024 * 1024) // 1MB
@@ -59,7 +60,7 @@
 // Sensor read frequencies
 #define DHT20_READ_FREQ 1
 #define BME680_READ_FREQ 1
-#define IMU_READ_FREQ 20        // Also need to modify pico-icm20948.cpp
+#define IMU_READ_FREQ 10        // Also need to modify pico-icm20948.cpp
 #define LIGHT_READ_FREQ 1
 #define ANEMOMETER_READ_FREQ 1
 
