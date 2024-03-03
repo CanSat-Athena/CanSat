@@ -37,8 +37,11 @@
 // Other config
 #define DHT20_PROCESSING_TIMEOUT_MS 500
 #define I2C_PER_CHAR_TIMEOUT_US 600
-#define RADIO_MAX_PACKET_SIZE 180
 #define INPUT_TIMER_PERIOD_MS 20
+
+// Radio
+#define RADIO_BANDWIDTH 500E3
+#define RADIO_MAX_PACKET_SIZE 210       // Max packet body size
 
 // Filesystem
 #define FS_SIZE (14 * 1024 * 1024) // 1MB

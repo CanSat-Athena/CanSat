@@ -1,11 +1,11 @@
 #include "radio.hpp"
 
-/// @brief Initialise radios
+/// @brief Initialise radio
 void Radio::init() {
     const uint attempts = 3;
 
     LoRa.setPins(RADIO_NSS_PIN, RADIO_RESET_PIN, RADIO_DIO0_PIN);
-    
+
     for (int i = 0; i < attempts; i++) {
         printf("Radio:      Trying to connect, attempt %d of %d\n", i + 1, attempts);
 
@@ -24,6 +24,8 @@ void Radio::init() {
         }
 
         printf("Radio:      Initialised successfully\n");
+        LoRa.enableCrc();
+        LoRa.setSignalBandwidth(RADIO_BANDWIDTH);
         return;
     }
 

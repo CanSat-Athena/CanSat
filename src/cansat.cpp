@@ -35,7 +35,7 @@ void setup() {
     ADC::init();
 
     // Set up sensors
-    gps = new GPS();
+    // gps = new GPS();
     dht = new DHT20();
     bme = new BME680();
     imu = new IMU();
@@ -133,7 +133,7 @@ int main() {
     exception_set_exclusive_handler(HARDFAULT_EXCEPTION, hardfault_handler);
 
     eventGroup = xEventGroupCreateStatic(&eventGroupStack);
-    xTaskCreateStatic(initTask, "Init", INIT_TASK_SIZE, NULL, 4, initTaskStack, &initTaskBuffer);
+    xTaskCreateStatic(initTask, "Init", INIT_TASK_SIZE, NULL, 6, initTaskStack, &initTaskBuffer);
 
     vTaskStartScheduler();
     return 0;

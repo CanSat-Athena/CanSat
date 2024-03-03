@@ -186,6 +186,8 @@ void Filesystem::readFile(uint32_t bootCount) {
     lfs_ssize_t readStatus = 0;
     dataLine_t line;
 
+    StreamHandler::startLongPrint();
+
     // Print each line
     while (true) {
         readStatus = lfs_file_read(&lfs, &dataFile, (void*)(&line), sizeof(dataLine_t));
@@ -243,6 +245,7 @@ void Filesystem::readFile(uint32_t bootCount) {
         StreamHandler::tPrintf("], ");
 
         StreamHandler::tPrintf("\n");
+        StreamHandler::endLongPrint();
     }
 
     // Don't forget to close

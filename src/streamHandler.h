@@ -29,10 +29,13 @@ public:
 
     static void terminalBufferTask(void* unused);
     static void dataQueueTask(void* unused);
+    // static void radioTask(void* unused);
 
     static void inputTimerCallback(TimerHandle_t xTimer);
 
     static char getChar();
-
     static void tPrintf(const char* string, ...);
+
+    static void startLongPrint();
+    static void endLongPrint();
 };
