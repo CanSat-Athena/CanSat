@@ -30,7 +30,7 @@ static StaticStreamBuffer_t inputStaticStreamBuffer;
 /// @brief Initialise the stream handler
 void StreamHandler::init() {
     radio = Radio();
-    
+
     printf("StreamHnd:  Initialising queues and buffers\n");
     dataQueue = xQueueCreateStatic(DATA_QUEUE_SIZE, sizeof(dataRadioLine_t), dataQueueStorageBuffer, &dataQueueBuffer);
     terminalBuffer = xStreamBufferCreateStatic(TERMINAL_BUFFER_SIZE, 1, terminalStreamBufferStorageArea, &terminalStaticStreamBuffer);
@@ -62,7 +62,9 @@ void StreamHandler::terminalBufferTask(void* unused) {
         if (bytesRead > 0) {
             packet.body[bytesRead] = '\0';
             printf("%s", packet.body);
-            // TODO: send over radio
+            LoRa.beginPacket();
+            LoRa.print((const char*)packet.body, bytesRead + 1);
+            LoRa.endPacket();
         }
     }
 }

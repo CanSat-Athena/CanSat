@@ -33,7 +33,7 @@ void setup() {
     StreamHandler::init();
     I2C::init();
     ADC::init();
-    
+
     // Set up sensors
     gps = new GPS();
     dht = new DHT20();
@@ -133,7 +133,7 @@ int main() {
     exception_set_exclusive_handler(HARDFAULT_EXCEPTION, hardfault_handler);
 
     eventGroup = xEventGroupCreateStatic(&eventGroupStack);
-    xTaskCreateStatic(initTask, "Init", INIT_TASK_SIZE,  NULL, 4, initTaskStack, &initTaskBuffer);
+    xTaskCreateStatic(initTask, "Init", INIT_TASK_SIZE, NULL, 4, initTaskStack, &initTaskBuffer);
 
     vTaskStartScheduler();
     return 0;

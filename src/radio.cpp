@@ -18,6 +18,7 @@ void Radio::init() {
 
             if (i < attempts - 1)
                 printf("Radio:      Retrying...\n");
+            else break;
 
             continue;
         }
