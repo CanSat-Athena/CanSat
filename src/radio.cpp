@@ -26,7 +26,7 @@ void Radio::init() {
         printf("Radio:      Initialised successfully\n");
         LoRa.enableCrc();
         LoRa.setSignalBandwidth(RADIO_BANDWIDTH);
-        LoRa.setSpreadingFactor(8);
+        LoRa.setSpreadingFactor(RADIO_SPREAD_FACTOR);
         return;
     }
 

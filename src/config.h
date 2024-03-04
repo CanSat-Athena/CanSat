@@ -41,7 +41,7 @@
 
 // Radio
 #define RADIO_BANDWIDTH 500E3
-#define RADIO_SPREAD_FACTOR 500E3
+#define RADIO_SPREAD_FACTOR 9
 #define RADIO_MAX_PACKET_SIZE 180       // Max packet body size
 
 // Filesystem
