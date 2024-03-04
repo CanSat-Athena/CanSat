@@ -1,7 +1,5 @@
 #pragma once
 #include "pico/stdlib.h"
-#include <FreeRTOS.h>
-#include <queue.h>
 
 #include "config.h"
 
@@ -43,6 +41,10 @@ typedef struct gpsData_t {
     double latitude;
     double longitude;
     float altitude;
+
+    uint8_t hours;
+    uint8_t minutes;
+    uint8_t seconds;
 
     uint8_t fix;
 } __attribute__((packed))  gpsData_t;

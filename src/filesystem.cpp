@@ -239,7 +239,8 @@ void Filesystem::readFile(uint32_t bootCount) {
 
         // Get GPS data
         StreamHandler::tPrintf("[");
-        StreamHandler::tPrintf("%f,%f,%f,%u", line.gpsData[0].latitude, line.gpsData[0].longitude, line.gpsData[0].altitude, line.gpsData[0].fix);
+        StreamHandler::tPrintf("%f,%f,%f,%d,%d,%d,%u", line.gpsData[0].latitude, line.gpsData[0].longitude, line.gpsData[0].altitude,
+            line.gpsData[0].hours, line.gpsData[0].minutes, line.gpsData[0].seconds, line.gpsData[0].fix);
         StreamHandler::tPrintf("]");
 
         StreamHandler::tPrintf("\n");
@@ -305,7 +306,7 @@ void Filesystem::filesystemInputTask(void* pvParameters) {
                     goto abort;
                 }
             } else {
-                abort:
+            abort:
                 StreamHandler::tPrintf("\nAborting nuclear operation\n");
             }
             break;

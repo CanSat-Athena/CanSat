@@ -97,6 +97,10 @@ sensorData_t GPS::getDataStatic() {
             .longitude = lwgps.longitude,
             .altitude = (float)lwgps.altitude,
 
+            .hours = lwgps.hours,
+            .minutes = lwgps.minutes,
+            .seconds = lwgps.seconds,
+
             .fix = lwgps.fix
         }
     };
