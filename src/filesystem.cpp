@@ -104,7 +104,7 @@ bool Filesystem::init() {
     StreamHandler::tPrintf("Filesystem: Starting input task\n");
     xTaskCreateStatic(filesystemInputTask, "Filesystem input", 512, NULL, 2, filesystemInputTaskStack, &filesystemInputTaskBuffer);
 
-    StreamHandler::tPrintf("Filesystem: Initialised, %d\n", sizeof(dataLine_t));
+    StreamHandler::tPrintf("Filesystem: Initialised, dataLine_t size: %d\n", sizeof(dataLine_t));
     this->initialised = true;
     return true;
 }
@@ -215,10 +215,10 @@ void Filesystem::readFile(uint32_t bootCount) {
         // Get IMU data
         StreamHandler::tPrintf("[");
         for (int i = 0; i < IMU_READ_FREQ; i++) {
-            StreamHandler::tPrintf("[%f,%f,%f,%f,%f,%f,%f,%f,%f]",
-                line.imu[i].accel_g[0], line.imu[i].accel_g[1], line.imu[i].accel_g[2],
-                line.imu[i].gyro_dps[0], line.imu[i].gyro_dps[1], line.imu[i].gyro_dps[2],
-                line.imu[i].mag_ut[0], line.imu[i].mag_ut[1], line.imu[i].mag_ut[2]
+            StreamHandler::tPrintf("[%d,%d,%d,%d,%d,%d,%d,%d,%d]",
+                line.imu[i].accel[0], line.imu[i].accel[1], line.imu[i].accel[2],
+                line.imu[i].gyro[0], line.imu[i].gyro[1], line.imu[i].gyro[2],
+                line.imu[i].mag[0], line.imu[i].mag[1], line.imu[i].mag[2]
             );
         }
         StreamHandler::tPrintf("]");
@@ -241,8 +241,6 @@ void Filesystem::readFile(uint32_t bootCount) {
         StreamHandler::tPrintf("[");
         StreamHandler::tPrintf("%f,%f,%f,%u", line.gpsData[0].latitude, line.gpsData[0].longitude, line.gpsData[0].altitude, line.gpsData[0].fix);
         StreamHandler::tPrintf("]");
-
-        StreamHandler::tPrintf((const char*)&line);
 
         StreamHandler::tPrintf("\n");
 

@@ -14,7 +14,7 @@ bool IMU::init(const int attempts) {
         StreamHandler::tPrintf("IMU:        Trying to connect, attempt %d of %d\n", i + 1, attempts);
 
         if (icm20948_init(&config) != 0) goto retry;
-        icm20948_set_mag_rate(&config, IMU_READ_FREQ);
+        icm20948_set_mag_rate(&config, max(IMU_READ_FREQ, 10));
         // icm20948_cal_gyro(&config, &data.gyro_bias[0]);
         // StreamHandler::tPrintf("IMU:        Calibrated gyro: %d %d %d\n", data.gyro_bias[0], data.gyro_bias[1], data.gyro_bias[2]);
         // icm20948_cal_accel(&config, &data.accel_bias[0]);
@@ -41,21 +41,16 @@ bool IMU::init(const int attempts) {
 /// @brief Updates the IMU data
 /// @return True if successful
 bool IMU::updateData() {
-    icm20948_read_raw_accel(&config, accel_raw);
-    icm20948_read_raw_gyro(&config, gyro_raw);
-    icm20948_read_raw_mag(&config, mag_raw);
+    icm20948_read_raw_accel(&config, accel);
+    icm20948_read_raw_gyro(&config, gyro);
+    icm20948_read_raw_mag(&config, mag);
     icm20948_read_temp_c(&config, &temp_c);
 
-    for (uint8_t i = 0; i < 3; i++) {
-        accel_g[i] = (float)accel_raw[i] / (16384.0f / 1);
-        gyro_dps[i] = (float)gyro_raw[i] / 131.0f;
-        mag_ut[i] = ((float)mag_raw[i] / 20) * 3;
-    }
-
-    // StreamHandler::tPrintf("accel. x: %+2.5f, y: %+2.5f, z:%+2.5f\n", accel_g[0], accel_g[1], accel_g[2]);
-    // StreamHandler::tPrintf("gyro.  x: %+2.5f, y: %+2.5f, z:%+2.5f\n", gyro_dps[0], gyro_dps[1], gyro_dps[2]);
-    // StreamHandler::tPrintf("mag.   x: %+2.5f, y: %+2.5f, z:%+2.5f\n", mag_ut[0], mag_ut[1], mag_ut[2]);
-    // StreamHandler::tPrintf("temp: %+2.5f\n", temp_c);
+    // for (uint8_t i = 0; i < 3; i++) {
+    //     accel_g[i] = (float)accel_raw[i] / (16384.0f / 1);
+    //     gyro_dps[i] = (float)gyro_raw[i] / 131.0f;
+    //     mag_ut[i] = ((float)mag_raw[i] / 20) * 3;
+    // }
 
     return true;
 }
@@ -63,17 +58,17 @@ bool IMU::updateData() {
 sensorData_t IMU::getData() {
     return {
         .imu = {
-            accel_g[0] = this->accel_g[0],
-            accel_g[1] = this->accel_g[1],
-            accel_g[2] = this->accel_g[2],
+            accel[0] = this->accel[0],
+            accel[1] = this->accel[1],
+            accel[2] = this->accel[2],
 
-            gyro_dps[0] = this->gyro_dps[0],
-            gyro_dps[1] = this->gyro_dps[1],
-            gyro_dps[2] = this->gyro_dps[2],
+            gyro[0] = this->gyro[0],
+            gyro[1] = this->gyro[1],
+            gyro[2] = this->gyro[2],
 
-            mag_ut[0] = this->mag_ut[0],
-            mag_ut[1] = this->mag_ut[1],
-            mag_ut[2] = this->mag_ut[2],
+            mag[0] = this->mag[0],
+            mag[1] = this->mag[1],
+            mag[2] = this->mag[2],
         }
     };
 }

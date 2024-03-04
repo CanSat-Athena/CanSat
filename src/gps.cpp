@@ -95,7 +95,7 @@ sensorData_t GPS::getDataStatic() {
         .gpsData = gpsData_t {
             .latitude = lwgps.latitude,
             .longitude = lwgps.longitude,
-            .altitude = lwgps.altitude,
+            .altitude = (float)lwgps.altitude,
 
             .fix = lwgps.fix
         }

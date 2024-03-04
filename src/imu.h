@@ -17,8 +17,8 @@ private:
     icm20984_data_t data;
 
 public:
-    int16_t accel_raw[3] = { 0 }, gyro_raw[3] = { 0 }, mag_raw[3] = { 0 }, temp_raw = 0;
-    float accel_g[3] = { 0 }, gyro_dps[3] = { 0 }, mag_ut[3] = { 0 }, temp_c = 0;
+    int16_t accel[3] = { 0 }, gyro[3] = { 0 }, mag[3] = { 0 };
+    float temp_c = 0;
 
     IMU(bool initialise = true) : I2CSensor(IMU_ADDRESS) {
         if (initialise) init();
