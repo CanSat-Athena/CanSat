@@ -27,19 +27,37 @@ void Radio::init() {
         LoRa.enableCrc();
         LoRa.setSignalBandwidth(RADIO_BANDWIDTH);
         LoRa.setSpreadingFactor(RADIO_SPREAD_FACTOR);
+
+        LoRa.onReceive(receiveIsr);
+        LoRa.receive();
+
         return;
     }
 
+    // Failed
     printf("Radio:      Failed to initialise\n");
 }
 
 /// @brief Send the packet
 /// @param packet The packet to send
 void Radio::send(packet_t& packet) {
+    while (LoRa.beginPacket() == 0) {
+        vTaskDelay(50);
+    }
+
     LoRa.beginPacket();
-    // LoRa.write(packet.type);
     for (int i = 0; i < strlen((const char*)&packet); i++) {
         LoRa.write(((char*)&packet)[i]);
     }
-    LoRa.endPacket();
+    LoRa.endPacket(true);
+}
+
+void Radio::receiveIsr(int packetSize) {
+    printf("\nReceived!\n");
+    // Read packet
+    for (int i = 0; i < packetSize; i++) {
+        char c = LoRa.read();
+        if (i > 0)
+            printf("%c", c);
+    }
 }

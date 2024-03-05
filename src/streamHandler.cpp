@@ -10,10 +10,12 @@
 // Queue stacks
 static StackType_t terminalBufferStack[TERMINAL_BUFFER_TASK_SIZE];
 static StackType_t dataQueueStack[DATA_QUEUE_TASK_SIZE];
+static StackType_t radioStack[RADIO_TASK_SIZE];
 
 // Task buffers
 static StaticTask_t terminalBufferTaskBuffer;
 static StaticTask_t dataQueueTaskBuffer;
+static StaticTask_t radioTaskBuffer;
 
 // Data queue
 static uint8_t dataQueueStorageBuffer[DATA_QUEUE_SIZE * sizeof(dataRadioLine_t)];
@@ -46,7 +48,7 @@ void StreamHandler::init() {
     printf("StreamHnd:  Creating tasks\n");
     xTaskCreateStatic(terminalBufferTask, "Terminal buffer", TERMINAL_BUFFER_TASK_SIZE, NULL, 3, terminalBufferStack, &terminalBufferTaskBuffer);
     xTaskCreateStatic(dataQueueTask, "Data queue", DATA_QUEUE_TASK_SIZE, NULL, 3, dataQueueStack, &dataQueueTaskBuffer);
-    // xTaskCreate(radioTask, "Radio queue", RADIO_QUEUE_TASK_SIZE, NULL, 3, NULL);
+    xTaskCreate(radioTask, "Radio", RADIO_TASK_SIZE, NULL, 3, NULL);
 
     printf("StreamHnd:  Initialised\n");
 
@@ -68,6 +70,7 @@ void StreamHandler::terminalBufferTask(void* unused) {
             packet.body[bytesRead] = '\0';
             printf("%s", packet.body);
             radio.send(packet);
+            LoRa.receive();
         }
     }
 }
@@ -87,6 +90,28 @@ void StreamHandler::dataQueueTask(void* unused) {
             // TODO: Do stuff, send over radio
         }
         vTaskDelay(300);
+    }
+}
+
+/// @brief Task to handle the data queue
+void StreamHandler::radioTask(void* unused) {
+    // Wait for initialisation to complete
+    xEventGroupWaitBits(eventGroup, 0b00000001, pdFALSE, pdTRUE, portMAX_DELAY);
+
+    int bytesRead;
+
+    while (true) {
+        // bytesRead = LoRa.parsePacket();
+        // if (bytesRead) {
+        //     for (int i = 0; i < bytesRead; i++) {
+        //         char c = LoRa.read();
+        //         printf("%c", c);
+        //     }
+        // }
+        vTaskDelay(10000);
+        LoRa.receive();
+        bytesRead = LoRa.parsePacket();
+        printf("Receive mode\n");
     }
 }
 

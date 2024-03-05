@@ -29,6 +29,7 @@ public:
 
     static void terminalBufferTask(void* unused);
     static void dataQueueTask(void* unused);
+    static void radioTask(void* unused);
 
     static void inputTimerCallback(TimerHandle_t xTimer);
 
