@@ -61,12 +61,12 @@ void Radio::send(packet_t packet) {
 /// @brief Interrupt service routine for when a packet is received
 /// @param packetSize Size of the packet received
 void Radio::receiveIsr(int packetSize) {
-    printf("\nReceived!\n");
-    // Read packet
-    for (int i = 0; i < packetSize; i++) {
-        char c = LoRa.read();
-        printf("%c", c);
-    }
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+    char c = LoRa.read();
+
+    xStreamBufferSendFromISR(inputBuffer, &c, 1, &xHigherPriorityTaskWoken);
+
+    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
 }
 
 /// @brief Radio task - sends items in radio queue
