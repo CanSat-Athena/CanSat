@@ -30,6 +30,12 @@
 #define ANEMOMETER_TASK_SIZE 512
 #define GPS_TASK_SIZE 512
 
+// Queue and buffer sizes
+#define DATA_QUEUE_SIZE 5
+#define RADIO_QUEUE_SIZE 15
+#define TERMINAL_BUFFER_SIZE RADIO_MAX_PACKET_SIZE * 6
+#define INPUT_BUFFER_SIZE 256
+
 // I2C Addresses
 #define DHT20_ADDRESS  0x38
 #define BME680_ADDRESS (uint8_t)0x77

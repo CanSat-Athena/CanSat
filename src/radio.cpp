@@ -1,10 +1,22 @@
 #include "radio.hpp"
 
+// Task stack & buffer
+static StackType_t radioStack[RADIO_TASK_SIZE];
+static StaticTask_t radioTaskBuffer;
+
+// Radio queue
+static uint8_t radioQueueStorageBuffer[RADIO_QUEUE_SIZE * sizeof(packet_t)];
+static StaticQueue_t radioQueueBuffer;
+
 /// @brief Initialise radio
 void Radio::init() {
-    const uint attempts = 3;
-
+    // Set pin configuration
     LoRa.setPins(RADIO_NSS_PIN, RADIO_RESET_PIN, RADIO_DIO0_PIN);
+
+    // Initialise queue
+    radioQueue = xQueueCreateStatic(RADIO_QUEUE_SIZE, sizeof(packet_t), radioQueueStorageBuffer, &radioQueueBuffer);
+
+    const uint attempts = 3;
 
     for (int i = 0; i < attempts; i++) {
         printf("Radio:      Trying to connect, attempt %d of %d\n", i + 1, attempts);
@@ -28,9 +40,7 @@ void Radio::init() {
         LoRa.setSignalBandwidth(RADIO_BANDWIDTH);
         LoRa.setSpreadingFactor(RADIO_SPREAD_FACTOR);
 
-        LoRa.onReceive(receiveIsr);
-        LoRa.receive();
-
+        xTaskCreateStaticAffinitySet(radioTask, "Radio", RADIO_TASK_SIZE, NULL, 4, radioStack, &radioTaskBuffer, 1);
         return;
     }
 
@@ -41,17 +51,21 @@ void Radio::init() {
 /// @brief Send the packet
 /// @param packet The packet to send
 void Radio::send(packet_t& packet) {
-    while (LoRa.beginPacket() == 0) {
-        vTaskDelay(50);
-    }
+    // while (LoRa.beginPacket() == 0) {
+    //     vTaskDelay(50);
+    // }
+
+    printf("Sending!\n");
 
     LoRa.beginPacket();
     for (int i = 0; i < strlen((const char*)&packet); i++) {
         LoRa.write(((char*)&packet)[i]);
     }
-    LoRa.endPacket(true);
+    LoRa.endPacket();
 }
 
+/// @brief Interrupt service routine for when a packet is received
+/// @param packetSize Size of the packet received
 void Radio::receiveIsr(int packetSize) {
     printf("\nReceived!\n");
     // Read packet
@@ -59,5 +73,23 @@ void Radio::receiveIsr(int packetSize) {
         char c = LoRa.read();
         if (i > 0)
             printf("%c", c);
+    }
+}
+
+/// @brief Radio task - sends items in radio queue
+/// @param unused 
+void Radio::radioTask(void* unused) {
+    LoRa.onReceive(receiveIsr);
+    LoRa.receive();
+
+    packet_t packet;
+
+    while (true) {
+        vTaskDelay(1000);
+        LoRa.beginPacket();
+        LoRa.write('a');
+        LoRa.write('\n');
+        LoRa.endPacket();
+        LoRa.receive();
     }
 }

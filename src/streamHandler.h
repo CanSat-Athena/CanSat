@@ -20,7 +20,7 @@ private:
     static inline TimerHandle_t inputTimer;
     static inline StaticTimer_t inputTimerBuffer;
 
-    static inline Radio radio;
+    static inline Radio* radio;
 
 public:
     static inline QueueHandle_t dataQueue;
@@ -29,7 +29,6 @@ public:
 
     static void terminalBufferTask(void* unused);
     static void dataQueueTask(void* unused);
-    static void radioTask(void* unused);
 
     static void inputTimerCallback(TimerHandle_t xTimer);
 

@@ -3,11 +3,7 @@
 #include "streamHandler.h"
 #include "globals.h"
 
-#define DATA_QUEUE_SIZE 5
-#define TERMINAL_BUFFER_SIZE RADIO_MAX_PACKET_SIZE * 6
-#define INPUT_BUFFER_SIZE 256
-
-// Queue stacks
+// Task stacks
 static StackType_t terminalBufferStack[TERMINAL_BUFFER_TASK_SIZE];
 static StackType_t dataQueueStack[DATA_QUEUE_TASK_SIZE];
 static StackType_t radioStack[RADIO_TASK_SIZE];
@@ -31,14 +27,14 @@ static StaticStreamBuffer_t inputStaticStreamBuffer;
 
 /// @brief Initialise the stream handler
 void StreamHandler::init() {
-    // Initialise radio
-    radio = Radio();
-
     // Create queues + buffers
     printf("StreamHnd:  Initialising queues and buffers\n");
     dataQueue = xQueueCreateStatic(DATA_QUEUE_SIZE, sizeof(dataRadioLine_t), dataQueueStorageBuffer, &dataQueueBuffer);
     terminalBuffer = xStreamBufferCreateStatic(TERMINAL_BUFFER_SIZE, 1, terminalStreamBufferStorageArea, &terminalStaticStreamBuffer);
     inputBuffer = xStreamBufferCreateStatic(INPUT_BUFFER_SIZE, 1, inputStreamBufferStorageArea, &inputStaticStreamBuffer);
+
+    // Initialise radio
+    radio = new Radio(inputBuffer);
 
     // Initialise timer
     printf("StreamHnd:  Initialising timer\n");
@@ -48,7 +44,6 @@ void StreamHandler::init() {
     printf("StreamHnd:  Creating tasks\n");
     xTaskCreateStatic(terminalBufferTask, "Terminal buffer", TERMINAL_BUFFER_TASK_SIZE, NULL, 3, terminalBufferStack, &terminalBufferTaskBuffer);
     xTaskCreateStatic(dataQueueTask, "Data queue", DATA_QUEUE_TASK_SIZE, NULL, 3, dataQueueStack, &dataQueueTaskBuffer);
-    xTaskCreate(radioTask, "Radio", RADIO_TASK_SIZE, NULL, 3, NULL);
 
     printf("StreamHnd:  Initialised\n");
 
@@ -69,8 +64,8 @@ void StreamHandler::terminalBufferTask(void* unused) {
         if (bytesRead > 0) {
             packet.body[bytesRead] = '\0';
             printf("%s", packet.body);
-            radio.send(packet);
-            LoRa.receive();
+            // radio.send(packet);
+            // LoRa.receive();
         }
     }
 }
@@ -90,28 +85,6 @@ void StreamHandler::dataQueueTask(void* unused) {
             // TODO: Do stuff, send over radio
         }
         vTaskDelay(300);
-    }
-}
-
-/// @brief Task to handle the data queue
-void StreamHandler::radioTask(void* unused) {
-    // Wait for initialisation to complete
-    xEventGroupWaitBits(eventGroup, 0b00000001, pdFALSE, pdTRUE, portMAX_DELAY);
-
-    int bytesRead;
-
-    while (true) {
-        // bytesRead = LoRa.parsePacket();
-        // if (bytesRead) {
-        //     for (int i = 0; i < bytesRead; i++) {
-        //         char c = LoRa.read();
-        //         printf("%c", c);
-        //     }
-        // }
-        vTaskDelay(10000);
-        LoRa.receive();
-        bytesRead = LoRa.parsePacket();
-        printf("Receive mode\n");
     }
 }
 
