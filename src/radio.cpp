@@ -40,7 +40,7 @@ void Radio::init() {
         LoRa.setSignalBandwidth(RADIO_BANDWIDTH);
         LoRa.setSpreadingFactor(RADIO_SPREAD_FACTOR);
 
-        xTaskCreateStaticAffinitySet(radioTask, "Radio", RADIO_TASK_SIZE, NULL, 4, radioStack, &radioTaskBuffer, 1);
+        xTaskCreateStatic(radioTask, "Radio", RADIO_TASK_SIZE, NULL, 6, radioStack, &radioTaskBuffer);
         return;
     }
 
@@ -50,13 +50,7 @@ void Radio::init() {
 
 /// @brief Send the packet
 /// @param packet The packet to send
-void Radio::send(packet_t& packet) {
-    // while (LoRa.beginPacket() == 0) {
-    //     vTaskDelay(50);
-    // }
-
-    printf("Sending!\n");
-
+void Radio::send(packet_t packet) {
     LoRa.beginPacket();
     for (int i = 0; i < strlen((const char*)&packet); i++) {
         LoRa.write(((char*)&packet)[i]);
@@ -71,8 +65,7 @@ void Radio::receiveIsr(int packetSize) {
     // Read packet
     for (int i = 0; i < packetSize; i++) {
         char c = LoRa.read();
-        if (i > 0)
-            printf("%c", c);
+        printf("%c", c);
     }
 }
 
@@ -85,11 +78,10 @@ void Radio::radioTask(void* unused) {
     packet_t packet;
 
     while (true) {
-        vTaskDelay(1000);
-        LoRa.beginPacket();
-        LoRa.write('a');
-        LoRa.write('\n');
-        LoRa.endPacket();
-        LoRa.receive();
+        if (xQueueReceive(radioQueue, &packet, portMAX_DELAY) == pdTRUE) {
+            // printf("\n------------- Packet body:\n%s\nend\n", packet.body);
+            send(packet);
+            LoRa.receive();
+        }
     }
 }

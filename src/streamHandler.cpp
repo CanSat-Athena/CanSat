@@ -60,12 +60,11 @@ void StreamHandler::terminalBufferTask(void* unused) {
     uint32_t bytesRead = 0;
 
     while (true) {
-        bytesRead = xStreamBufferReceive(terminalBuffer, &(packet.body), sizeof(packet.body) / sizeof(packet.body[0]), portMAX_DELAY);
+        bytesRead = xStreamBufferReceive(terminalBuffer, &(packet.body), sizeof(packet.body) / sizeof(packet.body[0]) - 1, portMAX_DELAY);
         if (bytesRead > 0) {
             packet.body[bytesRead] = '\0';
             printf("%s", packet.body);
-            // radio.send(packet);
-            // LoRa.receive();
+            xQueueSendToBack(Radio::radioQueue, &packet, portMAX_DELAY);
         }
     }
 }

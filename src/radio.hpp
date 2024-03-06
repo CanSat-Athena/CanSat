@@ -21,7 +21,7 @@ public:
     }
 
     void init();
-    void send(packet_t& packet);
+    static void send(packet_t packet);
 
     static void receiveIsr(int packetSize);
     static void radioTask(void* unused);

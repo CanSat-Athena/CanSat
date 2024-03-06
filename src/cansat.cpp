@@ -31,7 +31,6 @@ void setup() {
     printf("\n------------------\n");
     Watchdog::init();
     StreamHandler::init();
-    StreamHandler::startLongPrint();
     I2C::init();
     ADC::init();
 
@@ -46,7 +45,6 @@ void setup() {
     // Set up data handler
     dataHandler = new DataHandler();
     StreamHandler::tPrintf("Setup complete\n------------------\n");
-    StreamHandler::endLongPrint();
     xEventGroupSetBits(eventGroup, 0b00000001);     // Set bit 0 to show initialisation complete
 }
 
