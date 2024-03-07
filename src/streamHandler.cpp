@@ -80,10 +80,9 @@ void StreamHandler::dataQueueTask(void* unused) {
     dataRadioLine_t data;
 
     while (true) {
-        if (xQueueReceive(StreamHandler::dataQueue, &data, portMAX_DELAY)) {
-            // TODO: Do stuff, send over radio
+        if (xQueueReceive(StreamHandler::dataQueue, &packet.body, portMAX_DELAY) == pdTRUE) {
+            xQueueSendToBack(Radio::radioQueue, &packet, portMAX_DELAY);
         }
-        vTaskDelay(300);
     }
 }
 
