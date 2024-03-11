@@ -29,7 +29,6 @@ Anemometer* anemometer;
 /// @brief Setup sensors
 void setup() {
     printf("\n------------------\n");
-    Watchdog::init();
     StreamHandler::init();
     I2C::init();
     ADC::init();
@@ -128,6 +127,8 @@ int main() {
     if (watchdog_caused_reboot()) {
         printf("\n\nReboot caused by watchdog!\n");
     }
+
+    Watchdog::init();
 
     // Safe hardfault handler
     exception_set_exclusive_handler(HARDFAULT_EXCEPTION, hardfault_handler);

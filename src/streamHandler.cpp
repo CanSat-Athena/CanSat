@@ -115,9 +115,9 @@ void StreamHandler::tPrintf(const char* string, ...) {
     va_list args;
     va_start(args, string);     // Very important
 
-    static char buffer[TERMINAL_BUFFER_SIZE];
-    vsnprintf(buffer, TERMINAL_BUFFER_SIZE - 1, string, args);  // -1 just to be safe
-    buffer[TERMINAL_BUFFER_SIZE - 1] = '\0';                    // Prevent memory leak, just in case
+    char buffer[512];
+    vsnprintf(buffer, 512 - 1, string, args);  // -1 just to be safe
+    buffer[512 - 1] = '\0';                    // Prevent memory leak, just in case
 
     uint32_t offset = xStreamBufferSend(terminalBuffer, buffer, strlen(buffer), portMAX_DELAY);
 

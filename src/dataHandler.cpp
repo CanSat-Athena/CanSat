@@ -27,7 +27,8 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
     while (true) {
 
         dataLine_t data{};
-        dataRadioLine_t radioData{};
+        dataRadioLine_t* pData = (dataRadioLine_t*)&data;
+        dataRadioLine_t radioData = *pData;
 
         // Update timestamp
         absolute_time_t absoluteTime = get_absolute_time();

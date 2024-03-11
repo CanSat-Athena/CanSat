@@ -1575,7 +1575,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : " /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs"
+			"value" : " /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs /home/arca/pico/pico-sdk/src/rp2_common/cmsis /home/arca/pico/pico-sdk/src/rp2040/hardware_regs"
 		},
 		{
 			"name" : "PICO_DOXYGEN_PATHS",
@@ -1842,42 +1842,6 @@
 			"value" : ""
 		},
 		{
-			"name" : "cansat-code_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/arca/pico/cansat-code/build"
-		},
-		{
-			"name" : "cansat-code_IS_TOP_LEVEL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "ON"
-		},
-		{
-			"name" : "cansat-code_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/arca/pico/cansat-code"
-		},
-		{
 			"name" : "cansat_BINARY_DIR",
 			"properties" : 
 			[
@@ -1962,42 +1926,6 @@
 			"value" : "/home/arca/pico/cansat-code/src/pico-icm20948"
 		},
 		{
-			"name" : "pico_lorawan_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/arca/pico/cansat-code/build/lib/pico-lorawan-littlefs"
-		},
-		{
-			"name" : "pico_lorawan_IS_TOP_LEVEL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "OFF"
-		},
-		{
-			"name" : "pico_lorawan_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/arca/pico/cansat-code/lib/pico-lorawan-littlefs"
-		},
-		{
 			"name" : "pico_sdk_BINARY_DIR",
 			"properties" : 
 			[
@@ -2032,78 +1960,6 @@
 			],
 			"type" : "STATIC",
 			"value" : "/home/arca/pico/pico-sdk"
-		},
-		{
-			"name" : "project1_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/arca/pico/cansat-code/build/lib/pico-icm20948"
-		},
-		{
-			"name" : "project1_IS_TOP_LEVEL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "OFF"
-		},
-		{
-			"name" : "project1_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/arca/pico/cansat-code/lib/pico-icm20948"
-		},
-		{
-			"name" : "radio_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/arca/pico/cansat-code/build"
-		},
-		{
-			"name" : "radio_IS_TOP_LEVEL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "ON"
-		},
-		{
-			"name" : "radio_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/arca/pico/cansat-code"
 		}
 	],
 	"kind" : "cache",
