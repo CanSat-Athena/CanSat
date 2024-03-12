@@ -29,7 +29,7 @@ static StaticStreamBuffer_t inputStaticStreamBuffer;
 void StreamHandler::init() {
     // Create queues + buffers
     printf("StreamHnd:  Initialising queues and buffers\n");
-    dataQueue = xQueueCreateStatic(DATA_QUEUE_SIZE, sizeof(dataRadioLine_t), dataQueueStorageBuffer, &dataQueueBuffer);
+    dataQueue = xQueueCreateStatic(DATA_QUEUE_SIZE, RADIO_MAX_PACKET_SIZE, dataQueueStorageBuffer, &dataQueueBuffer);
     terminalBuffer = xStreamBufferCreateStatic(TERMINAL_BUFFER_SIZE, 1, terminalStreamBufferStorageArea, &terminalStaticStreamBuffer);
     inputBuffer = xStreamBufferCreateStatic(INPUT_BUFFER_SIZE, 1, inputStreamBufferStorageArea, &inputStaticStreamBuffer);
 

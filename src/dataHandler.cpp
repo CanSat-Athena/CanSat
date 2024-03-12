@@ -92,7 +92,10 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
 
         // Write the data
         dataHandler->filesystem->addData(data);
-        xQueueSendToBack(StreamHandler::dataQueue, &radioData, 100);
+        char packetBody[RADIO_MAX_PACKET_SIZE];
+        snprintf(packetBody, RADIO_MAX_PACKET_SIZE, "%u: %f,%f,%f,%f,%f\n", data.timestamp, data.gpsData->latitude, data.gpsData->longitude, data.gpsData->altitude,
+            data.dht20->temperature, data.bme680->pressure);
+        xQueueSendToBack(StreamHandler::dataQueue, &packetBody, 100);
 
         // Delay
         vTaskDelayUntil(&lastStartTime, 1000);
