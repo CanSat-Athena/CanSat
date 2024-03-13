@@ -36,6 +36,7 @@ void Radio::init() {
         }
 
         printf("Radio:      Initialised successfully\n");
+        initialised = true;
         LoRa.enableCrc();
         LoRa.setSignalBandwidth(RADIO_BANDWIDTH);
         LoRa.setSpreadingFactor(RADIO_SPREAD_FACTOR);
@@ -46,11 +47,13 @@ void Radio::init() {
 
     // Failed
     printf("Radio:      Failed to initialise\n");
+    initialised = false;
 }
 
 /// @brief Send the packet
 /// @param packet The packet to send
 void Radio::send(packet_t packet) {
+    if (!initialised) return;
     LoRa.beginPacket();
     for (int i = 0; i < strlen((const char*)&packet); i++) {
         LoRa.write(((char*)&packet)[i]);
@@ -72,16 +75,20 @@ void Radio::receiveIsr(int packetSize) {
 /// @brief Radio task - sends items in radio queue
 /// @param unused 
 void Radio::radioTask(void* unused) {
-    LoRa.onReceive(receiveIsr);
-    LoRa.receive();
+    if (initialised) {
+        LoRa.onReceive(receiveIsr);
+        LoRa.receive();
+    }
 
     packet_t packet;
 
     while (true) {
         if (xQueueReceive(radioQueue, &packet, portMAX_DELAY) == pdTRUE) {
             // printf("\n------------- Packet body:\n%s\nend\n", packet.body);
-            send(packet);
-            LoRa.receive();
+            if (initialised) {
+                send(packet);
+                LoRa.receive();
+            }
         }
     }
 }

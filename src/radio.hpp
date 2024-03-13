@@ -13,6 +13,7 @@ private:
     static inline StreamBufferHandle_t inputBuffer;
 
 public:
+    static inline bool initialised = false;
     static inline QueueHandle_t radioQueue;
 
     Radio(StreamBufferHandle_t inputBuffer) {

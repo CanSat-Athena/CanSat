@@ -64,7 +64,8 @@ void StreamHandler::terminalBufferTask(void* unused) {
         if (bytesRead > 0) {
             packet.body[bytesRead] = '\0';
             printf("%s", packet.body);
-            xQueueSendToBack(Radio::radioQueue, &packet, portMAX_DELAY);
+            if (Radio::initialised)
+                xQueueSendToBack(Radio::radioQueue, &packet, portMAX_DELAY);
         }
     }
 }

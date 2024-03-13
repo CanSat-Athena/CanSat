@@ -24,7 +24,7 @@ public:
         if (initialise) init();
     }
 
-    bool init(const int attempts = 3);
+    bool init(const int attempts = 1);
     bool updateData();
     sensorData_t getData();
 };
