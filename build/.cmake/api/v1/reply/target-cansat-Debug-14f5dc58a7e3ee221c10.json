@@ -43,7 +43,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 51,
+				"line" : 52,
 				"parent" : 0
 			},
 			{
@@ -70,7 +70,7 @@
 			{
 				"command" : 6,
 				"file" : 0,
-				"line" : 75,
+				"line" : 76,
 				"parent" : 0
 			},
 			{
@@ -305,6 +305,10 @@
 				{
 					"backtrace" : 12,
 					"define" : "LWGPS_IGNORE_USER_OPTS"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "NDEBUG"
 				},
 				{
 					"backtrace" : 2,
@@ -822,6 +826,10 @@
 				{
 					"backtrace" : 12,
 					"define" : "LWGPS_IGNORE_USER_OPTS"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "NDEBUG"
 				},
 				{
 					"backtrace" : 2,
@@ -1397,6 +1405,10 @@
 				{
 					"backtrace" : 12,
 					"define" : "LWGPS_IGNORE_USER_OPTS"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "NDEBUG"
 				},
 				{
 					"backtrace" : 2,

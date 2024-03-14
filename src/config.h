@@ -29,7 +29,7 @@
 #define IMU_TASK_SIZE 512
 #define LIGHT_TASK_SIZE 512
 #define ANEMOMETER_TASK_SIZE 512
-#define GPS_TASK_SIZE 512
+#define GPS_TASK_SIZE 1024
 
 // Queue and buffer sizes
 #define DATA_QUEUE_SIZE 5

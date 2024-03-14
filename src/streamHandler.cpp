@@ -25,6 +25,9 @@ static StaticStreamBuffer_t terminalStaticStreamBuffer;
 static uint8_t inputStreamBufferStorageArea[INPUT_BUFFER_SIZE + 1];
 static StaticStreamBuffer_t inputStaticStreamBuffer;
 
+// Mutex buffer
+static StaticSemaphore_t printSemaphoreBuffer;
+
 /// @brief Initialise the stream handler
 void StreamHandler::init() {
     // Create queues + buffers
@@ -32,6 +35,7 @@ void StreamHandler::init() {
     dataQueue = xQueueCreateStatic(DATA_QUEUE_SIZE, RADIO_MAX_PACKET_SIZE, dataQueueStorageBuffer, &dataQueueBuffer);
     terminalBuffer = xStreamBufferCreateStatic(TERMINAL_BUFFER_SIZE, 1, terminalStreamBufferStorageArea, &terminalStaticStreamBuffer);
     inputBuffer = xStreamBufferCreateStatic(INPUT_BUFFER_SIZE, 1, inputStreamBufferStorageArea, &inputStaticStreamBuffer);
+    printSemaphore = xSemaphoreCreateMutexStatic(&printSemaphoreBuffer);
 
     // Initialise radio
     radio = new Radio(inputBuffer);
@@ -120,7 +124,12 @@ void StreamHandler::tPrintf(const char* string, ...) {
     vsnprintf(buffer, 512 - 1, string, args);  // -1 just to be safe
     buffer[512 - 1] = '\0';                    // Prevent memory leak, just in case
 
-    uint32_t offset = xStreamBufferSend(terminalBuffer, buffer, strlen(buffer), portMAX_DELAY);
+    // taskENTER_CRITICAL();
+    xSemaphoreTake(printSemaphore, 20);
+    size_t size = strlen(buffer);
+    uint32_t offset = xStreamBufferSend(terminalBuffer, buffer, size, portMAX_DELAY);
+    xSemaphoreGive(printSemaphore);
+    // taskEXIT_CRITICAL();
 
     va_end(args);
 }

@@ -6,6 +6,7 @@
 #include <queue.h>
 #include <timers.h>
 #include <task.h>
+#include <semphr.h>
 #include <event_groups.h>
 
 #include "radio.hpp"
@@ -19,6 +20,8 @@ private:
 
     static inline TimerHandle_t inputTimer;
     static inline StaticTimer_t inputTimerBuffer;
+
+    static inline SemaphoreHandle_t printSemaphore;
 
     static inline Radio* radio;
 

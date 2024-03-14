@@ -55,20 +55,21 @@ void GPS::gpsTask(void* pvParameters) {
     irq_set_exclusive_handler(UART_IRQ, uartInterruptHandler);
     irq_set_enabled(UART_IRQ, true);
 
-    // Now enable the UART to send interrupts - RX only
-    uart_set_irq_enables(GPS_UART, true, false);
+    // // Now enable the UART to send interrupts - RX only
+    // uart_set_irq_enables(GPS_UART, true, false);
 
     while (true) {
         // Wait for data
-        if (xQueueReceive(gpsQueue, &line, portMAX_DELAY) == 1) {
-            if (strStartsWith(line, "$GPGGA") || strStartsWith(line, "$GNGGA") ||
-                strStartsWith(line, "$GPGSA") || strStartsWith(line, "$GNGSA") ||
-                strStartsWith(line, "$GPGSV") || strStartsWith(line, "$GNGSV") ||
-                strStartsWith(line, "$GPRMC") || strStartsWith(line, "$GNRMC")) {
-                // Process GPS data
-                uint8_t err = lwgps_process(&lwgps, line, strlen(line));
-            }
-        }
+        // if (xQueueReceive(gpsQueue, &line, portMAX_DELAY) == 1) {
+        //     // if (strStartsWith(line, "$GPGGA") || strStartsWith(line, "$GNGGA") ||
+        //     //     strStartsWith(line, "$GPGSA") || strStartsWith(line, "$GNGSA") ||
+        //     //     strStartsWith(line, "$GPGSV") || strStartsWith(line, "$GNGSV") ||
+        //     //     strStartsWith(line, "$GPRMC") || strStartsWith(line, "$GNRMC")) {
+        //     //     // Process GPS data
+        //     //     // uint8_t err = lwgps_process(&lwgps, line, strlen(line));
+        //     // }
+        // }
+        vTaskDelay(1999);
     }
 }
 

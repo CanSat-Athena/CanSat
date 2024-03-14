@@ -1,4 +1,5 @@
 #include "anemometer.h"
+#include "streamHandler.h"
 
 volatile uint32_t Anemometer::pulseCount = 0;
 
@@ -6,7 +7,7 @@ bool Anemometer::init(const uint attempts) {
     if (initialised) return false;
 
     // Initialise GPIO
-    printf("Anemometer: Initialising GPIO\n");
+    StreamHandler::tPrintf("Anemometer: Initialising GPIO\n");
     gpio_init(ANEMOMETER_PIN);
     gpio_set_dir(ANEMOMETER_PIN, GPIO_IN);
     gpio_pull_up(ANEMOMETER_PIN);
