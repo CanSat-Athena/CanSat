@@ -124,12 +124,10 @@ void StreamHandler::tPrintf(const char* string, ...) {
     vsnprintf(buffer, 512 - 1, string, args);  // -1 just to be safe
     buffer[512 - 1] = '\0';                    // Prevent memory leak, just in case
 
-    // taskENTER_CRITICAL();
     xSemaphoreTake(printSemaphore, 20);
     size_t size = strlen(buffer);
     uint32_t offset = xStreamBufferSend(terminalBuffer, buffer, size, portMAX_DELAY);
     xSemaphoreGive(printSemaphore);
-    // taskEXIT_CRITICAL();
 
     va_end(args);
 }

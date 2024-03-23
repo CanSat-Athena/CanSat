@@ -12,3 +12,14 @@
 1	17	1707171669626852280	build.ninja	a494f004164892ec
 1	429	1707171670054858222	CMakeFiles/pioasm.dir/json_output.cpp.o	573e81deda20934a
 429	505	1707171670133859319	pioasm	95c7661beec253d9
+4	461	1711062953904025815	CMakeFiles/pioasm.dir/pio_disassembler.cpp.o	d7e536d1a4a11d5c
+5	556	1711062954005027087	CMakeFiles/pioasm.dir/ada_output.cpp.o	b4ffbd16fc65990b
+4	567	1711062954018027250	CMakeFiles/pioasm.dir/c_sdk_output.cpp.o	e397e6d396a05238
+5	635	1711062954086028107	CMakeFiles/pioasm.dir/json_output.cpp.o	573e81deda20934a
+5	649	1711062954100028284	CMakeFiles/pioasm.dir/hex_output.cpp.o	3907b4158b82ea24
+4	718	1711062954167029127	CMakeFiles/pioasm.dir/python_output.cpp.o	a30fe4afd26e63fe
+4	747	1711062954200029543	CMakeFiles/pioasm.dir/gen/lexer.cpp.o	4a722265de8ed4bb
+4	781	1711062954233029959	CMakeFiles/pioasm.dir/main.cpp.o	d1cea6d02e430623
+4	1081	1711062954530033698	CMakeFiles/pioasm.dir/gen/parser.cpp.o	f1fb169cad1aa202
+4	1207	1711062954654035260	CMakeFiles/pioasm.dir/pio_assembler.cpp.o	8aebfe45a5b50af6
+1207	1270	1711062954725036154	pioasm	95c7661beec253d9

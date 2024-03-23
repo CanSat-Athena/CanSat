@@ -13,7 +13,7 @@ extern "C" {
 
 class IMU : public I2CSensor {
 private:
-    icm20948_config_t config = { IMU_ADDRESS, 0x0C, vTaskDelay, I2C::take, I2C::give, &I2C::i2cInstance };
+    icm20948_config_t config = { IMU_ADDRESS, 0x0C, vTaskDelay, I2C::take, I2C::give, &I2C::i2cInstance, I2C_PER_CHAR_TIMEOUT_US };
     icm20984_data_t data;
 
 public:

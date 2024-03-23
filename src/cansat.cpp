@@ -37,7 +37,7 @@ void setup() {
     gps = new GPS();
     dht = new DHT20();
     bme = new BME680();
-    imu = new IMU();
+    // imu = new IMU();
     light = new LightSensor();
     anemometer = new Anemometer();
 
@@ -53,7 +53,7 @@ void sensorReadTask(void* pvParameters) {
 
     while (true) {
         // Read data
-        // printf("Reading from %s\n", sensor->name);
+        printf("Reading from %s\n", sensor->name);
         sensor->sensor->updateData();
 
         // Dump data to queue
@@ -86,15 +86,15 @@ void initTask(void* pvParameters) {
     };
     TaskHandle_t bme680ReadTask = xTaskCreateStatic(sensorReadTask, "BME680 read", BME680_TASK_SIZE, &bme680, 2, bmeTaskStack, &bmeTaskBuffer);
 
-    sensor_t imuSensor = {
-        .sensor = imu,
-        .name = (char*)"IMU",
-        .queue = &(dataHandler->imuQueue),
-        .updateFreq = IMU_READ_FREQ,
-        .updateTime = IMU_READ_TIME
-    };
-    TaskHandle_t imuReadTask;
-    xTaskCreateStatic(sensorReadTask, "IMU read", IMU_TASK_SIZE, &imuSensor, 2, imuTaskStack, &imuTaskBuffer);
+    //sensor_t imuSensor = {
+    //    .sensor = imu,
+    //    .name = (char*)"IMU",
+    //    .queue = &(dataHandler->imuQueue),
+    //    .updateFreq = IMU_READ_FREQ,
+    //    .updateTime = IMU_READ_TIME
+    // };
+    // TaskHandle_t imuReadTask;
+    //xTaskCreateStatic(sensorReadTask, "IMU read", IMU_TASK_SIZE, &imuSensor, 2, imuTaskStack, &imuTaskBuffer);
 
     sensor_t lightSensor = {
         .sensor = light,
@@ -132,6 +132,14 @@ int main() {
 
     // Safe hardfault handler
     exception_set_exclusive_handler(HARDFAULT_EXCEPTION, hardfault_handler);
+
+    // ----------- GPS Setup ----------- //
+    // Set up and enable interrupt handlers
+    int UART_IRQ = GPS_UART == uart0 ? UART0_IRQ : UART1_IRQ;
+    irq_set_exclusive_handler(UART_IRQ, GPS::uartInterruptHandler);
+    irq_set_enabled(UART_IRQ, true);
+    // Now enable the UART to send interrupts - RX only
+    uart_set_irq_enables(GPS_UART, true, false);
 
     eventGroup = xEventGroupCreateStatic(&eventGroupStack);
     xTaskCreateStatic(initTask, "Init", INIT_TASK_SIZE, NULL, 6, initTaskStack, &initTaskBuffer);

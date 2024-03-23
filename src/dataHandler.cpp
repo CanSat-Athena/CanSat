@@ -93,8 +93,8 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
         // Write the data
         dataHandler->filesystem->addData(data);
         char packetBody[RADIO_MAX_PACKET_SIZE];
-        snprintf(packetBody, RADIO_MAX_PACKET_SIZE, "%u: %f,%f,%f,%f,%f\n", data.timestamp, data.gpsData->latitude, data.gpsData->longitude, data.gpsData->altitude,
-            data.dht20->temperature, data.bme680->pressure);
+        snprintf(packetBody, RADIO_MAX_PACKET_SIZE, "%u: %f,%f,%f,%f,%f,%d\n", data.timestamp, data.gpsData->latitude, data.gpsData->longitude, data.gpsData->altitude,
+            data.dht20->temperature, data.bme680->pressure, data.lightData->lightIntensity);
         xQueueSendToBack(StreamHandler::dataQueue, &packetBody, 100);
 
         // Delay
