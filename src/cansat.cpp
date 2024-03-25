@@ -53,7 +53,7 @@ void sensorReadTask(void* pvParameters) {
 
     while (true) {
         // Read data
-        printf("Reading from %s\n", sensor->name);
+        // printf("Reading from %s\n", sensor->name);
         sensor->sensor->updateData();
 
         // Dump data to queue
@@ -132,14 +132,6 @@ int main() {
 
     // Safe hardfault handler
     exception_set_exclusive_handler(HARDFAULT_EXCEPTION, hardfault_handler);
-
-    // ----------- GPS Setup ----------- //
-    // Set up and enable interrupt handlers
-    int UART_IRQ = GPS_UART == uart0 ? UART0_IRQ : UART1_IRQ;
-    irq_set_exclusive_handler(UART_IRQ, GPS::uartInterruptHandler);
-    irq_set_enabled(UART_IRQ, true);
-    // Now enable the UART to send interrupts - RX only
-    uart_set_irq_enables(GPS_UART, true, false);
 
     eventGroup = xEventGroupCreateStatic(&eventGroupStack);
     xTaskCreateStatic(initTask, "Init", INIT_TASK_SIZE, NULL, 6, initTaskStack, &initTaskBuffer);

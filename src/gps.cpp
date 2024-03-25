@@ -32,7 +32,7 @@ bool GPS::init() {
 
     // Set up buffer
     StreamHandler::tPrintf("GPS:        Setting up buffer\n");
-    gpsQueue = xQueueCreateStatic(GPS_QUEUE_SIZE, sizeof(char[100]), gpsBufferQueueStorageBuffer, &gpsBufferQueueBuffer);
+    gpsQueue = xQueueCreate(GPS_QUEUE_SIZE, sizeof(char[100]));
 
     // Set up task
     StreamHandler::tPrintf("GPS:        Setting up task\n");
@@ -46,8 +46,17 @@ void GPS::gpsTask(void* pvParameters) {
     char line[100];
     uint8_t lineIndex = 0;
 
+    // Set up and enable interrupt handlers
+    int UART_IRQ = GPS_UART == uart0 ? UART0_IRQ : UART1_IRQ;
+    irq_set_exclusive_handler(UART_IRQ, GPS::uartInterruptHandler);
+    irq_set_enabled(UART_IRQ, true);
+
     // Wait for initialisation to complete
     xEventGroupWaitBits(eventGroup, 0b00000001, pdFALSE, pdTRUE, portMAX_DELAY);
+
+    // Now enable the UART to send interrupts - RX only
+    uart_set_irq_enables(GPS_UART, true, false);
+
     vTaskDelay(100);
 
     while (true) {
