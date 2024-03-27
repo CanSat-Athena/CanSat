@@ -55,10 +55,14 @@ void Radio::init() {
 void Radio::send(packet_t packet) {
     if (!initialised) return;
     LoRa.beginPacket();
+    
     LoRa.write(packet.type);
+    LoRa.write(packet.size);
+
     for (int i = 0; i < sizeof(packet.body); i++) {
         LoRa.write(packet.body[i]);
     }
+
     LoRa.endPacket();
 }
 
