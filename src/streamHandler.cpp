@@ -1,5 +1,7 @@
 #include <cstdio>
 #include <cstring>
+#include <algorithm>
+
 #include "streamHandler.h"
 #include "globals.h"
 
@@ -67,6 +69,7 @@ void StreamHandler::terminalBufferTask(void* unused) {
         bytesRead = xStreamBufferReceive(terminalBuffer, &(packet.body), sizeof(packet.body) / sizeof(packet.body[0]) - 1, portMAX_DELAY);
         if (bytesRead > 0) {
             packet.body[bytesRead] = '\0';
+            packet.size = bytesRead + 1;        // + 1 to account for \0
             printf("%s", packet.body);
             if (Radio::initialised)
                 xQueueSendToBack(Radio::radioQueue, &packet, portMAX_DELAY);
@@ -81,6 +84,7 @@ void StreamHandler::dataQueueTask(void* unused) {
 
     packet_t packet;
     packet.type = 'd';
+    packet.size = std::min(sizeof(dataRadioLine_t), (size_t)RADIO_MAX_PACKET_SIZE);
 
     dataRadioLine_t data;
 

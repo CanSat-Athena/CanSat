@@ -82,6 +82,7 @@ typedef struct dataRadioLine_t {
 
 typedef struct packet_t {
     char type;
+    uint16_t size;
     uint8_t body[RADIO_MAX_PACKET_SIZE];
 } __attribute__((packed)) packet_t;
 

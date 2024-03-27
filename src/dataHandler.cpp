@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "dataHandler.h"
 #include "globals.h"
 #include "streamHandler.h"
@@ -93,8 +95,9 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
         // Write the data
         dataHandler->filesystem->addData(data);
         char packetBody[RADIO_MAX_PACKET_SIZE];
-        snprintf(packetBody, RADIO_MAX_PACKET_SIZE, "%u: %f,%f,%f,%f,%f,%d\n", data.timestamp, data.gpsData->latitude, data.gpsData->longitude, data.gpsData->altitude,
-            data.dht20->temperature, data.bme680->pressure, data.lightData->lightIntensity);
+        //snprintf(packetBody, RADIO_MAX_PACKET_SIZE, "%u: %f,%f,%f,%f,%f,%d\n", data.timestamp, data.gpsData->latitude, data.gpsData->longitude, data.gpsData->altitude,
+        //    data.dht20->temperature, data.bme680->pressure, data.lightData->lightIntensity);
+        memcpy(packetBody, &radioData, std::min(sizeof(dataRadioLine_t), (size_t)RADIO_MAX_PACKET_SIZE));
         xQueueSendToBack(StreamHandler::dataQueue, &packetBody, 100);
 
         // Delay

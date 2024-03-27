@@ -55,8 +55,9 @@ void Radio::init() {
 void Radio::send(packet_t packet) {
     if (!initialised) return;
     LoRa.beginPacket();
-    for (int i = 0; i < strlen((const char*)&packet); i++) {
-        LoRa.write(((char*)&packet)[i]);
+    LoRa.write(packet.type);
+    for (int i = 0; i < sizeof(packet.body); i++) {
+        LoRa.write(packet.body[i]);
     }
     LoRa.endPacket();
 }
