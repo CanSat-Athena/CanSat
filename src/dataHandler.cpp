@@ -27,7 +27,6 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
     TickType_t lastStartTime = xTaskGetTickCount();
 
     while (true) {
-
         dataLine_t data{};
         dataRadioLine_t* pData = (dataRadioLine_t*)&data;
         dataRadioLine_t radioData = *pData;

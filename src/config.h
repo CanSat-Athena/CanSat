@@ -48,9 +48,10 @@
 #define INPUT_TIMER_PERIOD_MS 20
 
 // Radio
-#define RADIO_BANDWIDTH 125E3
-#define RADIO_SPREAD_FACTOR 10
-#define RADIO_CODING_RATE 6
+#define RADIO_BANDWIDTH 500E3
+#define RADIO_SPREAD_FACTOR 9
+#define RADIO_CODING_RATE 8
+#define RADIO_TX_POWER 19
 #define RADIO_MAX_PACKET_SIZE 180       // Max packet body size
 
 // Filesystem

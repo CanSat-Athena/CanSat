@@ -41,7 +41,7 @@ void Radio::init() {
         LoRa.setSignalBandwidth(RADIO_BANDWIDTH);
         LoRa.setSpreadingFactor(RADIO_SPREAD_FACTOR);
         LoRa.setCodingRate4(RADIO_CODING_RATE);
-        // LoRa.setTxPower()
+        LoRa.setTxPower(RADIO_TX_POWER);
 
         xTaskCreateStaticAffinitySet(radioTask, "Radio", RADIO_TASK_SIZE, NULL, 4, radioStack, &radioTaskBuffer, 2);
         return;
