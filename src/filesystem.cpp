@@ -179,9 +179,9 @@ void Filesystem::readFile(uint32_t bootCount) {
         return;
     }
 
-    StreamHandler::startLongPrint();
+    //StreamHandler::startLongPrint();
 
-    StreamHandler::tPrintf("Printing file %s:\n", dataFileName);
+    printf("Printing file %s on serial:\n", dataFileName);
 
     lfs_ssize_t readStatus = 0;
     dataLine_t line;
@@ -191,63 +191,63 @@ void Filesystem::readFile(uint32_t bootCount) {
         readStatus = lfs_file_read(&lfs, &dataFile, (void*)(&line), sizeof(dataLine_t));
         if (readStatus < sizeof(dataLine_t)) break;
 
-        StreamHandler::tPrintf("%u:", line.timestamp);
+        printf("%u:", line.timestamp);
 
         // Get DHT20 data
-        StreamHandler::tPrintf("[");
+        printf("[");
         for (int i = 0; i < DHT20_READ_FREQ; i++) {
-            StreamHandler::tPrintf("[%f,%f]", line.dht20[i].temperature, line.dht20[i].humidity);
+            printf("[%f,%f]", line.dht20[i].temperature, line.dht20[i].humidity);
         }
-        StreamHandler::tPrintf("]");
+        printf("]");
 
         // Get BME680 data
-        StreamHandler::tPrintf("[");
+        printf("[");
         for (int i = 0; i < BME680_READ_FREQ; i++) {
-            StreamHandler::tPrintf("[%f,%f,%f,%f]",
+            printf("[%f,%f,%f,%f]",
                 line.bme680[i].temperature,
                 line.bme680[i].humidity,
                 line.bme680[i].pressure,
                 line.bme680[i].gasResistance
             );
         }
-        StreamHandler::tPrintf("]");
+        printf("]");
 
         // Get IMU data
-        StreamHandler::tPrintf("[");
+        printf("[");
         for (int i = 0; i < IMU_READ_FREQ; i++) {
-            StreamHandler::tPrintf("[%d,%d,%d,%d,%d,%d,%d,%d,%d]",
+            printf("[%d,%d,%d,%d,%d,%d,%d,%d,%d]",
                 line.imu[i].accel[0], line.imu[i].accel[1], line.imu[i].accel[2],
                 line.imu[i].gyro[0], line.imu[i].gyro[1], line.imu[i].gyro[2],
                 line.imu[i].mag[0], line.imu[i].mag[1], line.imu[i].mag[2]
             );
         }
-        StreamHandler::tPrintf("]");
+        printf("]");
 
         // Get light data
-        StreamHandler::tPrintf("[");
+        printf("[");
         for (int i = 0; i < LIGHT_READ_FREQ; i++) {
-            StreamHandler::tPrintf("%u,", line.lightData[i].lightIntensity);
+            printf("%u,", line.lightData[i].lightIntensity);
         }
-        StreamHandler::tPrintf("]");
+        printf("]");
 
         // Get anemometer data
-        StreamHandler::tPrintf("[");
+        printf("[");
         for (int i = 0; i < ANEMOMETER_READ_FREQ; i++) {
-            StreamHandler::tPrintf("%u,", line.anemometerData[i].triggerCount);
+            printf("%u,", line.anemometerData[i].triggerCount);
         }
-        StreamHandler::tPrintf("]");
+        printf("]");
 
         // Get GPS data
-        StreamHandler::tPrintf("[");
-        StreamHandler::tPrintf("%f,%f,%f,%d,%d,%d,%u", line.gpsData[0].latitude, line.gpsData[0].longitude, line.gpsData[0].altitude,
+        printf("[");
+        printf("%f,%f,%f,%d,%d,%d,%u", line.gpsData[0].latitude, line.gpsData[0].longitude, line.gpsData[0].altitude,
             line.gpsData[0].hours, line.gpsData[0].minutes, line.gpsData[0].seconds, line.gpsData[0].fix);
-        StreamHandler::tPrintf("]");
+        printf("]");
 
-        StreamHandler::tPrintf("\n");
+        printf("\n");
 
     }
 
-    StreamHandler::endLongPrint();
+    //StreamHandler::endLongPrint();
 
     // Don't forget to close
     lfs_file_close(&lfs, &dataFile);

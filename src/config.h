@@ -82,5 +82,5 @@
 // Use when debugging
 #define DEBUG_MODE
 
-#define VERBOSE_PRINT true
+#define VERBOSE_PRINT false
 #define EXTRA_VERBOSE_BME680 false
