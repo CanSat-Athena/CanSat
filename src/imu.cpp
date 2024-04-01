@@ -41,6 +41,8 @@ bool IMU::init(const int attempts) {
 /// @brief Updates the IMU data
 /// @return True if successful
 bool IMU::updateData() {
+    if (!initialised) return false;
+    
     icm20948_read_raw_accel(&config, accel);
     icm20948_read_raw_gyro(&config, gyro);
     icm20948_read_raw_mag(&config, mag);

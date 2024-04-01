@@ -91,7 +91,7 @@ void Radio::radioTask(void* unused) {
         if (xQueueReceive(radioQueue, &packet, portMAX_DELAY) == pdTRUE) {
             // printf("\n------------- Packet body:\n%s\nend\n", packet.body);
             if (initialised) {
-                send(packet);
+                //send(packet);
                 LoRa.receive();
             }
         }

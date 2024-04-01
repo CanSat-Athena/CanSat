@@ -37,7 +37,7 @@ void setup() {
     gps = new GPS();
     dht = new DHT20();
     bme = new BME680();
-    // imu = new IMU();
+    imu = new IMU();
     light = new LightSensor();
     anemometer = new Anemometer();
 
@@ -86,15 +86,15 @@ void initTask(void* pvParameters) {
     };
     TaskHandle_t bme680ReadTask = xTaskCreateStatic(sensorReadTask, "BME680 read", BME680_TASK_SIZE, &bme680, 2, bmeTaskStack, &bmeTaskBuffer);
 
-    //sensor_t imuSensor = {
-    //    .sensor = imu,
-    //    .name = (char*)"IMU",
-    //    .queue = &(dataHandler->imuQueue),
-    //    .updateFreq = IMU_READ_FREQ,
-    //    .updateTime = IMU_READ_TIME
-    // };
-    // TaskHandle_t imuReadTask;
-    //xTaskCreateStatic(sensorReadTask, "IMU read", IMU_TASK_SIZE, &imuSensor, 2, imuTaskStack, &imuTaskBuffer);
+    sensor_t imuSensor = {
+       .sensor = imu,
+       .name = (char*)"IMU",
+       .queue = &(dataHandler->imuQueue),
+       .updateFreq = IMU_READ_FREQ,
+       .updateTime = IMU_READ_TIME
+    };
+    TaskHandle_t imuReadTask;
+    xTaskCreateStatic(sensorReadTask, "IMU read", IMU_TASK_SIZE, &imuSensor, 2, imuTaskStack, &imuTaskBuffer);
 
     sensor_t lightSensor = {
         .sensor = light,
