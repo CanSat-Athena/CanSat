@@ -36,3 +36,4 @@ extern StaticTask_t gpsTaskBuffer;
 
 int32_t getIntInput();
 bool strStartsWith(const char* a, const char* b);
+uint16_t getBatteryLevel();

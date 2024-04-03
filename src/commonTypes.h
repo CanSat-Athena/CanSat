@@ -78,6 +78,7 @@ typedef struct dataRadioLine_t {
     lightData_t lightData[(int)max(LIGHT_READ_FREQ, 1)];
     anemometerData_t anemometerData[(int)max(ANEMOMETER_READ_FREQ, 1)];
     gpsData_t gpsData[1];
+    uint16_t batteryLevel;
     int32_t fsSize;
 } __attribute__((packed)) dataRadioLine_t;
 

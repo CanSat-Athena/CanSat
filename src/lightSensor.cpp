@@ -6,7 +6,7 @@
 /// @return True if succeeded
 bool LightSensor::init(const uint attempts) {
     ADC::init();
-    ADC::initGPIO(LIGHT_SENSOR_GPIO);
+    ADC::initGPIO(LIGHT_SENSOR_PIN);
     this->initialised = true;
     StreamHandler::tPrintf("Light:      Initialised\n");
 
@@ -17,7 +17,7 @@ bool LightSensor::init(const uint attempts) {
 /// @return True on success
 bool LightSensor::updateData() {
     if (!initialised) return false;
-    lightValue = ADC::readADC(LIGHT_SENSOR_GPIO);
+    lightValue = ADC::readADC(LIGHT_SENSOR_PIN);
 
     return true;
 }

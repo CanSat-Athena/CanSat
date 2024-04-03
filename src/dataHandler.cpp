@@ -91,6 +91,9 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
         data.gpsData[0] = gpsData.gpsData;
         radioData.gpsData[0] = gpsData.gpsData;
 
+        // Battery level
+        radioData.batteryLevel = getBatteryLevel();
+
         // Filesystem
         radioData.fsSize = lfs_fs_size(&(dataHandler->filesystem->lfs));
 

@@ -8,7 +8,6 @@
 #include "adc.h"
 #include "globals.h"
 
-#define LIGHT_SENSOR_GPIO 26
 
 class LightSensor : public Sensor {
 protected:
