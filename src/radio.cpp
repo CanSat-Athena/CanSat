@@ -37,12 +37,15 @@ void Radio::init() {
 
         printf("Radio:      Initialised successfully\n");
         initialised = true;
+
+        // Initialise radio config
         LoRa.enableCrc();
         LoRa.setSignalBandwidth(RADIO_BANDWIDTH);
         LoRa.setSpreadingFactor(RADIO_SPREAD_FACTOR);
         LoRa.setCodingRate4(RADIO_CODING_RATE);
         LoRa.setTxPower(RADIO_TX_POWER);
 
+        // Create radio task
         xTaskCreateStaticAffinitySet(radioTask, "Radio", RADIO_TASK_SIZE, NULL, 4, radioStack, &radioTaskBuffer, 2);
         return;
     }

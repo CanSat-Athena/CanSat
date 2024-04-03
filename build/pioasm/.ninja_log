@@ -22,3 +22,14 @@
 13	26	1711973211106865166	CMakeFiles/pioasm.dir/ada_output.cpp.o	b4ffbd16fc65990b
 2	96	1711973211178865993	CMakeFiles/pioasm.dir/gen/lexer.cpp.o	4a722265de8ed4bb
 96	219	1711973211300867394	pioasm	95c7661beec253d9
+1	9	1712092511909304454	CMakeFiles/pioasm.dir/main.cpp.o	d1cea6d02e430623
+1	9	1712092511910304466	CMakeFiles/pioasm.dir/gen/parser.cpp.o	f1fb169cad1aa202
+1	10	1712092511910304466	CMakeFiles/pioasm.dir/c_sdk_output.cpp.o	e397e6d396a05238
+1	10	1712092511912304491	CMakeFiles/pioasm.dir/pio_assembler.cpp.o	8aebfe45a5b50af6
+1	10	1712092511910304466	CMakeFiles/pioasm.dir/pio_disassembler.cpp.o	d7e536d1a4a11d5c
+3	10	1712092511913304504	CMakeFiles/pioasm.dir/hex_output.cpp.o	3907b4158b82ea24
+1	11	1712092511910304466	CMakeFiles/pioasm.dir/python_output.cpp.o	a30fe4afd26e63fe
+6	12	1712092511914304517	CMakeFiles/pioasm.dir/json_output.cpp.o	573e81deda20934a
+7	13	1712092511915304529	CMakeFiles/pioasm.dir/ada_output.cpp.o	b4ffbd16fc65990b
+1	92	1712092511987305442	CMakeFiles/pioasm.dir/gen/lexer.cpp.o	4a722265de8ed4bb
+92	352	1712092512244308700	pioasm	95c7661beec253d9
