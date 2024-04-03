@@ -91,6 +91,9 @@ void DataHandler::dataHandlerTask(void* DHPointer) {
         data.gpsData[0] = gpsData.gpsData;
         radioData.gpsData[0] = gpsData.gpsData;
 
+        // Filesystem
+        radioData.fsSize = lfs_fs_size(&(dataHandler->filesystem->lfs));
+
         // Write the data
         dataHandler->filesystem->addData(data);
         char packetBody[RADIO_MAX_PACKET_SIZE];

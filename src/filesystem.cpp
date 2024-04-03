@@ -130,7 +130,7 @@ void Filesystem::uninit() {
 /// @brief Prints filesystem usage
 void Filesystem::printUsage() {
     lfs_ssize_t size = lfs_fs_size(&lfs);
-    uint32_t size_bytes = size * BLOCK_SIZE_BYTES;
+    uint64_t size_bytes = size * BLOCK_SIZE_BYTES;
     float usage = (float)size_bytes / (float)FS_SIZE;
 
     StreamHandler::tPrintf("Used/total: ");

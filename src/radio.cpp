@@ -60,7 +60,7 @@ void Radio::init() {
 void Radio::send(packet_t packet) {
     if (!initialised) return;
     LoRa.beginPacket();
-    
+
     LoRa.write(packet.type);
     LoRa.write(packet.size);
 
@@ -87,7 +87,9 @@ void Radio::receiveIsr(int packetSize) {
 void Radio::radioTask(void* unused) {
     if (initialised) {
         LoRa.onReceive(receiveIsr);
+#ifndef REMOTE_TERMINAL_INPUT_DISABLED
         LoRa.receive();
+#endif
     }
 
     packet_t packet;
@@ -97,7 +99,9 @@ void Radio::radioTask(void* unused) {
             // printf("\n------------- Packet body:\n%s\nend\n", packet.body);
             if (initialised) {
                 send(packet);
+#ifndef REMOTE_TERMINAL_INPUT_DISABLED
                 LoRa.receive();
+#endif
             }
         }
     }
