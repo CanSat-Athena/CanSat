@@ -8,6 +8,7 @@
 #define GPS_RX_PIN 9
 #define ANEMOMETER_PIN 6
 #define LIGHT_SENSOR_PIN 26
+#define BATTERY_ADC_PIN 29
 #define RADIO_NSS_PIN 20
 #define RADIO_RESET_PIN 21
 #define RADIO_DIO0_PIN 15

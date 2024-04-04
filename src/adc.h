@@ -13,6 +13,7 @@ public:
     /// @return True on success
     static bool init() {
         adc_init();
+        adc_gpio_init(BATTERY_ADC_PIN);
         return true;
     }
 

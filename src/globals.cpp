@@ -76,10 +76,11 @@ int32_t getIntInput() {
 
 uint16_t getBatteryLevel() {
     // 12-bit conversion, assume max value == ADC_VREF == 3.3 V
-    const float conversionFactor = 3.3f / (1 << 12);
-    uint16_t value = ADC::readADC(29, true);
+    // const float conversionFactor = 3 * 3.3f / (1 << 12);
+    uint16_t value = ADC::readADC(BATTERY_ADC_PIN, true);
     // float voltage = value * conversionFactor;
     // float percentage = 100 * ((voltage - BATTERY_EMPTY_VOLTAGE) / (BATTERY_FULL_VOLTAGE - BATTERY_EMPTY_VOLTAGE));
+    // printf("%d, %f, %f\n", value, voltage, percentage);
 
     return value;
 }
