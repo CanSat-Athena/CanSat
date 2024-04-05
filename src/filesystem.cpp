@@ -191,57 +191,66 @@ void Filesystem::readFile(uint32_t bootCount) {
         readStatus = lfs_file_read(&lfs, &dataFile, (void*)(&line), sizeof(dataLine_t));
         if (readStatus < sizeof(dataLine_t)) break;
 
-        printf("%u:", line.timestamp);
+        printf("[");
+        printf("%u", line.timestamp);
+        printf("],");
 
         // Get DHT20 data
         printf("[");
         for (int i = 0; i < DHT20_READ_FREQ; i++) {
-            printf("[%f,%f]", line.dht20[i].temperature, line.dht20[i].humidity);
+            printf("%f,%f", line.dht20[i].temperature, line.dht20[i].humidity);
         }
-        printf("]");
+        printf("],");
 
         // Get BME680 data
         printf("[");
         for (int i = 0; i < BME680_READ_FREQ; i++) {
-            printf("[%f,%f,%f,%f]",
+            printf("%f,%f,%f,%f",
                 line.bme680[i].temperature,
                 line.bme680[i].humidity,
                 line.bme680[i].pressure,
                 line.bme680[i].gasResistance
             );
         }
-        printf("]");
+        printf("],");
 
         // Get IMU data
         printf("[");
         for (int i = 0; i < IMU_READ_FREQ; i++) {
-            printf("[%d,%d,%d,%d,%d,%d,%d,%d,%d]",
-                line.imu[i].accel[0], line.imu[i].accel[1], line.imu[i].accel[2],
-                line.imu[i].gyro[0], line.imu[i].gyro[1], line.imu[i].gyro[2],
-                line.imu[i].mag[0], line.imu[i].mag[1], line.imu[i].mag[2]
+            printf("[%f,%f,%f,",
+                (float)line.imu[i].accel[0] / (16384.0f / 1), (float)line.imu[i].accel[1] / (16384.0f / 1), (float)line.imu[i].accel[2] / (16384.0f / 1)
             );
+
+            printf("%f,%f,%f,",
+                (float)line.imu[i].gyro[0] / 131.0f, (float)line.imu[i].gyro[1] / 131.0f, (float)line.imu[i].gyro[2] / 131.0f
+            );
+
+            printf("%f,%f,%f]",
+                ((float)line.imu[i].mag[0] / 20) * 3, ((float)line.imu[i].mag[1] / 20) * 3, ((float)line.imu[i].mag[2] / 20) * 3
+            );
+
         }
-        printf("]");
+        printf("],");
 
         // Get light data
         printf("[");
         for (int i = 0; i < LIGHT_READ_FREQ; i++) {
             printf("%u,", line.lightData[i].lightIntensity);
         }
-        printf("]");
+        printf("],");
 
         // Get anemometer data
         printf("[");
         for (int i = 0; i < ANEMOMETER_READ_FREQ; i++) {
             printf("%u,", line.anemometerData[i].triggerCount);
         }
-        printf("]");
+        printf("],");
 
         // Get GPS data
         printf("[");
         printf("%f,%f,%f,%d,%d,%d,%u", line.gpsData[0].latitude, line.gpsData[0].longitude, line.gpsData[0].altitude,
             line.gpsData[0].hours, line.gpsData[0].minutes, line.gpsData[0].seconds, line.gpsData[0].fix);
-        printf("]");
+        printf("],");
 
         printf("\n");
 

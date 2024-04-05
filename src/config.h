@@ -50,7 +50,7 @@
 #define INPUT_TIMER_PERIOD_MS 20
 
 // Battery
-#define BATTERY_EMPTY_VOLTAGE 3.0
+#define BATTERY_EMPTY_VOLTAGE 3.386
 #define BATTERY_FULL_VOLTAGE 4.2
 
 // Radio
