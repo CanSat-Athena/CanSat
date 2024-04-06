@@ -40,6 +40,7 @@ add_compile_definitions(
         FREE_RTOS_KERNEL_SMP=1
         portSUPPORT_SMP=1
         NDEBUG
+        # LFS_NO_DEBUG
         #LFS_CONFIG=littlefsConfig.h
         PICO_FLASH_SIZE_BYTES=16777216
         LFS_THREADSAFE

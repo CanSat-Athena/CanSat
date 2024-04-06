@@ -217,7 +217,7 @@ void Filesystem::readFile(uint32_t bootCount) {
         // Get IMU data
         printf("[");
         for (int i = 0; i < IMU_READ_FREQ; i++) {
-            printf("[%f,%f,%f,",
+            printf("%f,%f,%f,",
                 (float)line.imu[i].accel[0] / (16384.0f / 1), (float)line.imu[i].accel[1] / (16384.0f / 1), (float)line.imu[i].accel[2] / (16384.0f / 1)
             );
 
@@ -225,7 +225,7 @@ void Filesystem::readFile(uint32_t bootCount) {
                 (float)line.imu[i].gyro[0] / 131.0f, (float)line.imu[i].gyro[1] / 131.0f, (float)line.imu[i].gyro[2] / 131.0f
             );
 
-            printf("%f,%f,%f]",
+            printf("%f,%f,%f,",
                 ((float)line.imu[i].mag[0] / 20) * 3, ((float)line.imu[i].mag[1] / 20) * 3, ((float)line.imu[i].mag[2] / 20) * 3
             );
 
@@ -250,10 +250,9 @@ void Filesystem::readFile(uint32_t bootCount) {
         printf("[");
         printf("%f,%f,%f,%d,%d,%d,%u", line.gpsData[0].latitude, line.gpsData[0].longitude, line.gpsData[0].altitude,
             line.gpsData[0].hours, line.gpsData[0].minutes, line.gpsData[0].seconds, line.gpsData[0].fix);
-        printf("],");
+        printf("]");
 
         printf("\n");
-
     }
 
     //StreamHandler::endLongPrint();
