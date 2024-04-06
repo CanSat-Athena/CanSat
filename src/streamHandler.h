@@ -37,6 +37,7 @@ public:
 
     static char getChar();
     static void tPrintf(const char* string, ...);
+    static void rPrintf(const char* string, ...);
 
     static void startLongPrint();
     static void endLongPrint();

@@ -29,6 +29,7 @@ public:
     lfs_t lfs;
     lfs_file_t dataFile;
     uint32_t bootCount = 0;
+    uint32_t fileCount = 0;
 
     Filesystem(const bool initialise = true) {
         init();
@@ -47,7 +48,7 @@ public:
     int ls(const char* path);
     void printUsage();
     void printSize(lfs_ssize_t size);
-    void readFile(uint32_t bootCount);
+    void readFile(uint32_t bootCount, uint32_t fileCount);
 
     static void filesystemInputTask(void* pvParameters);
     static void filesystemNukeTask(void* pvParameters);

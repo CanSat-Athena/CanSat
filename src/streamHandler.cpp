@@ -70,7 +70,6 @@ void StreamHandler::terminalBufferTask(void* unused) {
         if (bytesRead > 0) {
             packet.body[bytesRead] = '\0';
             packet.size = bytesRead + 1;        // + 1 to account for \0
-            printf("%s", packet.body);
             if (Radio::initialised)
                 xQueueSendToBack(Radio::radioQueue, &packet, portMAX_DELAY);
         }
@@ -114,13 +113,37 @@ void StreamHandler::inputTimerCallback(TimerHandle_t xTimer) {
     }
 }
 
+/// @brief Get a char from the receive input buffer
+/// @return The character
 char StreamHandler::getChar() {
     char received;
     xStreamBufferReceive(inputBuffer, &received, 1, portMAX_DELAY);
     return received;
 }
 
+/// @brief Prints to the terminal - sent over both UART and radio
+/// @param string The string to print
 void StreamHandler::tPrintf(const char* string, ...) {
+    va_list args;
+    va_start(args, string);     // Very important
+
+    char buffer[512];
+    vsnprintf(buffer, 512 - 1, string, args);  // -1 just to be safe
+    buffer[512 - 1] = '\0';                    // Prevent memory leak, just in case
+
+    printf("%s", buffer);
+
+    xSemaphoreTake(printSemaphore, 20);
+    size_t size = strlen(buffer);
+    uint32_t offset = xStreamBufferSend(terminalBuffer, buffer, size, portMAX_DELAY);
+    xSemaphoreGive(printSemaphore);
+
+    va_end(args);
+}
+
+/// @brief Prints to the terminal - sent over radio only
+/// @param string The string to print
+void StreamHandler::rPrintf(const char* string, ...) {
     va_list args;
     va_start(args, string);     // Very important
 

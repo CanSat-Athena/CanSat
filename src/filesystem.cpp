@@ -93,7 +93,7 @@ bool Filesystem::init() {
     StreamHandler::tPrintf("Filesystem: boot_count updated, new boot count is %u\n", bootCount);
 
     // Create data file
-    sprintf(dataFileName, "data_%u", this->bootCount);
+    sprintf(dataFileName, "data_%u_%u", this->bootCount, this->fileCount);
     lfs_file_open(&lfs, &dataFile, dataFileName, LFS_O_RDWR | LFS_O_CREAT | LFS_O_TRUNC);
     lfs_file_sync(&lfs, &dataFile);
     StreamHandler::tPrintf("Filesystem: Created file %s\n", dataFileName);
@@ -156,6 +156,19 @@ void Filesystem::printSize(lfs_ssize_t size) {
 /// @param data The line to write
 /// @return The number of bytes written, or a negative error code on failure.
 int Filesystem::addData(dataLine_t data) {
+    if (lfs_file_size(&lfs, &dataFile) > FS_NEW_FILE_THRESHOLD) {
+        // Close existing file
+        lfs_file_close(&lfs, &dataFile);
+
+        // Update fileCount
+        fileCount++;
+        sprintf(dataFileName, "data_%u_%u", bootCount, fileCount);
+
+        // Create new file
+        lfs_file_open(&lfs, &dataFile, dataFileName, LFS_O_RDWR | LFS_O_CREAT | LFS_O_TRUNC);
+        StreamHandler::rPrintf("Filesystem: Created file %s\n", dataFileName);
+    }
+
     lfs_file_write(&lfs, &dataFile, &data, sizeof(dataLine_t));
     int err = lfs_file_sync(&lfs, &dataFile);
     return err;
@@ -163,9 +176,9 @@ int Filesystem::addData(dataLine_t data) {
 
 /// @brief Prints a file to the console
 /// @param bootCount Boot count of file to print
-void Filesystem::readFile(uint32_t bootCount) {
+void Filesystem::readFile(uint32_t bootCount, uint32_t fileCount) {
     char dataFileName[50];
-    sprintf(dataFileName, "data_%u", bootCount);
+    sprintf(dataFileName, "data_%u_%u", bootCount, fileCount);
 
     lfs_file_t dataFile;
     int err = lfs_file_open(&lfs, &dataFile, dataFileName, LFS_O_RDONLY);
@@ -289,10 +302,16 @@ void Filesystem::filesystemInputTask(void* pvParameters) {
         char c = StreamHandler::getChar();
 
         switch (c) {
-        case 'p':
+        case 'p': {
             StreamHandler::tPrintf("Enter boot count: ");
-            dataHandler->filesystem->readFile(getIntInput());
+            uint32_t bootCount = getIntInput();
+
+            StreamHandler::tPrintf("Enter file count: ");
+            uint32_t fileCount = getIntInput();
+
+            dataHandler->filesystem->readFile(bootCount, fileCount);
             break;
+        }
         case 'b':
             StreamHandler::tPrintf("The boot count is %u\n", dataHandler->filesystem->bootCount);
             break;
@@ -323,8 +342,11 @@ void Filesystem::filesystemInputTask(void* pvParameters) {
             StreamHandler::tPrintf("Enter boot count of file to delete: ");
             uint32_t bootCount = getIntInput();
 
+            StreamHandler::tPrintf("Enter file count of file to delete: ");
+            uint32_t fileCount = getIntInput();
+
             char dataFileName[50];
-            sprintf(dataFileName, "data_%u", bootCount);
+            sprintf(dataFileName, "data_%u_%u", bootCount, fileCount);
             StreamHandler::tPrintf("Will delete file: %s\n", dataFileName);
 
             // Get confirmation
@@ -384,7 +406,7 @@ void Filesystem::filesystemNukeTask(void* pvParameters) {
     StreamHandler::tPrintf("Filesystem: boot_count updated, new boot count is %u\n", (dataHandler->filesystem->bootCount));
 
     // Create data file
-    sprintf(dataHandler->filesystem->dataFileName, "data_%u", dataHandler->filesystem->bootCount);
+    sprintf(dataHandler->filesystem->dataFileName, "data_%u_%u", dataHandler->filesystem->bootCount, dataHandler->filesystem->fileCount);
     lfs_file_open(&(dataHandler->filesystem->lfs), &(dataHandler->filesystem->dataFile), dataHandler->filesystem->dataFileName, LFS_O_RDWR | LFS_O_CREAT | LFS_O_TRUNC);
     lfs_file_sync(&(dataHandler->filesystem->lfs), &(dataHandler->filesystem->dataFile));
     StreamHandler::tPrintf("Filesystem: Created file %s\n", dataHandler->filesystem->dataFileName);
