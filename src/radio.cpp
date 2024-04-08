@@ -61,6 +61,12 @@ void Radio::send(packet_t packet) {
     if (!initialised) return;
     LoRa.beginPacket();
 
+    char header[RADIO_HEADER_LENGTH + 1] = RADIO_HEADER;
+    
+    for (int i = 0; i < RADIO_HEADER_LENGTH; i++) {
+        LoRa.write(header[i]);
+    }
+
     LoRa.write(packet.type);
     LoRa.write(packet.size);
 
