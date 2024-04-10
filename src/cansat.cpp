@@ -118,11 +118,16 @@ void initTask(void* pvParameters) {
 
     TaskHandle_t dataHandlerTaskHandle = xTaskCreateStatic(DataHandler::dataHandlerTask, "Data handler", DATA_HANDLER_TASK_SIZE, NULL, 3, dataHandlerTaskStack, &dataHandlerTaskBuffer);
 
+    gpio_put(INIT_LED_PIN, 0);
     vTaskDelete(NULL);
 }
 
 int main() {
     stdio_init_all();
+
+    gpio_init(INIT_LED_PIN);
+    gpio_set_dir(INIT_LED_PIN, GPIO_OUT);
+    gpio_put(INIT_LED_PIN, 1);
 
     if (watchdog_caused_reboot()) {
         printf("\n\nReboot caused by watchdog!\n");

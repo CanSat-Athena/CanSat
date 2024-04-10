@@ -4,6 +4,7 @@
 // PINS & PORTS
 #define I2C_PORT i2c0
 #define GPS_UART uart1
+#define INIT_LED_PIN PICO_DEFAULT_LED_PIN
 #define GPS_TX_PIN 8
 #define GPS_RX_PIN 9
 #define ANEMOMETER_PIN 6
