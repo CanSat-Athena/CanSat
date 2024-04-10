@@ -65,7 +65,7 @@
 
 // Filesystem
 #define FS_SIZE (14 * 1024 * 1024) // 1024^2 = 1 MiB
-#define FS_NEW_FILE_THRESHOLD (64 * 1024)
+#define FS_NEW_FILE_THRESHOLD (32 * 1024)
 // #define NUKE_FS_ON_NEXT_BOOT
 
 // Watchdog

@@ -241,7 +241,6 @@ void Filesystem::readFile(uint32_t bootCount, uint32_t fileCount) {
             printf("%f,%f,%f,",
                 ((float)line.imu[i].mag[0] / 20) * 3, ((float)line.imu[i].mag[1] / 20) * 3, ((float)line.imu[i].mag[2] / 20) * 3
             );
-
         }
         printf("],");
 
